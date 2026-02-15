@@ -39,4 +39,5 @@ Organizations can configure multiple Key Managers within a single tenant, allowi
 
 ### Custom Integration
 - **[Custom Key Manager](configure-custom-connector.md)**: Build connectors for proprietary authorization servers
+- **[Custom Key Manager (Out-of-Band Provisioning)](configure-custom-km-out-of-band.md)**: Integrate any external authorization server using Out-of-Band provisioning mode
 - **[Global Key Manager](configure-global-key-manager.md)**: Cross-tenant key manager configuration
