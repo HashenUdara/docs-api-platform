@@ -41,3 +41,7 @@ Organizations can configure multiple Key Managers within a single tenant, allowi
 - **[Custom Key Manager](configure-custom-connector.md)**: Build connectors for proprietary authorization servers
 - **[Custom Key Manager (Out-of-Band Provisioning)](configure-custom-km-out-of-band.md)**: Integrate any external authorization server using Out-of-Band provisioning mode
 - **[Global Key Manager](configure-global-key-manager.md)**: Cross-tenant key manager configuration
+
+## Advanced Configuration
+
+- **[Application Configuration Constraints](configure-km-application-configuration-constraints.md)**: Define admin-enforced limits on key manager application configurations (e.g., maximum token expiry times) that are validated in the Developer Portal
