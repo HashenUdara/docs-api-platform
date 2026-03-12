@@ -76,7 +76,7 @@ In this section let's see how to add an approval workflow to control the deploym
 
     If the request is approved, the existing revision deployed on the gateway will be removed, and the new revision will take its place. If the request is rejected, the currently deployed revision will remain unchanged. 
 
-       [![API revision deployment pending list](../../../../assets/img/deploy/revision-deployment-pending-list.png)](../../../../assets/img/deploy/revision-deployment-pending-list.png)
+    [![API revision deployment pending list](../../../../assets/img/deploy/revision-deployment-pending-list.png)](../../../../assets/img/deploy/revision-deployment-pending-list.png)
 
 4. View the outcome of the updated API revision deployment request.
 
