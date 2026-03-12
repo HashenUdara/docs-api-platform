@@ -144,5 +144,11 @@ Given below is a checklist that will guide you to set up your production environ
          <td>Data backup and archiving</td>
          <td>Implement a <a href="backup-recovery.md">backup and recovery strategy</a> for your system.</td>
       </tr>
+      <tr class="odd">
+         <td>Encryption Key</td>
+         <td>
+            <p>Generate a symmetric encryption key and add it to the <code>deployment.toml</code> file. See <a href="../security/encryption/symmetric-encryption.md#generate-a-secret-key">Configuring Encryption Key</a> for instructions.</p>
+         </td>
+      </tr>
    </tbody>
 </table>

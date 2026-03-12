@@ -139,6 +139,15 @@ To set up the API Manager component, see the following topics.
                         <a href="setup/security/logins-and-passwords/working-with-encrypted-passwords.md">Working with Encrypted Passwords</a>
                     </li>
             <li>
+                <a>Encryption</a>
+            </li>
+                <li>
+                    <a href="setup/security/encryption/symmetric-encryption.md">Symmetric Encryption</a>
+                </li>
+                <li>
+                    <a href="setup/security/encryption/asymmetric-encryption.md">Asymmetric Encryption</a>
+                </li>
+            <li>
                 <a>Configuring Keystores</a>
             </li>
                 <li>
