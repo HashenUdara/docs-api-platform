@@ -100,7 +100,7 @@ Now you have configured a service provider in WSO2 IS that can be used [later](#
 
             - After you run this command, the certificate will be exported as `wso2.crt` in the same folder. You can upload it by clicking **Choose File** in Identity Provider section in the Management Console.
 
-            For more information on how public keys work and how to sign these keys by a certification authority, see [About Asymmetric Cryptography](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md).
+            For more information on how public keys work and how to sign these keys by a certification authority, see [About Keystores and Truststores](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores.md).
 
     -   **Alias** : Enter the audience (`aud` value) of the JWTs issued by the identity provider (WSO2 IS).
 

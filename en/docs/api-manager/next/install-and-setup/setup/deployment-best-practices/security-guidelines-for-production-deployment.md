@@ -63,7 +63,7 @@ latest product version to receive all the security issues resolved until that pa
 <li><p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p></li>
 </ul>
 <p>For more information on recommendations for using keystores in WSO2 
-products, see <a href="../security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md">About Asymmetric Cryptography</a>.<br />
+products, see <a href="../security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md#recommendations-for-setting-up-keystores">Recommendations for setting up keystores</a>.<br />
 For information on how to create and configure your own keys and keystores, see <a href="../security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md">Creating New Keystores</a>.</p></td>
 </tr>
 <tr class="odd">

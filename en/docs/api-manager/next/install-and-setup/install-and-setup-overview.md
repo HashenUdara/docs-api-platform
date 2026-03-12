@@ -148,13 +148,13 @@ To set up the API Manager component, see the following topics.
                     <a>Keystore Basics</a>
                 </li>
                     <li>
+                        <a href="setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores.md">About Keystores and Truststores</a>
+                    </li>
+                    <li>
                         <a href="setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md">Creating a New Keystore</a>
                     </li>
                     <li>
                         <a href="setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md">Renewing a CA Signed Certificate</a>
-                    </li>
-                    <li>
-                        <a href="setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md">About Asymmetric Cryptography</a>
                     </li>
             <li>
                 <a href="setup/security/enabling-hostname-verification.md">Enabling HostName Verification</a>

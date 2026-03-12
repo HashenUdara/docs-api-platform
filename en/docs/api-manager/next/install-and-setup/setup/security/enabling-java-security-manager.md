@@ -6,7 +6,7 @@ The Java Security Manager is used to define various security policies that pre
     **Before you begin**
 
     * Ensure that you have Java 11 installed.
-    * Note that you need to use a keystore for signing JARs using the Java security manager. In this example, you will be using the default keystore in your WSO2 product ( `wso2carbon.jks` ). You can read about the recommendations for using keystores from [here](https://apim.docs.wso2.com/en/next/administer/product-security/configuring-keystores/keystore-basics/about-asymetric-cryptography/).
+    * Note that you need to use a keystore for signing JARs using the Java security manager. In this example, you will be using the default keystore in your WSO2 product ( `wso2carbon.jks` ). You can read about the recommendations for using keystores from [here](configuring-keystores/configuring-keystores-in-wso2-api-manager.md#recommendations-for-setting-up-keystores).
 
 
 The steps below show how to enable the Java Security Manager for WSO2 products.
