@@ -53,7 +53,7 @@ First, enable the approval workflow executor for application update.
 
     By default, application attributes are not displayed in workflow approval tasks. Application attributes are displayed only when the `applicationAttributesVisibility` property is set to `true`. This property is applicable only to applications that contain application attributes.
 
-    Once the changes are done, click on `Save Content` .The application update approval workflow executor is now engaged.
+    Once the changes are done, click on `Save Content`. The application update approval workflow executor is now engaged.
 
 4.  Update an application via the Developer Portal. 
 
