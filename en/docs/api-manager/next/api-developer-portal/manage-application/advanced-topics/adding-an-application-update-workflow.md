@@ -40,7 +40,7 @@ First, enable the approval workflow executor for application update.
     </WorkFlowExtensions>
     ```
     
-    If you want to display application attributes in the application update workflow approval task list in the Admin Portal, configure the `applicationAttributesVisibility` property as follows.
+    If you want to display application attributes in the application update workflow approval task list in the Admin Portal (e.g., https://localhost:9443/admin), configure the `applicationAttributesVisibility` property as follows.
 
     ``` xml
     <WorkFlowExtensions>
@@ -53,7 +53,7 @@ First, enable the approval workflow executor for application update.
 
     By default, application attributes are not displayed in workflow approval tasks. Application attributes are displayed only when the `applicationAttributesVisibility` property is set to `true`. This property is applicable only to applications that contain application attributes.
 
-    Once the changes are done, click on `Save Content` .The application update Approval Workflow Executor is now engaged.
+    Once the changes are done, click on `Save Content` .The application update approval workflow executor is now engaged.
 
 4.  Update an application via the Developer Portal. 
 
