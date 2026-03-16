@@ -4183,6 +4183,7 @@ display_deprecated_apis = false
 enable_comments = true
 enable_ratings = true
 enable_forum = true
+enable_legacy_api_keys = true
 mode = "HYBRID"
 </code></pre>
                     </div>
@@ -4387,6 +4388,25 @@ mode = "HYBRID"
                                     </div>
                                     <div class="param-description">
                                         <p>^</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_legacy_api_keys</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The config to enable application bound legacy API key option.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
