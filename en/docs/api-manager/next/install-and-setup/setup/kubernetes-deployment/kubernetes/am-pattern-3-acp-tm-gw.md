@@ -36,9 +36,10 @@ For advanced details on the deployment pattern, please refer to the official
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
         - [1.1 Add Ingress Controller](#11-add-ingress-controller)
         - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
-        - [1.3 Encrypting Secrets](#13-encrypting-secrets)
-        - [1.4 Configure Docker Image and Databases](#14-configure-docker-image-and-databases)
-        - [1.5 Configure SSL in Service Exposure](#15-configure-ssl-in-service-exposure)
+        - [1.3 Configure Internal Encryption Key (Mandatory)](#13-configure-internal-encryption-key-mandatory)
+        - [1.4 Encrypting Secrets (Cipher Tool and Secure Vault)](#14-encrypting-secrets-cipher-tool-and-secure-vault)
+        - [1.5 Configure Docker Image and Databases](#15-configure-docker-image-and-databases)
+        - [1.6 Configure SSL in Service Exposure](#16-configure-ssl-in-service-exposure)
     - [2. API Control Plane Configurations](#2-api-control-plane-configurations)
         - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
         - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
@@ -195,6 +196,8 @@ Before deploying, create a Kubernetes secret with the keystore and truststore:
 kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
 ```
 
+Before running the Helm install commands, set the same `wso2.apim.configurations.encryption.key` value in `default_acp_values.yaml`, `default_tm_values.yaml`, and `default_gw_values.yaml`.
+
 Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
@@ -267,29 +270,63 @@ The recommendation is to use the [**NGINX Ingress Controller**](https://kubernet
 > For advanced details regarding managing custom Java keystores and truststores in a container-based WSO2 product deployment,
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
-#### 1.3 Encrypting Secrets
+#### 1.3 Configure Internal Encryption Key (Mandatory)
+
+This section is for the internal encryption key (`wso2.apim.configurations.encryption.key`), which is mandatory and used by API Manager to encrypt and decrypt internal/shared data.
+
+1. Generate a unique 256-bit secret key. If you use OpenSSL, the command will be as follows:
+
+    ```bash
+    openssl rand -hex 32
+    ```
+
+2. Add the generated key to the following location in your `values.yaml`:
+
+    ```yaml
+    wso2:
+      apim:
+        configurations:
+          encryption:
+            key: "<generated-64-char-hex-key>"
+    ```
+
+3. If secrets are encrypted using cipher tool and secure vault according to section 1.4, encrypt the generated internal encryption key and set the encrypted value to `wso2.apim.configurations.encryption.key`.
+
+!!! warning
+    **Distributed and Cloud Deployments**
+
+    In a distributed or high-availability deployment, all API Manager instances must use the exact same internal encryption key (`wso2.apim.configurations.encryption.key`). Each instance encrypts and decrypts shared registry resources using this key, so a mismatch will cause decryption failures across the cluster. Configure the shared key on every node before the first startup.
+
+#### 1.4 Encrypting Secrets (Cipher Tool and Secure Vault)
 
 - If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
   ```bash
-  sh cipher-tool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
+  sh ciphertool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
   ```
 - Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [documentation](https://apim.docs.wso2.com/en/next/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
 - Then, the encrypted values should be filled in the relevant fields of `values.yaml`.
 - Since the encryption key is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the encryption key. The following section can be used to add the cloud provider's credentials to fetch the encryption key. Configuration for AWS can be as below:
   ```yaml
-  encryptionKey:
-    # -- AWS Secrets Manager secret name
-    secretName: ""
-    # -- AWS Secrets Manager secret key
-    secretKey: ""
+  aws:
+    secretsManager:
+      secretIdentifiers:
+        secretEncryptionKey:
+          # -- AWS Secrets Manager secret name
+          secretName: ""
+          # -- AWS Secrets Manager secret key
+          secretKey: ""
   ```
   > Please note that currently AWS, Azure, and GCP Secrets Managers are only supported for this.
 
 !!! warning
-    **Use the Same Encryption Key Across All Nodes**  
-    In this distributed pattern, all API-M instances (API Control Plane, Traffic Manager, Universal Gateway, and Key Manager) must use the same symmetric encryption key at runtime. If different keys are used across nodes, encrypted registry resources and secrets will be unreadable on nodes that do not hold the original key.
+    **Use the Same Secret Encryption Key Across All Nodes**
 
-#### 1.4 Configure Docker Image and Databases
+    If secure vault is enabled, all API-M nodes must use the same `secretEncryptionKey` reference and underlying key material. A mismatch will cause secret resolution and decryption failures across nodes.
+
+!!! note
+    These are two different keys serving distinct purposes. The internal encryption key (`wso2.apim.configurations.encryption.key`) defined in section 1.3 is **mandatory** and is used by API Manager for internal encryption of data such as registry resources and shared configuration. The secret encryption key (`secretEncryptionKey` under AWS/Azure/GCP) is a separate key used **only** when secure vault is enabled, allowing the runtime to fetch and decrypt secrets stored in a cloud provider's secret manager (which may itself include an encrypted copy of the internal encryption key).
+
+#### 1.5 Configure Docker Image and Databases
 
   - Add the following configurations to reflect the Docker image created previously in the Helm chart.
     
@@ -339,7 +376,7 @@ The recommendation is to use the [**NGINX Ingress Controller**](https://kubernet
       adminPassword: ""
     ```
   
-#### 1.5 Configure SSL in Service Exposure
+#### 1.6 Configure SSL in Service Exposure
 
 * For WSO2 recommended best practices in configuring SSL when exposing the internal product services outside of the Kubernetes cluster,
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
