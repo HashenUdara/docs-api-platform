@@ -21,7 +21,7 @@ In WSO2 API Manager, OAuth2 token persistence is integral to authentication and 
 
 Using JWTs instead of Opaque is the recommended approach in WSO2 API Manager since Gateway can self validate JWTs without additional hops to KeyManager unlike Opaque.
 
-For JSON Web Tokens (JWTs), when token persistence is enabled, API Manager stores references instead of the complete tokens, optimizing storage. For JWTs, token generation or validation triggers interactions with the database. 
+For JSON Web Tokens (JWTs), when token persistence is enabled, API Manager stores references instead of complete tokens, optimizing storage. In this mode, token-generation and persistence-related flows interact with the database. 
 
 The JWT token persistence behavior differs from the opaque token persistence behavior, where an existing active token is retrieved upon a token request. The JWT token issuer always provides a new JWT token because the complete JWT access token is not persisted in the database. Consequently, achieving the same token generation behavior for JWTs as for opaque tokens requires customizing the token issuer.
 
