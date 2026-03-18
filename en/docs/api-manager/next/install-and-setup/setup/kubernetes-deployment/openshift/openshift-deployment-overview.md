@@ -264,7 +264,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
 !!! warning "Important"
     Replace the placeholders with your actual values:
     - `<DB_HOST>`: Your database host address
-  - `<generated-64-char-hex-key>`: The mandatory internal encryption key used by API Manager
+    - `<generated-64-char-hex-key>`: The mandatory internal encryption key used by API Manager
     - `<YOUR_REGISTRY>`, `<YOUR_REPOSITORY>`, `<YOUR_TAG>`: Your OpenShift-compatible image details
     - `<REGISTRY_USERNAME>`, `<REGISTRY_PASSWORD>`: Your private registry credentials (if applicable)
 
