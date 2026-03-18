@@ -5,7 +5,7 @@ It is recommended to upgrade the token type of your **legacy opaque applications
 !!! note
     When you upgrade the token type of a legacy application to JWT,
 
-    1.  You will permenantly switch the format of the newly generated access tokens from opaque to JWT.
+    1.  You will permanently switch the format of the newly generated access tokens from opaque to JWT.
     2.  Existing opaque tokens will still be supported.
 
 This will be valid for applications belonging to the Resident Key Manager and those belonging to WSO2 Identity Server 6.x configured as the Resident Key Manager.
