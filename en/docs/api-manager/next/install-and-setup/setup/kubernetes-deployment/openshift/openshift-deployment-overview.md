@@ -159,6 +159,8 @@ oc project
 
 In each `values.yaml` file for your deployment, make the following OpenShift-specific changes:
 
+Set the mandatory internal encryption key under `wso2.apim.configurations.encryption.key` before the first startup. If you are deploying more than one API-M node or component, use the same key value in every relevant values file. For more information, see [Configuring Encryption Key](../../security/encryption/symmetric-encryption.md#generate-a-secret-key).
+
 !!! info "Security Context Configuration"
     The following settings need to be applied to make your deployment compatible with OpenShift's security model:
 
@@ -228,6 +230,8 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
    wso2:
      apim:
        configurations:
+         encryption:
+           key: "<generated-64-char-hex-key>"
          databases:
            apim_db:
              url: "jdbc:mysql://<DB_HOST>:3306/apim_db?useSSL=false"
@@ -260,6 +264,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
 !!! warning "Important"
     Replace the placeholders with your actual values:
     - `<DB_HOST>`: Your database host address
+  - `<generated-64-char-hex-key>`: The mandatory internal encryption key used by API Manager
     - `<YOUR_REGISTRY>`, `<YOUR_REPOSITORY>`, `<YOUR_TAG>`: Your OpenShift-compatible image details
     - `<REGISTRY_USERNAME>`, `<REGISTRY_PASSWORD>`: Your private registry credentials (if applicable)
 
@@ -343,7 +348,8 @@ For each component in your selected pattern:
     1. **Custom Docker Images**: Build OpenShift-compatible images for each component
     2. **Security Context**: Apply the same security context settings as described in [Step 4](#step-4---configure-openshift-specific-settings-in-valuesyaml)
     3. **Database Connections**: Configure the database connections for each component
-    4. **Service and Route Configuration**: Configure services and routes appropriate for OpenShift
+    4. **Encryption Key**: Set `wso2.apim.configurations.encryption.key` in each component values file and use the same value across all API-M nodes and components that share data. For more information, see [Configuring Encryption Key](../../security/encryption/symmetric-encryption.md#generate-a-secret-key).
+    5. **Service and Route Configuration**: Configure services and routes appropriate for OpenShift
 
 **Example Component Configuration**:
 
@@ -360,6 +366,12 @@ kubernetes:
   configMaps:
     scripts:
       defaultMode: "0457"
+
+wso2:
+  apim:
+    configurations:
+      encryption:
+        key: "<generated-64-char-hex-key>"
 ```
 
 ### Step 3 - Deploy Components in Order
