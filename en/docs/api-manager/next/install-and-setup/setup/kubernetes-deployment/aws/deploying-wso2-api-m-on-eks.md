@@ -170,12 +170,12 @@ The official WSO2 APIM Docker image does not include JDBC drivers. You need to b
 Create a `Dockerfile` with the following content:
 
 ```dockerfile
-FROM docker.wso2.com/wso2am:4.6.0.0
+FROM docker.wso2.com/wso2am:4.7.0.0
 
 ARG USER=wso2carbon
 ARG USER_HOME=/home/${USER}
 ARG WSO2_SERVER_NAME=wso2am
-ARG WSO2_SERVER_VERSION=4.6.0
+ARG WSO2_SERVER_VERSION=4.7.0
 ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
 ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -193,7 +193,7 @@ USER wso2carbon
 Build the custom Docker image:
 
 ```bash
-docker build -t wso2am-mysql:4.6.0 .
+docker build -t wso2am-mysql:4.7.0 .
 ```
 
 Tag and push the image to your ECR repository:
@@ -201,9 +201,9 @@ Tag and push the image to your ECR repository:
 ```bash
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
 
-docker tag wso2am-mysql:4.6.0 <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/wso2am-mysql:4.6.0
+docker tag wso2am-mysql:4.7.0 <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/wso2am-mysql:4.7.0
 
-docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/wso2am-mysql:4.6.0
+docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/wso2am-mysql:4.7.0
 ```
 
 !!! note
@@ -327,7 +327,7 @@ wso2:
     image:
       registry: "<AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com"
       repository: "wso2am-mysql"
-      digest: "4.6.0"
+      digest: "4.7.0"
       imagePullSecrets:
         enabled: false
         username: ""
@@ -349,7 +349,7 @@ Deploy WSO2 API Manager using Helm:
 kubectl create namespace wso2
 
 helm install apim wso2/wso2am-all-in-one \
-  --version 4.6.0-1 \
+  --version 4.7.0-1 \
   --namespace wso2 \
   -f values.yaml \
   --dependency-update

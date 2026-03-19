@@ -87,16 +87,16 @@ Before you begin, ensure you have the following prerequisites in place:
   ```
 - If there are any customizations to the JARs in the product, these can also be included in the Docker image itself rather than mounting them from the deployment level (assuming they are common to all environments).
 - Below is a sample Dockerfile to build a custom WSO2 APIM image. Depending on your requirements, you may refer to the following and make the necessary additions. The script will:
-  - Use WSO2 APIM 4.6.0 as the base image
+  - Use WSO2 APIM 4.7.0 as the base image
   - Copy third-party libraries to the `<APIM_HOME>/lib` directory
 
   - Dockerfile for All-in-One:
     ```dockerfile
-    FROM docker.wso2.com/wso2am:4.6.0.0
+    FROM docker.wso2.com/wso2am:4.7.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am
-    ARG WSO2_SERVER_VERSION=4.6.0
+    ARG WSO2_SERVER_VERSION=4.7.0
     ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
     ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -146,10 +146,10 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy first instance
-helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
+helm install apim-1 wso2/wso2am-all-in-one --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
 
 # Deploy second instance (for high availability)
-helm install apim-2 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
+helm install apim-2 wso2/wso2am-all-in-one --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
 ```
 
 !!! important
@@ -395,7 +395,7 @@ Now deploy the Helm chart using the following command after creating a namespace
   
   ```bash
   kubectl create namespace <namespace>
-  helm install <release-name> <helm-chart-path> --version 4.6.0-1 --namespace <namespace> --dependency-update -f values.yaml --create-namespace
+  helm install <release-name> <helm-chart-path> --version 4.7.0-1 --namespace <namespace> --dependency-update -f values.yaml --create-namespace
   ```
 
 #### 2.6 Enable High Availability

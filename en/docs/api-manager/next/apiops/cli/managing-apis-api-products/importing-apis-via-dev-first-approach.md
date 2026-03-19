@@ -376,7 +376,7 @@ content_type: "how-to"
 
     ``` bash
         type: api
-        version: v4.6.0
+        version: v4.7.0
         data:
             name : SampleAPI
             version: 1.0.0
