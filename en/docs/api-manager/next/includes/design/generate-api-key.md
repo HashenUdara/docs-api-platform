@@ -34,7 +34,7 @@
 
      [![Generate API key](../../../../assets/img/learn/api-keys/generate-api-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-api-api-key.png)
 
-8. Optionally, define a validity period for the token.
+9. Optionally, define a validity period for the token.
 
      By default, the API Key does not expire. However, optionally, you can define a validity period for the token as follows:
 
@@ -42,22 +42,22 @@
 
     2. For the custom validity period, enter the expiry time in **seconds**.
      
-9.  Copy the API key.
+10.  Copy the API key.
 
-     [![Copy API key](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png)
+     [![Copy API key](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png)
 
-10. Click **Associate** button to associate the created API key to a subscribed application.
+11. Click **Associate** button to associate the created API key to a subscribed application.
 
      [![Associate API key button](../../../../assets/img/learn/api-keys/associate-api-key-button.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/associate-api-key-button.png)
 
-11. Select an application from the drop down and click **ASSOCIATE**.
+12. Select an application from the drop down and click **ASSOCIATE**.
 
      [![Associate API key](../../../../assets/img/learn/api-keys/associate-api-key.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/associate-api-key.png)
 
-12. Additionally, you have the option to associate an application from the subscribed application's API Keys page as below.
+13. Additionally, you have the option to associate an application from the subscribed application's API Keys page as below.
 
      [![Associate API key from App button](../../../../assets/img/learn/api-keys/app-associate-buttopn.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)
 
-13. Select the API and generated API Key for the selected API to associate.
+14. Select the API and generated API Key for the selected API to associate.
 
       [![Associate API key from App](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png)

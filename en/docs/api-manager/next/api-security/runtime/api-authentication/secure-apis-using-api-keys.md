@@ -97,27 +97,10 @@ A legacy API key is an application-based API key in opaque format. A legacy API 
 
 The legacy API key option is disabled by default and can be enabled by adding the following configuration  to the `<APIM-HOME>/repository/conf/deployment.toml`
 
-      ```toml
-      [apim.devportal]
-      enable_legacy_api_keys = true
-      ```
-
-## Lightweight API Key Generation
-
-WSO2 API Manager supports Lightweight API Key Generation, which allows to generate API keys having limited claims. WSO2 API Manager by default generates Lightweight API Keys.
-
-Follow the instructions below to disable Lightweight API Key Generation in WSO2 API Manager.
-
-1. Navigate to the `<PRODUCT-HOME>/repository/conf/deployment.toml` file.
-
-2. Add the following configuration in the ‘deployment.toml’ file
-
      ```toml
-     [apim.key_manager]
-     enable_lightweight_apikey_generation = false
+     [apim.devportal]
+     enable_legacy_api_keys = true
      ```
-
-3. Restart the API-M server.
 
 ## Using API keys to secure an API
 
