@@ -14,7 +14,7 @@ content_type: "how-to"
 
 # Moesif Analytics Integration
 
-!!! info "New in 4.6.0 — Moesif-powered WSO2 Analytics replaces Choreo Analytics for enhanced insights and observability."
+Moesif-powered WSO2 Analytics replaces Choreo Analytics for enhanced insights and observability."
 
 ## Overview
 
