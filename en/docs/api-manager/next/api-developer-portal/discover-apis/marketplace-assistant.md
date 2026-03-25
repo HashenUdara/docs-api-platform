@@ -1,4 +1,4 @@
-s# Marketplace Assistant Getting Started Guide
+# Marketplace Assistant Getting Started Guide
 
 The Marketplace Assistant is a powerful tool provided by API Manager, utilizing AI to chat with your APIs and offer recommendations, moving beyond traditional keyword searches. Using this you can access role-restricted APIs in addition to the public APIs defined according to the [developer portal visibility](https://apim.docs.wso2.com/en/next/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/#control-api-visibility-in-the-developer-portal).
 
