@@ -17187,7 +17187,7 @@ same_site_cookies = "lax"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this only when you need to override the SameSite attribute for cookies handled by the web app. Allowed values: strict, lax, none. Note: when set to none, cookies must also be marked Secure, or modern browsers may reject them.</p>
+                                        <p>This configuration should be used only if it is required to override the SameSite attribute of all the cookies handled by the web app to the configured value. Allowed values: strict, lax, none. Note: when set to none, cookies must also be marked Secure, or modern browsers may reject them.</p>
                                     </div>
                                 </div>
                             </div>
