@@ -67,7 +67,7 @@ For more information on WSO2 API Manager, see the [overview](overview.md).
 
 ??? note "API Discovery support for Federated Gateways"
 
-    WSO2 API Manager 4.7.0 release introduces the API discovery support for Federated Gateways. The allows organizations to manage APIs deployed in multiple third-party gateways through a unified control plane. Gateways supported in this release include:
+    WSO2 API Manager 4.7.0 release introduces the API discovery support for Federated Gateways. This allows organizations to manage APIs deployed in multiple third-party gateways through a unified control plane. Gateways supported in this release include:
 
     - [AWS API Gateway](https://apim.docs.wso2.com/en/next/manage-apis/deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway/)
     - [Azure API Gateway](https://apim.docs.wso2.com/en/next/deploy-and-publish/federated-gateways/azure/discover-apis-on-azure-api-gateway/)
