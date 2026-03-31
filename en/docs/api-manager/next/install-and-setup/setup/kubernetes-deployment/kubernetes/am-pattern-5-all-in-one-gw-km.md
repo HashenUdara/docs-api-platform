@@ -165,8 +165,8 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
 - An example for MySQL is provided below:
   ```sql
-  CREATE DATABASE apim_db CHARACTER SET latin1;
-  CREATE DATABASE shared_db CHARACTER SET latin1;
+  CREATE DATABASE apim_db CHARACTER SET latin1 COLLATE latin1_bin;
+  CREATE DATABASE shared_db CHARACTER SET latin1 COLLATE latin1_bin;
 
   GRANT ALL ON apim_db.* TO 'apimadmin'@'%';
 
@@ -672,4 +672,3 @@ After completing the deployment and DNS configuration, you can access the manage
 
 !!! tip "Default Credentials"
     The default username is `admin` with password `admin`. For production environments, change these credentials immediately after first login.
-

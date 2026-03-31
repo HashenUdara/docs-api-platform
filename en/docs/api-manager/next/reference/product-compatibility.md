@@ -53,12 +53,6 @@ The **WSO2 API-M** runtime is tested with the following databases:
 |Microsoft SQL Server| 2019, 2022        |
 |PostgreSQL            | 16.2, 17       |
 
-!!! warning
-    When creating the database related to apim_db with MySQL 8.0, add **character set latin1** to avoid the MySQL Linux ERROR 1071 (42000).
-    ```sh
-    CREATE DATABASE <APIM_DATABASE_NAME> character set latin1;
-    ```
-
 #### WSO2 Product Compatibility Matrix
 
 The following is a list of other WSO2 products and components that have been tested with WSO2 API Manager 4.7.0.
