@@ -208,11 +208,13 @@ Follow the instructions below to disable anonymous access to the Developer Porta
 
     `https://<API-M_host>:<API-M_port>/admin`
 
-2. Navigate to **Settings > Advanced** 
+2. Navigate to **Settings > Advanced**.
 
-3. Add the field named `EnableAnonymous` with the value `false` as shown below.
+    [![Admin Portal Advanced Settings](../../../assets/img/administer/advanced-config-browse.png)](../../../assets/img/administer/advanced-config-browse.png)
 
-    [![Disabling Developer Portal Anonymous Mode](../../../assets/img/administer/disable-developer-portal-anonymous-mode.png)](../../../assets/img/administer/disable-developer-portal-anonymous-mode.png)
+3. In the Advanced Configurations editor, locate the `EnableAnonymous` field and set its value to `false`.
+
+    [![Advanced Configurations Editor](../../../assets/img/administer/advanced-config-save.png)](../../../assets/img/administer/advanced-config-save.png)
 
     !!! note
         To disable anonymous access globally, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
