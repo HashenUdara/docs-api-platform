@@ -169,9 +169,6 @@ To set up the API Manager component, see the following topics.
                 <a href="setup/security/enabling-hostname-verification.md">Enabling HostName Verification</a>
             </li>
             <li>
-                <a href="setup/security/enabling-java-security-manager.md">Enabling Java Security Manager</a>
-            </li>
-            <li>
                 <a href="setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md">General Data Protection Regulation (GDPR) for WSO2 API Manager</a>
             </li>
             <li>

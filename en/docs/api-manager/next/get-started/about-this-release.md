@@ -151,6 +151,9 @@ For more information on WSO2 API Manager, see the [overview](overview.md).
 
 Before upgrading to WSO2 API Manager 4.7.0, review the following architectural considerations that may affect your deployment setup:
 
+- **Removal of Java Security Manager support:**
+The Java Security Manager has been removed as it was deprecated in Java 17 and fully removed in Java 21. WSO2 API Manager no longer supports or relies on the Java Security Manager for defining security policies. If your deployment previously used the `-Djava.security.manager` JVM flag or a `sec.policy` file, these configurations should be removed.
+
 - **Support for Choreo Analytics has been deprecated:**
 Choreo Analytics has been deprecated in favor of Moesif-powered WSO2 Analytics, which offers enhanced insights and observability.
 
