@@ -82,9 +82,9 @@ For more information on WSO2 API Manager, see the [overview](overview.md).
 
 ??? note "MCP Governance"
 
-    WSO2 APIM introduces Governance for MCP Servers. Write Spectral rulesets for MCP artifacts in addition to REST APIs and Async APIs.
+    WSO2 APIM introduces governance support for MCP Servers, enabling users to define rulesets for MCP artifacts in addition to REST APIs and Async APIs.
     
-    - Enforce ruleset attached policies to MCP Servers in a synchronous or asynchronous manner.
+    - Enforce ruleset-attached policies on MCP Servers in either synchronous or asynchronous mode.
 
 ??? note "MCP Analytics"
 
@@ -155,6 +155,7 @@ For more information on WSO2 API Manager, see the [overview](overview.md).
     - **WSDL access via URL**: Access WSDL of a SOAP API through a direct URL without needing to manually download them, enabling seamless integration with tools like SOAPUI.
     - **SOAP operations visibility**: View available SOAP operations directly in the Developer Portal Documents section without inspecting the WSDL manually.
 
+    **[Learn more](../api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md)**
 
 ## Compatible WSO2 product versions
 
