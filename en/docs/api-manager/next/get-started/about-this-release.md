@@ -123,8 +123,8 @@ For more information on WSO2 API Manager, see the [overview](overview.md).
 
     WSO2 API Manager introduces new policies to support multi-model routing, enabling dynamic selection of models based on request context and defined strategies.
 
-    - **Intelligent Model Routing**: Selects the most suitable model based on predefined criteria and runtime conditions. **[Learn more](../ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail.md)**
-    - **Semantic Model Routing**: Routes requests to models based on semantic relevance. **[Semantic Model Routing](../ai-gateway/multi-model-routing/semantic-model-routing.md)**
+    - **Intelligent Model Routing**: Selects the most suitable model based on predefined criteria and runtime conditions. **[Learn more](../ai-gateway/multi-model-routing/intelligent-model-routing.md)**
+    - **Semantic Model Routing**: Routes requests to models based on semantic relevance. **[Learn more](../ai-gateway/multi-model-routing/semantic-model-routing.md)**
     
 ## Improvements
 
@@ -420,7 +420,7 @@ Application-bound API keys are **deprecated** and disabled by default.
 ## Fixed issues
 
 - [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPIM%20closed%3A2025-10-28..2026-04-03%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
-- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20closed%3A2025-10-28..2025-04-03%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20closed%3A2025-10-28..2026-04-03%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
 
 ## Known issues
 
