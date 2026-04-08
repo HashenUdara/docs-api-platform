@@ -395,7 +395,7 @@ After setting up WSO2 Identity Server 7.x, you need to configure API Manager to 
 
 !!! note
     When using WSO2 IS 7.x as a Key Manager, note the following limitations:
-    - Tenancy is not supported.
+
     - WSO2 IS 7.x cannot be set up as a Resident Key Manager. It can only be set up as a Third-party Key Manager.
     - Role creation in WSO2 Identity Server 7.x is supported from WSO2 API Manager 4.4.0.5 update level onwards.
 
