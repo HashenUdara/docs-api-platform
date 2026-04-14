@@ -36,6 +36,8 @@ For more information on WSO2 API Manager, see the [overview](overview.md).
     - **APIM as control plane**: Manage gateway registration, configuration, API deployments, and policies directly from API Manager.
     - **Unified gateway model**: Use a single gateway implementation across cloud and on-prem environments.
 
+    **[Learn more](https://apim.docs.wso2.com/en/next/api-gateway/universal-gateway/getting-started)**
+
 ??? note "API-Bound API Keys with Enhanced Security and Access Control"
 
     WSO2 API Manager introduces enhanced API key capabilities with improved visibility, security, and lifecycle control, enabling more fine-grained and secure API access management.
