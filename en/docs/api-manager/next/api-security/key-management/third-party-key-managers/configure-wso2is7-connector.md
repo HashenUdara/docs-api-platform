@@ -22,7 +22,7 @@ WSO2 API Manager supports multiple Key Managers. As a result, WSO2 API Manager i
 !!! Note
     **Role Based Authorization** based on the [WSO2 Identity Server 7 Role Based Authorization model](https://is.docs.wso2.com/en/7.0.0/guides/authorization/api-authorization/api-authorization/) is supported from WSO2 Identity Server 7.0.0.65 update level onwards.
 
-## Limitations of using WSO2 IS 7.x as a Key Manager
+## Things to Note When Using WSO2 IS 7.x as a Key Manager
 
 Data models of WSO2 API Manager {{site_version}} and WSO2 Identity Server 7.x are different. Therefore, when using WSO2 API Manager
 {{site_version}} with WSO2 Identity Server 7.x as the key manager,
