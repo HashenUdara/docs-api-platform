@@ -81,7 +81,7 @@ Before you begin, ensure you have the following prerequisites in place:
   ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
   # Add notification event handler JAR for API Manager integration
-  ADD --chown=wso2carbon:wso2 https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.0.5/wso2is.notification.event.handlers-2.0.5.jar ${WSO2_SERVER_HOME}/repository/components/dropins
+  ADD --chown=wso2carbon:wso2 https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.1.3/wso2is.notification.event.handlers-2.1.3.jar ${WSO2_SERVER_HOME}/repository/components/dropins
   ```
  
 
