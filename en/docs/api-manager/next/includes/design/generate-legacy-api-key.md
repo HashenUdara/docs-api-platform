@@ -18,7 +18,7 @@
      [![View list of credentials](../../../../assets/img/learn/view-credentials-manage-app.png)](../../../../assets/img/learn/view-credentials-manage-app.png)
 
 7. Go to Legacy API Keys. 
-     [![Generate Legacy API Key Option](../../../../assets/img/learn/api-keys/legacy-api-key-option.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)
+     [![Generate Legacy API Key Option](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)
 
 8. Click **Generate Legacy API Key** to open the key generation form.
 
@@ -37,5 +37,5 @@
      </div>
      </html>
 
-     [![Copy Legacy API Key](../../../../assets/img/learn/api-keys/legacy-api-key-response.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/legacy-api-key-response.png)
+     [![Copy Legacy API Key](../../../../assets/img/learn/api-keys/legacy-api-key-response.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/legacy-api-key-response.png)
      

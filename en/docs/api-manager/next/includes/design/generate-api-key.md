@@ -7,7 +7,7 @@
 
 3. Click **API Keys** from the left menu of the API.
 
-     [![Generate API Key Left Menu](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)
+     [![Generate API Key Left Menu](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)
 
 4. Click **Generate API Key** and provide a Key Name.
 
@@ -46,19 +46,19 @@ A valid subscription must exist and the generated API key must be associated wit
 
 4. Click **Associate** on the API key to link it to the subscribed application.
 
-     [![Associate API key button](../../../../assets/img/learn/api-keys/associate-api-key-button.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/associate-api-key-button.png)
+     [![Associate API key button](../../../../assets/img/learn/api-keys/associate-api-key-button.png)](../../../../assets/img/learn/api-keys/associate-api-key-button.png)
 
 5. Select the application from the drop-down and click **ASSOCIATE**.
 
-     [![Associate API key](../../../../assets/img/learn/api-keys/associate-api-key.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/associate-api-key.png)
+     [![Associate API key](../../../../assets/img/learn/api-keys/associate-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/associate-api-key.png)
 
      Alternatively, you can associate the API key from the subscribed application's **API Keys** page.
 
-     [![Associate API key from App button](../../../../assets/img/learn/api-keys/app-associate-buttopn.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)
+     [![Associate API key from App button](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)
 
      Select the API and the generated API key from the drop-down and associate.
 
-     [![Associate API key from App](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png)
+     [![Associate API key from App](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png)
 
 ### For subscriptionless APIs
 

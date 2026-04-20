@@ -31,10 +31,6 @@ When an API is invoked specifying an API key as the authentication method, the A
 - Subscription validation
 - IP and referrer validation
 
-## Validation of API subscriptions
-
-Subscription Validation is a mandatory step in the API key validation process. When an API is invoked using an API key, the WSO2 API Manager checks the API key against the subscription details associated with both the API and the corresponding application. Without successful subscription validation, the API call will be rejected.
-
 ## Using API keys to secure an API
 
 Follow the instructions below to use API key Authentication in WSO2 API Manager.
@@ -112,7 +108,7 @@ in the following formats.
 
 2. Select `Preferred IP` option, add the IP addresses in the text input as shown below, and generate the key.
 
-   [![IP Restricted API key](../../../assets/img/learn/api-keys/ip-restrictions.png)](../../../assets/img/learn/api-keys/ip-restrictions.png)
+   [![IP Restricted API key](../../../assets/img/learn/api-keys/ip-restrictions.png){: style="width:80%"}](../../../assets/img/learn/api-keys/ip-restrictions.png)
 
 ### 2) HTTP referrer restriction
 
@@ -128,4 +124,4 @@ When the HTTP referrer restriction has been enabled, only the specific HTTP refe
 
 2. Select `Preferred Referrer` option and add the referrers in the text input as shown below and generate the key.
 
-   [![HTTP Referer Restricted API key](../../../assets/img/learn/api-keys/referrer-restrictions.png)](../../../assets/img/learn/api-keys/referrer-restrictions.png)
+   [![HTTP Referer Restricted API key](../../../assets/img/learn/api-keys/referrer-restrictions.png){: style="width:80%"}](../../../assets/img/learn/api-keys/referrer-restrictions.png)
