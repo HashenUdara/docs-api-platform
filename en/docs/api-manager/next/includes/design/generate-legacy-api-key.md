@@ -20,15 +20,15 @@
 7. Go to Legacy API Keys. 
      [![Generate Legacy API Key Option](../../../../assets/img/learn/api-keys/legacy-api-key-option.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)
 
-8. Click **Generate Legacy API Key**.
+8. Click **Generate Legacy API Key** to open the key generation form.
 
      [![Generate Legacy API key](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png)
 
-8. Optionally, configure the validity period before generating the key.
+9. Optionally, configure the validity period before generating the key.
 
      By default, the Legacy API Key does not expire. To set an expiry, select the required validity period option from the drop-down. For a custom validity period, enter the expiry time in **days**.
      
-9.  Copy the Legacy API Key.
+10. Generate and copy the Legacy API Key.
 
      <html>
      <div class="admonition note">

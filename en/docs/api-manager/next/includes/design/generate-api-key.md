@@ -9,7 +9,7 @@
 
      [![Generate API Key Left Menu](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)
 
-4. Click **Generate API Key**. Provide a Key Name and click the **GENERATE API KEY** button.
+4. Click **Generate API Key** and provide a Key Name.
 
      [![Generate API key](../../../../assets/img/learn/api-keys/generate-api-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-api-api-key.png)
 
@@ -17,7 +17,9 @@
 
      By default, the API Key does not expire. To set an expiry, select the required validity period option from the drop-down. For a custom validity period, enter the expiry time in **days**.
 
-6. Copy the generated API key.
+6. Click **GENERATE API KEY**.
+
+7. Copy the generated API key.
 
      [![Copy API key](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png)
 
