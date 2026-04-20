@@ -23,6 +23,13 @@ Subscription Validation is a mandatory step in the Legacy API key validation pro
 
 Follow the instructions below to use Legacy API key Authentication in WSO2 API Manager.
 
+The legacy API key option is disabled by default and can be enabled by adding the following configuration  to the `<APIM-HOME>/repository/conf/deployment.toml`
+
+     ```toml
+     [apim.devportal]
+     enable_legacy_api_keys = true
+     ```
+
 ### Step 1 - Create and publish an API
 
 Create, publish and deploy an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
