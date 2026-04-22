@@ -70,9 +70,9 @@ WSO2 Identity Server 7.1.0 includes B2B organization support. The following inst
 
     In this example:
 
-    - admin → `orgadmin`
-    - publisher, creator → `larry`
-    - developer → `david`
+    - `orgadmin` → **admin** (Assign predefined **admin** group, or create a new group intended for administrative access in API-M)
+    - `larry` → **publisher**, **creator**
+    - `david` → **developer**
 
     ![Organization users ](../../assets/img/design/b2b/org-users.png) 
 
