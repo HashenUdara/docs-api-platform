@@ -181,7 +181,7 @@ Import the Keymanager certificate to the WSO2 API Manager `client-truststore.jks
 
     2.  Enable Just-in-Time Provisioning to provision the users in API Manager.
 
-        [![](../../../assets/img/setup-and-install/jit-provisioning-for-sso.png)](../../../assets/img/setup-and-install/jit-provisioning-for-sso.png)
+        [![Just-in-Time Provisioning](../../../assets/img/setup-and-install/jit-provisioning-for-sso.png)](../../../assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
     3.  Add the following role mapping under **Role Configuration** section:
 
@@ -204,7 +204,7 @@ Import the Keymanager certificate to the WSO2 API Manager `client-truststore.jks
         </tbody>
         </table>
 
-        [![](../../../assets/img/setup-and-install/role-mapping-for-sso.png)](../../../assets/img/setup-and-install/role-mapping-for-sso.png)
+        [![Role Configuration](../../../assets/img/setup-and-install/role-mapping-for-sso.png)](../../../assets/img/setup-and-install/role-mapping-for-sso.png)
 
         !!! Tip
             Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users.
@@ -239,7 +239,7 @@ Import the Keymanager certificate to the WSO2 API Manager `client-truststore.jks
 
 2.  Expand the **Local & Outbound Authentication Configuration** section and select **Federated Authentication** as the **Authentication Type** and select the name of the Identity Provider you created. Update the configurations with your selection.
 
-    [![](../../../assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)](../../../assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)
+    [![Local & Outbound Authentication Configuration](../../../assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)](../../../assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)
 
 3.  Repeat the same step for the apim_devportal Service Provider as well.
 
