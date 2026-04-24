@@ -11321,11 +11321,11 @@
   "variable": [
     {
       "key": "access-token",
-      "value": "42607a35-21c0-340c-8a34-871b7c1e8518"
+      "value": "47b6f33f-4255-3d1e-b53d-009620702a27"
     },
     {
       "key": "apiId",
-      "value": "688ab96c-e120-4aa6-a05b-db21309d0ad8"
+      "value": "7fc382bc-3dfd-4a00-b2f1-ab0dbf534bea"
     },
     {
       "key": "resourcePath",
@@ -11369,7 +11369,7 @@
     },
     {
       "key": "basepath",
-      "value": "https://localhost:9443/api/am/publisher/v4.4"
+      "value": "https://localhost:9443/api/am/publisher/v4.5"
     },
     {
       "key": "documentId",
