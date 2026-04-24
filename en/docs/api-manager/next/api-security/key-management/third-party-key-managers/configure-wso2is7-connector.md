@@ -1,23 +1,9 @@
----
-title: "Configure WSO2 IS 7.x as a Key Manager"
-description: "Configure WSO2 Identity Server 7.x as a Key Manager in WSO2 API Manager, covering deployment.toml settings, endpoints, and role creation conventions."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-security/key-management/third-party-key-managers/configure-wso2is7-connector/
-md_url: https://wso2.com/api-platform/docs/api-manager/next/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
-tags:
-  - api-manager
-  - key-managers
-  - identity-and-access-management
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-08-20
-content_type: "how-to"
----
-
-# Configure WSO2 IS 7.x as a Key Manager
+# Configure WSO2 IS Key Manager
 
 WSO2 API Manager supports multiple Key Managers. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager, and it has the inbuilt capability of configuring **WSO2 Identity Server 7.x** (WSO2 IS 7.x) as a Key Manager.
 
 !!! info
-    This document provides instructions on configuring **WSO2 Identity Server 7.x** as a Key Manager. If you are using an older version of WSO2 Identity Server, see [Configure WSO2 IS as a Key Manager](configure-wso2is-connector.md).
+    This document provides instructions on configuring **WSO2 Identity Server 7.x** as a Key Manager. If you are using an older version of WSO2 Identity Server, see [Configure WSO2 IS 6.x as a Key Manager](configure-wso2is-connector.md).
 
 !!! Note
     **Role Based Authorization** based on the [WSO2 Identity Server 7 Role Based Authorization model](https://is.docs.wso2.com/en/7.0.0/guides/authorization/api-authorization/api-authorization/) is supported from WSO2 Identity Server 7.0.0.65 update level onwards.
