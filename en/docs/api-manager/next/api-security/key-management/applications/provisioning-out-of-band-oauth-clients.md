@@ -35,7 +35,7 @@ Under the **Advanced Configurations** section, enable **Out Of Band Provisioning
 
 [![Out Of Band Provisioning](../../../assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/out-of-band-provisioning.png)](../../../assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/out-of-band-provisioning.png)
 
-    !!! Note
+!!! Note
           If **Out Of Band Provisioning** is not enabled in the third-party key manager configuration, you can set a global default by adding the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file under the `[apim.devportal]` section. This global setting only takes effect when **Out Of Band Provisioning** is disabled in the third-party key manager configuration.
 
           ``` toml
