@@ -17,7 +17,7 @@ content_type: "how-to"
 
 ## Overview
 
-In enterprise environments, organizations often require isolated API gateway infrastructure for different business units, departments, or customer segments. WSO2 API Manager's multi-tenant architecture combined with its flexible gateway deployment options enables you to maintain separate Universal Gateways for single or multiple tenants, providing enhanced security, performance isolation, and operational independence.
+In enterprise environments, organizations often require isolated API gateway infrastructure for different business units, departments, or customer segments. WSO2 API Manager's multi-tenant architecture combined with its flexible gateway deployment options enables you to maintain separate Classic Gateways for single or multiple tenants, providing enhanced security, performance isolation, and operational independence.
 
 This approach allows you to:
 
@@ -31,7 +31,7 @@ This approach allows you to:
 
 ### Single Tenant per Gateway
 
-In this deployment pattern, each tenant gets its own dedicated Universal Gateway instance. This provides the highest level of isolation but requires more infrastructure resources.
+In this deployment pattern, each tenant gets its own dedicated Classic Gateway instance. This provides the highest level of isolation but requires more infrastructure resources.
 
 [![Single Tenant Per Gateway](../../../../assets/img/deploy/single-gateway-per-tenant.png)](../../../../assets/img/deploy/single-gateway-per-tenant.png)
 

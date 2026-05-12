@@ -1,19 +1,4 @@
----
-title: "Configure JSON Threat Protection for the Classic Gateway"
-description: "Configure the JSON validator sequence in the Classic Gateway to limit property count, string length, array size, key length, and nesting depth."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/threat-protectors/json-threat-protection-for-api-gateway/
-md_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-tags:
-  - api-manager
-  - threat-protection
-  - api-gateway
-  - mediation
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-08-20
-content_type: "how-to"
----
-
-# JSON Threat Protection for Universal Gateway
+# JSON Threat Protection for Classic Gateway
 
 The JSON threat protector in WSO2 API Manager validates the request body of the JSON message based on pre-configured to 
 thwart payload attacks.

@@ -1,23 +1,8 @@
----
-title: "Enable Mutual SSL Between the Classic Gateway and Backend"
-description: "Configure mutual SSL between the Classic Gateway and a backend service by exchanging certificates and enabling SSL profiles."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-design-manage/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend/
-md_url: https://wso2.com/api-platform/docs/api-manager/next/api-design-manage/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-tags:
-  - api-manager
-  - api-gateway
-  - tls
-  - endpoint-security
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-08-20
-content_type: "how-to"
----
-
-# Mutual SSL Between Universal Gateway and Backend
+# Mutual SSL Between Classic Gateway and Backend
 
 In contrast to the usual one-way SSL authentication where a client verifies the identity of the server, in mutual SSL the server validates the identity of the client so that both parties trust each other. This builds a system that has very tight security and avoids any requests made to the client to provide the username/password, as long as the server is aware of the certificates that belong to the client.
 
-This section explains how to secure your backend by enabling mutual SSL between the Universal Gateway and your backend. To establish a  secure connection with the backend service, API Manager needs to have the public key of the backend service in the truststore. Similarly, the backend service should have the public key of API Manager in the truststore.
+This section explains how to secure your backend by enabling mutual SSL between the Classic Gateway and your backend. To establish a  secure connection with the backend service, API Manager needs to have the public key of the backend service in the truststore. Similarly, the backend service should have the public key of API Manager in the truststore.
 
 ## Export the certificates
 
@@ -121,7 +106,7 @@ Now both the backend service and API Manager are configured to use default key s
     ```
 
 
-## Test Mutual SSL between Universal Gateway and backend
+## Test Mutual SSL between Classic Gateway and backend
 
 You can do the following to test your mutual SSL configurations
 
