@@ -752,8 +752,30 @@ You can also use `apictl` to encrypt secrets. For further guidance, refer to [En
 4. Enable secure vault:
 
     ```yaml
-    # -- Secure vault enabled
-    secureVaultEnabled: true
+    wso2:
+      apim:
+        configurations:
+          databases:
+            apim_db:
+              url: ""
+              username: ""
+              password: ""
+            shared_db:
+              url: ""
+              username: ""
+              password: ""
+    ```
+    - If you need to change the hostnames, update them under the Kubernetes Gateway API or ingress section.
+    - Update the keystore passwords in the security section of the `values.yaml` file.
+    - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
+      - [All-in-one](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
+      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+    - Update the admin credentials in the configuration directory.
+    ```yaml
+      # -- Super admin username
+      adminUsername: ""
+      # -- Super admin password
+      adminPassword: ""
     ```
 
 5. If you are using a cloud provider secret manager, store the secret encryption key there and reference it so the runtime can fetch and use it to decrypt secrets:
@@ -914,7 +936,7 @@ userStore:
 
 See [Working with user store properties](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/) for the full list of options.
 
-### 6. Deploy with Custom Values { #section-6 }
+- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
 
 Once your values files are configured, deploy both components:
 

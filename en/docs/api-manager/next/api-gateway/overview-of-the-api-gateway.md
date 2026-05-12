@@ -1,4 +1,4 @@
-# Overview of the Classic Gateway
+# Overview of the Classic Gateway (Universal)
 
 [![API-M overview](../assets/img/learn/apim-overview.png){: style="width:60%"}](../assets/img/learn/apim-overview.png)
 

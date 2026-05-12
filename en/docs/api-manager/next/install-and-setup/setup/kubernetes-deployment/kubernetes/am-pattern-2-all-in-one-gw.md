@@ -1,10 +1,95 @@
 # Pattern 2: Simple Scalable Setup
 
-This pattern deploys a dedicated Universal Gateway alongside the All-in-One node, allowing the Gateway to scale independently from the control plane. It is suitable for production environments with moderate to high API traffic where Gateway scaling is the primary concern.
+This is the standard distributed deployment for API Manager. The default configuration consists of a single All-in-One and two Classic Gateways (Universal) for better scalability and performance.
 
 <a href="../../../../assets/img/setup-and-install/deployment-no-tm.png"><img src="../../../../assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
-## How Pattern 2 Differs from Pattern 0 and Pattern 1
+!!! info
+    For advanced details on the deployment pattern, please refer to the official [documentation](kubernetes-overview.md).
+
+## Contents
+
+- [Pattern 2: API-M Deployment with Simple Scalable Setup](#pattern-2-api-m-deployment-with-simple-scalable-setup)
+  - [Contents](#contents)
+  - [Prerequisites](#prerequisites)
+    - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)
+    - [Step 2 - Build Docker Images](#step-2---build-docker-images)
+    - [Step 3 - Configure Database](#step-3---configure-database)
+  - [Minimal Configuration](#minimal-configuration)
+  - [Configuration](#configuration)
+    - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
+        - [1.1 Add Gateway API controller or Ingress controller](#11-add-gateway-api-controller-or-ingress-controller)
+        - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
+        - [1.3 Configure Internal Encryption Key (Mandatory)](#13-configure-internal-encryption-key-mandatory)
+        - [1.4 Encrypting Secrets (Cipher Tool and Secure Vault)](#14-encrypting-secrets-cipher-tool-and-secure-vault)
+        - [1.5 Configure Docker Image and Databases](#15-configure-docker-image-and-databases)
+        - [1.6 Configure SSL in Service Exposure](#16-configure-ssl-in-service-exposure)
+    - [2. All-in-One Configurations](#2-all-in-one-configurations)
+        - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
+        - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
+        - [2.4 Configure JWKS URL](#24-configure-jwks-url)
+        - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
+        - [2.6 Enable High Availability](#26-enable-high-availability)
+    - [3. Classic Gateway Configuration](#3-universal-gateway-configuration)
+        - [3.1 Configure Key Manager, Eventhub and Throttling](#31-configure-key-manager-eventhub-and-throttling)
+        - [3.2 Enable Replicas](#32-enable-replicas)
+        - [3.3 Deploy Classic Gateway](#33-deploy-universal-gateway)
+    - [4. Add a DNS Record Mapping the Hostnames and the External IP](#4-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
+    - [5. Access Management Consoles](#5-access-management-consoles)
+
+## Prerequisites
+
+Before you begin, ensure you have the following prerequisites in place:
+
+## Step 1 - Set Up Basic Configurations
+
+!!! info
+    The following tools and configurations are necessary for deploying WSO2 API-M in a Kubernetes environment.
+
+1. Install the required tools:
+   - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+   - [Helm](https://helm.sh/docs/intro/install/)
+   - [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+2. Ensure you have a running [Kubernetes cluster](https://kubernetes.io/docs/setup/).
+
+3. Install a routing controller. Choose either:
+
+  - **[Envoy Gateway](https://gateway.envoyproxy.io/docs/install/install-helm/)** (enabled by default) - **RECOMMENDED** (modern Gateway API-based routing)
+  - **[NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)** (disabled by default) - **DEPRECATED** (traditional Ingress-based routing)
+
+4. Add the WSO2 Helm chart repository:
+   ```bash
+   helm repo add wso2 https://helm.wso2.com && helm repo update
+   ```
+
+## Step 2 - Build Docker Images
+
+- WSO2 product Docker images are used for the Kubernetes deployment.
+  
+  WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA)
+  versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
+
+  For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant
+  Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://registry.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
+
+- WSO2 API Manager 4.7.0 provides three Docker images:
+  - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
+  - Classic Gateway (Universal) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
+
+- Since the products need to connect to databases at runtime, you need to include the relevant JDBC drivers in the distribution. This can be included in the Docker image building stage. For example, you can add the MySQL driver as follows:
+  ```dockerfile
+  ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
+  ```
+- Furthermore, if there are any customizations to the JARs in the product, those can also be included in the Docker image itself rather than mounting them from the deployment level (assuming that they are common to all environments).
+- The following is a sample Dockerfile to build a custom WSO2 APIM image. Depending on your requirements, you may refer to the following and make the necessary additions. The script below will:
+  - Use WSO2 APIM 4.7.0 as the base image
+  - Change UID and GID to 10001 (the default APIM image has 802 as UID and GID)
+  - Copy third-party libraries to the `<APIM_HOME>/lib` directory
+
+  - Dockerfile for All-in-one
+    ```dockerfile
+    FROM registry.wso2.com/wso2-apim/am:4.7.0.0
 
 | | Pattern 0 | Pattern 1 | Pattern 2 |
 |---|---|---|---|
@@ -14,13 +99,13 @@ This pattern deploys a dedicated Universal Gateway alongside the All-in-One node
 | Custom image | Not required | Required | Required (All-in-One) |
 | High availability | No | Yes (All-in-One) | Gateway: Yes (multiple replicas); All-in-One: Optional |
 
-!!! warning "Pattern 2 requires the following before deploying:"
-
-    1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **A custom Docker image** — for the All-in-One node, with the JDBC driver for your database.
-    3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
-
----
+    # Copy JDBC MySQL driver
+    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
+    ```
+  
+  - Dockerfile for Classic Gateway
+    ```dockerfile
+    FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 
 ## Quick Start
 
@@ -103,11 +188,9 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
 
         === "Local cluster (Minikube / Rancher Desktop)"
 
-            ```bash
-            helm upgrade --install ingress-nginx ingress-nginx \
-              --repo https://kubernetes.github.io/ingress-nginx \
-              --namespace ingress-nginx --create-namespace
-            ```
+# Deploy Classic Gateway
+helm install apim-gw wso2/wso2am-universal-gw --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml -n apim
+```
 
         === "Managed cluster (AKS / GKE)"
 
@@ -263,18 +346,17 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
               username: "<DB_USERNAME>"
               password: "<DB_PASSWORD>"
     ```
-
-    Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases](../../setting-up-databases/overview.md#changing-the-default-databases).
-
-3. Deploy the All-in-One:
-
-    ```bash
-    helm install apim wso2/wso2am-all-in-one \
-      --version 4.7.0-1 \
-      --namespace apim --create-namespace \
-      --dependency-update \
-      -f values-aio.yaml \
-      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
+    - If you need to change the hostnames, update them under the Kubernetes Gateway API or ingress section.
+    - Update the keystore passwords in the security section of the `values.yaml` file.
+    - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
+      - [All-in-one](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
+      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+    - Update the admin credentials in the configuration directory.
+    ```yaml
+      # -- Super admin username
+      adminUsername: ""
+      # -- Super admin password
+      adminPassword: ""
     ```
 
     !!! warning "Encryption key is mandatory"
@@ -748,9 +830,7 @@ ingress:
       nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
 ```
 
-Refer to the [NGINX ingress annotations documentation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) for the full list of supported options.
-
-**Configure TLS for Ingress**
+### 3. Classic Gateway Configuration
 
 ```bash
 kubectl create secret tls my-tls-secret \
@@ -761,7 +841,7 @@ kubectl create secret tls my-tls-secret \
 
 Then set the secret name in your `values.yaml` under `ingress.tlsSecret`. Refer to the [Kubernetes ingress TLS documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) for more details.
 
-### 5. Gateway and High Availability
+The following configurations are needed to connect the Classic Gateway to the All-in-One:
 
 #### 5.1 Configure Key Manager, EventHub, and Throttling
 
@@ -815,7 +895,7 @@ The Gateway must be configured to connect to the All-in-One for token validation
 
 #### 5.2 Configure Gateway Replicas
 
-The Universal Gateway supports horizontal scaling. Configure the number of replicas in `values-gw.yaml`:
+To ensure high availability and scalability of the Classic Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
 
 ```yaml
 wso2:
@@ -825,37 +905,23 @@ wso2:
     maxReplicas: 3
 ```
 
-#### 5.3 Configure Multiple Gateways
+!!! info
+    - `replicas`: The initial number of pods to start with (e.g., 2).
+    - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
+    - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
 
-Use this section if you need to register multiple gateway environments — for example, to route traffic to different gateways based on API type, or to serve traffic through geographically distributed gateways.
+#### 3.3 Deploy Classic Gateway
 
-```yaml
-gateway:
-  environments:
-    - name: "Default"
-      type: "hybrid"
-      gatewayType: "Regular"
-      provider: "wso2"
-      displayInApiConsole: true
-      description: "Handles both production and sandbox token traffic."
-      showAsTokenEndpointUrl: true
-      serviceName: "apim-gw-wso2am-gateway-service"
-      servicePort: 9443
-      wsHostname: "websocket.wso2.com"
-      httpHostname: "gw.wso2.com"
-      websubHostname: "websub.wso2.com"
-    - name: "Default_apk"
-      type: "hybrid"
-      gatewayType: "APK"
-      provider: "wso2"
-      displayInApiConsole: true
-      description: "Handles both production and sandbox token traffic."
-      showAsTokenEndpointUrl: true
-      serviceName: "apim-gw-wso2am-gateway-service"
-      servicePort: 9443
-      wsHostname: "websocket.wso2.com"
-      httpHostname: "default.gw.wso2.com:9095"
-      websubHostname: "websub.wso2.com"
+After configuring all the necessary parameters, you can deploy the Classic Gateway using Helm:
+
+```bash
+# Deploy Classic Gateway using Helm
+helm install <release-name> <helm-chart-path> \
+  --version 4.7.0-1 \
+  --namespace <namespace> \
+  --dependency-update \
+  -f values.yaml \
+  --create-namespace
 ```
 
 See [Deploy through multiple API Gateways](https://apim.docs.wso2.com/en/latest/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/) for more details.
@@ -899,16 +965,4 @@ helm install <release-name> <helm-chart-path-aio> \
   --dependency-update \
   -f values-aio.yaml
 
-helm install <gw-release-name> <helm-chart-path-gw> \
-  --version 4.7.0-1 \
-  --namespace <namespace> \
-  --dependency-update \
-  -f values-gw.yaml
-```
-
-!!! tip "Deployment Parameters"
-    - `<release-name>` — Name for the All-in-One Helm release (e.g. `apim`)
-    - `<gw-release-name>` — Name for the Gateway Helm release (e.g. `apim-gw`)
-    - `<namespace>` — Kubernetes namespace to deploy into (e.g. `apim`)
-    - `<helm-chart-path-aio>` — Path to the All-in-One Helm chart (`wso2/wso2am-all-in-one` or a local clone)
-    - `<helm-chart-path-gw>` — Path to the Gateway Helm chart (`wso2/wso2am-universal-gw` or a local clone)
+- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
