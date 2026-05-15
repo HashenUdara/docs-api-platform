@@ -1,20 +1,6 @@
----
-title: "Pattern 2: Simple Scalable Setup"
-description: "Deploy WSO2 API Manager in a simple scalable setup with the All-in-One node and Classic Gateway as separate nodes for independent scaling."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup/
-md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
-tags:
-  - api-manager
-  - distributed-deployment
-  - high-availability
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-08-20
-content_type: "how-to"
----
+# Pattern 2: Simple Scalable Setup
 
-# Configuring a Distributed API-M Deployment
-
-WSO2 API-M can be deployed as an [all-in-one deployment](../single-node/all-in-one-deployment-overview.md) or as a distributed deployment. In the distributed setup, the respective component distributions, namely WSO2 API Manager All-in-One, and WSO2 Universal Gateway are deployed as separate nodes.
+WSO2 API-M can be deployed as an [all-in-one deployment](../single-node/all-in-one-deployment-overview.md) or as a distributed deployment. In the distributed setup, the respective component distributions, namely WSO2 API Manager All-in-One, and WSO2 Classic Gateway (Universal) are deployed as separate nodes.
 
 Given below are the API-M nodes you can have in a distributed deployment by default.
 
@@ -40,7 +26,7 @@ Given below are the API-M nodes you can have in a distributed deployment by defa
     </tr>
     <tr>
         <td>
-            WSO2 Universal Gateway
+            WSO2 Classic Gateway
         </td>
         <td>
             API-M nodes running the Gateway component.
@@ -54,7 +40,7 @@ Given below are the API-M nodes you can have in a distributed deployment by defa
 
 To install and set up the API-M servers:
 
-1.  Download the WSO2 API Manager All-in-One and WSO2 Universal Gateway component distributions from the [WSO2 API Manager website](https://wso2.com/api-manager/).
+1.  Download the WSO2 API Manager All-in-One and WSO2 Classic Gateway (Universal) component distributions from the [WSO2 API Manager website](https://wso2.com/api-manager/).
 
 ### Step 2 - Install and configure the databases
 
@@ -79,7 +65,7 @@ For more information, see [Creating SSL Certificates](../security/configuring-ke
 
 ### Step 5 - Configure API-M Analytics
 
-API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the WSO2 Universal Gateway distribution to publish analytics data to the cloud.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the WSO2 Classic Gateway distribution to publish analytics data to the cloud.
 
 See the instructions on [configuring the Gateway](../../../monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md) with the cloud-based analytics solution.
 
@@ -93,7 +79,7 @@ Configure the Gateway to communicate with the API Manager All-in-One node.
 
 Follow the instructions given below to configure the Gateway node so that it can communicate with the API Manager All-in-One node:
 
-1. Open the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway node.
+1. Open the `<CLASSIC-GW_HOME>/repository/conf/deployment.toml` file of the Gateway node.
 
 2. Add the following configurations to the deployment.toml file.
 
@@ -223,14 +209,14 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Note
         This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself.
 
-7. Follow the steps given below to configure High Availability (HA) for the Universal Gateway:
+7. Follow the steps given below to configure High Availability (HA) for the Classic Gateway:
 
-    1. Create a copy of the WSO2 Universal Gateway node that you just configured. This is the second node of the Gateway cluster.
+    1. Create a copy of the WSO2 Classic Gateway node that you just configured. This is the second node of the Gateway cluster.
 
     2. Configure a load balancer fronting the two Gateway nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md).
 
         !!! Note
-            To keep custom runtime artifacts deployed in the Gateway, add the following configuration in the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway nodes.
+            To keep custom runtime artifacts deployed in the Gateway, add the following configuration in the `<CLASSIC-GW_HOME>/repository/conf/deployment.toml` file of the Gateway nodes.
 
             ```toml
             [apim.sync_runtime_artifacts.gateway.skip_list]
@@ -410,7 +396,7 @@ Follow the instructions given below to configure the Gateway node so that it can
 
 #### Configure the API Manager All-in-One nodes
 
-Follow the steps given below to configure the All-in-One nodes to communicate with the Universal Gateway.
+Follow the steps given below to configure the All-in-One nodes to communicate with the Classic Gateway.
 
 1. Open the `<APIM_HOME>/repository/conf/deployment.toml` file of the All-in-One node.
 
@@ -757,17 +743,17 @@ Once you have successfully configured all the API-M nodes in the deployment, you
 
 -   Starting the Gateway nodes
 
-    Open a terminal, navigate to the `<UNIVERSAL-GW_HOME>/bin` folder, and execute the following command:
+    Open a terminal, navigate to the `<CLASSIC-GW_HOME>/bin` folder, and execute the following command:
 
     === "Linux/Mac OS"
     ``` java
-    cd <UNIVERSAL-GW_HOME>/bin/
+    cd <CLASSIC-GW_HOME>/bin/
     sh gateway.sh
     ```
 
     === "Windows"
     ``` java
-    cd <UNIVERSAL-GW_HOME>\bin\
+    cd <CLASSIC-GW_HOME>\bin\
     gateway.bat --run
     ```
 
