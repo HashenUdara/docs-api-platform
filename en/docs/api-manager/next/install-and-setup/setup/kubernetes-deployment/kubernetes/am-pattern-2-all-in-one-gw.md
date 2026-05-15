@@ -1,6 +1,6 @@
 # Pattern 2: Simple Scalable Setup
 
-This is the standard distributed deployment for API Manager. The default configuration consists of a single All-in-One and two Classic Gateways (Universal) for better scalability and performance.
+This pattern deploys a dedicated Classic Gateway alongside the All-in-One node, allowing the Gateway to scale independently from the control plane. It is suitable for production environments with moderate to high API traffic where Gateway scaling is the primary concern.
 
 <a href="../../../../assets/img/setup-and-install/deployment-no-tm.png"><img src="../../../../assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -93,7 +93,7 @@ Before you begin, ensure you have the following prerequisites in place:
 
 | | Pattern 0 | Pattern 1 | Pattern 2 |
 |---|---|---|---|
-| Nodes | 1 All-in-One | 2 All-in-One (active-active) | 1 All-in-One + dedicated Universal Gateway |
+| Nodes | 1 All-in-One | 2 All-in-One (active-active) | 1 All-in-One + dedicated Classic Gateway |
 | Gateway | Embedded | Embedded | Dedicated, independently scalable |
 | Database | Embedded H2 | External required | External required |
 | Custom image | Not required | Required | Required (All-in-One) |
@@ -370,9 +370,9 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     The pod should show `1/1 Running` before deploying the Gateway.
 
-### Step 9 — Deploy the Universal Gateway { #step-9 }
+### Step 9 — Deploy the Classic Gateway { #step-9 }
 
-Deploy the Universal Gateway using the default values:
+Deploy the Classic Gateway using the default values:
 
 ```bash
 helm install apim-gw wso2/wso2am-universal-gw \
@@ -605,7 +605,7 @@ In a distributed deployment, all API Manager nodes must use the same internal en
 All available configuration options for each Helm chart are documented in their respective component guides:
 
 - [All-in-One Helm chart](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
-- [Universal Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+- [Classic Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
 
 ### 3. Security
 
@@ -895,7 +895,7 @@ The Gateway must be configured to connect to the All-in-One for token validation
 
 #### 5.2 Configure Gateway Replicas
 
-To ensure high availability and scalability of the Classic Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+The Classic Gateway supports horizontal scaling. Configure the number of replicas in `values-gw.yaml`:
 
 ```yaml
 wso2:
