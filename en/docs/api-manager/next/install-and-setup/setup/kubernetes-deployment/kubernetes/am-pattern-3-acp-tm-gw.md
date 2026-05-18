@@ -267,18 +267,29 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
               username: "<DB_USERNAME>"
               password: "<DB_PASSWORD>"
     ```
-    - If you need to change the hostnames, update them under the Kubernetes Gateway API or ingress section.
-    - Update the keystore passwords in the security section of the `values.yaml` file.
-    - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
-      - [API Control Plane](https://github.com/wso2/helm-apim/blob/main/distributed/control-plane/README.md)
-      - [Traffic Manager](https://github.com/wso2/helm-apim/blob/main/distributed/traffic-manager/README.md)
-      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
-    - Update the admin credentials in the configuration directory.
-    ```yaml
-      # -- Super admin username
-      adminUsername: ""
-      # -- Super admin password
-      adminPassword: ""
+
+    Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases](../../setting-up-databases/overview.md#changing-the-default-databases).
+
+3. Generate the encryption key and deploy the API Control Plane:
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In a distributed deployment, **all components must use the same key**. Generate it once and keep `$APIM_ENCRYPTION_KEY` set in your shell for the Traffic Manager and Gateway deploy steps that follow.
+
+    ```bash
+    export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
+
+    helm install apim-acp wso2/wso2am-acp \
+      --version 4.7.0-1 \
+      --namespace apim --create-namespace \
+      --dependency-update \
+      -f values-acp.yaml \
+      --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
+    ```
+
+4. Wait for the ACP pod to be ready:
+
+    ```bash
+    kubectl get pods -n apim -w
     ```
 
     The ACP pod should show `1/1 Running` before deploying the Traffic Manager.
@@ -292,7 +303,8 @@ helm install apim-tm wso2/wso2am-tm \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-3-ACP_TM_GW/default_tm_values.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 ```
 
 !!! note "To customise before deploying"
@@ -311,7 +323,8 @@ helm install apim-gw wso2/wso2am-universal-gw \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-3-ACP_TM_GW/default_gw_values.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 ```
 
 !!! note "To customise before deploying"
@@ -834,4 +847,50 @@ See [Deploy through multiple API Gateways](https://apim.docs.wso2.com/en/latest/
 
 #### 5.4 Configure User Store Properties
 
-- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
+By default, WSO2 API-M uses a JDBC-based user store. Configure this section if you need to connect to an external user store such as LDAP or Active Directory.
+
+```yaml
+userStore:
+  type: "database_unique_id"
+  properties:
+    ReadGroups: true
+```
+
+!!! warning
+    If you do not need to set any custom properties, remove the `properties` block entirely. An empty `properties` block will cause the deployment to fail.
+
+See [Working with user store properties](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/) for the full list of options.
+
+### 6. Deploy with Custom Values { #section-6 }
+
+Once your values files are configured, generate the encryption key once and deploy all three components with the same key:
+
+```bash
+export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
+
+helm install apim-acp wso2/wso2am-acp \
+  --version 4.7.0-1 \
+  --namespace apim --create-namespace \
+  --dependency-update \
+  -f values-acp.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
+
+helm install apim-tm wso2/wso2am-tm \
+  --version 4.7.0-1 \
+  --namespace apim \
+  --dependency-update \
+  -f values-tm.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
+
+helm install apim-gw wso2/wso2am-universal-gw \
+  --version 4.7.0-1 \
+  --namespace apim \
+  --dependency-update \
+  -f values-gw.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
+```
+
+!!! tip "Deployment Parameters"
+    - `<release-name>` — Name for each Helm release (e.g. `apim-acp`, `apim-tm`, `apim-gw`)
+    - `<namespace>` — Kubernetes namespace to deploy into (e.g. `apim`)
+    - Helm chart paths: `wso2/wso2am-acp`, `wso2/wso2am-tm`, `wso2/wso2am-universal-gw` (or local clones)
