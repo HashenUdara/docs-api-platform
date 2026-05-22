@@ -99,13 +99,15 @@ Before you begin, ensure you have the following prerequisites in place:
 | Custom image | Not required | Required | Required (All-in-One) |
 | High availability | No | Yes (All-in-One) | Gateway: Yes (multiple replicas); All-in-One: Optional |
 
-    # Copy JDBC MySQL driver
-    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
-    ```
-  
-  - Dockerfile for Classic Gateway
-    ```dockerfile
-    FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
+!!! warning "Pattern 2 requires the following before deploying:"
+
+    1. **An external database** — H2 is not supported. Set up an external database before deploying.
+    2. **A custom Docker image** — for the All-in-One node, with the JDBC driver for your database.
+    3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
+
+    Detailed steps for each of the above are explained in the sections below.
+
+---
 
 ## Quick Start
 

@@ -1,101 +1,34 @@
-# Pattern 4: API-M Deployment with Fully Distributed Setup
+# Pattern 4: Fully Distributed Setup
 
-This is the fully distributed deployment for API Manager. The default configuration consists of two API Control Planes, two Traffic Managers, two Classic Gateways (Universal), and two Key Managers. This is the most scalable and production-ready deployment pattern.
+This pattern adds a dedicated Key Manager to the Pattern 3 setup, separating token issuance and validation from the Control Plane. It is the most scalable and production-ready deployment pattern, suitable for environments with high security and compliance requirements.
 
-<a href="../../../../assets/img/setup-and-install/distributed-deployment-km.png"><img src="../../../../assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
+<a href="../../../../assets/img/setup-and-install/distributed-deployment-km.png"><img src="../../../../assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed api-m deployment" width="60%"></a>
 
-!!! info
-    For advanced details on the deployment pattern, please refer to the official [documentation](kubernetes-overview.md).
+## How Pattern 4 Differs from Earlier Patterns
 
-## Contents
+| | Pattern 2 | Pattern 3 | Pattern 4 |
+|---|---|---|---|
+| Control Plane | Embedded in All-in-One | Dedicated ACP | Dedicated ACP |
+| Traffic Manager | Embedded in All-in-One | Dedicated TM | Dedicated TM |
+| Gateway | Dedicated, independently scalable | Dedicated, independently scalable | Dedicated, independently scalable |
+| Key Manager | Embedded in All-in-One | Embedded in ACP | Dedicated KM |
+| Custom images | Required (All-in-One) | Required (ACP) | Required (ACP); KM reuses ACP image |
+| High availability | Gateway: Yes; All-in-One: Optional | Yes (all components) | Yes (all components) |
 
-- [Pattern 4: API-M Deployment with Fully Distributed Setup](#pattern-4-api-m-deployment-with-fully-distributed-setup)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-    - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)
-    - [Step 2 - Build Docker Images](#step-2---build-docker-images)
-    - [Step 3 - Configure Database](#step-3---configure-database)
-  - [Minimal Configuration](#minimal-configuration)
-  - [Configuration](#configuration)
-    - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
-          - [1.1 Add Gateway API controller or Ingress controller](#11-add-gateway-api-controller-or-ingress-controller)
-          - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
-          - [1.3 Configure Internal Encryption Key (Mandatory)](#13-configure-internal-encryption-key-mandatory)
-          - [1.4 Encrypting Secrets (Cipher Tool and Secure Vault)](#14-encrypting-secrets-cipher-tool-and-secure-vault)
-          - [1.5 Configure Docker Image and Databases](#15-configure-docker-image-and-databases)
-          - [1.6 Configure SSL in Service Exposure](#16-configure-ssl-in-service-exposure)
-    - [2. API Control Plane Configurations](#2-api-control-plane-configurations)
-          - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
-          - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
-          - [2.3 Configure JWKS URL](#23-configure-jwks-url)
-          - [2.4 Deploy Control Plane](#24-deploy-control-plane)
-    - [3. Traffic Manager Configurations](#3-traffic-manager-configurations)
-          - [3.1 Configure Key Manager and Eventhub](#31-configure-key-manager-and-eventhub)
-          - [3.2 Deploy Traffic Manager](#32-deploy-traffic-manager)
-    - [4. Classic Gateway Configuration](#4-universal-gateway-configuration)
-          - [4.1 Configure Key Manager, Eventhub and Throttling](#41-configure-key-manager-eventhub-and-throttling)
-          - [4.2 Enable Replicas](#42-enable-replicas)
-          - [4.3 Deploy Classic Gateway](#43-deploy-universal-gateway)
-    - [5. Key Manager Configuration](#5-key-manager-configuration)
-          - [5.1 Configure Eventhub](#51-configure-eventhub)
-          - [5.2 Deploy Key Manager](#52-deploy-key-manager)
-    - [6. Add a DNS Record Mapping the Hostnames and the External IP](#6-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
-    - [7. Access Management Consoles](#7-access-management-consoles)
+!!! note
+    The Key Manager uses the same Docker image as the API Control Plane — no separate image build is required.
 
-## Prerequisites
+!!! warning "Pattern 4 requires the following before deploying:"
 
-Before you begin, ensure you have the following prerequisites in place:
+    1. **An external database** — H2 is not supported. Set up an external database before deploying.
+    2. **A custom Docker image** — for the API Control Plane, with the JDBC driver for your database. The Key Manager reuses this image.
+    3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
-## Step 1 - Set Up Basic Configurations
+    Detailed steps for each of the above are explained in the sections below.
 
-!!! info
-    The following tools and configurations are necessary for deploying WSO2 API-M in a Kubernetes environment.
+---
 
-1. Install the required tools:
-   - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-   - [Helm](https://helm.sh/docs/intro/install/)
-   - [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-
-2. Ensure you have a running [Kubernetes cluster](https://kubernetes.io/docs/setup/).
-
-3. Install a routing controller. Choose either:
-
-  - **[Envoy Gateway](https://gateway.envoyproxy.io/docs/install/install-helm/)** (enabled by default) - **RECOMMENDED** (modern Gateway API-based routing)
-  - **[NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)** (disabled by default) - **DEPRECATED** (traditional Ingress-based routing)
-
-4. Add the WSO2 Helm chart repository:
-   ```bash
-   helm repo add wso2 https://helm.wso2.com && helm repo update
-   ```
-
-## Step 2 - Build Docker Images
-
-- WSO2 product Docker images are used for the Kubernetes deployment.
-  
-  WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA) versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
-
-  For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image which packages WSO2 Updates, available at the [WSO2 Private Docker Registry](https://registry.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
-
-- WSO2 API Manager 4.7.0 provides three Docker images:
-  - API Control Plane - [wso2am-acp](https://hub.docker.com/r/wso2/wso2am-acp)
-  - Traffic Manager - [wso2am-tm](https://hub.docker.com/r/wso2/wso2am-tm)
-  - Classic Gateway (Universal) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
-
-  !!! note
-      There is no separate Docker image for the Key Manager. The API Control Plane image should be used for the Key Manager component.
-
-- Since the products need to connect to databases at runtime, you need to include the relevant JDBC drivers in the distribution. This can be included in the Docker image building stage. For example, you can add the MySQL driver as follows:
-  ```dockerfile
-  ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
-  ```
-- Furthermore, if there are any customizations to the JARs in the product, those can be included in the Docker image itself rather than mounting them from the deployment level (assuming that they are common to all environments).
-- The following is a sample Dockerfile to build a custom WSO2 APIM image. Depending on your requirements, you may refer to the following and make the necessary additions. The script below will do the following:
-  - Use WSO2 APIM 4.7.0 as the base image
-  - Copy third-party libraries to the `<APIM_HOME>/lib` directory
-
-  - Dockerfile for API Control Plane
-    ```dockerfile
-    FROM registry.wso2.com/wso2-apim/am-acp:4.7.0.0
+## Quick Start
 
 ### Step 1 — Install Required Tools
 
