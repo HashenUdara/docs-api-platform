@@ -277,17 +277,28 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
               password: "<DB_PASSWORD>"
     ```
 
-    - If you need to change hostnames, update them under the Kubernetes Gateway API or Ingress section.
-    - Update the keystore passwords in the security section of the `values.yaml` file.
-    - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
-      - [All-in-One](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
-      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
-    - Update the admin credentials in the configuration directory:
-    ```yaml
-      # -- Super admin username
-      adminUsername: ""
-      # -- Super admin password
-      adminPassword: ""
+    Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases](../../setting-up-databases/overview.md#changing-the-default-databases).
+
+3. Deploy WSO2 API Manager:
+
+    ```bash
+    helm install apim wso2/wso2am-all-in-one \
+      --version 4.7.0-1 \
+      --namespace apim --create-namespace \
+      --dependency-update \
+      -f values.yaml \
+      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
+    ```
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In an HA deployment, **both nodes must use the same key** — generate it once, store it securely, and set it explicitly in your `values.yaml` under `wso2.apim.configurations.encryption.key` rather than relying on the auto-generated value above.
+
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
+4. Wait for both pods to be ready:
+
+    ```bash
+    kubectl get pods -n apim -w
     ```
 
     Both pods should show `1/1 Running` before proceeding.
@@ -487,6 +498,9 @@ In a distributed or HA deployment, all API Manager nodes must use the same inter
     ```bash
     openssl rand -hex 32
     ```
+
+    !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to all your values files:
 
