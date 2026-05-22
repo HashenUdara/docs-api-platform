@@ -328,7 +328,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl get pods -n apim -w
     ```
 
-    The All-in-One pod should show `1/1 Running` before deploying the Key Manager.
+    The All-in-One pod should show `1/1 Running` before deploying the Key Manager. This may take several minutes on the first run.
 
 ### Step 9 — Deploy the Key Manager { #step-9 }
 
@@ -391,7 +391,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl get pods -n apim -w
     ```
 
-    The Key Manager pod should show `1/1 Running` before deploying the Classic Gateway.
+    The Key Manager pod should show `1/1 Running` before deploying the Classic Gateway. This may take several minutes on the first run.
 
 ### Step 10 — Deploy the Classic Gateway { #step-10 }
 
