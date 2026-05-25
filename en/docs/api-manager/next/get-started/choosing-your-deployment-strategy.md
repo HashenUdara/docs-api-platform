@@ -66,7 +66,7 @@ Before choosing, evaluate your requirements based on these factors:
 ### Scenario 5: Ultimate Scalability & Isolation
 *   **If your primary need is...** maximum security, full component isolation, or integration with a central corporate IdP.
 *   **Then the recommended approach is...**
-    *   **Pattern**: **[Pattern 4: Fully Distributed with Key Manager Seperation](deployment-patterns.md#pattern-4-fully-distributed-deployment-with-key-manager-separation)**
+    *   **Pattern**: **[Pattern 4: Fully Distributed with Key Manager Separation](deployment-patterns.md#pattern-4-fully-distributed-deployment-with-key-manager-separation)**
     *   **Platform**: **[Kubernetes](deployment-platforms.md#kubernetes-and-cloud-native)** or **[Virtual Machines](deployment-platforms.md#on-premises--virtual-machines-vms)**.
 
 ### Scenario 6: Targeted Scaling for Gateway & Identity

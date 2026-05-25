@@ -196,7 +196,7 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
 
     2. Click Key Manager and then click **Add Key Manager**.
 
-         [![Add Key Manger](../../../assets/img/administer/add-key-manager.png)](../../../assets/img/administer/add-key-manager.png)
+         [![Add Key Manager](../../../assets/img/administer/add-key-manager.png)](../../../assets/img/administer/add-key-manager.png)
 
     3. Add the following configuration to add a new Key Manager.
 

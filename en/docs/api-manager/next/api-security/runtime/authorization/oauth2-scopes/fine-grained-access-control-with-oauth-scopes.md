@@ -85,7 +85,7 @@ A shared scope has to be applied to a resource, in order to restrict the access 
 
      Once you select the scope from dropdown, it will be shown as follows.
 
-     <a href="../../../../assets/img/learn/api-security/oauth2/oauth2-scopes/shared-scope-attached.png" ><img src="../../../../assets/img/learn/api-security/oauth2/oauth2-scopes/shared-scope-attached.png" alt="Attched Shared Scope" 
+     <a href="../../../../assets/img/learn/api-security/oauth2/oauth2-scopes/shared-scope-attached.png" ><img src="../../../../assets/img/learn/api-security/oauth2/oauth2-scopes/shared-scope-attached.png" alt="Attached Shared Scope" 
           title="Attached Shared Scope" width="70%" /></a>         
 
 

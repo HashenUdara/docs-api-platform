@@ -81,7 +81,7 @@ Follow the steps below to test your API with API Chat:
 
 ## Step 4 - Test your APIs
 
-Now we can begin testing APIs. Note that this guide covers the API Chat capabilties using the `PizzaShack` REST API, which was created in [Create a REST API](https://apim.docs.wso2.com/en/next/manage-apis/design/create-api/create-rest-api/create-a-rest-api/).
+Now we can begin testing APIs. Note that this guide covers the API Chat capabilities using the `PizzaShack` REST API, which was created in [Create a REST API](https://apim.docs.wso2.com/en/next/manage-apis/design/create-api/create-rest-api/create-a-rest-api/).
 
 1.  Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click on the API that you need to test (e.g., `PizzaShack`).
 

@@ -30,7 +30,7 @@ Therefore, the **KeyManager** interface acts as the bridge between the OAuth Pro
 ## Extending the Key Manager Interface
 
 When you need to write your own implementation to plug an external OAuth2 Authorization Server that will act as the Key Manager, you should implement a third-party Key Manager Connector as explain in 
-[Configure a Custom Key Manger](https://apim.docs.wso2.com/en/next/administer/key-managers/configure-custom-connector/)
+[Configure a Custom Key Manager](https://apim.docs.wso2.com/en/next/administer/key-managers/configure-custom-connector/)
 
 
 The following are the methods that the `KeyManager` interface uses to carry out operations.
