@@ -56,7 +56,7 @@ Let's do the following API resource to backend mapping in this tutorial as an ex
 
     [![](../../assets/img/learn/api-gateway/message-mediation/test-api.png)](../../assets/img/learn/api-gateway/message-mediation/test-api.png)
 
-4.  Copy the the following to a text editor and save the file in XML format.  
+4.  Copy the following to a text editor and save the file in XML format.  
     (e.g., `TestSequence.xml` ).
 
     ``` java
