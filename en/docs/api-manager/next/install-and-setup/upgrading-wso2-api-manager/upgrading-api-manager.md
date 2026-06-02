@@ -25,7 +25,7 @@ There are multiple reasons why you would want to upgrade the WSO2 product to the
 
 ## What has changed
 
-Over the course of its lifetime, WSO2 API Manager has changed significantly. To learn what’s new in the WSO2 API Manager 4.5.0 release, see the [About this Release page](../../get-started/about-this-release.md).
+Over the course of its lifetime, WSO2 API Manager has changed significantly. To learn what’s new in the WSO2 API Manager 4.7.0 release, see the [About this Release page](../../get-started/about-this-release.md).
 
 <div class="admonition info">
     <p class="admonition-title">Seamless product upgrade from WSO2 API Manager 4.2.0</p>
