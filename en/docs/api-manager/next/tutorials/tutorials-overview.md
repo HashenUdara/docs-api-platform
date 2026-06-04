@@ -41,7 +41,7 @@ The following list of tutorials guide you to use the API-first approach when cre
                 <li><a href="streaming-api/create-and-publish-websocket-api.md">Create and Publish a WebSocket API<a></li>
                 <li><a href="streaming-api/create-and-publish-websub-api.md">Create and Publish a WebSub API (WebHook API)<a></li>
                 <li><a href="streaming-api/create-and-publish-sse-api.md">Create and Publish a SSE API<a></li>
-                <li><a href="edit-an-api-by-modifyng-the-api-definition.md">Edit an API by Modifying the API Definition<a></li>
+                <li><a href="edit-an-api-by-modifying-the-api-definition.md">Edit an API by Modifying the API Definition<a></li>
             </ul>
         </td>
     </tr>
