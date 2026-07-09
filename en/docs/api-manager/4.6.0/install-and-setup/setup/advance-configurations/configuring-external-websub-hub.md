@@ -1,32 +1,8 @@
----
-title: "Configuring an external WebSub hub"
-description: "Delegate WebSub hub duties to an external hub in WSO2 API Manager, with topic naming, distributed deployment, and verification."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/install-and-setup/setup/advance-configurations/configuring-external-websub-hub/
-md_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/install-and-setup/setup/advance-configurations/configuring-external-websub-hub.md
-tags:
-  - api-manager
-  - install-and-setup
-  - setup
-  - advance-configurations
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-07-23
-content_type: "how-to"
----
-
 # Configuring an External WebSub Hub
 
-By default, WSO2 API Manager handles the WebSub protocol (topic registration, subscription, unsubscription, and content publishing) inside the Universal Gateway itself. This works well for most deployments, but there are situations where you may want to delegate the hub responsibility to a dedicated external WebSub hub — for example, to reuse an existing hub that already serves other systems, to scale hub traffic independently of API traffic, or to take advantage of hub-specific features such as guaranteed deliveries.
+By default, WSO2 API Manager handles the WebSub protocol (topic registration, subscription, unsubscription, and content publishing) inside the Universal Gateway itself. This works well for most deployments, but there are situations where you may want to delegate the hub responsibility to a dedicated external WebSub hub — for example, to reuse an existing hub that already serves other systems, to scale hub traffic independently of API traffic, or to take advantage of hub-specific features such as persistent subscriptions.
 
-When an external hub is configured, WebSub APIs deployed from the Publisher continue to handle authentication, authorization, and throttling at the Gateway as usual, but the hub requests (`subscribe`, `unsubscribe`, and `publish`) are forwarded to the external hub instead of being processed internally.
-
-!!! note
-    This feature requires the following minimum update levels for WSO2 API Manager 4.6.0:
-
-    - All-in-One (`wso2am`): 4.6.0.32
-    - Control Plane (`wso2am-acp`): 4.6.0.33
-    - Universal Gateway (`wso2am-universal-gw`): 4.6.0.32
-
-    Run the [WSO2 Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/) to get the latest updates.
+When an external hub is configured, WebSub APIs deployed from the Publisher continue to handle authentication, authorization, and throttling at the Gateway as usual, but the hub-mode requests (`subscribe`, `unsubscribe`, and `publish`) are forwarded to the external hub instead of being processed internally.
 
 !!! note
     This configuration applies to WebSub APIs only. REST, GraphQL, WebSocket, and SSE APIs are not affected.
@@ -82,9 +58,9 @@ disable_topic_context_prefix = false
 
 ### Topic naming
 
-When the topic-context prefix is enabled (the default), the gateway rewrites each topic before sending it to the external hub, so that topics with the same name from different WebSub APIs do not collide on a shared hub. The rewritten topic uses the API context as a prefix, with `/` characters replaced by `_`.
+When the topic-context prefix is enabled (the default), the gateway rewrites each topic before sending it to the external hub, so that topics from different APIs do not collide on a shared hub. The rewritten topic uses the API context as a prefix, with `/` characters replaced by `_`.
 
-For example, the publish request to the `commits` topic of the `/repo-watcher/1.0.0` WebSub API is forwarded to the `repo-watcher_1.0.0_commits` topic of the external WebSub Hub. Publish and subscribe requests are rewritten the same way, so publishers and subscribers stay consistent.
+For example, an API deployed at `/repo-watcher/1.0.0` publishing to topic `commits` is forwarded to the external hub as `repo-watcher_1.0.0_commits`. Publish and subscribe requests are rewritten the same way, so publishers and subscribers stay consistent.
 
 !!! warning
     Because `_` is used as the separator, avoid embedding `_` in API contexts, API versions, and topic names when the prefix is enabled. Otherwise the resulting topic strings can become ambiguous.
@@ -100,7 +76,7 @@ For example, the publish request to the `commits` topic of the `/repo-watcher/1.
 ## Verifying the configuration
 
 1. Add the `[apim.external_websub_hub]` block to `deployment.toml` on the Control Plane and restart the node.
-2. [Create a WebSub API](../../../api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md) with one or more topics from the Publisher and deploy a new revision to a Gateway environment.
+2. [Create a WebSub API]({{base_path}}/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api/) with one or more topics from the Publisher and deploy a new revision to a Gateway environment.
 3. Send a subscription request against the API's callback endpoint (`POST /<context>/<version>?hub.mode=subscribe&hub.topic=<topic>&hub.callback=<callback-url>`) and confirm that:
     - Your external hub receives the subscription request.
     - The subscriber receives the WebSub verification callback from the external hub.
@@ -112,6 +88,6 @@ Remove (or comment out) the `[apim.external_websub_hub]` block from `deployment.
 
 ## See also
 
-- [Create a WebSub/WebHook API](../../../api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md)
-- [Test a WebSub/WebHook API](../../../api-design-manage/design/create-api/create-streaming-api/test-a-websub-api.md)
-- [Extend WebSub Topic Matching](../../../reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching.md)
+- [Create a WebSub/WebHook API]({{base_path}}/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api/)
+- [Test a WebSub/WebHook API]({{base_path}}/api-design-manage/design/create-api/create-streaming-api/test-a-websub-api/)
+- [Extend WebSub Topic Matching]({{base_path}}/reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching/)

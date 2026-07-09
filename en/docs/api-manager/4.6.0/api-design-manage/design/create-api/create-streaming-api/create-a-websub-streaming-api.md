@@ -154,7 +154,7 @@ Learn more by trying out an end-to-end tutorial on <a href="../../../../../tutor
 
 ## See Also
 
---8<-- "api-manager/4.6.0/includes/design/stream-more-links.md"
+{!includes/design/stream-more-links.md!}
 
-- [Configure an External WebSub Hub](../../../../install-and-setup/setup/advance-configurations/configuring-external-websub-hub.md) — delegate hub responsibilities to a dedicated external WebSub hub.
-- [Extend WebSub Topic Matching](../../../../reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching.md) — plug in custom topic-matching logic for WebSub APIs.
+- [Configure an External WebSub Hub]({{base_path}}/install-and-setup/setup/advance-configurations/configuring-external-websub-hub/) — delegate hub responsibilities to a dedicated external WebSub hub.
+- [Extend WebSub Topic Matching]({{base_path}}/reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching/) — plug in custom topic-matching logic for WebSub APIs.

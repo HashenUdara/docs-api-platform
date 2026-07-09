@@ -1,18 +1,3 @@
----
-title: "Extending WebSub topic matching"
-description: "Plug custom topic-matching logic into WebSub APIs on the Universal Gateway by implementing and deploying an ExtensionListener."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching/
-md_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching.md
-tags:
-  - api-manager
-  - reference
-  - customize-product
-  - extending-api-manager
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-07-23
-content_type: "how-to"
----
-
 # Extending WebSub Topic Matching
 
 When a subscriber sends a request to a WebSub API, the Universal Gateway decides whether the topic the subscriber asked for matches one of the topics defined on the API. Out of the box, this decision is based on two rules:
@@ -23,14 +8,6 @@ When a subscriber sends a request to a WebSub API, the Universal Gateway decides
 If neither rule accepts the subscriber's topic, the request is rejected as invalid.
 
 These rules cover most use cases, but sometimes the topic scheme used by an external system cannot be expressed as an exact string or a URI template. Common examples include topics with versioning suffixes (`orders.v2`), hierarchical wildcards not supported by URI templates, or topics that need to be looked up against an external registry. For these cases, WSO2 API Manager exposes an extension point that lets you plug in your own topic-matching logic for WebSub APIs.
-
-!!! note
-    This feature requires the following minimum update levels for WSO2 API Manager 4.6.0:
-
-    - All-in-One (`wso2am`): 4.6.0.32
-    - Universal Gateway (`wso2am-universal-gw`): 4.6.0.32
-
-    Run the [WSO2 Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/) to get the latest updates.
 
 ## How it works
 
@@ -208,7 +185,7 @@ The values your matcher exchanges with the Gateway are passed through the reques
 
 ## Verifying the extension
 
-1. Deploy a WebSub API that has at least one topic defined (see [Create a WebSub/WebHook API](../../../../api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md)).
+1. Deploy a WebSub API that has at least one topic defined (see [Create a WebSub/WebHook API]({{base_path}}/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api/)).
 2. Enable `DEBUG` logging for your extension package by adding the following to `<API-M_HOME>/repository/conf/log4j2.properties` on the Gateway:
     ```
     logger.custom-websub.name = com.example.apim.websub
@@ -220,6 +197,6 @@ The values your matcher exchanges with the Gateway are passed through the reques
 
 ## See also
 
-- [Configuring an External WebSub Hub](../../../../install-and-setup/setup/advance-configurations/configuring-external-websub-hub.md)
-- [Write Custom Handlers](writing-custom-handlers.md)
-- [Create a WebSub/WebHook API](../../../../api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md)
+- [Configuring an External WebSub Hub]({{base_path}}/install-and-setup/setup/advance-configurations/configuring-external-websub-hub/)
+- [Write Custom Handlers]({{base_path}}/reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers/)
+- [Create a WebSub/WebHook API]({{base_path}}/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api/)
