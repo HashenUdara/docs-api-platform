@@ -199,3 +199,5 @@ Once you create and publish a WebSocket API, you can also <a href="https://apim.
 ## See Also
 
 --8<-- "api-manager/next/includes/design/stream-more-links.md"
+
+- If your WebSocket backend is only reachable through an HTTP CONNECT proxy, see [Configure WebSocket Proxy Profiles](../../../../api-gateway/websocket-proxy-profiles.md).
