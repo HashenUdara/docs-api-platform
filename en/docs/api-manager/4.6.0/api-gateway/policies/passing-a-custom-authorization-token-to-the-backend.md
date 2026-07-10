@@ -62,11 +62,11 @@ Here's a summary:
         ```
 
         Once the above steps are done, the backend server will be running on `http://localhost:8080`.
-        [![CLI output](../../assets/img/learn/custom-auth-backend-cli-output.png){: style="width:65%"}](../../assets/img/learn/custom-auth-backend-cli-output.png)
+        [![CLI output]({{base_path}}/assets/img/learn/custom-auth-backend-cli-output.png){: style="width:65%"}]({{base_path}}/assets/img/learn/custom-auth-backend-cli-output.png)
     
         Incoming requests and their headers are printed directly to the terminal, so you can verify what the gateway forwarded to the backend.
 
-3.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API](../../api-design-manage/design/create-api/create-rest-api/create-a-rest-api.md).
+3.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/).
 
     | Field         | Sample Value         |
     |---------------|----------------------|
@@ -75,7 +75,7 @@ Here's a summary:
     | Version       | 1.0.0                |
     | Endpoint      | http://localhost:8080/custom-auth-header/validate-header |
 
-4.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy](../../api-design-manage/design/api-policies/create-policy.md).
+4.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/api-design-manage/design/api-policies/create-policy/).
 
     | Section                   | Field             | Sample Value          |
     |---------------------------|-------------------|-----------------------|
@@ -87,7 +87,7 @@ Here's a summary:
     | Gateway Specific Details  | Policy File       | `tokenExchange.j2` file you created |
     | Policy Attributes         | N/A               | N/A                     |
 
-5.  Next, find the **Custom Authorization Token** policy that you just created by following Step 4, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies](../../api-design-manage/design/api-policies/attach-policy.md).
+5.  Next, find the **Custom Authorization Token** policy that you just created by following Step 4, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).
 
     [![Custom Authorization Token Policy](../../assets/img/design/api-policies/custom-authorization-token-policy.png)](../../assets/img/design/api-policies/custom-authorization-token-policy.png)
 
