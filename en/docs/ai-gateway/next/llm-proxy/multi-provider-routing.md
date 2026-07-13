@@ -34,7 +34,7 @@ A multi-provider LLM proxy has:
 
 - One primary provider in `spec.provider`
 - One or more selectable providers in `spec.additionalProviders`
-- An `openai-header-router` policy that selects a provider from a request header
+- An LLM Header Router policy (`openai-header-router`) that selects a provider from a request header
 - An inline transformer for each additional provider that does not use the OpenAI wire format
 
 The request flow is:
@@ -46,7 +46,7 @@ OpenAI-compatible client request
             v
     Multi-provider LLM proxy
             |
-            | openai-header-router selects anthropic-provider
+            | LLM Header Router selects anthropic-provider
             | openai-to-anthropic transforms the request
             | provider loopback authentication is added
             v
@@ -336,7 +336,7 @@ Header names and mapped header values are matched case-insensitively. Leading an
 
 ## Add More Providers
 
-Add each selectable provider under `additionalProviders`, then add a corresponding mapping under `openai-header-router`.
+Add each selectable provider under `additionalProviders`, then add a corresponding mapping under the LLM Header Router policy (`openai-header-router`).
 
 ### Azure OpenAI
 
@@ -467,7 +467,9 @@ The alias must:
 | `version` | Yes | Major policy version, such as `v1` |
 | `params` | No | Transformer-specific parameters, such as `model` or `apiVersion` |
 
-### `openai-header-router` parameters
+### LLM Header Router parameters
+
+Use `openai-header-router` as the policy name in the configuration.
 
 | Parameter | Required | Default | Description |
 |-----------|----------|---------|-------------|
