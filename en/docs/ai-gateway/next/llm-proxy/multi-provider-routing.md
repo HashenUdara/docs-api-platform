@@ -266,7 +266,7 @@ spec:
 EOF
 ```
 
-The controller automatically passes the additional provider's effective upstream name to its transformer. Do not add an `id` under `transformer.params`; it is injected from `additionalProviders[].id` or `additionalProviders[].as`.
+The controller automatically passes the additional provider's effective upstream name to its transformer. Do not add a `providerId` under `transformer.params`; it is injected from `additionalProviders[].id` or `additionalProviders[].as`.
 
 ## Step 4: Create a Proxy Consumer Key
 
