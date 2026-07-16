@@ -911,7 +911,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can define the custom claim retiriver implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
+                                        <p>You can define the custom claim retriever implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4651,7 +4651,7 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Binary - Uses the binary transport. Recommended.Thrift - Uses thrift transport</p>
+                                        <p>Binary - Uses the binary transport. Recommended. Thrift - Uses thrift transport</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7368,7 +7368,7 @@ environment = "live"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>the signature of the attached PayPal account.</p>
+                                        <p>The signature of the attached PayPal account.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12325,7 +12325,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12346,7 +12346,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12367,7 +12367,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12388,7 +12388,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12409,7 +12409,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12430,7 +12430,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12451,7 +12451,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12472,7 +12472,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -17930,4 +17930,3 @@ scope = "https://ai.azure.com/.default"
         </div>
     </section>
 </div>
-
