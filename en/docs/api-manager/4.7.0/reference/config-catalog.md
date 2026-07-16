@@ -3253,6 +3253,7 @@ default_request_timeout = 30</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mcp]
 enable = true
+enforce_auth_for_all_mcp_methods = false
 </code></pre>
                     </div>
                 </div>
