@@ -72,4 +72,4 @@ The graphs below show the 90th, 95th, and 99th percentile response times at 10 m
 - Percentile trends follow the same upward pattern as concurrent users increase across the test range.
 - Compared with the two-CPU Advanced Guardrails results, the four-CPU configuration improves percentile response times at high concurrency.
 
-Test scenario results in CSV format are available [here](https://raw.githubusercontent.com/wso2/api-platform/refs/heads/main/gateway/perf/ai-gateway-1.1.0-perf-test-results/four-core-results-summary.csv).
+Test scenario results in CSV format are available [here](https://raw.githubusercontent.com/wso2/api-platform/refs/heads/main/gateway/perf/ai-gateway-1.1.0-perf-test-results/4-core-results-summary.csv).
