@@ -105,7 +105,6 @@ nav:
                     - Set up Kubernetes Gateway with APIM: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
                     - Set up a Key Manager:
                         - Set up a Third-party Key Manager: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
-                        - Set up WSO2 Identity Server as a Resident Key Manager: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
                     - Set up Databases:
                         - Overview: api-manager/4.7.0/install-and-setup/setup/setting-up-databases/overview.md
                         - Change Default Databases:
@@ -443,7 +442,6 @@ nav:
                 - Third-Party Key Managers:
                     - Overview: api-manager/4.7.0/api-security/key-management/third-party-key-managers/overview.md
                     - Configure WSO2 IS Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
-                    - Configure WSO2 IS 6.x as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
                     - Configure Asgardeo as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-asgardeo-connector.md
                     - Configure Keycloak as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                     - Configure Okta as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-okta-connector.md
