@@ -58,6 +58,20 @@ Verify:
 kubectl get pods -n cert-manager
 ```
 
+## Create the Encryption Key Secret
+
+At-rest encryption is **mandatory and fail-closed** - the chart refuses to render without an AES-256 key Secret. Create it in the namespace you install into, **before** installing the chart.
+
+```bash
+openssl rand 32 > default-aesgcm256-v1.bin
+kubectl create secret generic gateway-encryption-keys \
+  --from-file=default-aesgcm256-v1.bin=default-aesgcm256-v1.bin
+rm default-aesgcm256-v1.bin   # don't leave the plaintext key on disk
+# add -n <namespace> to both this command and `helm install` for a non-default namespace
+```
+
+The Secret's key entry must be named `default-aesgcm256-v1.bin`. See [Security Hardening → Encryption Keys](https://wso2.com/api-platform/docs/api-gateway/deployment/production-deployment/security-hardening/#encryption-keys) for key rotation and multi-key setups.
+
 ## Install Gateway Chart
 
 Use one of the following patterns.
@@ -66,7 +80,8 @@ Use one of the following patterns.
 
 ```bash
 helm install ap-gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway \
-  --set gateway.developmentMode=true
+  --set gateway.controller.encryptionKeys.enabled=true \
+  --set gateway.controller.encryptionKeys.secretName=gateway-encryption-keys
 ```
 
 ### Install into a dedicated namespace
@@ -76,7 +91,8 @@ kubectl create namespace api-gateway
 
 helm install ap-gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway \
   --namespace api-gateway \
-  --set gateway.developmentMode=true
+  --set gateway.controller.encryptionKeys.enabled=true \
+  --set gateway.controller.encryptionKeys.secretName=gateway-encryption-keys
 ```
 
 ### Install with control-plane overrides
@@ -86,7 +102,8 @@ helm install ap-gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway \
   --set gateway.controller.controlPlane.host="platform.example.com" \
   --set gateway.controller.controlPlane.port=8443 \
   --set gateway.controller.controlPlane.token.value="your-token-here" \
-  --set gateway.developmentMode=true
+  --set gateway.controller.encryptionKeys.enabled=true \
+  --set gateway.controller.encryptionKeys.secretName=gateway-encryption-keys
 ```
 
 ### Install with a values file

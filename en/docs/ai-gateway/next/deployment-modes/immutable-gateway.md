@@ -34,15 +34,11 @@ This is the recommended approach for:
 
 ## Configuration
 
-Enable immutable mode in `config.toml` or via environment variable:
+Enable immutable mode in `config.toml`:
 
 ```toml
 [immutable_gateway]
 enabled = true
-```
-
-```bash
-APIP_GW_IMMUTABLE_GATEWAY_ENABLED=true
 ```
 
 By default, the gateway controller loads artifacts from `/etc/api-platform-gateway/immutable_gateway/artifacts`. You only need to set `artifacts_dir` if you want to use a different path.
@@ -54,13 +50,19 @@ By default, the gateway controller loads artifacts from `/etc/api-platform-gatew
 > enabled = true
 > artifacts_dir = "/etc/api-platform-gateway/immutable_gateway/artifacts"
 > ```
->
-> The equivalent environment variable overrides follow the standard `APIP_GW_` prefix convention:
->
-> ```bash
-> APIP_GW_IMMUTABLE_GATEWAY_ENABLED=true
-> APIP_GW_IMMUTABLE_GATEWAY_ARTIFACTS_DIR=/etc/api-platform-gateway/immutable_gateway/artifacts
-> ```
+
+!!! note "Toggling immutable mode from the environment"
+    Environment variables do not override `config.toml` keys directly — a value reaches a key only through an `env` interpolation token in the config file, and the shipped config carries no token for the `[immutable_gateway]` section. To drive this section from an environment variable, add the tokens to your `config.toml` first:
+
+    {% raw %}
+    ```toml
+    [immutable_gateway]
+    enabled = '{{ env "APIP_GW_IMMUTABLE_GATEWAY_ENABLED" "false" }}'
+    artifacts_dir = '{{ env "APIP_GW_IMMUTABLE_GATEWAY_ARTIFACTS_DIR" "/etc/api-platform-gateway/immutable_gateway/artifacts" }}'
+    ```
+    {% endraw %}
+
+    then set `APIP_GW_IMMUTABLE_GATEWAY_ENABLED=true`. See [Gateway Configuration and Environment Interpolation](./../setup/configuration.md).
 
 ## Artifact format
 

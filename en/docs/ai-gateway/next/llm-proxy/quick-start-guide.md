@@ -54,9 +54,13 @@ wget https://github.com/wso2/api-platform/releases/download/ai-gateway/v1.2.0-al
 # Unzip the downloaded distribution.
 unzip wso2apip-ai-gateway-1.2.0-alpha.zip
 
+cd wso2apip-ai-gateway-1.2.0-alpha/
+
+# Run the one-time setup. This provisions the AES-256 at-rest encryption key,
+# the router HTTPS listener certificate, and api-platform.env
+./scripts/setup.sh
 
 # Start the complete stack
-cd wso2apip-ai-gateway-1.2.0-alpha/
 docker compose up -d
 
 # Verify gateway controller admin endpoint is running
