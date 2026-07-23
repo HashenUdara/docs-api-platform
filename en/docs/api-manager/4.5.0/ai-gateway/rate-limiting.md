@@ -24,8 +24,6 @@ By enforcing rate limits, you can:
 
 WSO2 API Manager enables you to define rate limits at different levels, including subscription-level, and backend-level, ensuring flexibility in managing API usage.
 
-!!! note
-    Streaming is not supported for AI APIs when using the **WSO2 API Manager Universal Gateway**. As a result, token-based rate limiting is not enforced for streaming requests. See [Limitations](overview.md#limitations) for details.
 
 ## Subscription-Level Rate Limiting
 
