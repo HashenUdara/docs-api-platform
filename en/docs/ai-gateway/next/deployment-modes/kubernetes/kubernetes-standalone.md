@@ -65,9 +65,10 @@ At-rest encryption is **mandatory and fail-closed** - the chart refuses to rende
 ```bash
 openssl rand 32 > default-aesgcm256-v1.bin
 kubectl create secret generic gateway-encryption-keys \
-  --from-file=default-aesgcm256-v1.bin=default-aesgcm256-v1.bin
-rm default-aesgcm256-v1.bin   # don't leave the plaintext key on disk
-# add -n <namespace> to both this command and `helm install` for a non-default namespace
+  --from-file=default-aesgcm256-v1.bin=default-aesgcm256-v1.bin && \
+  rm default-aesgcm256-v1.bin   # remove the plaintext key only after the Secret is created
+# For a non-default namespace, first `kubectl create namespace <namespace>`,
+# then add `-n <namespace>` to both this command and `helm install`.
 ```
 
 The Secret's key entry must be named `default-aesgcm256-v1.bin`. See [Security Hardening → Encryption Keys](https://wso2.com/api-platform/docs/api-gateway/deployment/production-deployment/security-hardening/#encryption-keys) for key rotation and multi-key setups.
@@ -107,6 +108,16 @@ helm install ap-gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway \
 ```
 
 ### Install with a values file
+
+`custom-values.yaml` must define the mandatory encryption settings:
+
+```yaml
+gateway:
+  controller:
+    encryptionKeys:
+      enabled: true
+      secretName: gateway-encryption-keys
+```
 
 ```bash
 helm install ap-gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway \

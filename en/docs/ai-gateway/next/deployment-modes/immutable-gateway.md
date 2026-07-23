@@ -141,7 +141,8 @@ FROM ghcr.io/wso2/api-platform/gateway-controller:1.0.0
 
 COPY ./artifacts /etc/api-platform-gateway/immutable_gateway/artifacts
 
-ENV APIP_GW_IMMUTABLE_GATEWAY_ENABLED=true
+# Bake in a config.toml that sets [immutable_gateway] enabled = true.
+COPY ./config.toml /etc/gateway-controller/config.toml
 ```
 
 ### Kubernetes — mounting a ConfigMap volume
@@ -159,7 +160,7 @@ volumeMounts:
     readOnly: true
 ```
 
-Set `APIP_GW_IMMUTABLE_GATEWAY_ENABLED=true` in the container's environment variables.
+The mounted `config.toml` must set `[immutable_gateway] enabled = true` — either directly, or by mounting a tokenized `config.toml` (with an `env` token for that section) and setting `APIP_GW_IMMUTABLE_GATEWAY_ENABLED=true` in the container's environment variables (see [Configuration](#configuration)).
 
 ## Invoking the API
 
