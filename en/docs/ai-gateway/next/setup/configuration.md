@@ -100,9 +100,10 @@ The gateway has **no development or demo mode** and **never auto-generates keys 
 
 - **AES-256 at-rest encryption key** — used to encrypt sensitive data at rest. Required; the controller will not start without it.
 - **Router HTTPS listener certificate** — the TLS certificate/key for the router's HTTPS listener.
+- **Admin credentials** — the gateway-controller management API basic-auth credential. There is no hardcoded `admin:admin`; the controller fails closed if basic auth is enabled with no credential.
 - **`api-platform.env`** — runtime settings read directly by the gateway-runtime entrypoint (for example, `GATEWAY_CONTROLLER_HOST`, `LOG_LEVEL`).
 
-The setup script provisions all three.
+The setup script provisions all four.
 
 ## One-time setup with `setup.sh`
 
@@ -119,14 +120,25 @@ docker compose up -d
 |----------|----------|---------|
 | Router listener certificate | `listener-certs/default-listener.{crt,key}` | Self-signed cert for the router HTTPS listener (SANs include `localhost`, `*.localhost`, `host.docker.internal`, `127.0.0.1`). |
 | AES-256 encryption key | `aesgcm-keys/default-aesgcm256-v1.bin` | 32-byte at-rest encryption key, bind-mounted into the controller. |
+| Admin credentials | `api-platform.env` | Gateway-controller REST/management API basic-auth credential (`APIP_GW_CONTROLLER_AUTH_BASIC_ADMIN_USERNAME` + bcrypt `..._PASSWORD_HASH`). |
 | `api-platform.env` | `api-platform.env` | Runtime defaults loaded into the containers via `env_file`. |
+
+!!! note "Admin credentials"
+    The gateway-controller management API is protected by basic auth. You provide the plaintext
+    `ADMIN_USERNAME` (defaults to `admin`) and `ADMIN_PASSWORD` (used if set, otherwise prompted,
+    otherwise randomly generated) to `setup.sh`; it writes
+    `APIP_GW_CONTROLLER_AUTH_BASIC_ADMIN_USERNAME` and the **bcrypt** `..._PASSWORD_HASH` into
+    `api-platform.env` (the tokens `config.toml` reads) and prints the plaintext password **once** — copy
+    it. For non-interactive use: `ADMIN_USERNAME=admin ADMIN_PASSWORD='…' ./scripts/setup.sh`. If those
+    tokens are unset when the controller starts with the shipped `config.toml`, it **refuses to start**
+    rather than running on an empty credential.
 
 The script is **idempotent** — existing files are kept, not overwritten. Flags:
 
 | Flag | Effect |
 |------|--------|
-| `--force` | Regenerate the certificate and encryption key (rotating them) and rewrite `api-platform.env`. |
-| `--certs-only` | Generate only the listener TLS certificate; skip the encryption key and `api-platform.env`. |
+| `--force` | Regenerate the certificate and encryption key (rotating them), rewrite `api-platform.env`, and re-provision the admin credentials (rotating the password). |
+| `--certs-only` | Generate only the listener TLS certificate; skip the encryption key, admin credentials, and `api-platform.env`. |
 
 !!! warning "Rotating the encryption key"
     Running `setup.sh --force` regenerates the AES-256 encryption key. Data encrypted with the previous key becomes unreadable. Only rotate the key deliberately.

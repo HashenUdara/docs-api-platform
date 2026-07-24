@@ -56,9 +56,15 @@ unzip wso2apip-ai-gateway-1.2.0-beta.zip
 
 cd wso2apip-ai-gateway-1.2.0-beta/
 
-# Run the one-time setup. This provisions the AES-256 at-rest encryption key,
-# the router HTTPS listener certificate, and api-platform.env
+# Run the one-time setup. This provisions the AES-256 at-rest encryption key, the router HTTPS
+# listener certificate, api-platform.env, and the gateway-controller admin credentials. It prints
+# the admin password once — copy it.
 ./scripts/setup.sh
+
+# Export the admin credentials so the management-API calls below can authenticate.
+# The username defaults to "admin"; use the password setup.sh just printed.
+export ADMIN_USERNAME=admin
+export ADMIN_PASSWORD='<the password scripts/setup.sh printed>'
 
 # Start the complete stack
 docker compose up -d
@@ -74,7 +80,7 @@ The API Platform Gateway currently includes first-class support for the OpenAI L
 ```bash
 curl -X POST http://localhost:9090/api/management/v1/llm-providers \
   -H "Content-Type: application/yaml" \
-  -H "Authorization: Basic YWRtaW46YWRtaW4=" \
+  -u "$ADMIN_USERNAME:$ADMIN_PASSWORD" \
   --data-binary @- <<'EOF'
 apiVersion: gateway.api-platform.wso2.com/v1
 kind: LlmProvider
@@ -126,7 +132,7 @@ The API Platform Gateway provides first-class support for configuring and deploy
 ```bash
 curl -X POST http://localhost:9090/api/management/v1/llm-proxies \
   -H "Content-Type: application/yaml" \
-  -H "Authorization: Basic YWRtaW46YWRtaW4=" \
+  -u "$ADMIN_USERNAME:$ADMIN_PASSWORD" \
   --data-binary @- <<'EOF'
 apiVersion: gateway.api-platform.wso2.com/v1
 kind: LlmProxy
