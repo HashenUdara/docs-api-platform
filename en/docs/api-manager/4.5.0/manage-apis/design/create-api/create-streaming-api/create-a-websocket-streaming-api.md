@@ -200,3 +200,5 @@ Once you create and publish a WebSocket API, you can also <a href="../../../../d
 ## See Also
 
 --8<-- "api-manager/4.5.0/includes/design/stream-more-links.md"
+
+- If your WebSocket backend is only reachable through an HTTP CONNECT proxy, see [Configure WebSocket Proxy Profiles](../../../deploy-and-publish/deploy-on-gateway/api-gateway/websocket-proxy-profiles.md).
