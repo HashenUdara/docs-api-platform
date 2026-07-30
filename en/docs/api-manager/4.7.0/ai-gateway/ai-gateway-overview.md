@@ -159,7 +159,7 @@ Implement [smart routing](multi-model-routing/overview.md) to balance cost and p
 
 ## Limitations
 
-Streaming is not supported for AI APIs when using the **WSO2 API Manager Universal Gateway**.
+Streaming is not supported for AI APIs when using the **WSO2 API Manager Classic Gateway**.
 
 ## Next Steps
 
