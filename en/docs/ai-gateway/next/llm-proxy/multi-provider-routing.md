@@ -8,7 +8,7 @@ tags:
   - llm
   - routing
 author: WSO2 API Platform Documentation Team
-last_updated: 2026-07-13
+last_updated: 2026-07-30
 content_type: "guide"
 ---
 
@@ -34,7 +34,7 @@ A multi-provider LLM proxy has:
 
 - One primary provider in `spec.provider`
 - One or more selectable providers in `spec.additionalProviders`
-- An LLM Header Router policy (`openai-header-router`) that selects a provider from a request header
+- An LLM Header Router policy (`llm-header-router`) that selects a provider from a request header
 - An inline transformer for each additional provider that does not use the OpenAI wire format
 
 The request flow is:
@@ -61,7 +61,7 @@ OpenAI-compatible client request
 OpenAI-compatible client response
 ```
 
-The router writes the selected provider name to request metadata. The gateway conditionally applies only the authentication and transformer associated with that provider. The primary provider is used when the selection header is missing, empty, or does not match a configured mapping.
+The router writes the selected provider name to request metadata. The gateway conditionally applies only the authentication and transformer associated with that provider. When the selection header is missing, empty, or does not match a configured mapping, the router uses `defaultProvider` when configured; otherwise, the proxy's primary provider is used.
 
 ## Before You Begin
 
@@ -250,7 +250,7 @@ spec:
             key: X-API-Key
             in: header
 
-    - name: openai-header-router
+    - name: llm-header-router
       version: v1
       paths:
         - path: /chat/completions
@@ -336,7 +336,21 @@ Header names and mapped header values are matched case-insensitively. Leading an
 
 ## Add More Providers
 
-Add each selectable provider under `additionalProviders`, then add a corresponding mapping under the LLM Header Router policy (`openai-header-router`).
+Add each selectable provider under `additionalProviders`, then add a corresponding mapping under the LLM Header Router policy (`llm-header-router`).
+
+### Supported provider transformers
+
+Use a transformer when an additional provider does not accept and return the OpenAI wire format.
+
+| Target provider | Transformer type | Purpose |
+|-----------------|------------------|---------|
+| Anthropic | `openai-to-anthropic` | Converts OpenAI-compatible requests to the Anthropic Messages format and converts responses back to the OpenAI format. |
+| Azure OpenAI | `openai-to-azure-openai` | Adapts OpenAI-compatible requests for Azure OpenAI deployments and API versions. |
+| Mistral | `openai-to-mistral` | Adapts OpenAI-compatible requests and responses for Mistral. |
+| Gemini | `openai-to-gemini` | Converts OpenAI-compatible requests and responses for Google Gemini. |
+| AWS Bedrock | `openai-to-bedrock-transformer` | Converts OpenAI-compatible requests and supported AWS Bedrock responses. |
+
+A transformer is not required when the selected provider already exposes an OpenAI-compatible API.
 
 ### Azure OpenAI
 
@@ -394,7 +408,7 @@ Add each selectable provider under `additionalProviders`, then add a correspondi
     header: X-API-Key
     value: <aws-bedrock-provider-loopback-key>
   transformer:
-    type: openai-to-aws-bedrock
+    type: openai-to-bedrock-transformer
     version: v1
     params:
       model: anthropic.claude-3-5-sonnet-20240620-v1:0
@@ -469,12 +483,12 @@ The alias must:
 
 ### LLM Header Router parameters
 
-Use `openai-header-router` as the policy name in the configuration.
+Use `llm-header-router` as the policy name in the configuration.
 
 | Parameter | Required | Default | Description |
 |-----------|----------|---------|-------------|
 | `headerName` | No | `x-provider` | Request header used for selection |
-| `defaultProvider` | Yes | None | Effective provider name selected when no mapping matches |
+| `defaultProvider` | No | Primary provider | Effective provider name selected when no mapping matches. When omitted, the proxy's primary provider is used. |
 | `mappings` | Yes | None | Header value to effective provider name mappings; the first match wins |
 
 ## Validation and Troubleshooting
@@ -530,4 +544,11 @@ The AI Gateway distribution includes the router and transformer policies support
 
 ## Complete Example
 
-For a larger configuration containing OpenAI, Anthropic, Azure OpenAI, Mistral, and Gemini, see [`gateway/examples/openai-multi-provider-proxy.yaml`](https://github.com/wso2/api-platform/blob/main/gateway/examples/openai-multi-provider-proxy.yaml).
+For a larger configuration containing OpenAI, Anthropic, Azure OpenAI, Mistral, Gemini, and AWS Bedrock, see [`gateway/examples/openai-multi-provider-proxy.yaml`](https://github.com/wso2/api-platform/blob/main/gateway/examples/openai-multi-provider-proxy.yaml).
+
+For automatic traffic distribution across models and providers, see:
+
+- [Model Round Robin](load-balancing/model-round-robin.md)
+- [Model Weighted Round Robin](load-balancing/model-weighted-round-robin.md)
+
+AWS Bedrock usage can also be evaluated by the [LLM Cost policy](../../../next/ai-workspace/policies/rate-limit/llm-cost.md).
