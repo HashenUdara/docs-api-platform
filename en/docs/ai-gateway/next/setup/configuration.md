@@ -107,12 +107,21 @@ The setup script provisions all four.
 
 ## One-time setup with `setup.sh`
 
-The distribution ships `scripts/setup.sh`, which provisions everything a fresh gateway needs. Run it once before the first `docker compose up`:
+The distribution ships `scripts/setup.sh` (and `scripts/setup.ps1`, its Windows PowerShell counterpart), which provisions everything a fresh gateway needs. Run it once before the first `docker compose up`:
 
-```bash
-./scripts/setup.sh
-docker compose up -d
-```
+=== "Linux / macOS"
+
+    ```bash
+    ./scripts/setup.sh
+    docker compose up -d
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
+    docker compose up -d
+    ```
 
 `setup.sh` provisions, idempotently:
 
@@ -129,7 +138,8 @@ docker compose up -d
     otherwise randomly generated) to `setup.sh`; it writes
     `APIP_GW_CONTROLLER_AUTH_BASIC_ADMIN_USERNAME` and the **bcrypt** `..._PASSWORD_HASH` into
     `api-platform.env` (the tokens `config.toml` reads) and prints the plaintext password **once** — copy
-    it. For non-interactive use: `ADMIN_USERNAME=admin ADMIN_PASSWORD='…' ./scripts/setup.sh`. If those
+    it. For non-interactive use: `ADMIN_USERNAME=admin ADMIN_PASSWORD='…' ./scripts/setup.sh` (on Windows:
+    `$env:ADMIN_USERNAME='admin'; $env:ADMIN_PASSWORD='…'; powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1`). If those
     tokens are unset when the controller starts with the shipped `config.toml`, it **refuses to start**
     rather than running on an empty credential.
 
