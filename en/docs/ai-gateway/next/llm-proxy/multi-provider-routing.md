@@ -16,7 +16,7 @@ content_type: "guide"
 
 ## Overview
 
-Multi-provider routing lets one LLM proxy expose a single OpenAI-compatible endpoint while routing each request to a selected LLM provider. Applications continue to use the same endpoint and OpenAI-compatible request and response format, even when the upstream provider changes.
+Multi-provider routing lets one large language model (LLM) proxy expose a single OpenAI-compatible endpoint while routing each request to a selected LLM provider. Applications continue to use the same endpoint and OpenAI-compatible request and response format, even when the upstream provider changes.
 
 For example, an application can send all requests to `/openai-multi/chat/completions` and select OpenAI or Anthropic with the `x-provider` request header.
 
