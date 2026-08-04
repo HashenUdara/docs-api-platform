@@ -73,7 +73,7 @@ export ADMIN_USERNAME=admin
 export ADMIN_PASSWORD='<the password scripts/setup.sh printed>'
 
 # Start the complete stack
-docker compose up -d
+docker compose up
 
 # Verify gateway controller admin endpoint is running
 curl http://localhost:9094/api/admin/v1/health

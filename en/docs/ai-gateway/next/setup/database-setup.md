@@ -284,7 +284,7 @@ For SQL Server, the shipped Compose files supply the whole connection string thr
 Start the gateway:
 
 ```bash
-docker compose up -d
+docker compose up
 ```
 
 On startup the controller logs that it connected to the external database and that schema auto-apply was skipped. That message is expected — it confirms the controller is relying on the schema you provisioned.

@@ -75,7 +75,7 @@ This starts:
 To run only the core gateway services without the demonstration logging stack:
 
 ```bash
-docker compose up -d
+docker compose up
 ```
 
 **Note:** The gateway components still log to stdout/stderr. You just won't have the centralized collection and visualization services running. You can still view logs using:

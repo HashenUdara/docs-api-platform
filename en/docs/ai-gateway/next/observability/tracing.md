@@ -88,7 +88,7 @@ This starts:
 To run only the core gateway services without the demonstration tracing stack:
 
 ```bash
-docker compose up -d
+docker compose up
 ```
 
 **Note:** If tracing is enabled in the configuration but the OTLP collector is not running, components will log warnings about failed trace exports. To completely disable tracing, set `enabled = false` in the configuration.
