@@ -51,7 +51,7 @@ To call an LLM through the gateway, you also need an OpenAI API key.
 
 ## Start the gateway
 
-<!-- Replace `${version}` with the API Platform AI Gateway release version you want to run. -->
+The commands below use version `1.2.0-rc`. Substitute the API Platform AI Gateway release version you want to run in the download URL, the archive name, and the directory name.
 
 ```bash
 # Download distribution.
@@ -60,7 +60,7 @@ wget https://github.com/wso2/api-platform/releases/download/ai-gateway/v1.2.0-rc
 # Unzip the downloaded distribution.
 unzip wso2apip-ai-gateway-1.2.0-rc.zip
 
-cd wso2apip-ai-gateway-1.2.0/
+cd wso2apip-ai-gateway-1.2.0-rc/
 
 # Run the one-time setup. This provisions the AES-256 at-rest encryption key, the router HTTPS
 # listener certificate, api-platform.env, and the gateway-controller admin credentials. It prints
