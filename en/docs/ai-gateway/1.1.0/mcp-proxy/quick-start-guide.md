@@ -83,7 +83,7 @@ curl http://localhost:9094/health
   Get-NetTCPConnection -State Listen -LocalPort 8080,8443,9090,9094 | Select-Object LocalAddress, LocalPort, OwningProcess
   ```
 
-    Stop the conflicting service if you don't need it. If you need to keep it running, change the host side of the relevant `ports:` mapping in `docker-compose.yaml`, then use the remapped host port in the verification and test commands on this page.
+    Stop the conflicting service if you don't need it. If you need to keep it running, change the host-side value of the relevant `ports:` mapping in `docker-compose.yaml`. Then use the remapped host port in the verification and test commands on this page.
 
 ## Deploy an MCP proxy configuration
 
