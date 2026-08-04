@@ -9,7 +9,7 @@ tags:
   - mcp
   - streaming
 author: WSO2 API Platform Documentation Team
-last_updated: 2026-08-04
+last_updated: 2026-08-05
 content_type: "concept"
 ---
 
@@ -25,16 +25,11 @@ Streaming applies across the gateway's artifact types:
 
 This page is for AI developers building on the gateway, and for platform administrators deciding which policies to attach.
 
-## How the gateway detects a streaming response
+## Stream a response
 
-Streaming needs no configuration on the `LlmProvider`, `LlmProxy`, or `McpProxy`. The gateway decides per response, based on what the upstream sends:
+Streaming needs no configuration on the `LlmProvider`, `LlmProxy`, or `McpProxy`. The gateway streams a response whenever the upstream service streams it, so you ask for a stream the same way you would when calling the provider directly: set `"stream": true` in the request body.
 
-- The response carries `Content-Type: text/event-stream`, which is how OpenAI-compatible providers return Server-Sent Events (SSE).
-- The response carries `Transfer-Encoding: chunked`.
-
-When either holds, the gateway switches the response body to full-duplex streaming and relays each chunk downstream as it arrives. The gateway applies the same two checks to request bodies, so a chunked or SSE request body also streams upstream.
-
-To stream an LLM response, set `"stream": true` in the request body, exactly as you would when calling the provider directly. The following example calls an LLM proxy deployed at `/assistant`:
+The following example calls an LLM proxy deployed at `/assistant`:
 
 ```bash
 curl -N -X POST "https://localhost:8443/assistant/chat/completions" \
@@ -53,7 +48,7 @@ curl -N -X POST "https://localhost:8443/assistant/chat/completions" \
 
 The same request works against the provider endpoint directly. Replace `/assistant` with the provider context, such as `/openai/latest`.
 
-The `-N` flag turns off curl's own output buffering, so you see the SSE events as they arrive rather than all at once at the end.
+The `-N` flag turns off curl's own output buffering, so you see the Server-Sent Events (SSE) as they arrive rather than all at once at the end.
 
 ## How policies behave on a streamed response
 
@@ -74,11 +69,11 @@ A streaming-capable policy can still hold bytes back when it has to. A guardrail
 
 ### MCP proxies
 
-Response bodies on MCP proxies stay buffered, even when the MCP server replies with a chunked or SSE body. The gateway runs the response chain against the complete body and then sends it. Request bodies on MCP proxies stream under the same rules as any other route.
+Response bodies on MCP proxies stay buffered, even when the MCP server replies with a streamed body. The gateway runs the response chain against the complete body and then sends it. Request bodies on MCP proxies stream under the same rules as any other route.
 
 ## Analytics on a streamed response
 
-Analytics doesn't cost you the streaming behavior. As the gateway forwards each chunk to the client, it also keeps its own copy. At the end of the stream, it parses the accumulated SSE events and emits one analytics event for the request. The client receives every chunk at the time it arrives; the copy is only used after the stream closes.
+Analytics doesn't cost you the streaming behavior. The client receives every chunk at the time it arrives, and the gateway emits one analytics event for the request once the stream closes.
 
 ## Token usage on a streamed response
 
