@@ -68,7 +68,7 @@ An MCP Proxy routes Model Context Protocol traffic to MCP servers. MCP is a prot
 
 ### Streaming
 
-When an upstream service streams its response, the gateway relays it to the client chunk by chunk instead of buffering the whole response. This holds for LLM providers, LLM proxies, and MCP proxies, and needs no configuration. See [Streaming responses](streaming-responses.md).
+When an upstream service streams its response, the gateway relays it to the client chunk by chunk instead of buffering the whole response. This holds for LLM providers, LLM proxies, and MCP proxies, and needs no configuration. See [Real-time AI streaming](streaming-responses.md).
 
 ## Default Ports
 
@@ -116,7 +116,7 @@ You can extend the AI Gateway with custom guardrail policies by building a custo
 |---------|-------------|
 | [LLM](llm-proxy/quick-start-guide.md) | LLM provider configuration, guardrails, prompt management, and semantic caching |
 | [MCP](mcp-proxy/quick-start-guide.md) | MCP proxy setup and policies |
-| [Streaming](streaming-responses.md) | Streamed responses across providers and proxies, and how policies and analytics behave |
+| [Real-time AI streaming](streaming-responses.md) | Streamed responses across providers and proxies, and how policies and analytics behave |
 | [Observability](observability/logging.md) | Logging and tracing configuration |
 | [Analytics](analytics/moesif-analytics.md) | Analytics integrations (Moesif) |
 | [Policies and Guardrails](https://github.com/wso2/gateway-controllers/blob/main/docs/README.md) | Gateway policies and guardrails for AI traffic control |
