@@ -8,7 +8,7 @@ tags:
   - llm
   - quickstart
 author: WSO2 API Platform Documentation Team
-last_updated: 2026-06-30
+last_updated: 2026-08-04
 content_type: "quickstart"
 ---
 
@@ -35,11 +35,14 @@ content_type: "quickstart"
 A Docker-compatible container runtime such as:
 
 - Docker Desktop (Windows / macOS)
+- Podman Desktop or Podman (Windows / macOS / Linux)
 - Rancher Desktop (Windows / macOS)
 - Colima (macOS)
 - Docker Engine + Compose plugin (Linux)
 
-Ensure `docker` and `docker compose` commands are available.
+These examples use `docker compose`. If you use another Compose-compatible runtime, use the equivalent commands.
+
+Verify the commands for your runtime are available. For Docker:
 
 ```bash
 docker --version
@@ -62,6 +65,18 @@ docker compose up -d
 # Verify gateway controller admin endpoint is running
 curl http://localhost:9094/health
 ```
+
+!!! tip "Port 8080, 8443, 9090, or 9094 already taken?"
+    If the start command fails with a port binding error, identify what is already listening on the default ports:
+
+    ```bash
+    lsof -nP -iTCP:8080 -sTCP:LISTEN
+    lsof -nP -iTCP:8443 -sTCP:LISTEN
+    lsof -nP -iTCP:9090 -sTCP:LISTEN
+    lsof -nP -iTCP:9094 -sTCP:LISTEN
+    ```
+
+    Stop the conflicting service if you don't need it. If you need to keep it running, change the host side of the relevant `ports:` mapping in `docker-compose.yaml`, then use the remapped host port in the verification and test commands on this page.
 
 ## Deploy an OpenAI LLM provider configuration
 
