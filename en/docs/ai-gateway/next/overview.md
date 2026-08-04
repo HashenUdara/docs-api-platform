@@ -68,7 +68,7 @@ An MCP Proxy routes Model Context Protocol traffic to MCP servers. MCP is a prot
 
 ### Streaming
 
-When an upstream service streams its response, the gateway relays it to the client chunk by chunk instead of buffering the whole response. This holds for LLM providers, LLM proxies, and MCP proxies, and needs no configuration. See [Real-time AI streaming](streaming-responses.md).
+When an upstream service streams its response, the gateway relays it to the client chunk by chunk instead of buffering the whole response. This holds for LLM providers and LLM proxies, and needs no configuration. On MCP proxies, request bodies stream, but response bodies stay buffered. See [Real-time AI streaming](streaming-responses.md).
 
 ## Default Ports
 

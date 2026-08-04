@@ -27,7 +27,7 @@ This page is for AI developers building on the gateway, and for platform adminis
 
 ## Stream a response
 
-Streaming needs no configuration on the `LlmProvider`, `LlmProxy`, or `McpProxy`. The gateway streams a response whenever the upstream service streams it, so you ask for a stream the same way you would when calling the provider directly: set `"stream": true` in the request body.
+Response streaming needs no configuration on the `LlmProvider` or `LlmProxy`. The gateway streams a response whenever the upstream service streams it, so you ask for a stream the same way you would when calling the provider directly: set `"stream": true` in the request body. On an `McpProxy`, request bodies stream, but response bodies stay buffered. See [MCP proxies](#mcp-proxies).
 
 The following example calls an LLM proxy deployed at `/assistant`:
 
@@ -73,7 +73,7 @@ Response bodies on MCP proxies stay buffered, even when the MCP server replies w
 
 ## Analytics on a streamed response
 
-Analytics doesn't cost you the streaming behavior. The client receives every chunk at the time it arrives, and the gateway emits one analytics event for the request once the stream closes.
+Analytics doesn't cost you the streaming behavior. The client receives every chunk at the time it arrives, and the gateway emits one analytics event for the request once the stream closes. The gateway emits that event for every stream it closes, including a stream that carries no `usage` block. In that case, the event records the request without token counts. See [Token usage on a streamed response](#token-usage-on-a-streamed-response).
 
 ## Token usage on a streamed response
 
@@ -94,7 +94,7 @@ Providers differ in when they send that block:
 
 - **Anthropic** reports token counts in its `message_start` and `message_delta` events, so no extra request field is needed.
 
-If a streamed response carries no `usage` block, the gateway has no token counts to record for that request. Analytics, cost calculation, and token-based rate limiting skip it. Set `stream_options` on OpenAI-compatible requests whenever you rely on any of those, including when the budget controls on the `LlmProvider` use token-based rate limiting.
+If a streamed response carries no `usage` block, the gateway has no token counts to record for that request. The analytics event still reports the request, with its token metrics empty, and cost calculation and token-based rate limiting have nothing to work with. Set `stream_options` on OpenAI-compatible requests whenever you rely on any of those, including when the budget controls on the `LlmProvider` use token-based rate limiting.
 
 ## Related documentation
 
