@@ -381,7 +381,7 @@ Attach a least-privilege policy to the IAM user or role that invokes Bedrock. Th
 }
 ```
 
-For production, replace `*` with the model or inference profile ARN values the gateway is allowed to invoke. See [Prerequisites for running model inference](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-prereq.html) for the complete AWS guidance.
+For production, replace `*` with the model or inference profile Amazon Resource Name (ARN) values the gateway is allowed to invoke. When you scope access to an inference profile, authorize both the inference profile ARN and the corresponding foundation model ARN in each destination Region that the profile can route to. See [Prerequisites for running model inference](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-prereq.html) for the complete AWS guidance.
 
 For `sts-assume-role`, the source identity also needs `sts:AssumeRole` permission for the target role, and the target role's trust policy must trust the source identity.
 
@@ -427,6 +427,8 @@ export BEDROCK_MODEL_ID="<bedrock-model-or-inference-profile-id>"
 Call the native Bedrock `Converse` operation through the gateway:
 
 ```bash
+export CA_CERT_PATH="<path-to-trusted-ca-certificate>"
+
 curl --fail-with-body -X POST \
   "https://localhost:8443/bedrock/v1.0/model/${BEDROCK_MODEL_ID}/converse" \
   -H "Content-Type: application/json" \
@@ -445,7 +447,7 @@ curl --fail-with-body -X POST \
       "temperature": 0.2
     }
   }' \
-  --cacert <path-to-trusted-ca-certificate>
+  --cacert "$CA_CERT_PATH"
 ```
 
 URL-encode the model ID if it contains characters that are not safe in a URL path.

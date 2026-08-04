@@ -475,6 +475,8 @@ curl -X DELETE http://localhost:9090/api/management/v1/llm-provider-templates/cu
 
 ## Template Field Reference
 
+Use this table to configure an `LlmProviderTemplate` resource.
+
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `apiVersion` | string | Yes | API version, must be `gateway.api-platform.wso2.com/v1` |
