@@ -1,5 +1,5 @@
 ---
-title: "Streaming Responses"
+title: "Real-Time AI Streaming"
 description: "Stream responses through API Platform AI Gateway chunk by chunk across LLM providers, LLM proxies, and MCP proxies, and understand how policies, analytics, and token usage behave."
 canonical_url: https://wso2.com/api-platform/docs/ai-gateway/streaming-responses/
 md_url: https://wso2.com/api-platform/docs/ai-gateway/streaming-responses.md
@@ -13,7 +13,7 @@ last_updated: 2026-08-04
 content_type: "concept"
 ---
 
-# Streaming responses
+# Real-time AI streaming
 
 The AI Gateway forwards a streamed response to the client chunk by chunk, as each chunk arrives from the upstream service. The gateway doesn't hold the response until the upstream finishes generating it, so the first token reaches your application at about the same time it leaves the provider. Chat interfaces and agent loops keep their token-by-token behavior when they run through the gateway.
 
