@@ -49,6 +49,8 @@ An LLM Provider represents a connection to an AI backend service such as OpenAI,
 
 Once configured, the LLM Provider allows traffic to flow through the gateway to the AI backend.
 
+To connect the gateway to Amazon Bedrock, see [Configure an AWS Bedrock LLM Provider](llm-proxy/configure-aws-bedrock-provider.md). The guide covers both Bedrock bearer API keys and AWS Signature Version 4 (SigV4) authentication.
+
 ### LLM Proxy
 
 An LLM Proxy allows developers to create custom API endpoints that consume an LLM Provider, while inheriting administrator-enforced access control, budgeting and organization-wide policies defined at the provider level. Each proxy gets its own URL context (e.g., `/assistant`) and can have its own policies applied. This enables:
