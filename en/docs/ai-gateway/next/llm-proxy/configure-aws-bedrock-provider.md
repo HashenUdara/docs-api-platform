@@ -1,6 +1,6 @@
 ---
-title: "Configure an AWS Bedrock LLM Provider"
-description: "Connect API Platform AI Gateway to Amazon Bedrock using a bearer API key or AWS Signature Version 4 authentication, then invoke a model through the gateway."
+title: "Configure an AWS Bedrock Large Language Model provider"
+description: "Connect API Platform AI Gateway to AWS Bedrock using a bearer API key or AWS Signature Version 4 authentication, then invoke a model through the gateway."
 canonical_url: https://wso2.com/api-platform/docs/ai-gateway/llm-proxy/configure-aws-bedrock-provider/
 md_url: https://wso2.com/api-platform/docs/ai-gateway/llm-proxy/configure-aws-bedrock-provider.md
 tags:
@@ -13,23 +13,23 @@ last_updated: 2026-08-04
 content_type: "guide"
 ---
 
-# Configure an AWS Bedrock LLM Provider
+# Configure an AWS Bedrock Large Language Model provider
 
-Connect API Platform AI Gateway directly to the regional Amazon Bedrock Runtime endpoint. You can authenticate the gateway to Bedrock in either of these ways:
+Connect API Platform AI Gateway directly to the regional AWS Bedrock Runtime endpoint. You can authenticate the gateway to Bedrock in either of these ways:
 
-- **Bearer authentication** with an Amazon Bedrock API key
+- **Bearer authentication** with an AWS Bedrock API key
 - **AWS Signature Version 4 (SigV4)** with IAM credentials or a workload role
 
-Both methods expose the native Bedrock `Converse` and `ConverseStream` operations through the gateway. They use the regional Bedrock Runtime endpoint, not the Bedrock Mantle endpoint. Choose the AWS Region where your Bedrock model is available, and use the same Region in the Bedrock endpoint, SigV4 policy, and model ID or inference profile.
+Both methods expose the native Bedrock `Converse` and `ConverseStream` operations through the gateway. They use the regional Bedrock Runtime endpoint, not the Bedrock Mantle endpoint. For a base model ID, choose an AWS Region where that model is available, and use the same Region in the Bedrock endpoint, SigV4 policy, and model ID. For an inference profile ID, invoke Bedrock through the source Region endpoint where the profile is supported; the profile may route requests to destination Regions. In this case, the SigV4 Region must match the source Region in the endpoint.
 
-## Before You Begin
+## Before you begin
 
 Make sure that:
 
 - The AI Gateway is running and its management API is available at `http://localhost:9090/api/management/v1`.
 - You have the gateway controller administrator username and password.
 - Your model is available to your AWS account in the selected Region.
-- You have either an [Amazon Bedrock API key](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html) or an IAM identity that can invoke the model.
+- You have either an [AWS Bedrock API key](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html) or an IAM identity that can invoke the model.
 - `curl` is installed. Install `jq` as well if you want the commands to capture the generated gateway API key automatically.
 
 Set the gateway administrator credentials:
@@ -42,28 +42,30 @@ export AWS_REGION="<aws-region>"
 
 For example, set `AWS_REGION` to `us-east-1`, `us-west-2`, or another Region where your selected Bedrock model is available.
 
-## Choose an Authentication Method
+## Choose an authentication method
+
+Use the following table to choose the authentication method that matches your gateway environment.
 
 | Method | Recommended use |
 |--------|-----------------|
 | Bedrock bearer API key | Getting started and development environments |
-| SigV4 with the default credential chain | Production gateways running with an EC2, ECS, or EKS Pod Identity role |
-| SigV4 with IRSA | Gateways running on EKS with IAM Roles for Service Accounts |
-| SigV4 with STS AssumeRole | Cross-account access or a gateway that must assume a dedicated Bedrock role |
+| SigV4 with the default credential chain | Production gateways running with an Amazon Elastic Compute Cloud (EC2), Amazon Elastic Container Service (ECS), or Amazon Elastic Kubernetes Service (EKS) Pod Identity role |
+| SigV4 with IAM Roles for Service Accounts (IRSA) | Gateways running on EKS with IRSA |
+| SigV4 with AWS Security Token Service (STS) AssumeRole | Cross-account access or a gateway that must assume a dedicated Bedrock role |
 | SigV4 with an IAM access key | Local testing when a workload role is unavailable |
 
 !!! note "Two different API keys"
     A Bedrock bearer API key authenticates the gateway to AWS. Later in this guide, you create a gateway consumer API key that authenticates your application to the gateway. Do not use one in place of the other.
 
-## Option 1: Bearer Authentication
+## Option 1: Bearer authentication
 
-Amazon Bedrock API keys are sent to the Bedrock Runtime endpoint in the `Authorization: Bearer <key>` header. AWS recommends short-term keys for production and long-term keys only for exploration.
+AWS Bedrock API keys are sent to the Bedrock Runtime endpoint in the `Authorization: Bearer <key>` header. AWS recommends short-term keys for production and long-term keys only for exploration.
 
 ### Step 1: Generate a Bedrock API key
 
-Follow the AWS instructions to [generate an Amazon Bedrock API key](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys-generate.html):
+Follow the AWS instructions to [generate an AWS Bedrock API key](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys-generate.html):
 
-1. Open the Amazon Bedrock console in the Region where you will invoke the model.
+1. Open the AWS Bedrock console in the Region where you will invoke the model.
 2. Generate a short-term or long-term API key.
 3. Copy the key when AWS displays it.
 
@@ -92,7 +94,7 @@ kind: Secret
 metadata:
   name: bedrock-api-key
 spec:
-  displayName: Amazon Bedrock API Key
+  displayName: AWS Bedrock API Key
   value: "${AWS_BEARER_TOKEN_BEDROCK}"
 EOF
 ```
@@ -102,6 +104,7 @@ EOF
 The provider references the stored key by name. The `AWS_REGION` value is expanded into the Bedrock Runtime endpoint.
 
 {% raw %}
+
 ```bash
 curl --fail-with-body -X POST \
   http://localhost:9090/api/management/v1/llm-providers \
@@ -146,11 +149,12 @@ spec:
             in: header
 EOF
 ```
+
 {% endraw %}
 
-Continue to [Create a Gateway Consumer API Key](#create-a-gateway-consumer-api-key).
+Continue to [Create a gateway consumer API key](#create-a-gateway-consumer-api-key).
 
-## Option 2: SigV4 Authentication
+## Option 2: SigV4 authentication
 
 The `aws-authentication` policy signs each outbound request with SigV4. Do not configure `spec.upstream.auth` when using this option because the policy creates the AWS `Authorization` header.
 
@@ -211,12 +215,13 @@ EOF
 Deploy the provider. The `AWS_REGION` value is expanded into both the Bedrock Runtime endpoint and the SigV4 policy configuration.
 
 {% raw %}
+
 ```bash
 curl --fail-with-body -X POST \
   http://localhost:9090/api/management/v1/llm-providers \
   -u "$ADMIN_USERNAME:$ADMIN_PASSWORD" \
   -H "Content-Type: application/yaml" \
-  --data-binary @- <<'EOF'
+  --data-binary @- <<EOF
 apiVersion: gateway.api-platform.wso2.com/v1
 kind: LlmProvider
 metadata:
@@ -263,14 +268,35 @@ spec:
           params: *consumer-auth
 EOF
 ```
+
 {% endraw %}
 
 If the access key is temporary, create a third secret named `bedrock-session-token` and add this parameter to `bedrock-aws-auth`:
 
+```bash
+export AWS_SESSION_TOKEN="<aws-session-token>"
+
+curl --fail-with-body -X POST \
+  http://localhost:9090/api/management/v1/secrets \
+  -u "$ADMIN_USERNAME:$ADMIN_PASSWORD" \
+  -H "Content-Type: application/yaml" \
+  --data-binary @- <<EOF
+apiVersion: gateway.api-platform.wso2.com/v1
+kind: Secret
+metadata:
+  name: bedrock-session-token
+spec:
+  displayName: Bedrock AWS Session Token
+  value: "${AWS_SESSION_TOKEN}"
+EOF
+```
+
 {% raw %}
+
 ```yaml
 awsSessionToken: '{{ secret "bedrock-session-token" }}'
 ```
+
 {% endraw %}
 
 !!! warning
@@ -289,11 +315,11 @@ params: &bedrock-aws-auth
   authenticationType: default-credential-chain
 ```
 
-Do not set an access key, secret access key, session token, or role ARN for this mode. The AWS SDK resolves credentials from the gateway runtime environment.
+Do not set an access key, secret access key, session token, or role Amazon Resource Name (ARN) for this mode. The AWS SDK resolves credentials from the gateway runtime environment.
 
-### IAM Roles for Service Accounts
+### IAM roles for service accounts
 
-Use `irsa` when the gateway runs on EKS with an OIDC provider and a Kubernetes service account associated with an IAM role. The EKS Pod Identity Webhook must inject `AWS_ROLE_ARN` and `AWS_WEB_IDENTITY_TOKEN_FILE` into the gateway pod.
+Use `irsa` when the gateway workload already has the required IAM role through IRSA. The gateway must run on EKS with an OpenID Connect (OIDC) provider and a Kubernetes service account associated with an IAM role. The EKS Pod Identity Webhook must inject `AWS_ROLE_ARN` and `AWS_WEB_IDENTITY_TOKEN_FILE` into the gateway pod.
 
 Replace the `bedrock-aws-auth` parameters with:
 
@@ -334,7 +360,7 @@ For a cross-account role that requires an external ID, also add:
 awsRoleExternalID: <external-id>
 ```
 
-## Configure IAM Permissions for SigV4
+## Configure IAM permissions for SigV4
 
 Attach a least-privilege policy to the IAM user or role that invokes Bedrock. The following policy allows the non-streaming and streaming operations used in this guide:
 
@@ -355,11 +381,11 @@ Attach a least-privilege policy to the IAM user or role that invokes Bedrock. Th
 }
 ```
 
-For production, replace `*` with the model or inference profile ARNs the gateway is allowed to invoke. See [Prerequisites for running model inference](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-prereq.html) for the complete AWS guidance.
+For production, replace `*` with the model or inference profile ARN values the gateway is allowed to invoke. See [Prerequisites for running model inference](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-prereq.html) for the complete AWS guidance.
 
 For `sts-assume-role`, the source identity also needs `sts:AssumeRole` permission for the target role, and the target role's trust policy must trust the source identity.
 
-## Verify the Provider
+## Verify the provider
 
 Retrieve the deployed provider:
 
@@ -369,7 +395,7 @@ curl --fail-with-body \
   http://localhost:9090/api/management/v1/llm-providers/bedrock-provider
 ```
 
-## Create a Gateway Consumer API Key
+## Create a gateway consumer API key
 
 The provider examples protect the exposed routes with `api-key-auth`. Create a consumer key for the application that will call Bedrock through the gateway:
 
@@ -390,9 +416,9 @@ test -n "$GATEWAY_API_KEY" && test "$GATEWAY_API_KEY" != "null"
 
 The key value is returned only when it is created or regenerated. Store it securely.
 
-## Invoke Bedrock Through the Gateway
+## Invoke Bedrock through the gateway
 
-Set a model ID or inference profile ID that is available in the selected AWS Region:
+Set a base model ID that is available in the selected AWS Region, or an inference profile ID that is supported by the source Region configured in the Bedrock Runtime endpoint:
 
 ```bash
 export BEDROCK_MODEL_ID="<bedrock-model-or-inference-profile-id>"
@@ -410,7 +436,7 @@ curl --fail-with-body -X POST \
       {
         "role": "user",
         "content": [
-          {"text": "Reply with a short hello from Amazon Bedrock."}
+          {"text": "Reply with a short hello from AWS Bedrock."}
         ]
       }
     ],
@@ -419,10 +445,12 @@ curl --fail-with-body -X POST \
       "temperature": 0.2
     }
   }' \
-  -k
+  --cacert <path-to-trusted-ca-certificate>
 ```
 
 URL-encode the model ID if it contains characters that are not safe in a URL path.
+
+If the gateway uses a certificate signed by a public or locally trusted certificate authority (CA), omit `--cacert`. For a local self-signed certificate, add the issuing CA certificate to your trust store or pass it with `--cacert`.
 
 ## Troubleshooting
 
@@ -446,7 +474,7 @@ Confirm that the gateway pod has both `AWS_ROLE_ARN` and `AWS_WEB_IDENTITY_TOKEN
 
 Check both sides of the relationship: the source identity must be allowed to call `sts:AssumeRole`, and the target role's trust policy must trust the source identity.
 
-## Security Recommendations
+## Security recommendations
 
 - Do not commit AWS access keys, session tokens, Bedrock API keys, gateway passwords, or external IDs.
 - Prefer the default credential chain, IRSA, or STS AssumeRole over long-lived IAM user access keys.
