@@ -8,7 +8,7 @@ tags:
   - llm
   - routing
 author: WSO2 API Platform Documentation Team
-last_updated: 2026-08-04
+last_updated: 2026-08-05
 content_type: "guide"
 ---
 
@@ -27,8 +27,6 @@ This is useful when you want to:
 - Keep vendor credentials in the gateway instead of distributing them to applications
 - Apply proxy-level authentication, rate limits, and guardrails consistently across providers
 - Introduce provider selection and model suspension through a routing policy
-
-Multi-provider transformation is scoped to the OpenAI Chat Completions request and response model. It does not add cross-provider support for the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs.
 
 ## Choose a Routing Strategy
 
@@ -593,159 +591,278 @@ Use `llm-header-router` as the policy name in the configuration.
 
 ## Provider Capability Matrix
 
-All transformer capabilities on this page refer to the OpenAI Chat Completions contract implemented by the gateway. They do not imply that every model offered by a provider supports the corresponding feature.
+Expand a provider to see its complete transformation behavior. `Converted` means that the transformer explicitly maps a field to the provider-native format. `Pass-through` means that it retains the OpenAI field, subject to support by the selected model and API version.
 
-| Capability | Anthropic | Azure OpenAI | AWS Bedrock | Gemini | Mistral |
-|------------|-----------|--------------|-------------|--------|---------|
-| Request body handling | Full conversion | Pass-through | Full conversion | Full conversion | OpenAI-compatible normalization |
-| Request path | `/v1/messages` | Deployment path with `api-version` | Converse or Converse Stream | `generateContent` or `streamGenerateContent` | `/v1/chat/completions` |
-| Model behavior | Policy model required | Optional deployment override; otherwise body model | Optional policy model; otherwise body model | Policy model required | Policy model required |
-| System and developer messages | Converted to top-level system text | Pass-through | Converted to system blocks | Converted to `systemInstruction` | Pass-through |
-| Text messages | Converted | Pass-through | Converted | Converted | Pass-through |
-| Image input | Base64 data URI and remote URL | Pass-through | Base64 data URI only | Base64 data URI and remote URL | Pass-through |
-| Function tools | Converted | Pass-through | Converted | Converted | Pass-through |
-| Tool-call history and results | Converted | Pass-through | Converted | Converted | Pass-through |
-| Non-streaming response | Converted to OpenAI format | Already OpenAI-compatible | Converted to OpenAI format | Converted to OpenAI format | Normalized OpenAI-compatible response |
-| Error response | Converted | Passed through | Converted | Converted | Converted |
-| Streaming request selection | Passed to Anthropic | Passed through | Selects Converse Stream | Selects `streamGenerateContent` SSE | Passed through |
-| OpenAI-compatible streaming response | No | Yes, subject to deployment and API version | Yes | No | Expected, subject to model and API behavior |
-| Usage conversion | Converted, including available cache details | Passed through | Converted, including cache details | Converted, including cached and reasoning tokens | Passed through |
+??? info "Anthropic"
+    **Transformer:** [`openai-to-anthropic`](https://wso2.com/api-platform/policy-hub/policies/openai-to-anthropic-transformer) in the Policy Hub.
 
-### Input capability matrix
+    **Scope:** The Anthropic transformer targets OpenAI Chat Completions request and response shapes. It does not translate the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs.
 
-`Converted` means that the transformer explicitly maps a field to the provider-native format. `Pass-through` means that it deliberately retains the OpenAI field. `Omitted` means that a full-conversion transformer does not copy the field. A passed-through field is still subject to support by the selected provider model and API version.
+    **Capability summary**
 
-| OpenAI Chat Completions input | Anthropic | Azure OpenAI | AWS Bedrock | Gemini | Mistral |
-|--------------------------------|-----------|--------------|-------------|--------|---------|
-| `model` | Replaced by policy | Passed through and used as deployment fallback | Used in path and omitted from body | Replaced and used in path | Replaced by policy |
-| Text messages | Converted | Pass-through | Converted | Converted | Pass-through |
-| `system` role | Top-level system text | Pass-through | System blocks | `systemInstruction` | Pass-through |
-| `developer` role | Treated as system | Pass-through | Treated as system | Treated as system | Pass-through |
-| `assistant.tool_calls` | Converted | Pass-through | Converted | Converted | Pass-through |
-| `tool` role results | Converted | Pass-through | Converted | Converted | Pass-through |
-| Image data URI | Converted | Pass-through | Converted | Converted | Pass-through |
-| Remote image URL | Converted | Pass-through | Omitted | Converted to `fileData` | Pass-through |
-| `max_completion_tokens` | Mapped to `max_tokens` | Pass-through | Mapped to `max_tokens` | Mapped to `maxOutputTokens` | Pass-through |
-| `max_tokens` | Mapped to `max_tokens` | Pass-through | Mapped to `max_tokens` | Mapped to `maxOutputTokens` | Pass-through |
-| `temperature` | Converted | Pass-through | Converted | Converted | Pass-through |
-| `top_p` | Converted | Pass-through | Converted | Converted | Pass-through |
-| `stop` string or array | Converted | Pass-through | Converted | Converted | Pass-through |
-| `stream` | Passed to Anthropic | Pass-through | Selects streaming path | Selects streaming path | Pass-through |
-| `n` | Omitted | Pass-through | Omitted | Mapped to `candidateCount` | Removed |
-| `seed` | Omitted | Pass-through | Omitted | Converted | Pass-through |
-| `frequency_penalty` | Omitted | Pass-through | Omitted | Converted | Pass-through |
-| `presence_penalty` | Omitted | Pass-through | Omitted | Converted | Pass-through |
-| `tools` and `tool_choice` | Converted | Pass-through | Converted | Converted | Pass-through |
-| `response_format` | Omitted | Pass-through | Omitted | Omitted | Pass-through |
-| `logprobs` and `top_logprobs` | Omitted | Pass-through | Omitted | Omitted | Removed |
-| `logit_bias` | Omitted | Pass-through | Omitted | Omitted | Removed |
-| `service_tier`, `store`, `metadata`, and `user` | Omitted | Pass-through | Omitted | Omitted | Removed |
+    | Capability | Anthropic support |
+    |------------|-------------------|
+    | Request handling | Full conversion |
+    | Image input | Base64 and remote URL |
+    | Function tools | Converted |
+    | Non-streaming OpenAI response | Yes |
+    | OpenAI-compatible streaming | No |
 
-For Anthropic, AWS Bedrock, and Gemini, the transformer constructs a new provider-native request body. Fields not explicitly converted are omitted.
+    **Request conversion**
 
-### Response capability matrix
+    | OpenAI input | Anthropic behavior |
+    |--------------|--------------------|
+    | Request path | Rewritten to `/v1/messages` |
+    | `model` | Replaced by the required policy model |
+    | Text messages | Converted to Anthropic message content |
+    | `system` and `developer` roles | Combined into top-level system text; developer messages are treated as system messages |
+    | `assistant.tool_calls` and `tool` results | Converted to tool-use and tool-result blocks |
+    | Image data URI | Converted to an Anthropic base64 image source |
+    | Remote image URL | Converted to an Anthropic URL image source |
+    | `max_completion_tokens` and `max_tokens` | Mapped to `max_tokens` |
+    | `temperature`, `top_p`, and `stop` | Converted |
+    | `stream` | Passed to Anthropic |
+    | `tools` and `tool_choice` | Converted |
+    | `n`, `seed`, `frequency_penalty`, `presence_penalty`, `response_format`, `logprobs`, `top_logprobs`, `logit_bias`, `service_tier`, `store`, `metadata`, and `user` | Omitted |
 
-| Output feature | Anthropic | Azure OpenAI | AWS Bedrock | Gemini | Mistral |
-|----------------|-----------|--------------|-------------|--------|---------|
-| OpenAI `chat.completion` envelope | Generated | Native and passed through | Generated | Generated | Native and normalized |
-| Multiple choices | No; one choice | Upstream-dependent | No; one choice | Yes; all candidates | Upstream-dependent |
-| Text output | Converted | Pass-through | Converted | Converted; thought parts excluded | Pass-through |
-| Tool calls | Converted | Pass-through | Converted | Converted | Pass-through |
-| Finish reason | Converted | Pass-through | Converted | Converted | Pass-through |
-| Token usage | Converted, including available cache-read and cache-creation details | Pass-through | Converted, including cache-read and cache-write details | Converted, including cached and reasoning tokens | Pass-through |
-| Error envelope | Converted | Pass-through | Converted | Converted | Converted |
-| OpenAI SSE conversion | No | Native and passed through | Yes | No | Native and passed through |
+    The transformer constructs a new Anthropic request body. Any field that is not explicitly converted is omitted.
 
-Anthropic produces one OpenAI choice and preserves available cache-read and cache-creation counts in prompt token details. AWS Bedrock produces one choice and retains cache-read and cache-write information for cost calculation. Gemini converts every candidate, preserves candidate indices, excludes `thought: true` parts from visible assistant text, and exposes thought tokens as reasoning tokens.
+    **Response conversion**
 
-## Streaming
+    - Generates one OpenAI `chat.completion` choice containing converted text, tool calls, and finish reason.
+    - Converts token usage, including available cache-read and cache-creation counts in prompt token details.
+    - Converts Anthropic errors to an OpenAI-style error envelope while retaining the upstream HTTP status.
 
-Streaming behavior is not uniform across provider routes. Select a provider based on the response contract required by the client, not only on whether the upstream accepts `stream: true`.
+    **Streaming**
 
-| Provider route | Upstream stream | Response returned to the client | OpenAI SSE compatible |
-|----------------|-----------------|---------------------------------|-----------------------|
-| Anthropic | Anthropic SSE | Native Anthropic events are passed through | No |
-| Azure OpenAI | Azure OpenAI SSE | Passed through | Yes, subject to deployment and API version |
-| AWS Bedrock | Amazon binary event stream | Decoded into OpenAI `chat.completion.chunk` SSE | Yes |
-| Gemini | Gemini SSE | Native Gemini events are passed through | No |
-| Mistral | OpenAI-compatible SSE | Passed through | Expected, subject to model and API behavior |
+    The transformer selects the Anthropic streaming endpoint and passes native Anthropic SSE events through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is **No**. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Anthropic events in the client.
 
-!!! warning "Anthropic and Gemini streams are not OpenAI SSE"
-    The Anthropic and Gemini transformers select the correct upstream streaming endpoint, but they do not translate the returned provider-native SSE events into OpenAI Chat Completions chunks. Use non-streaming requests for clients that require one uniform OpenAI response contract.
+    **Tools and multimodal input**
 
-The Bedrock transformer provides full cross-protocol streaming conversion. It decodes Amazon event-stream frames, converts text and tool-call deltas, maps stream errors, emits usage data, and terminates the stream with `data: [DONE]`.
+    | OpenAI function field | Anthropic field |
+    |-----------------------|-----------------|
+    | `function.name` | `tools[].name` |
+    | `function.description` | `tools[].description` |
+    | `function.parameters` | `tools[].input_schema` |
+    | Missing parameter schema | Empty object schema |
 
-## Tools and Multimodal Input
+    | OpenAI `tool_choice` | Anthropic behavior |
+    |----------------------|--------------------|
+    | `auto` | `{ "type": "auto" }` |
+    | `required` | `{ "type": "any" }` |
+    | `none` | Drops `tools` |
+    | Named function | `{ "type": "tool", "name": "<function-name>" }` |
+    | Unknown or malformed value | Defaults to automatic selection |
 
-### Images
+    Only tools with `type: function` are translated. Assistant tool calls and tool-result messages are supported across multiple turns. The transformer decodes the JSON string in `function.arguments`; invalid JSON becomes an empty object. Consecutive tool results are grouped into a provider-compatible user turn. Provider-native tools, hosted tools, computer-use tools, web-search tools, MCP declarations, OpenAI custom tools, `parallel_tool_calls`, strict structured-output flags, and provider-specific tool caching are not explicitly translated.
 
-Image support varies by provider:
+    Image support in the transformer does not guarantee image support in every Anthropic model. The gateway does not negotiate model capabilities before routing.
 
-- Anthropic accepts OpenAI image parts containing base64 data URIs or remote image URLs.
-- AWS Bedrock accepts base64 image data URIs. Remote image URLs are omitted because Bedrock Converse requires image bytes.
-- Gemini converts base64 data URIs to inline data and remote URLs to file data.
-- Azure OpenAI and Mistral receive image parts unchanged. Support depends on the selected deployment or model.
+??? info "Azure OpenAI"
+    **Transformer:** [`openai-to-azure-openai`](https://wso2.com/api-platform/policy-hub/policies/openai-to-azure-openai-transformer) in the Policy Hub.
 
-The gateway does not inspect a model's capabilities before routing. A successfully transformed request can still be rejected when the selected model does not support image input.
+    **Scope:** The Azure OpenAI transformer targets the OpenAI Chat Completions request and response shape exposed by Azure OpenAI. It does not add support for the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs through this route.
 
-### Function tools
+    **Capability summary**
 
-Anthropic, AWS Bedrock, and Gemini convert OpenAI function declarations into provider-native tool declarations. Azure OpenAI and Mistral receive `tools` unchanged.
+    | Capability | Azure OpenAI support |
+    |------------|----------------------|
+    | Request handling | Pass-through |
+    | Image input | Pass-through |
+    | Function tools | Pass-through |
+    | Non-streaming OpenAI response | Native |
+    | OpenAI-compatible streaming | Yes, subject to deployment and API version |
 
-The transformers accept OpenAI function tools in the following shape:
+    **Request conversion**
 
-```json
-{
-  "type": "function",
-  "function": {
-    "name": "get_weather",
-    "description": "Get the weather for a city",
-    "parameters": {
-      "type": "object",
-      "properties": {
-        "city": {
-          "type": "string"
-        }
-      },
-      "required": ["city"]
-    }
-  }
-}
-```
+    | OpenAI input | Azure OpenAI behavior |
+    |--------------|-----------------------|
+    | Request path | Rewritten to the Azure deployment path with `api-version` |
+    | `model` | Passed through and used as the deployment fallback when the policy does not override it |
+    | Messages, images, tools, tool history, and generation parameters | Passed through |
+    | `stream` | Passed through |
 
-| OpenAI field | Anthropic | AWS Bedrock | Gemini | Azure OpenAI and Mistral |
-|--------------|-----------|-------------|--------|--------------------------|
-| `function.name` | `tools[].name` | `toolConfig.tools[].toolSpec.name` | `tools[].functionDeclarations[].name` | Passed through |
-| `function.description` | `description` | `toolSpec.description` | `description` | Passed through |
-| `function.parameters` | `input_schema` | `inputSchema.json` | `parameters` | Passed through |
-| Missing parameter schema | Empty object schema | Empty object schema | Omitted | Passed through |
+    Azure OpenAI requires a deployment ID from the transformer configuration or the request model. If neither is available, the transformer returns HTTP `400`.
 
-Only OpenAI tools with `type: function` are explicitly converted. Provider-native tools, hosted tools, computer-use tools, web-search tools, MCP tool declarations, and OpenAI custom tools are not translated.
+    **Response conversion**
 
-### Tool choice
+    - Passes through the native OpenAI-compatible completion envelope, choices, text, tool calls, finish reason, usage, and errors.
 
-| OpenAI `tool_choice` | Anthropic | AWS Bedrock | Gemini |
-|----------------------|-----------|-------------|--------|
-| `auto` | Automatic selection | Automatic selection | `AUTO` mode |
-| `required` | Any tool | Any tool | `ANY` mode |
-| `none` | Tool definitions omitted | Tool configuration omitted | Tools omitted and mode set to `NONE` |
-| Named function | Named tool | Named tool | `ANY` mode restricted to the named function |
-| Unknown or malformed value | Defaults to automatic selection | Omits `toolChoice` | Defaults to `AUTO` mode |
+    **Streaming**
 
-Azure OpenAI and Mistral receive `tools` and `tool_choice` unchanged. Their acceptance depends on the selected model and API version.
+    Azure OpenAI SSE is passed through. OpenAI SSE compatibility is **Yes, subject to the selected deployment and API version**.
 
-### Tool-call conversations
+    **Tools and multimodal input**
 
-The Anthropic, AWS Bedrock, and Gemini transformers support multi-turn function-tool conversations:
+    `tools`, `tool_choice`, tool-call history, tool results, and image content are passed through unchanged. Their acceptance depends on the selected deployment, model, and API version. No fallback behavior is added for an unsupported or malformed `tool_choice`.
 
-- Assistant `tool_calls` are converted into provider-native tool-use or function-call blocks.
-- The JSON string in `function.arguments` is decoded into an object.
-- A `role: tool` message is converted into a provider-native tool result or function response.
-- Consecutive tool results are grouped into a provider-compatible user turn where required.
-- Provider tool calls in non-streaming responses are converted back into OpenAI `message.tool_calls`.
-- Bedrock streaming tool-call deltas are converted into OpenAI chunk deltas.
+??? info "AWS Bedrock"
+    **Transformer:** [`openai-to-bedrock-transformer`](https://wso2.com/api-platform/policy-hub/policies/openai-to-bedrock-transformer) in the Policy Hub.
 
-Invalid JSON in historical assistant tool arguments is replaced with an empty object. OpenAI-specific strict schemas, `parallel_tool_calls`, provider-specific tool caching, and non-function tool types are not explicitly translated.
+    **Scope:** The AWS Bedrock transformer targets OpenAI Chat Completions requests and responses and the Bedrock Converse APIs. It does not translate the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs.
+
+    **Capability summary**
+
+    | Capability | AWS Bedrock support |
+    |------------|----------------------|
+    | Request handling | Full conversion |
+    | Image input | Base64 only |
+    | Function tools | Converted |
+    | Non-streaming OpenAI response | Yes |
+    | OpenAI-compatible streaming | Yes |
+
+    **Request conversion**
+
+    | OpenAI input | AWS Bedrock behavior |
+    |--------------|----------------------|
+    | Request path | Selects Converse or Converse Stream according to `stream` |
+    | `model` | Uses the policy model when configured; otherwise uses the body model in the path and omits it from the body |
+    | Text messages | Converted to Converse message content |
+    | `system` and `developer` roles | Converted to system blocks; developer messages are treated as system messages |
+    | `assistant.tool_calls` and `tool` results | Converted to tool-use and tool-result blocks |
+    | Image data URI | Converted to Bedrock image bytes |
+    | Remote image URL | Omitted because Converse requires image bytes |
+    | `max_completion_tokens` and `max_tokens` | Mapped to `max_tokens` |
+    | `temperature`, `top_p`, and `stop` | Converted |
+    | `tools` and `tool_choice` | Converted |
+    | `n`, `seed`, `frequency_penalty`, `presence_penalty`, `response_format`, `logprobs`, `top_logprobs`, `logit_bias`, `service_tier`, `store`, `metadata`, and `user` | Omitted |
+
+    The transformer constructs a new Bedrock request body. Any field that is not explicitly converted is omitted. A missing model in both the policy and request returns HTTP `400`.
+
+    **Response conversion**
+
+    - Generates one OpenAI `chat.completion` choice containing converted text, tool calls, and finish reason.
+    - Converts usage, including cache-read and cache-write details used for cost calculation.
+    - Converts Bedrock errors to an OpenAI-style error envelope while retaining the upstream HTTP status.
+
+    **Streaming**
+
+    The transformer selects Converse Stream and decodes Amazon binary event-stream frames into OpenAI `chat.completion.chunk` SSE. It converts text and tool-call deltas, maps stream errors, emits usage, and terminates the stream with `data: [DONE]`. OpenAI SSE compatibility is **Yes**.
+
+    **Tools and multimodal input**
+
+    | OpenAI function field | AWS Bedrock field |
+    |-----------------------|-------------------|
+    | `function.name` | `toolConfig.tools[].toolSpec.name` |
+    | `function.description` | `toolConfig.tools[].toolSpec.description` |
+    | `function.parameters` | `toolConfig.tools[].toolSpec.inputSchema.json` |
+    | Missing parameter schema | Empty object schema |
+
+    | OpenAI `tool_choice` | AWS Bedrock behavior |
+    |----------------------|----------------------|
+    | `auto` | `{ "auto": {} }` |
+    | `required` | `{ "any": {} }` |
+    | `none` | Drops `toolConfig` |
+    | Named function | `{ "tool": { "name": "<function-name>" } }` |
+    | Unknown or malformed value | Omits `toolChoice` |
+
+    Only tools with `type: function` are translated. Multi-turn tool calls and results are converted, and streaming tool-call starts and argument deltas are converted to OpenAI chunk deltas. Invalid JSON in historical assistant tool arguments becomes an empty object. Non-function tools, `parallel_tool_calls`, strict structured-output flags, and provider-specific tool caching are not explicitly translated.
+
+    Bedrock accepts base64 image data URIs through this transformer. It does not fetch remote image URLs, and the selected Bedrock model must support the supplied image format and tool features.
+
+??? info "Gemini"
+    **Transformer:** [`openai-to-gemini`](https://wso2.com/api-platform/policy-hub/policies/openai-to-gemini-transformer) in the Policy Hub.
+
+    **Scope:** The Gemini transformer targets OpenAI Chat Completions requests and responses and Gemini `generateContent`. It does not translate the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs.
+
+    **Capability summary**
+
+    | Capability | Gemini support |
+    |------------|----------------|
+    | Request handling | Full conversion |
+    | Image input | Base64 and remote URL |
+    | Function tools | Converted |
+    | Non-streaming OpenAI response | Yes |
+    | OpenAI-compatible streaming | No |
+
+    **Request conversion**
+
+    | OpenAI input | Gemini behavior |
+    |--------------|-----------------|
+    | Request path | Uses `generateContent` or `streamGenerateContent` with the required policy model |
+    | `model` | Replaced by the policy model and used in the path |
+    | Text messages | Converted to Gemini contents and parts |
+    | `system` and `developer` roles | Converted to `systemInstruction`; developer messages are treated as system messages |
+    | `assistant.tool_calls` and `tool` results | Converted to function-call and function-response parts |
+    | Image data URI | Converted to `inlineData` |
+    | Remote image URL | Converted to `fileData` |
+    | `max_completion_tokens` and `max_tokens` | Mapped to `maxOutputTokens` |
+    | `temperature`, `top_p`, `stop`, `seed`, `frequency_penalty`, and `presence_penalty` | Converted |
+    | `n` | Mapped to `candidateCount` |
+    | `tools` and `tool_choice` | Converted |
+    | `response_format`, `logprobs`, `top_logprobs`, `logit_bias`, `service_tier`, `store`, `metadata`, and `user` | Omitted |
+
+    The transformer constructs a new Gemini request body. Any field that is not explicitly converted is omitted.
+
+    **Response conversion**
+
+    - Generates an OpenAI `chat.completion` choice for every Gemini candidate and preserves candidate indices.
+    - Converts text, tool calls, and finish reasons, while excluding parts marked `thought: true` from visible assistant text.
+    - Converts usage, including cached tokens and thought tokens exposed as reasoning tokens.
+    - Converts Gemini errors to an OpenAI-style error envelope while retaining the upstream HTTP status.
+
+    **Streaming**
+
+    The transformer selects `streamGenerateContent` and passes native Gemini SSE events through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is **No**. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Gemini events in the client.
+
+    **Tools and multimodal input**
+
+    | OpenAI function field | Gemini field |
+    |-----------------------|--------------|
+    | `function.name` | `tools[].functionDeclarations[].name` |
+    | `function.description` | `tools[].functionDeclarations[].description` |
+    | `function.parameters` | `tools[].functionDeclarations[].parameters` |
+    | Missing parameter schema | Omitted |
+
+    | OpenAI `tool_choice` | Gemini behavior |
+    |----------------------|-----------------|
+    | `auto` | Mode `AUTO` |
+    | `required` | Mode `ANY` |
+    | `none` | Drops tools and sets mode `NONE` |
+    | Named function | Mode `ANY` with `allowedFunctionNames` restricted to that function |
+    | Unknown or malformed value | Defaults to mode `AUTO` |
+
+    Only tools with `type: function` are translated. Multi-turn function calls and responses are converted. Invalid JSON in historical assistant tool arguments becomes an empty object. Non-function tools, `parallel_tool_calls`, strict structured-output flags, and provider-specific tool caching are not explicitly translated.
+
+    Gemini image and tool support still depends on the selected model. The gateway does not check those model capabilities before routing.
+
+??? info "Mistral"
+    **Transformer:** [`openai-to-mistral`](https://wso2.com/api-platform/policy-hub/policies/openai-to-mistral-transformer) in the Policy Hub.
+
+    **Scope:** The Mistral transformer targets OpenAI Chat Completions request and response shapes supported by Mistral's OpenAI-compatible API. It does not add support for the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs through this route.
+
+    **Capability summary**
+
+    | Capability | Mistral support |
+    |------------|-----------------|
+    | Request handling | OpenAI-compatible normalization |
+    | Image input | Pass-through |
+    | Function tools | Pass-through |
+    | Non-streaming OpenAI response | Native and normalized |
+    | OpenAI-compatible streaming | Yes, subject to model and API behavior |
+
+    **Request conversion**
+
+    | OpenAI input | Mistral behavior |
+    |--------------|------------------|
+    | Request path | Rewritten to `/v1/chat/completions` |
+    | `model` | Replaced by the required policy model |
+    | Messages, system and developer roles, images, tool history, `max_completion_tokens`, `max_tokens`, `temperature`, `top_p`, `stop`, `stream`, `seed`, `frequency_penalty`, `presence_penalty`, `tools`, `tool_choice`, and `response_format` | Passed through |
+    | `n`, `logprobs`, `top_logprobs`, `logit_bias`, `service_tier`, `store`, `metadata`, and `user` | Removed |
+
+    **Response conversion**
+
+    - Normalizes the native OpenAI-compatible completion response and model value.
+    - Passes through upstream choices, text, tool calls, finish reasons, and usage.
+    - Converts Mistral errors to an OpenAI-style error envelope while retaining the upstream HTTP status.
+
+    **Streaming**
+
+    OpenAI-compatible SSE is passed through. OpenAI SSE compatibility is **Yes, subject to model and API behavior**.
+
+    **Tools and multimodal input**
+
+    `tools`, `tool_choice`, tool-call history, tool results, and image content are passed through unchanged. Their acceptance depends on the selected Mistral model and API behavior. No fallback behavior is added for an unsupported or malformed `tool_choice`.
 
 ## Failure Behavior
 
