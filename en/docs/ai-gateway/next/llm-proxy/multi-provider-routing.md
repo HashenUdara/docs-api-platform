@@ -127,23 +127,23 @@ The request flow is:
 
 ```text
 OpenAI-compatible client request
-            |
-            | x-provider: anthropic
-            v
-    Multi-provider LLM proxy
-            |
-            | LLM Header Router selects anthropic-provider
-            | openai-to-anthropic-transformer transforms the request
-            | provider loopback authentication is added
-            v
-      Anthropic LLM provider
-            |
-            | vendor authentication is added
-            v
-        Anthropic API
-            |
-            | response is transformed to OpenAI format
-            v
+      |
+      | x-provider: anthropic
+      v
+  Multi-provider LLM proxy
+      |
+      | LLM Header Router selects anthropic-provider
+      | openai-to-anthropic-transformer transforms the request
+      | provider loopback authentication is added
+      v
+    Anthropic LLM provider
+      |
+      | vendor authentication is added
+      v
+    Anthropic API
+      |
+      | response is transformed to OpenAI format
+      v
 OpenAI-compatible client response
 ```
 
@@ -612,7 +612,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     | Image input | Base64 and remote URL |
     | Function tools | Converted |
     | Non-streaming OpenAI response | Yes |
-    | OpenAI-compatible streaming | No |
+    | Streaming response | Native Anthropic SSE passthrough |
 
     **Request conversion**
 
@@ -641,7 +641,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
 
     **Streaming**
 
-    The transformer selects the Anthropic streaming endpoint and passes native Anthropic server-sent events (SSE) through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is No. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Anthropic events in the client.
+    Streaming is supported. The transformer selects the Anthropic streaming endpoint and passes native Anthropic server-sent events (SSE) through unchanged. It does not convert the event payloads to OpenAI Chat Completions chunks, so streaming clients must handle Anthropic event payloads.
 
     **Tools and multimodal input**
 
@@ -679,7 +679,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     | Image input | Pass-through |
     | Function tools | Pass-through |
     | Non-streaming OpenAI response | Native |
-    | OpenAI-compatible streaming | Yes, subject to deployment and API version |
+    | Streaming response | OpenAI-compatible SSE passthrough, subject to deployment and API version |
 
     **Request conversion**
 
@@ -717,7 +717,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     | Image input | Base64 only |
     | Function tools | Converted |
     | Non-streaming OpenAI response | Yes |
-    | OpenAI-compatible streaming | Yes |
+    | Streaming response | Converted to OpenAI SSE |
 
     **Request conversion**
 
@@ -783,7 +783,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     | Image input | Base64 and remote URL |
     | Function tools | Converted |
     | Non-streaming OpenAI response | Yes |
-    | OpenAI-compatible streaming | No |
+    | Streaming response | Native Gemini SSE passthrough |
 
     **Request conversion**
 
@@ -813,7 +813,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
 
     **Streaming**
 
-    The transformer selects `streamGenerateContent` and passes native Gemini SSE events through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is **No**. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Gemini events in the client.
+    Streaming is supported. The transformer selects `streamGenerateContent` and passes native Gemini SSE events through unchanged. It does not convert the event payloads to OpenAI Chat Completions chunks, so streaming clients must handle Gemini event payloads.
 
     **Tools and multimodal input**
 
@@ -849,7 +849,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     | Image input | Pass-through |
     | Function tools | Pass-through |
     | Non-streaming OpenAI response | Native and normalized |
-    | OpenAI-compatible streaming | Yes, subject to model and API behavior |
+    | Streaming response | OpenAI-compatible SSE passthrough, subject to model and API behavior |
 
     **Request conversion**
 
@@ -952,7 +952,7 @@ Model suspension does not retry the current request. Confirm the behavior with a
 
 ### Streaming is not in OpenAI chunk format
 
-Anthropic and Gemini streaming responses are provider-native SSE. Use non-streaming mode, choose Azure OpenAI, AWS Bedrock, or an OpenAI-compatible Mistral stream, or adapt the provider-native stream in the client.
+Anthropic and Gemini support streaming through provider-native SSE passthrough. If the client expects OpenAI Chat Completions chunks, adapt the provider-native event payloads in the client or choose a route that returns OpenAI-compatible chunks.
 
 ### An image or tool request is rejected by the provider
 
