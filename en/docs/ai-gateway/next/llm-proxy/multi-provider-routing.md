@@ -133,7 +133,7 @@ OpenAI-compatible client request
     Multi-provider LLM proxy
             |
             | LLM Header Router selects anthropic-provider
-            | openai-to-anthropic transforms the request
+            | openai-to-anthropic-transformer transforms the request
             | provider loopback authentication is added
             v
       Anthropic LLM provider
@@ -330,8 +330,8 @@ spec:
         header: X-API-Key
         value: ${ANTHROPIC_LOOPBACK_KEY}
       transformer:
-        type: openai-to-anthropic
-        version: v1
+        type: openai-to-anthropic-transformer
+        version: v0
         params:
           model: claude-sonnet-4-5-20250929
 
@@ -346,7 +346,7 @@ spec:
             in: header
 
     - name: llm-header-router
-      version: v1
+      version: v0
       paths:
         - path: /chat/completions
           methods: [POST]
@@ -439,10 +439,10 @@ Use a transformer when an additional provider does not accept and return the Ope
 
 | Target provider | Transformer type used in this guide | Purpose |
 |-----------------|-------------------------------------|---------|
-| Anthropic | `openai-to-anthropic` | Converts OpenAI-compatible requests to Anthropic Messages and converts non-streaming responses back to OpenAI format. |
-| Azure OpenAI | `openai-to-azure-openai` | Adapts the request path for an Azure OpenAI deployment and API version. |
-| Mistral | `openai-to-mistral` | Normalizes OpenAI-compatible requests and responses for Mistral. |
-| Gemini | `openai-to-gemini` | Converts OpenAI-compatible requests and non-streaming responses for Gemini. |
+| Anthropic | `openai-to-anthropic-transformer` | Converts OpenAI-compatible requests to Anthropic Messages and converts non-streaming responses back to OpenAI format. |
+| Azure OpenAI | `openai-to-azure-openai-transformer` | Adapts the request path for an Azure OpenAI deployment and API version. |
+| Mistral | `openai-to-mistral-transformer` | Normalizes OpenAI-compatible requests and responses for Mistral. |
+| Gemini | `openai-to-gemini-transformer` | Converts OpenAI-compatible requests and non-streaming responses for Gemini. |
 | AWS Bedrock | `openai-to-bedrock-transformer` | Converts OpenAI-compatible requests and Bedrock Converse responses, including streaming responses. |
 
 A transformer is not required when the selected provider already exposes an OpenAI-compatible API.
@@ -459,8 +459,8 @@ A transformer is not required when the selected provider already exposes an Open
     header: X-API-Key
     value: <azure-provider-loopback-key>
   transformer:
-    type: openai-to-azure-openai
-    version: v1
+    type: openai-to-azure-openai-transformer
+    version: v0
     params:
       model: gpt-4o
       apiVersion: "2024-02-15-preview"
@@ -475,8 +475,8 @@ A transformer is not required when the selected provider already exposes an Open
     header: X-API-Key
     value: <mistral-provider-loopback-key>
   transformer:
-    type: openai-to-mistral
-    version: v1
+    type: openai-to-mistral-transformer
+    version: v0
     params:
       model: mistral-large-latest
 ```
@@ -490,8 +490,8 @@ A transformer is not required when the selected provider already exposes an Open
     header: X-API-Key
     value: <gemini-provider-loopback-key>
   transformer:
-    type: openai-to-gemini
-    version: v1
+    type: openai-to-gemini-transformer
+    version: v0
     params:
       model: gemini-2.5-flash
       apiVersion: v1beta
@@ -507,7 +507,7 @@ A transformer is not required when the selected provider already exposes an Open
     value: <aws-bedrock-provider-loopback-key>
   transformer:
     type: openai-to-bedrock-transformer
-    version: v1
+    version: v0
     params:
       model: anthropic.claude-3-5-sonnet-20240620-v1:0
 ```
@@ -539,8 +539,8 @@ additionalProviders:
       header: X-API-Key
       value: <anthropic-provider-loopback-key>
     transformer:
-      type: openai-to-anthropic
-      version: v1
+      type: openai-to-anthropic-transformer
+      version: v0
       params:
         model: claude-sonnet-4-5-20250929
 ```
@@ -575,8 +575,8 @@ The alias must:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `type` | Yes | Installed transformer policy name, such as `openai-to-anthropic` |
-| `version` | Yes | Major policy version, such as `v1` |
+| `type` | Yes | Installed transformer policy name, such as `openai-to-anthropic-transformer` |
+| `version` | Yes | Major policy version, such as `v0` for the current provider transformers |
 | `params` | No | Transformer-specific parameters, such as `model` or `apiVersion` |
 
 #### LLM Header Router parameters
@@ -594,9 +594,11 @@ Use `llm-header-router` as the policy name in the configuration.
 Expand a provider to see its complete transformation behavior. `Converted` means that the transformer explicitly maps a field to the provider-native format. `Pass-through` means that it retains the OpenAI field, subject to support by the selected model and API version.
 
 ??? info "Anthropic"
-    **Transformer:** [`openai-to-anthropic`](https://wso2.com/api-platform/policy-hub/policies/openai-to-anthropic-transformer) in the Policy Hub.
+    **Transformer:** [`openai-to-anthropic-transformer`](https://wso2.com/api-platform/policy-hub/policies/openai-to-anthropic-transformer) in the Policy Hub.
 
     **Scope:** The Anthropic transformer targets OpenAI Chat Completions request and response shapes. It does not translate the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs.
+
+    **Configuration:** `model` is required. `anthropicVersion` is optional and defaults to `2023-06-01`.
 
     **Capability summary**
 
@@ -619,7 +621,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     | `assistant.tool_calls` and `tool` results | Converted to tool-use and tool-result blocks |
     | Image data URI | Converted to an Anthropic base64 image source |
     | Remote image URL | Converted to an Anthropic URL image source |
-    | `max_completion_tokens` and `max_tokens` | Mapped to `max_tokens` |
+    | `max_completion_tokens` and `max_tokens` | Mapped to `max_tokens`; defaults to `4096` when neither field is supplied |
     | `temperature`, `top_p`, and `stop` | Converted |
     | `stream` | Passed to Anthropic |
     | `tools` and `tool_choice` | Converted |
@@ -635,7 +637,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
 
     **Streaming**
 
-    The transformer selects the Anthropic streaming endpoint and passes native Anthropic SSE events through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is **No**. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Anthropic events in the client.
+    The transformer selects the Anthropic streaming endpoint and passes native Anthropic server-sent events (SSE) through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is **No**. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Anthropic events in the client.
 
     **Tools and multimodal input**
 
@@ -654,14 +656,16 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     | Named function | `{ "type": "tool", "name": "<function-name>" }` |
     | Unknown or malformed value | Defaults to automatic selection |
 
-    Only tools with `type: function` are translated. Assistant tool calls and tool-result messages are supported across multiple turns. The transformer decodes the JSON string in `function.arguments`; invalid JSON becomes an empty object. Consecutive tool results are grouped into a provider-compatible user turn. Provider-native tools, hosted tools, computer-use tools, web-search tools, MCP declarations, OpenAI custom tools, `parallel_tool_calls`, strict structured-output flags, and provider-specific tool caching are not explicitly translated.
+    Only tools with `type: function` are translated. Assistant tool calls and tool-result messages are supported across multiple turns. The transformer decodes the JSON string in `function.arguments`; invalid JSON becomes an empty object. Consecutive tool results are grouped into a provider-compatible user turn. Provider-native tools, hosted tools, computer-use tools, web-search tools, Model Context Protocol (MCP) declarations, OpenAI custom tools, `parallel_tool_calls`, strict structured-output flags, and provider-specific tool caching are not explicitly translated.
 
     Image support in the transformer does not guarantee image support in every Anthropic model. The gateway does not negotiate model capabilities before routing.
 
 ??? info "Azure OpenAI"
-    **Transformer:** [`openai-to-azure-openai`](https://wso2.com/api-platform/policy-hub/policies/openai-to-azure-openai-transformer) in the Policy Hub.
+    **Transformer:** [`openai-to-azure-openai-transformer`](https://wso2.com/api-platform/policy-hub/policies/openai-to-azure-openai-transformer) in the Policy Hub.
 
     **Scope:** The Azure OpenAI transformer targets the OpenAI Chat Completions request and response shape exposed by Azure OpenAI. It does not add support for the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs through this route.
+
+    **Configuration:** `apiVersion` is required. `model` is optional and falls back to the request body model. `pathSuffix` is optional and defaults to `/chat/completions`.
 
     **Capability summary**
 
@@ -761,9 +765,11 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     Bedrock accepts base64 image data URIs through this transformer. It does not fetch remote image URLs, and the selected Bedrock model must support the supplied image format and tool features.
 
 ??? info "Gemini"
-    **Transformer:** [`openai-to-gemini`](https://wso2.com/api-platform/policy-hub/policies/openai-to-gemini-transformer) in the Policy Hub.
+    **Transformer:** [`openai-to-gemini-transformer`](https://wso2.com/api-platform/policy-hub/policies/openai-to-gemini-transformer) in the Policy Hub.
 
     **Scope:** The Gemini transformer targets OpenAI Chat Completions requests and responses and Gemini `generateContent`. It does not translate the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs.
+
+    **Configuration:** `model` is required. `apiVersion` is optional and defaults to `v1beta`.
 
     **Capability summary**
 
@@ -827,7 +833,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
     Gemini image and tool support still depends on the selected model. The gateway does not check those model capabilities before routing.
 
 ??? info "Mistral"
-    **Transformer:** [`openai-to-mistral`](https://wso2.com/api-platform/policy-hub/policies/openai-to-mistral-transformer) in the Policy Hub.
+    **Transformer:** [`openai-to-mistral-transformer`](https://wso2.com/api-platform/policy-hub/policies/openai-to-mistral-transformer) in the Policy Hub.
 
     **Scope:** The Mistral transformer targets OpenAI Chat Completions request and response shapes supported by Mistral's OpenAI-compatible API. It does not add support for the OpenAI Responses API, embeddings, image generation, audio, assistants, batches, or fine-tuning APIs through this route.
 
@@ -918,7 +924,7 @@ Every effective provider name must be unique. The effective name is `as` when it
 Make sure that:
 
 - `transformer.type` names a transformer supported by your AI Gateway version.
-- `transformer.version` uses a major-only version such as `v1`.
+- `transformer.version` uses the installed policy's major-only version, such as `v0` for the current provider transformers.
 - All parameters required by that transformer are present.
 
 The gateway resolves the major version to an installed full policy version and rejects invalid transformer configuration during deployment.
