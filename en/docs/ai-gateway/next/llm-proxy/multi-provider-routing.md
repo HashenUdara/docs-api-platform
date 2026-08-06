@@ -564,6 +564,8 @@ The alias must:
 
 #### `additionalProviders`
 
+This table defines the additional LLM providers that the proxy can route requests to.
+
 | Field | Required | Description |
 |-------|----------|-------------|
 | `id` | Yes | ID of an already deployed `LlmProvider` |
@@ -573,10 +575,12 @@ The alias must:
 
 #### `transformer`
 
+This table defines the transformer configuration for an additional provider.
+
 | Field | Required | Description |
 |-------|----------|-------------|
 | `type` | Yes | Installed transformer policy name, such as `openai-to-anthropic-transformer` |
-| `version` | Yes | Major policy version, such as `v0` for the current provider transformers |
+| `version` | Yes | Major policy version, such as `v0` for the installed provider transformers |
 | `params` | No | Transformer-specific parameters, such as `model` or `apiVersion` |
 
 #### LLM Header Router parameters
@@ -637,7 +641,7 @@ Expand a provider to see its complete transformation behavior. `Converted` means
 
     **Streaming**
 
-    The transformer selects the Anthropic streaming endpoint and passes native Anthropic server-sent events (SSE) through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is **No**. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Anthropic events in the client.
+    The transformer selects the Anthropic streaming endpoint and passes native Anthropic server-sent events (SSE) through without converting them to OpenAI Chat Completions chunks. OpenAI SSE compatibility is No. Use non-streaming requests when the client requires a uniform OpenAI response contract, or handle Anthropic events in the client.
 
     **Tools and multimodal input**
 
@@ -924,7 +928,7 @@ Every effective provider name must be unique. The effective name is `as` when it
 Make sure that:
 
 - `transformer.type` names a transformer supported by your AI Gateway version.
-- `transformer.version` uses the installed policy's major-only version, such as `v0` for the current provider transformers.
+- `transformer.version` uses the installed policy's major-only version, such as `v0` for the installed provider transformers.
 - All parameters required by that transformer are present.
 
 The gateway resolves the major version to an installed full policy version and rejects invalid transformer configuration during deployment.
