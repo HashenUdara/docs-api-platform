@@ -902,7 +902,7 @@ The round-robin policies track failures per provider/model pair. The same model 
 ## Limitations
 
 - **Chat Completions only:** Cross-provider translation targets the OpenAI `/chat/completions` model.
-- No universal OpenAI streaming conversion: Only AWS Bedrock converts provider-specific streaming events into OpenAI Chat Completions chunk objects. Anthropic and Gemini return valid SSE streams, but their provider-native event payloads are passed through unchanged.
+- No universal OpenAI streaming conversion: Only AWS Bedrock converts provider-specific streaming events into OpenAI Chat Completions chunk objects. Anthropic and Gemini return valid SSE streams. Their provider-native event payloads are passed through unchanged.
 - **No automatic capability negotiation:** The gateway does not query the selected model for support for vision, tools, schemas, or individual generation parameters.
 - **No automatic routing validation:** Router mappings must match the primary provider ID or an additional provider's effective name.
 - **No request retry or immediate failover:** Suspension removes an unhealthy target from later rotations but does not retry the failing request.
