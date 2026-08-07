@@ -16,7 +16,7 @@ content_type: "quickstart"
 
 # Quick Start Guide
 
-This guide takes you from a downloaded distribution to an LLM request routed through the API Platform AI Gateway, then shows you how to govern that gateway from [AI Workspace](../../next/ai-workspace/overview.md), the control plane for AI traffic. It's written for platform administrators and AI developers.
+This guide takes you from a downloaded distribution to an LLM request routed through the API Platform AI Gateway, then shows you how to govern that gateway from [AI Workspace](../../ai-workspace/next/overview.md), the control plane for AI traffic. It's written for platform administrators and AI developers.
 
 !!! info "Watch the video walkthrough"
     [Check out this quick start on YouTube](https://youtu.be/p5xBXZWt5GU?rel=0) or watch below.
@@ -193,12 +193,12 @@ curl -X POST "https://localhost:8443/assistant/chat/completions" \
 
 ## Govern this gateway from AI Workspace
 
-The gateway you just started serves traffic on its own, and it doesn't have to run alone. [AI Workspace](../../next/ai-workspace/overview.md) is the control plane for AI traffic across your organization: one console for LLM providers, App LLM proxies, MCP proxies, policies such as guardrails and token-based rate limits, and the credentials behind them. Register this gateway with AI Workspace to govern every AI gateway you run from a single place, across every environment.
+The gateway you just started serves traffic on its own, and it doesn't have to run alone. [AI Workspace](../../ai-workspace/next/overview.md) is the control plane for AI traffic across your organization: one console for LLM providers, App LLM proxies, MCP proxies, policies such as guardrails and token-based rate limits, and the credentials behind them. Register this gateway with AI Workspace to govern every AI gateway you run from a single place, across every environment.
 
 Both directions work, and you can use them together:
 
 - **Top-down.** Configure an artifact in AI Workspace, apply policies to it, then deploy it to one or more gateways.
-- **Bottom-up.** Keep deploying through the management API, the way this guide does. Every artifact you create on the gateway syncs up to AI Workspace automatically and appears there as a copy the gateway owns, so the OpenAI provider and the `openai-assistant` proxy you deployed above show up without being re-declared. To see what a synced artifact looks like, and what stays editable, see [Manage Gateway-deployed AI artifacts in AI Workspace](../../next/ai-workspace/sync-gateway-created-artifacts.md).
+- **Bottom-up.** Keep deploying through the management API, the way this guide does. Every artifact you create on the gateway syncs up to AI Workspace automatically and appears there as a copy the gateway owns, so the OpenAI provider and the `openai-assistant` proxy you deployed above show up without being re-declared. To see what a synced artifact looks like, and what stays editable, see [Manage Gateway-deployed AI artifacts in AI Workspace](../../ai-workspace/next/sync-gateway-created-artifacts.md).
 
 The gateway keeps serving traffic either way. If AI Workspace is unreachable, the gateway carries on and the sync catches up once the connection is restored.
 
@@ -227,4 +227,4 @@ This stops the containers and removes the `controller-data` volume. The next sta
 - Route to more than one provider, with failover: [Multi-provider routing](./llm-proxy/multi-provider-routing.md)
 - Add guardrails to a proxy, such as [PII masking](./llm-proxy/guardrails/pii-masking-regex.md) or a [JSON schema guardrail](./llm-proxy/guardrails/json-schema.md)
 - Expose an MCP server through the gateway: [MCP proxy quick start guide](./mcp-proxy/quick-start-guide.md)
-- Govern AI traffic across all your gateways from the control plane: [AI Workspace overview](../../next/ai-workspace/overview.md)
+- Govern AI traffic across all your gateways from the control plane: [AI Workspace overview](../../ai-workspace/next/overview.md)
