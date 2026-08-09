@@ -15,7 +15,11 @@ content_type: "concept"
 
 # Production deployment overview
 
-This section is for platform engineers and site reliability engineers who run API Platform AI Gateway 1.0.0 for an organization. It covers a hardened Helm deployment on Kubernetes: encryption and TLS, replicated gateway runtimes, and the tuning that large language model (LLM) and Model Context Protocol (MCP) traffic needs.
+This section is for platform engineers and site reliability engineers who run API Platform AI Gateway 1.0.0 for an organization. It covers a hardened Helm deployment on Kubernetes:
+
+- Encryption and Transport Layer Security (TLS).
+- Replicated gateway runtimes.
+- The tuning that large language model (LLM) and Model Context Protocol (MCP) traffic needs.
 
 For the other ways to run the gateway, see [Immutable Gateway](../deployment-modes/immutable-gateway.md) and [Kubernetes deployment modes](../deployment-modes/kubernetes/overview.md).
 
