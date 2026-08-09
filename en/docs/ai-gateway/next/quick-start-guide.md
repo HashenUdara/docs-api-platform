@@ -228,3 +228,5 @@ This stops the containers and removes the `controller-data` volume. The next sta
 - Add guardrails to a proxy, such as [PII masking](./llm-proxy/guardrails/pii-masking-regex.md) or a [JSON schema guardrail](./llm-proxy/guardrails/json-schema.md)
 - Expose an MCP server through the gateway: [MCP proxy quick start guide](./mcp-proxy/quick-start-guide.md)
 - Govern AI traffic across all your gateways from the control plane: [AI Workspace overview](../../ai-workspace/next/overview.md)
+- Take this gateway to production on Kubernetes: [Production deployment overview](./deployment/production-deployment/overview.md)
+- Register a production gateway with the control plane: [Connect to AI Workspace](./deployment/production-deployment/control-plane-connection.md)
