@@ -18,8 +18,8 @@ A gateway for managing and securing AI traffic, including Large Language Model (
 
 ## Quick Start
 
-- [LLM Quick Start Guide](./llm-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to LLM providers like OpenAI
-- [MCP Quick Start Guide](./mcp-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to MCP servers
+- [LLM Quick Start Guide](./llm-proxy/quick-start-guide.md)—Install the gateway, confirm the Gateway Controller Management API reports it healthy, and route traffic to an LLM provider such as OpenAI.
+- [MCP Quick Start Guide](./mcp-proxy/quick-start-guide.md)—Install the gateway, confirm the Gateway Controller Management API reports it healthy, and route traffic to an MCP server.
 
 ## Key Concepts
 
@@ -106,6 +106,8 @@ The complete and up-to-date guardrail catalogue — with configuration reference
 You can extend the AI Gateway with custom guardrail policies by building a custom gateway image using the `ap` CLI. See [Customizing the Gateway by Adding and Removing Policies](../../tools/cli/customizing-gateway-policies.md).
 
 ## Documentation
+
+The following table lists the AI Gateway documentation sections and what each one covers:
 
 | Section | Description |
 |---------|-------------|

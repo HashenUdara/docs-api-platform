@@ -30,7 +30,7 @@ A failure mentioning encryption keys means `gateway.controller.encryptionKeys` i
 
 ## Deploy the chart
 
-=== "OCI registry (recommended)"
+=== "Open Container Initiative (OCI) registry (recommended)"
 
     ```bash
     helm install ai-gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway \
@@ -83,17 +83,19 @@ kubectl exec -n ai-gateway deploy/ai-gateway-gateway-runtime -- \
 
 ## Verify with real AI traffic
 
-A healthy pod isn't proof that LLM traffic works. Deploy one provider and one proxy, then call them.
+A healthy pod isn't proof that large language model (LLM) traffic works. Deploy one provider and one proxy, then call them.
 
-Port-forward the management API and deploy an LLM provider. Replace `<openai-apikey>` with your key:
+Port-forward the management API and deploy an LLM provider. Read the provider key with `read -rs` so it stays off the screen and out of your shell history, and let the here-document expand it into the request body:
 
 ```bash
 kubectl port-forward -n ai-gateway svc/ai-gateway-controller 9090:9090 &
 
+read -rsp "OpenAI API key: " OPENAI_API_KEY && echo
+
 curl -X POST http://localhost:9090/api/management/v0.9/llm-providers \
   -H "Content-Type: application/yaml" \
   -u "$ADMIN_USERNAME:$ADMIN_PASSWORD" \
-  --data-binary @- <<'EOF'
+  --data-binary @- <<EOF
 apiVersion: gateway.api-platform.wso2.com/v1
 kind: LlmProvider
 metadata:
@@ -108,14 +110,19 @@ spec:
     auth:
       type: api-key
       header: Authorization
-      value: <openai-apikey>
+      value: ${OPENAI_API_KEY}
   accessControl:
     mode: deny_all
     exceptions:
       - path: /chat/completions
         methods: [POST]
 EOF
+
+unset OPENAI_API_KEY
 ```
+
+!!! note
+    These requests authenticate with basic auth. If you configured an identity provider in [Security hardening](./security-hardening.md#authentication), basic auth is disabled. Replace `-u "$ADMIN_USERNAME:$ADMIN_PASSWORD"` with `-H "Authorization: Bearer $ACCESS_TOKEN"` and use a token your identity provider issued.
 
 Deploy a proxy that consumes it:
 

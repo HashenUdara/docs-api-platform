@@ -1,6 +1,6 @@
 ---
 title: "Resources and Scaling"
-description: "Size CPU and memory for the AI Gateway controller and runtime, spread replicas with anti-affinity, and configure autoscaling and pod disruption budgets."
+description: "Size CPU and memory for the AI Gateway controller and runtime, set replica counts, and spread runtime replicas across nodes and zones with pod anti-affinity."
 canonical_url: https://wso2.com/api-platform/docs/ai-gateway/deployment/production-deployment/resources-and-scaling/
 md_url: https://wso2.com/api-platform/docs/ai-gateway/deployment/production-deployment/resources-and-scaling.md
 tags:
@@ -31,7 +31,7 @@ gateway:
 
 What this means in practice:
 
-- **Traffic keeps flowing when the controller is down.** Each runtime holds the configuration it last received over xDS and keeps serving LLM and MCP requests. A controller restart interrupts artifact deployment, not traffic.
+- **Traffic keeps flowing when the controller is down.** Each runtime holds the configuration it last received over xDiscovery Service (xDS) and keeps serving large language model (LLM) and Model Context Protocol (MCP) requests. A controller restart interrupts artifact deployment, not traffic.
 - **Artifact deployment has a single point of failure.** While the controller pod is being rescheduled, no LLM provider, LLM proxy, or MCP proxy can be created, updated, or removed.
 - **Protect the volume.** The controller's PersistentVolumeClaim holds every artifact you have deployed. Back it up, and set `helm.sh/resource-policy: keep` on the claim so an uninstall doesn't delete it.
 
@@ -47,7 +47,7 @@ gateway:
 
 The chart default of `100Mi` suits a small artifact set. Size it for the number of providers, proxies, and secrets you expect.
 
-!!! note "Controller high availability needs a later version"
+!!! note "Controller high availability needs AI Gateway 1.1.0 or later"
     Running more than one controller replica requires an external database, which AI Gateway 1.1.0 adds with PostgreSQL support and 1.2.0 extends to SQL Server. If controller high availability is a requirement, deploy [AI Gateway 1.2.0](../../../1.2.0/deployment/production-deployment/overview.md) instead.
 
 ## Resource limits
@@ -73,7 +73,7 @@ gateway:
 
 **Gateway Runtime:**
 
-The runtime carries every request. It runs Envoy and the policy engine in one container, and each guardrail, PII masking rule, and rate-limit policy adds per-request work in that container.
+The runtime carries every request. It runs Envoy and the policy engine in one container, and each guardrail, personally identifiable information (PII) masking rule, and rate-limit policy adds per-request work in that container.
 
 ```yaml
 gateway:
@@ -91,7 +91,7 @@ gateway:
 Two things drive runtime CPU on an AI Gateway more than raw request rate:
 
 - **Guardrails.** PII masking, JSON schema validation, and URL guardrails inspect the full request and response bodies, and each one adds work on every call.
-- **Payload size.** LLM request and response bodies are far larger than typical REST payloads, and body-inspecting policies buffer them in the runtime's memory.
+- **Payload size.** LLM request and response bodies are far larger than typical representational state transfer (REST) payloads, and body-inspecting policies buffer them in the runtime's memory.
 
 Benchmark with your own proxies and policy set before settling on final numbers. A proxy with several guardrails needs noticeably more CPU per request than one with authentication alone.
 

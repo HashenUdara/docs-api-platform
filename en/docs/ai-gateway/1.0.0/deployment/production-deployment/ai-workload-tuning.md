@@ -1,6 +1,6 @@
 ---
 title: "Tune the Gateway for AI Traffic"
-description: "Tune API Platform AI Gateway for LLM and MCP traffic: streaming timeouts, body buffers, guardrail limits, cost pricing data, and semantic cache backing."
+description: "Tune API Platform AI Gateway for LLM and MCP traffic: streaming timeouts, guardrail limits, cost pricing data, and semantic cache backing."
 canonical_url: https://wso2.com/api-platform/docs/ai-gateway/deployment/production-deployment/ai-workload-tuning/
 md_url: https://wso2.com/api-platform/docs/ai-gateway/deployment/production-deployment/ai-workload-tuning.md
 tags:
@@ -16,7 +16,7 @@ content_type: "how-to"
 
 # Tune the gateway for AI traffic
 
-LLM and MCP traffic differs from REST traffic in ways the chart defaults don't anticipate. Requests stay open for tens of seconds, bodies run to megabytes, and guardrails inspect every one of those bodies. This page covers the settings that matter because of those differences.
+Large language model (LLM) and Model Context Protocol (MCP) traffic differs from representational state transfer (REST) traffic in ways the chart defaults don't anticipate. Requests stay open for tens of seconds, bodies run to megabytes, and guardrails inspect every one of those bodies. This page covers the settings that matter because of those differences.
 
 ## Raise the timeouts for long completions
 

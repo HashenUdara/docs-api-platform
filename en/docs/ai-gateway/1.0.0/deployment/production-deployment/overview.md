@@ -15,7 +15,7 @@ content_type: "concept"
 
 # Production deployment overview
 
-This section is for platform engineers and site reliability engineers who run API Platform AI Gateway 1.0.0 for an organization. It covers a hardened Helm deployment on Kubernetes: encryption and TLS, replicated gateway runtimes, and the tuning that LLM and MCP traffic needs.
+This section is for platform engineers and site reliability engineers who run API Platform AI Gateway 1.0.0 for an organization. It covers a hardened Helm deployment on Kubernetes: encryption and TLS, replicated gateway runtimes, and the tuning that large language model (LLM) and Model Context Protocol (MCP) traffic needs.
 
 For the other ways to run the gateway, see [Immutable Gateway](../deployment-modes/immutable-gateway.md) and [Kubernetes deployment modes](../deployment-modes/kubernetes/overview.md).
 
@@ -25,19 +25,22 @@ For the other ways to run the gateway, see [Immutable Gateway](../deployment-mod
 !!! important "What 1.0.0 can and can't do in production"
     AI Gateway 1.0.0 runs the controller as a **single replica**, because it stores its state in an embedded SQLite database. Gateway runtimes replicate freely, so LLM and MCP traffic survives node and pod failures, but artifact deployment pauses while the controller restarts.
 
-    Two capabilities that a highly available deployment usually depends on arrive in later releases:
+    Three capabilities that a highly available deployment usually depends on arrive in later releases:
 
     - **An external database**, which lets several controller replicas share state. Added in AI Gateway 1.1.0 with PostgreSQL, extended in 1.2.0 with SQL Server.
     - **Horizontal Pod Autoscaler and Pod Disruption Budget support in the chart.** Added in the 1.1.x chart line.
     - **[AI Workspace](../../../../ai-workspace/1.0.0/overview.md) governance**, which works with gateway version 1.2 and above.
 
-    If any of those is a requirement, deploy [AI Gateway 1.2.0](../../../1.2.0/deployment/production-deployment/overview.md) instead.
+    Deploy the release that covers what you need:
+
+    - For an external database, or for chart support for the Horizontal Pod Autoscaler and Pod Disruption Budget, deploy [AI Gateway 1.1.0](../../../1.1.0/deployment/production-deployment/overview.md) or later.
+    - For SQL Server support or AI Workspace governance, deploy [AI Gateway 1.2.0](../../../1.2.0/deployment/production-deployment/overview.md).
 
 ## What you deploy
 
 | Part | What it does | Where it runs |
 |------|--------------|---------------|
-| Gateway Controller | Accepts LLM provider, LLM proxy, and MCP proxy artifacts, persists them to its SQLite volume, and distributes runtime configuration over xDS. | Your cluster, one replica |
+| Gateway Controller | Accepts LLM provider, LLM proxy, and MCP proxy artifacts, persists them to its SQLite volume, and distributes runtime configuration over xDiscovery Service (xDS). | Your cluster, one replica |
 | Gateway Runtime | Envoy plus the policy engine in one container. Routes traffic to LLM providers and MCP servers, and enforces guardrails, rate limits, and other policies. | Your cluster, several replicas |
 
 Each runtime holds the configuration it last received from the controller, which is why traffic continues to be served during a controller restart.
