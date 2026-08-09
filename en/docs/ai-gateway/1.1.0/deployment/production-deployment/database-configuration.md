@@ -15,7 +15,7 @@ content_type: "how-to"
 
 # Database configuration
 
-An external database is what makes controller high availability possible. It replaces the default SQLite backend, which supports a single replica, and becomes the shared source of truth that every Gateway Controller replica reads and writes.
+An external database is what makes controller high availability possible. It replaces the default SQLite backend, which supports a single replica. The external database becomes the shared source of truth that every Gateway Controller replica reads and writes.
 
 AI Gateway 1.1.0 supports **PostgreSQL** as its external database. AI Gateway 1.2.0 adds Microsoft SQL Server as a second option.
 
@@ -110,14 +110,19 @@ gateway:
 
 Use `require` or stronger for `sslmode` in production. `verify-full` also checks the server hostname against the certificate, which needs the CA to be trusted by the controller.
 
-## Supply a DSN instead
+## Supply a data source name instead
 
-When the connection string comes from a secrets manager, supply a full DSN rather than the individual fields:
+When the connection string comes from a secrets manager, supply a full data source name (DSN) rather than the individual fields. The DSN has the form `postgres://gateway:<password>@postgres.example.internal:5432/gateway_controller?sslmode=require`. Percent-encode any reserved character in the password first, so `p@ss:word` becomes `p%40ss%3Aword`.
+
+Read the DSN in rather than passing it with `--from-literal`, which records the password in your shell history and in the host's process list:
 
 ```bash
-kubectl create secret generic gateway-db-dsn \
+umask 077
+read -rsp "Gateway database DSN: " GATEWAY_DB_DSN && echo
+printf '%s' "$GATEWAY_DB_DSN" | kubectl create secret generic gateway-db-dsn \
   --namespace <your-namespace> \
-  --from-literal=dsn='postgres://gateway:your-db-password@postgres.example.internal:5432/gateway_controller?sslmode=require'
+  --from-file=dsn=/dev/stdin
+unset GATEWAY_DB_DSN
 ```
 
 ```yaml

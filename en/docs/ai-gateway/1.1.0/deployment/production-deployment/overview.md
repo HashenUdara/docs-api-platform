@@ -16,7 +16,12 @@ content_type: "concept"
 
 # Production deployment overview
 
-This section is for platform engineers and site reliability engineers who run API Platform AI Gateway 1.1.0 for an organization. It covers a highly available Helm deployment on Kubernetes: hardened security, an external PostgreSQL database shared by every controller replica, replicated workloads, and the tuning that LLM and MCP traffic needs.
+This section is for platform engineers and site reliability engineers who run API Platform AI Gateway 1.1.0 for an organization. It covers a highly available Helm deployment on Kubernetes:
+
+- Hardened security.
+- An external PostgreSQL database shared by every controller replica.
+- Replicated workloads.
+- The tuning that large language model (LLM) and Model Context Protocol (MCP) traffic needs.
 
 For the other ways to run the gateway, see [Immutable Gateway](../deployment-modes/immutable-gateway.md) and [Kubernetes deployment modes](../deployment-modes/kubernetes/overview.md).
 

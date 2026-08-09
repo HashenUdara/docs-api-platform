@@ -62,7 +62,7 @@ gateway:
         route_cache_action: RETAIN
 ```
 
-Guardrails that call an external service — [Azure Content Safety](../../llm-proxy/guardrails/azure-content-safety.md), [AWS Bedrock guardrails](../../llm-proxy/guardrails/aws-bedrock-guardrail.md), or a [semantic prompt guardrail](../../llm-proxy/guardrails/semantic-prompt-guard.md) that generates embeddings — spend most of that budget on the network call. Keep these values below `route_timeout_ms` so the route timeout stays the outer bound.
+Guardrails that call an external service—[Azure Content Safety](../../llm-proxy/guardrails/azure-content-safety.md), [AWS Bedrock guardrails](../../llm-proxy/guardrails/aws-bedrock-guardrail.md), or a [semantic prompt guardrail](../../llm-proxy/guardrails/semantic-prompt-guard.md) that generates embeddings—spend most of that budget on the network call. Keep these values below `route_timeout_ms` so the route timeout stays the outer bound.
 
 Leave `route_cache_action` at `RETAIN`, which keeps the route cache warm across requests.
 

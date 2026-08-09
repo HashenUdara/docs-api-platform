@@ -40,7 +40,7 @@ gateway:
 
 **Gateway Runtime:**
 
-The runtime carries every request. It runs Envoy and the policy engine in one container, and each guardrail, personally identifiable information (PII) masking rule, and rate-limit policy adds per-request work in that container.
+The runtime carries every request. It runs Envoy and the policy engine in one container. Each guardrail, personally identifiable information (PII) masking rule, and rate-limit policy adds per-request work in that container.
 
 ```yaml
 gateway:
@@ -128,7 +128,7 @@ gateway:
 When the HPA is enabled the chart omits the Deployment's `replicas` field, so `replicaCount` no longer applies.
 
 !!! warning "The controller HPA needs an external database"
-    Scaling the controller past one replica requires `storage.type` set to `postgres` or `sqlserver`. SQLite doesn't support concurrent replicas. See [Database configuration](./database-configuration.md).
+    Scaling the controller past one replica requires `storage.type` set to `postgres`. SQLite doesn't support concurrent replicas. See [Database configuration](./database-configuration.md).
 
 !!! note
     Keep `minReplicas` at `2` or higher on both components. At `1`, a single pod restart is a full outage.
