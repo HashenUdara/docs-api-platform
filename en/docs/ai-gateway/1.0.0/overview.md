@@ -18,8 +18,8 @@ A gateway for managing and securing AI traffic, including Large Language Model (
 
 ## Quick Start
 
-- [LLM Quick Start Guide](llm-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to LLM providers like OpenAI
-- [MCP Quick Start Guide](mcp-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to MCP servers
+- [LLM Quick Start Guide](./llm-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to LLM providers like OpenAI
+- [MCP Quick Start Guide](./mcp-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to MCP servers
 
 ## Key Concepts
 
@@ -109,9 +109,10 @@ You can extend the AI Gateway with custom guardrail policies by building a custo
 
 | Section | Description |
 |---------|-------------|
-| [LLM](llm-proxy/quick-start-guide.md) | LLM provider configuration, guardrails, prompt management, and semantic caching |
-| [MCP](mcp-proxy/quick-start-guide.md) | MCP proxy setup and policies |
-| [Observability](observability/logging.md) | Logging and tracing configuration |
-| [Analytics](analytics/moesif-analytics.md) | Analytics integrations (Moesif) |
+| [LLM](./llm-proxy/quick-start-guide.md) | LLM provider configuration, guardrails, prompt management, and semantic caching |
+| [MCP](./mcp-proxy/quick-start-guide.md) | MCP proxy setup and policies |
+| [Observability](./observability/logging.md) | Logging and tracing configuration |
+| [Analytics](./analytics/moesif-analytics.md) | Analytics integrations (Moesif) |
 | [Policies and Guardrails](https://github.com/wso2/gateway-controllers/blob/main/docs/README.md) | Gateway policies and guardrails for AI traffic control |
-| [REST APIs](ai-gateway-rest-api/authentication.md) | REST API authentication and usage |
+| [REST APIs](./ai-gateway-rest-api/authentication.md) | REST API authentication and usage |
+| [Production deployment](./deployment/production-deployment/overview.md) | Hardened Kubernetes deployment with Helm: encryption, TLS, replica sizing, and AI workload tuning |
