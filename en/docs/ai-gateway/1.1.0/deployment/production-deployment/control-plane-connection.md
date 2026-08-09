@@ -15,9 +15,9 @@ content_type: "how-to"
 # Connect to a control plane
 
 !!! note
-    This step is optional. The gateway routes LLM and MCP traffic without a control plane.
+    This step is optional. The gateway routes large language model (LLM) and Model Context Protocol (MCP) traffic without a control plane.
 
-A control plane connection gives the gateway a central place to receive artifacts from and report state to. AI Gateway 1.1.0 connects to a [WSO2 APIM control plane](https://apim.docs.wso2.com/en/latest/api-gateway/platform-gateway/getting-started/) or an [API Platform Cloud control plane](https://wso2.com/api-platform/docs/cloud/api-platform-gateway/getting-started/) over a persistent WebSocket connection.
+A control plane connection gives the gateway a central place to receive artifacts from and report state to. AI Gateway 1.1.0 connects to a [WSO2 API Manager (APIM) control plane](https://apim.docs.wso2.com/en/latest/api-gateway/platform-gateway/getting-started/) or an [API Platform Cloud control plane](https://wso2.com/api-platform/docs/cloud/api-platform-gateway/getting-started/) over a persistent WebSocket connection.
 
 !!! important "AI Workspace needs AI Gateway 1.2.0"
     [AI Workspace](../../../../ai-workspace/1.0.0/overview.md), the control plane built for governing LLM providers, App LLM proxies, MCP proxies, and AI policies across an organization, works with gateway version 1.2 and above. A 1.1.0 gateway can't register with it. To govern this gateway from AI Workspace, upgrade to [AI Gateway 1.2.0](../../../1.2.0/deployment/production-deployment/control-plane-connection.md) first.
@@ -34,7 +34,7 @@ kubectl create secret generic gateway-cp-token \
   --from-file=token=./token.txt
 ```
 
-Reading the token from a file rather than `--from-literal` keeps it out of your shell history. Delete `token.txt` afterwards.
+Reading the token from a file rather than `--from-literal` keeps it out of your shell history. Delete `token.txt` afterward.
 
 ## Step 2: Configure the chart
 
@@ -66,7 +66,7 @@ Two fields decide whether the connection works at all:
 - **`gateway_name`** must match the name you registered in the control plane. A mismatch leaves the gateway running and unable to associate itself with its registration.
 
 !!! warning
-    Leave `insecure_skip_verify` at `false`. Setting it to `true` disables certificate verification on the channel that carries your artifacts and their credentials. If the control plane presents a certificate from a private CA, add that CA to the gateway's trust rather than skipping verification.
+    Leave `insecure_skip_verify` at `false`. Setting it to `true` disables certificate verification on the channel that carries your artifacts and their credentials. If the control plane presents a certificate from a private certificate authority (CA), add that CA to the gateway's trust rather than skipping verification.
 
 The connection carries both HTTPS and WebSocket traffic, so anything between the gateway and the control plane has to pass WebSocket upgrades and tolerate long-lived connections.
 

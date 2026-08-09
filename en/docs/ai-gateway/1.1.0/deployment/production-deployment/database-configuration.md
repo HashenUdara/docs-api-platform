@@ -27,11 +27,12 @@ Connect to your PostgreSQL instance as an administrator:
 psql "host=<db-host> port=5432 dbname=postgres user=<admin-user> sslmode=require"
 ```
 
-Create the database and a dedicated account for the gateway:
+Create the database and a dedicated account for the gateway. Set the password with the `\password` meta-command, which prompts for the value and keeps it out of the SQL text and your `psql` history:
 
 ```sql
 CREATE DATABASE gateway_controller;
-CREATE USER gateway WITH PASSWORD 'your-db-password';
+CREATE USER gateway;
+\password gateway
 GRANT ALL PRIVILEGES ON DATABASE gateway_controller TO gateway;
 ```
 
@@ -61,10 +62,19 @@ psql "host=<db-host> port=5432 dbname=gateway_controller user=<admin-user> sslmo
 
 The database password is injected as an environment variable from a Secret. It never goes into the chart values or the generated ConfigMap.
 
+Write the password to a protected file rather than passing it with `--from-literal`, which records it in your shell history and in the host's process list:
+
 ```bash
+umask 077
+read -rsp "Database password: " DB_PASSWORD && echo
+printf '%s' "$DB_PASSWORD" > db_password
+unset DB_PASSWORD
+
 kubectl create secret generic gateway-db-password \
   --namespace <your-namespace> \
-  --from-literal=password='your-db-password'
+  --from-file=password=db_password
+
+shred -u db_password
 ```
 
 ## Configure the chart
