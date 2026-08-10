@@ -36,12 +36,11 @@ unset CP_TOKEN
 
 kubectl create secret generic gateway-cp-token \
   --namespace ai-gateway \
-  --from-file=token=./token.txt
-
-shred -u token.txt
+  --from-file=token=./token.txt \
+  && shred -u token.txt
 ```
 
-Reading the token from a file rather than `--from-literal` keeps it out of your shell history and out of the host's process list. `install -m 600` creates `token.txt` readable only by you, and `shred -u` removes it once the Secret exists.
+Reading the token from a file rather than `--from-literal` keeps it out of your shell history and out of the host's process list. `install -m 600` creates `token.txt` readable only by you. `shred -u` runs only if the Secret is created, so a failed attempt leaves the file in place for a retry.
 
 ## Step 2: Configure the chart
 
