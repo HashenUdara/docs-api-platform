@@ -29,12 +29,19 @@ The registration token is produced when you register the gateway with your contr
 The token is a credential. Keep it out of Helm values, shell history, and source control:
 
 ```bash
+install -m 600 /dev/null token.txt
+read -rsp "Gateway registration token: " CP_TOKEN && echo
+printf '%s' "$CP_TOKEN" > token.txt
+unset CP_TOKEN
+
 kubectl create secret generic gateway-cp-token \
   --namespace ai-gateway \
   --from-file=token=./token.txt
+
+shred -u token.txt
 ```
 
-Reading the token from a file rather than `--from-literal` keeps it out of your shell history. Delete `token.txt` afterward.
+Reading the token from a file rather than `--from-literal` keeps it out of your shell history and out of the host's process list. `install -m 600` creates `token.txt` readable only by you, and `shred -u` removes it once the Secret exists.
 
 ## Step 2: Configure the chart
 
