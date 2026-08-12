@@ -232,3 +232,4 @@ This guide provides detailed instructions for deploying Platform Gateway in prod
 ## What's Next?
 
 - [Adding and Managing Policies](adding-and-managing-policies.md)
+- [Registering a Platform Gateway via deployment.toml](https://apim.docs.wso2.com/en/4.7.0/api-gateway/platform-gateway/registering-a-gateway-via-deployment-toml/)
