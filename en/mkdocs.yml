@@ -460,6 +460,7 @@ nav:
                 - Getting Started: api-manager/4.7.0/api-gateway/platform-gateway/getting-started.md
                 - Setting Up: api-manager/4.7.0/api-gateway/platform-gateway/setting-up.md
                 - Adding and Managing Policies: api-manager/4.7.0/api-gateway/platform-gateway/adding-and-managing-policies.md
+                - Gateway Registration and Deployment: api-manager/4.7.0/api-gateway/platform-gateway/gateway-registration-and-deployment.md
             - Classic Gateway (Universal):
                 - Overview of the WSO2 Classic Gateway: api-manager/4.7.0/api-gateway/overview-of-the-api-gateway.md
                 - Deploy an API to Gateway: api-manager/4.7.0/api-gateway/deploy-api-to-gateway.md
