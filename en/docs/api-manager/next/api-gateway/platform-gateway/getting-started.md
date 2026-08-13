@@ -208,4 +208,4 @@ If authentication fails, confirm the policy is deployed, the header names match 
 
 - [Setting Up Platform Gateway](setting-up.md)
 - [Adding and Managing Policies](adding-and-managing-policies.md)
-- [Registering a Platform Gateway via deployment.toml](https://apim.docs.wso2.com/en/next/api-gateway/platform-gateway/registering-a-gateway-via-deployment-toml/)
+- [Gateway Registration and Deployment](gateway-registration-and-deployment.md)
