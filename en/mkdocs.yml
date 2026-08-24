@@ -404,7 +404,6 @@ nav:
                     - Securing APIs Using Certificate Bound Access Tokens: api-manager/4.7.0/api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
                 - Authorization:
                     - Overview: api-manager/4.7.0/api-security/runtime/authorization/api-authorization.md
-                    - Role-based Access Control Using XACML: api-manager/4.7.0/api-security/runtime/authorization/role-based-access-control-using-xacml.md
                     - Fine Grained Access Control with OAuth Scopes: api-manager/4.7.0/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                     - Application Scopes: api-manager/4.7.0/api-security/runtime/authorization/oauth2-scopes/application-scopes.md
                     - Scope Whitelisting: api-manager/4.7.0/api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
