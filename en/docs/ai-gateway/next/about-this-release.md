@@ -90,7 +90,7 @@ request_body = false
 response_body = false
 request_headers = false
 response_headers = false
-ignored_path_prefixes = []
+ignore_path_prefixes = []
 ```
 
 - Added downstream HTTP listener timeout block:
