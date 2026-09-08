@@ -74,8 +74,8 @@ However, the following set of integration artifacts are stateful and requires co
     -   MQTT Inbound Endpoint
     -   RabbitMQ Inbound Endpoint
 
-!!! Tip
-    If your deployment includes Message Processors, Inbound Endpoints, or any other artifact state or data that needs to be consistent across all nodes in the cluster, you must share the registry across Micro Integrator instances. Refer to [Registry synchronization](#registry-synchronization) for Kubernetes-specific instructions. Registry synchronization is an optional setup and is not required for basic coordination.
+!!! Note
+    If you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API, or if your deployment has any other artifact state or data that needs to be consistent across all nodes in the cluster, you must share the registry across Micro Integrator instances to persist the state when new nodes join the cluster. Refer to [Registry synchronization](#registry-synchronization) for Kubernetes-specific instructions. Registry synchronization is an optional setup and is not required for basic coordination. Refer to [Registry synchronization (sharing)](deploying_wso2_ei.md#registry-synchronization-sharing) for more information.
 
 As long as you maintain a single artifact deployment for each of these artifacts, coordination is not required. You can arrange your cluster in the following manner to ensure that the same task is not deployed in multiple containers/pods in the cluster. As shown below, you can have multiple replicas of <b>POD 1</b>. However, <b>POD 2</b> and <b>POD 3</b> can only have one replica each because they contain stateful artifacts.
 
@@ -93,7 +93,7 @@ Because stateful artifacts (that require coordination) are deployed in one conta
 
 ### Registry synchronization
 
-Registry sharing is required if your deployment includes Message Processors, Inbound Endpoints, or any other artifact state or data that needs to be consistent across all nodes in the cluster.
+Registry sharing is required if you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API, or if any other artifact state or data needs to be consistent across all nodes in the cluster.
 
 In a Kubernetes deployment, since pods are ephemeral and do not share a local file system by default, the `<MI_HOME>/registry` directory must be backed by a shared, persistent volume that is accessible by all replicas simultaneously.
 
