@@ -21,15 +21,15 @@ content_type: "how-to"
 ## Overview
 
 The OpenTelemetry publisher exports every analytics event as an **OpenTelemetry Protocol (OTLP) log
-record** over OTLP/HTTP. Your analytics are then exported to whatever observability stack you already
-run, such as an OpenTelemetry Collector or a vendor's OTLP intake. They are not tied to a single fixed
+record** over OTLP/HTTP. The publisher then sends your analytics to whatever observability stack you
+already run, such as an OpenTelemetry Collector or a vendor's OTLP intake. Nothing ties you to a fixed
 software as a service (SaaS) product.
 
 It is one of the publishers named in `analytics.enabled_publishers`, alongside `moesif`. Publishers are
 **additive and independent**: `enabled_publishers = ["moesif", "otel"]` delivers every event to both,
 and neither can fail the other.
 
-The logs signal is used rather than metrics or traces because it is the only one that carries a whole
+The publisher uses the logs signal rather than metrics or traces, because only logs carry a whole
 transaction with its attributes intact. Metrics aggregate the transaction away, and traces impose a
 sampling model that would silently discard billing-relevant events.
 
@@ -60,11 +60,11 @@ Two properties hold, the same as for Traffic Logging:
 * **Nothing in the export path is on the request/response path.** Events are produced from Envoy's
   access-log stream. Envoy emits that stream *after* the response reached the client. A slow or
   unreachable OTLP endpoint cannot add latency to an API call or fail one.
-* **Construction fails closed; delivery fails open.** A bad endpoint, an unusable certificate authority (CA) bundle or a
+* **Construction fails closed; delivery fails open.** A bad endpoint, an unusable certificate authority (CA) bundle, or a
   mismatched key pair is a **startup error**. Once running, a delivery failure drops records and
   increments a counter. It never blocks traffic.
 
-Every record is emitted under the InstrumentationScope **`wso2.analytics`**, with
+The publisher emits every record under the InstrumentationScope **`wso2.analytics`**, with
 `event.name = wso2.api.transaction`. A collector can therefore route API analytics away from
 application logs with a single scope match.
 
@@ -148,22 +148,22 @@ These settings turn analytics on and select which publishers receive each event.
 
 #### Endpoint and transport
 
-These settings define where records are sent and how that connection is secured.
+These settings define where the publisher sends records and how it secures that connection.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| `endpoint` | string | n/a | **Required.** Full OTLP/HTTP logs URL, **including the `/v1/logs` path**. Redirects are never followed. |
-| `allow_insecure_transport` | boolean | `false` | Permits a plaintext `http://` endpoint with no Transport Layer Security (TLS). Analytics records carry API keys, consumer identity and (when capture is on) bodies, so plaintext is a real disclosure. Intended for a collector on the pod network. An `http://` endpoint without this set is a **startup error**. |
-| `service_name` | string | `"gateway-runtime"` | **Required.** Populates the OTLP resource's `service.name`. |
+| `endpoint` | string | `"http://otel-collector:4318/v1/logs"` | Full OTLP/HTTP logs URL, **including the `/v1/logs` path**. The default is plaintext, so it also needs `allow_insecure_transport = true`. An empty value is a startup error. The publisher never follows redirects. |
+| `allow_insecure_transport` | boolean | `false` | Permits a plaintext `http://` endpoint with no Transport Layer Security (TLS). Analytics records carry API keys, consumer identity, and (when capture is on) bodies, so plaintext is a real disclosure. Intended for a collector on the pod network. An `http://` endpoint without this set is a **startup error**. |
+| `service_name` | string | `"gateway-runtime"` | Populates the OTLP resource's `service.name`. An empty value is a startup error. |
 | `service_version` | string | `""` | Populates `service.version`. Useful for correlating a rollout with an analytics change. |
 | `compression` | string | `"none"` | `"none"` or `"gzip"`. These records are verbose JSON. gzip trades CPU on the export worker for a large egress reduction. Every OTLP/HTTP receiver is required to support it. Worth enabling when the endpoint is across a network you pay for. |
 
-Any scheme other than `https` (or `http` with the flag above) is rejected at startup. Credentials
-embedded in the URL (`https://user:pass@host/...`) are also rejected. Use `headers` instead.
+The gateway rejects any scheme other than `https`, or `http` with the flag above, at startup. It also
+rejects credentials embedded in the URL (`https://user:pass@host/...`). Use `headers` instead.
 
 #### Batching and queueing
 
-A batch closes on whichever bound is reached first, then a single export worker drains a bounded queue.
+A batch closes on whichever bound it reaches first, then a single export worker drains a bounded queue.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -174,7 +174,7 @@ A batch closes on whichever bound is reached first, then a single export worker 
 
 #### Timeouts and retries
 
-These settings bound how long one export attempt takes and how often it is retried.
+These settings bound how long one export attempt takes and how often the publisher retries it.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -183,7 +183,7 @@ These settings bound how long one export attempt takes and how often it is retri
 | `retry_backoff` | duration | `"1s"` | Base for exponential backoff, plus full jitter so replicas recovering from a shared outage do not produce a synchronized request burst. Must be positive when `max_retries > 0`. |
 | `retry_abort_queue_ratio` | float | `0.5` | Fraction of `queue_capacity` at which a retrying batch abandons its remaining attempts. Between `0` and `1`. See below. |
 
-Only transport errors, `5xx` and `429` are retried. Other `4xx` responses are not retried. They can
+The publisher retries only transport errors, `5xx`, and `429`. It does not retry other `4xx` responses. They can
 indicate an authentication, payload-size, or payload-shape error, none of which retrying can resolve.
 A `429` carrying `Retry-After` uses that delay **instead of** the computed backoff, not in addition
 to it.
@@ -213,7 +213,7 @@ Sent on every export request. This is how a vendor OTLP intake authenticates.
 Authorization = 'Bearer {{ env "APIP_GW_OTEL_INTAKE_TOKEN" }}'
 ```
 
-Header values are treated as secrets and are never written to logs.
+The publisher treats header values as secrets and never writes them to logs.
 
 #### `[analytics.publishers.otel.resource_attributes]`
 
@@ -282,8 +282,8 @@ cert_file = "/secrets/gateway-runtime/otel-client.crt"
 key_file  = "/secrets/gateway-runtime/otel-client.key"
 ```
 
-The whole `tls` block is ignored when the endpoint is plaintext `http://`, since there is no handshake
-to configure.
+The publisher ignores the whole `tls` block when the endpoint is plaintext `http://`, since there is
+no handshake to configure.
 
 ## What gets exported
 
@@ -305,18 +305,18 @@ namespace where OpenTelemetry defines nothing, chiefly API-product concepts and 
 
 !!! note
     `url.path` is the literal client-requested path and `http.route` is the route template. Query strings
-    are stripped from **both**. An API key or token in a query parameter is an ordinary pattern in this
+    strips query strings from **both**. An API key or token in a query parameter is an ordinary pattern in this
     product, and these records leave the gateway. Header capture is **not** filtered the same way,
     so use the [Analytics Header Filter](analytics-header-filter.md) policy to keep credential-bearing
     headers out of the export.
 
-    An attribute whose value is empty is omitted from the record entirely, rather than sent as an empty
-    string. The exact attribute set therefore varies per request.
+    The publisher omits an attribute whose value is empty, rather than sending an empty string. The
+    exact attribute set therefore varies per request.
 
 ### AI traffic
 
-AI traffic is mapped onto the OpenTelemetry GenAI semantic conventions. Fields those conventions do
-not define are carried in the `wso2.*` namespace.
+The publisher maps AI traffic onto the OpenTelemetry GenAI semantic conventions. The `wso2.*`
+namespace carries fields those conventions do not define.
 
 | OTLP attribute | Description |
 |---|---|
@@ -333,10 +333,10 @@ not define are carried in the `wso2.*` namespace.
 Also emitted: `gen_ai.operation.name` (`chat`, `embeddings`, and similar, derived from the route) and
 `wso2.gen_ai.egress`.
 
-### Model Context Protocol traffic
+### MCP traffic
 
-Model Context Protocol (MCP) traffic is mapped onto the OpenTelemetry MCP semantic conventions. Fields
-those conventions do not define are carried in the `wso2.*` namespace.
+The publisher maps Model Context Protocol (MCP) traffic onto the OpenTelemetry MCP semantic
+conventions. The `wso2.*` namespace carries fields those conventions do not define.
 
 | OTLP attribute | Description |
 |---|---|
@@ -352,7 +352,7 @@ those conventions do not define are carried in the `wso2.*` namespace.
 | `wso2.mcp.client.version` | Version the calling client reports. |
 | `wso2.mcp.client.requested_protocol_version` | Protocol version the client asked for, before negotiation. |
 
-The invoked capability is named by kind rather than by one generic field. A tool call sets
+The publisher names the invoked capability by kind rather than by one generic field. A tool call sets
 `gen_ai.tool.name`, a prompt sets `gen_ai.prompt.name`, and a resource read sets `mcp.resource.uri`.
 
 ## Monitoring
@@ -405,7 +405,7 @@ sum(rate(policy_engine_analytics_published_total{publisher="otel"}[5m]))
 ## Kubernetes / Helm
 
 The chart renders the whole publisher from `.Values.gateway.config.analytics`, including the `headers`,
-`resource_attributes` and `tls` sub-tables.
+`resource_attributes`, and `tls` sub-tables.
 
 ```yaml
 gateway:
@@ -447,9 +447,9 @@ gateway:
 Mount the referenced secrets yourself. The chart renders the *reference*, never the value.
 
 !!! note
-    Numeric and duration keys are rendered whenever the key is **present**, including an explicit `0`.
-    A mistaken `queue_capacity: 0` therefore reaches validation and is rejected at startup. It is not
-    silently replaced by the default.
+    The chart renders numeric and duration keys whenever the key is **present**, including an explicit
+    `0`. A mistaken `queue_capacity: 0` therefore reaches validation, which rejects it at startup. The
+    default does not silently replace it.
 
 ## Failure semantics and troubleshooting
 
@@ -467,7 +467,7 @@ Use this table to match a symptom to its cause and its fix.
 | Records arrive but headers/bodies are missing | The matching `[collector]` capture flag is off. | Enable it. The publisher config alone is a no-op for capture. |
 | `dropped_total{reason="queue_full"}` climbing | The endpoint cannot keep up with the event rate. | Raise `queue_capacity` or `batch_size`, enable `compression`, or scale the endpoint. |
 | `dropped_total{reason="backpressure"}` climbing | The endpoint accepts but answers slowly, and retries were abandoned to keep draining. | Fix endpoint latency, or raise `retry_abort_queue_ratio` to favor delivery over drain. |
-| `dropped_total{reason="send_failed"}` climbing | Retries exhausted. The endpoint is failing or unreachable. | Check `export_errors_total{publisher="otel"}` for the status code, then the endpoint, headers and TLS trust. |
+| `dropped_total{reason="send_failed"}` climbing | Retries exhausted. The endpoint is failing or unreachable. | Check `export_errors_total{publisher="otel"}` for the status code, then the endpoint, headers, and TLS trust. |
 | `dropped_total{reason="rejected"}` climbing | The endpoint returned a non-retryable `4xx`. | Usually auth (`401`/`403`) or a payload limit (`413`). Check the `code` label. |
 
 {% endraw %}
