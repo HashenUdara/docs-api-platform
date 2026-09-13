@@ -434,17 +434,30 @@ gateway:
           tls:
             ca_file: /secrets/gateway-runtime/otel-ca.crt
 
+  # The token must reach BOTH components. See the warning below.
   gatewayRuntime:
     deployment:
-      extraEnv:
+      extraEnv: &otelIntakeToken
         - name: APIP_GW_OTEL_INTAKE_TOKEN
           valueFrom:
             secretKeyRef:
               name: otel-intake
               key: token
+  controller:
+    deployment:
+      extraEnv: *otelIntakeToken
 ```
 
 Mount the referenced secrets yourself. The chart renders the *reference*, never the value.
+
+!!! warning "Inject the token into both components"
+    The chart renders one `config.toml` into a single ConfigMap. **Both** the gateway runtime and the
+    gateway controller mount it, and both resolve every interpolation token at startup. That includes
+    tokens in sections they do not use. The OpenTelemetry publisher runs only in the policy engine,
+    but the controller still parses the same file.
+
+    Supplying the token to `gatewayRuntime` alone therefore crash-loops the controller. The same applies 
+    to a `{{ file }}` token: mount the secret into both deployments.
 
 !!! note
     The chart renders numeric and duration keys whenever the key is **present**, including an explicit
@@ -459,6 +472,7 @@ Use this table to match a symptom to its cause and its fix.
 |---|---|---|
 | Pod fails to start: `endpoint uses plaintext http:// but ... allow_insecure_transport is false` | Plaintext endpoint without the opt-in. | Use `https://`, or set `allow_insecure_transport = true` for a trusted local collector. |
 | Pod fails to start: `endpoint must not contain credentials in the URL` | Credentials in the URL userinfo. | Move them to `[analytics.publishers.otel.headers]`. |
+| Controller pod fails to start: `required env var ... is not found` | The interpolation token was supplied to the gateway runtime only. | Inject it into the controller as well. Both components mount the same `config.toml`. |
 | Pod fails to start: `queue_capacity ... must be >= batch_size` | Queue smaller than a batch. | Raise `queue_capacity` or lower `batch_size`. |
 | Pod fails to start: unknown publisher name | A typo in `enabled_publishers`. | Correct the name. Unknown names fail closed rather than being ignored. |
 | Templating fails: `holds a literal value, which would be written in plaintext into the gateway ConfigMap` | A header credential was inlined in Helm values. | Use `{{ env "VAR_NAME" }}` or `{{ file "/path/to/secret" }}`, per [Credential handling](#credential-handling). |
