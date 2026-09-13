@@ -27,7 +27,7 @@ This section contains the following pages:
 | Page | What it covers |
 |------|----------------|
 | [Moesif analytics](moesif-analytics.md) | Configure Moesif in API Platform AI Gateway to capture and publish API request and response data. |
-| [OpenTelemetry analytics](opentelemetry-analytics.md) | Export analytics events as OTLP log records to an OpenTelemetry Collector or any OTLP-compatible backend, including LLM token usage and cost. |
+| [OpenTelemetry analytics](opentelemetry-analytics.md) | Export analytics events as OpenTelemetry Protocol (OTLP) log records to an OpenTelemetry Collector or any OTLP-compatible backend. |
 | [Analytics header filter](analytics-header-filter.md) | Control which request and response headers are sent to analytics backends using allow or deny mode in API Platform AI Gateway. |
 
 Moesif analytics and the analytics header filter configure a policy from the [Policy Hub](https://wso2.com/api-platform/policy-hub), the versioned reference for every API Platform policy. For policy categories and how policies chain, see the [Policy Hub overview](../../../policy-hub/overview.md).
