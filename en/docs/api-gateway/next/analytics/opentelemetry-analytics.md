@@ -304,9 +304,9 @@ namespace where OpenTelemetry defines nothing, chiefly API-product concepts and 
 | Payloads | `wso2.request.body`, `wso2.response.body` | When `[collector]` body capture is enabled |
 
 !!! note
-    `url.path` is the literal client-requested path and `http.route` is the route template. Query strings
-    strips query strings from **both**. An API key or token in a query parameter is an ordinary pattern in this
-    product, and these records leave the gateway. Header capture is **not** filtered the same way,
+    `url.path` is the literal client-requested path and `http.route` is the route template. The publisher
+    strips query strings from **both**. An API key or token in a query parameter is an ordinary pattern in
+    this product, and these records leave the gateway. Header capture is **not** filtered the same way,
     so use the [Analytics Header Filter](analytics-header-filter.md) policy to keep credential-bearing
     headers out of the export.
 
