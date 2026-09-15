@@ -53,7 +53,7 @@ The gateway you run fans out to both back ends:
 
 Complete the following prerequisites:
 
-- A WSO2 API Platform account: sign up at [console.bijira.dev](https://console.bijira.dev/) with Google, GitHub, Microsoft, or email. The free trial covers this guide.
+- A WSO2 API Platform account: sign up at [API Platform Console](https://console.bijira.dev/) with Google, GitHub, Microsoft, or email. The free trial covers this guide.
 - Install [Docker](https://docs.docker.com/get-docker/) with the Compose plugin, on the machine where the gateway will run, or another Compose-compatible container runtime such as Podman.
 - Port `8443` free on that machine, for the gateway's HTTPS listener.
 - Install `curl` and `unzip`.
@@ -67,7 +67,7 @@ Everything in the platform lives under an *organization*, which you create once,
 
 ### Step 1: Create your organization
 
-1. Go to [console.bijira.dev](https://console.bijira.dev/) and sign in. If you already have an organization, open it from the **Organization** menu and skip to [Part 2](#part-2-connect-an-ai-gateway).
+1. Go to the [API Platform Console](https://console.bijira.dev/) and sign in. If you already have an organization, open it from the **Organization** menu and skip to [Part 2](#part-2-connect-an-ai-gateway).
 2. On first sign-in, enter a name for your organization, accept the Privacy Policy and Terms of Use, and click **Create**.
 
     ![Console screen for creating your first organization, with a name field and an agree checkbox](../../assets/img/ai-gateway/ai-workspace/quickstart/create-organization.png)
