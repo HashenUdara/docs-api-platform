@@ -1,6 +1,6 @@
 ---
 title: "Get started with AI Workspace"
-description: "Connect an AI Gateway to AI Workspace, configure an LLM provider and an MCP proxy, and call both through it."
+description: "Connect an AI Gateway to AI Workspace, configure an LLM provider and an MCP proxy, and call both through the AI Gateway."
 canonical_url: https://wso2.com/api-platform/docs/cloud/ai-workspace/quickstart/
 md_url: https://wso2.com/api-platform/docs/cloud/ai-workspace/quickstart.md
 tags:
@@ -18,7 +18,13 @@ content_type: "quickstart"
 
 # Get started with AI Workspace
 
-AI Workspace, hosted by WSO2, lets you manage the AI Gateways, large language model (LLM) providers, and Model Context Protocol (MCP) servers your applications call. It's the control plane that configures those gateways, providers, and proxies, then deploys the configuration to the gateway, so every request the gateway handles is authenticated, controlled, and observable from one place. You run the gateway itself, on infrastructure you choose.
+AI Workspace, hosted by WSO2, provides a central control plane for your AI infrastructure. It lets you manage:
+
+- AI Gateways that route and govern AI traffic.
+- LLM providers that your applications use.
+- MCP servers that provide tools and context to your applications.
+
+AI Workspace configures those gateways, providers, and proxies, then deploys the configuration to the gateway. Every request the gateway handles is authenticated, controlled, and observable from one place. You run the gateway itself, on infrastructure you choose.
 
 ## Overview
 
@@ -144,7 +150,7 @@ An LLM provider connects AI Workspace to an AI service platform, such as OpenAI,
 This section configures Mistral AI as a worked example. The same steps apply to any of the six built-in providers.
 
 1. Navigate to **LLM Providers** in the left navigation menu, then click **Create Provider**.
-2. Select a provider tile. The built-in options are **Anthropic**, **Azure AI Foundry**, **Azure OpenAI**, **Gemini**, **Mistral**, and **OpenAI**. **AWS Bedrock** is listed as **Coming soon** and isn't yet available. Select **Mistral**.
+2. Select a provider tile. The built-in options are **Anthropic**, **Azure AI Foundry**, **Azure OpenAI**, **Gemini**, **Mistral**, and **OpenAI**. Select **Mistral**.
 
     ![Provider selection panel with tiles for OpenAI, Mistral, Gemini, Azure OpenAI, Azure AI Foundry, and Anthropic](../../assets/img/ai-gateway/ai-workspace/quickstart/select-llm-provider.png)
 
@@ -339,7 +345,7 @@ data: {"result":{"content":[{"type":"text","text":"The sum of 4 and 5 is 9."}]},
 
 That result means your request reached the sample server's `add` tool and came back through the gateway. To explore the other tools interactively, point an MCP client such as [MCP Inspector](https://github.com/modelcontextprotocol/inspector) at the same URL.
 
-The sample proxy has no authentication policy, so these calls need no key. Add the [MCP Authentication policy](mcp-proxies/apply-policies.md) to require one.
+The sample proxy has no authentication policy, so these calls need no key. That's fine while the gateway only listens on `localhost`. Add the [MCP Authentication policy](mcp-proxies/apply-policies.md) before you deploy this proxy to a gateway reachable from anywhere else.
 
 At this point, you also have that same AI Gateway routing governed traffic to an MCP server, alongside the LLM provider from Part 3. AI Workspace configures both from one place.
 
