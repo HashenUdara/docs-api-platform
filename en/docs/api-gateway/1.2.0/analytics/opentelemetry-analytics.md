@@ -10,7 +10,7 @@ tags:
   - otlp
   - observability
 author: WSO2 API Platform Documentation Team
-last_updated: 2026-09-12
+last_updated: 2026-09-16
 content_type: "how-to"
 ---
 
@@ -19,6 +19,9 @@ content_type: "how-to"
 # OpenTelemetry analytics
 
 ## Overview
+
+!!! note
+    The OpenTelemetry publisher requires API Gateway tag `1.2.0.11` or later.
 
 The OpenTelemetry publisher exports every analytics event as an **OpenTelemetry Protocol (OTLP) log
 record** over OTLP/HTTP. The publisher then sends your analytics to whatever observability stack you
