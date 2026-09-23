@@ -16,9 +16,9 @@ content_type: "concept"
 
 # Gateway artifacts
 
-You deploy three kinds of resource on the AI Gateway, and a request passes through one or two of them on its way upstream.
+You deploy four kinds of resource on the AI Gateway, and a request passes through one or two of them on its way upstream.
 
-An `LlmProvider` holds the connection to one AI backend service. An `LlmProxy` exposes that connection at a URL of your own and names the provider it consumes in `provider.id`; the gateway rejects a proxy whose `provider.id` doesn't match a deployed provider. An `Mcp` proxy routes Model Context Protocol traffic to an MCP server directly, so it names no provider at all.
+An `LlmProvider` holds the connection to one AI backend service. An `LlmProxy` exposes that connection at a URL of your own and names the provider it consumes in `provider.id`; the gateway rejects a proxy whose `provider.id` doesn't match a deployed provider. An `Mcp` proxy routes Model Context Protocol traffic to an MCP server directly, so it names no provider at all. An `Agent` routes Agent2Agent (A2A) traffic to an agent, and also serves that agent's Agent Card.
 
 ## How LLM providers and LLM proxies differ
 
@@ -55,6 +55,7 @@ For the phase-by-phase order, and how the two chains reverse on the response pat
 | [LLM provider](llm-provider/index.md) | Connect the AI Gateway to an LLM backend: what an LLM Provider holds, who configures it, and a guide for every provider template it ships. |
 | [LLM proxy](llm-proxy.md) | Expose an LLM provider through an LLM proxy and deploy one: its own URL context, per-application policies, and the provider rules it inherits. |
 | [MCP proxy](mcp-proxy.md) | Route Model Context Protocol traffic through the AI Gateway with an MCP proxy, then deploy one and connect an MCP client to it. |
+| [Agent governance](../agent-governance/index.md) | Front an Agent2Agent agent with an `Agent`: protocol bindings, Agent Card serving, and per-operation policies. |
 
 ## Related topics
 

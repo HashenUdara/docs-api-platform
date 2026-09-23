@@ -79,6 +79,19 @@ Base URLs:
 - [Update an API key for an LLM proxy](llm-proxy-management.md#update-an-api-key-for-an-llm-proxy)
 - [Revoke an API key for an LLM proxy](llm-proxy-management.md#revoke-an-api-key-for-an-llm-proxy)
 
+### [Agent Management](agent-management.md)
+
+- [Create a new Agent](agent-management.md#create-a-new-agent)
+- [List all Agents](agent-management.md#list-all-agents)
+- [Get Agent by id](agent-management.md#get-agent-by-id)
+- [Update an existing Agent](agent-management.md#update-an-existing-agent)
+- [Delete an Agent](agent-management.md#delete-an-agent)
+- [Create a new API key for an Agent](agent-management.md#create-a-new-api-key-for-an-agent)
+- [Get the list of API keys for an Agent](agent-management.md#get-the-list-of-api-keys-for-an-agent)
+- [Regenerate API key for an Agent](agent-management.md#regenerate-api-key-for-an-agent)
+- [Update an API key for an Agent](agent-management.md#update-an-api-key-for-an-agent)
+- [Revoke an API key for an Agent](agent-management.md#revoke-an-api-key-for-an-agent)
+
 ### [Secrets Management](secrets-management.md)
 
 - [List all secrets](secrets-management.md#list-all-secrets)

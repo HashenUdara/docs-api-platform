@@ -27,9 +27,16 @@ Every call authenticates against the management API. For how that authentication
 | [LLM provider management](management-api/llm-provider-management.md) | REST API reference for creating, listing, updating, and deleting LLM provider configurations and API keys in API Platform Gateway. |
 | [LLM proxy management](management-api/llm-proxy-management.md) | REST API reference for creating, listing, updating, and deleting LLM proxy configurations and API keys in API Platform Gateway. |
 | [MCP proxy management](management-api/mcp-proxy-management.md) | REST API reference for creating, listing, updating, and deleting MCP proxy configurations in API Platform Gateway. |
+| [Agent management](management-api/agent-management.md) | REST API reference for creating, listing, updating, and deleting A2A agent configurations and their API keys in API Platform Gateway. |
 | [Certificate management](management-api/certificate-management.md) | REST API reference for managing custom TLS certificates in API Platform Gateway: list, upload, delete, and reload certificates dynamically. |
 | [Secrets management](management-api/secrets-management.md) | REST API reference for creating, listing, retrieving, updating, and deleting secrets in API Platform Gateway. |
 | [Schemas](management-api/schemas.md) | JSON schema definitions for all API Platform Gateway Controller management API request and response objects. |
+
+## Artifact configuration
+
+| Page | What it covers |
+|------|----------------|
+| [Agent configuration](agent-configuration.md) | Every field in the `Agent` artifact spec, its default, and the rules the controller enforces at deploy time. |
 
 ## Ports
 
