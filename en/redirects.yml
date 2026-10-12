@@ -36,3 +36,47 @@ redirect_maps:
   ai-workspace/policies/rate-limit/llm-cost.md: cloud/ai-workspace/policies/rate-limit/llm-cost.md
   ai-workspace/policies/rate-limit/token-based-rate-limit.md: cloud/ai-workspace/policies/rate-limit/token-based-rate-limit.md
   ai-workspace/policies/writing-an-ai-policy.md: cloud/ai-workspace/policies/writing-an-ai-policy.md
+  # Synced from main
+  next/ai-workspace/about-this-release.md: ai-workspace/1.0.0/about-this-release.md
+  next/ai-workspace/ai-gateways/setting-up.md: ai-workspace/1.0.0/ai-gateways/setting-up.md
+  next/ai-workspace/ci-cd/configure-ci-cd-workflow.md: ai-workspace/1.0.0/ci-cd/configure-ci-cd-workflow.md
+  next/ai-workspace/ci-cd/overview.md: ai-workspace/1.0.0/ci-cd/overview.md
+  next/ai-workspace/configure-inbound-auth.md: ai-workspace/1.0.0/configure-inbound-auth.md
+  next/ai-workspace/genai-applications.md: ai-workspace/1.0.0/genai-applications.md
+  next/ai-workspace/getting-started.md: ai-workspace/1.0.0/getting-started.md
+  next/ai-workspace/index.md: ai-workspace/1.0.0/overview.md
+  next/ai-workspace/insights.md: ai-workspace/1.0.0/insights.md
+  next/ai-workspace/llm-provider-templates/configure-template.md: ai-workspace/1.0.0/llm-provider-templates/configure-template.md
+  next/ai-workspace/llm-provider-templates/manage-template.md: ai-workspace/1.0.0/llm-provider-templates/manage-template.md
+  next/ai-workspace/llm-provider-templates/overview.md: ai-workspace/1.0.0/llm-provider-templates/overview.md
+  next/ai-workspace/llm-providers/configure-provider.md: ai-workspace/1.0.0/llm-providers/configure-provider.md
+  next/ai-workspace/llm-providers/manage-provider.md: ai-workspace/1.0.0/llm-providers/manage-provider.md
+  next/ai-workspace/llm-providers/overview.md: ai-workspace/1.0.0/llm-providers/overview.md
+  next/ai-workspace/llm-proxies/configure-proxy.md: ai-workspace/1.0.0/llm-proxies/configure-proxy.md
+  next/ai-workspace/llm-proxies/manage-proxy.md: ai-workspace/1.0.0/llm-proxies/manage-proxy.md
+  next/ai-workspace/llm-proxies/overview.md: ai-workspace/1.0.0/llm-proxies/overview.md
+  next/ai-workspace/mcp-proxies/apply-policies.md: ai-workspace/1.0.0/mcp-proxies/apply-policies.md
+  next/ai-workspace/mcp-proxies/configure-proxy.md: ai-workspace/1.0.0/mcp-proxies/configure-proxy.md
+  next/ai-workspace/mcp-proxies/overview.md: ai-workspace/1.0.0/mcp-proxies/overview.md
+  next/ai-workspace/overview.md: ai-workspace/1.0.0/overview.md
+  next/ai-workspace/policies/apply-ai-policies-to-proxies.md: ai-workspace/1.0.0/policies/apply-ai-policies-to-proxies.md
+  next/ai-workspace/policies/build-gateway-with-ai-policies.md: ai-workspace/1.0.0/policies/build-gateway-with-ai-policies.md
+  next/ai-workspace/policies/guardrails/overview.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/other-policies/basic-rate-limit.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/other-policies/token-based-rate-limit.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/overview.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/rate-limit/llm-cost-based-rate-limit.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/rate-limit/llm-cost.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/rate-limit/token-based-rate-limit.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/rate-limiting.md: ai-workspace/1.0.0/policies/overview.md
+  next/ai-workspace/policies/writing-an-ai-policy.md: ai-workspace/1.0.0/policies/writing-an-ai-policy.md
+  next/ai-workspace/secrets-management.md: ai-workspace/1.0.0/secrets-management.md
+  next/ai-workspace/setting-up/authentication/asgardeo-setup.md: ai-workspace/1.0.0/setting-up/authentication/asgardeo-setup.md
+  next/ai-workspace/setting-up/authentication/connect-an-identity-provider.md: ai-workspace/1.0.0/setting-up/authentication/connect-an-identity-provider.md
+  next/ai-workspace/setting-up/authentication/entra-id-setup.md: ai-workspace/1.0.0/setting-up/authentication/entra-id-setup.md
+  next/ai-workspace/setting-up/authentication/overview.md: ai-workspace/1.0.0/setting-up/authentication/overview.md
+  next/ai-workspace/setting-up/configuration.md: ai-workspace/1.0.0/setting-up/configuration.md
+  next/ai-workspace/setting-up/database.md: ai-workspace/1.0.0/setting-up/database.md
+  next/ai-workspace/setting-up/ports.md: ai-workspace/1.0.0/setting-up/ports.md
+  next/ai-workspace/sync-gateway-created-artifacts.md: ai-workspace/1.0.0/sync-gateway-created-artifacts.md
+  next/ai-workspace/using-sdks.md: ai-workspace/1.0.0/using-sdks.md

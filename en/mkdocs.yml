@@ -168,6 +168,7 @@ nav:
       # Set up the workspace itself.
       - Setting Up:
           - Configuration & Interpolation: ai-workspace/1.0.0/setting-up/configuration.md
+          - Minimum resource requirements: ai-workspace/1.0.0/setting-up/resource-requirement.md
           - Ports: ai-workspace/1.0.0/setting-up/ports.md
           - Database: ai-workspace/1.0.0/setting-up/database.md
           - Authentication:
