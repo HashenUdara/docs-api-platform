@@ -3,10 +3,16 @@ redirect_maps:
   ai-gateway/ai-gateway-rest-api/authentication.md: ai-gateway/1.1.0/ai-gateway-rest-api/authentication.md
   ai-gateway/analytics/analytics-header-filter.md: ai-gateway/1.1.0/analytics/analytics-header-filter.md
   ai-gateway/analytics/moesif-analytics.md: ai-gateway/1.1.0/analytics/moesif-analytics.md
-  ai-gateway/deployment-modes/immutable-gateway.md: ai-gateway/1.1.0/deployment-modes/immutable-gateway.md
-  ai-gateway/deployment-modes/kubernetes/gateway-operator.md: ai-gateway/1.1.0/deployment-modes/kubernetes/gateway-operator.md
-  ai-gateway/deployment-modes/kubernetes/kubernetes-standalone.md: ai-gateway/1.1.0/deployment-modes/kubernetes/kubernetes-standalone.md
-  ai-gateway/deployment-modes/kubernetes/overview.md: ai-gateway/1.1.0/deployment-modes/kubernetes/overview.md
+  ai-gateway/deployment-modes/immutable-gateway.md: ai-gateway/1.1.0/deployment/deployment-modes/immutable-gateway.md
+  ai-gateway/deployment-modes/kubernetes/gateway-operator.md: ai-gateway/1.1.0/deployment/deployment-modes/kubernetes/gateway-operator.md
+  ai-gateway/deployment-modes/kubernetes/kubernetes-standalone.md: ai-gateway/1.1.0/deployment/deployment-modes/kubernetes/kubernetes-standalone.md
+  ai-gateway/deployment-modes/kubernetes/overview.md: ai-gateway/1.1.0/deployment/deployment-modes/kubernetes/overview.md
+  ai-gateway/streaming-responses.md: ai-gateway/1.1.0/streaming-responses.md
+  # AI Gateway 1.1.0: deployment-modes nested under deployment/
+  ai-gateway/1.1.0/deployment-modes/immutable-gateway.md: ai-gateway/1.1.0/deployment/deployment-modes/immutable-gateway.md
+  ai-gateway/1.1.0/deployment-modes/kubernetes/gateway-operator.md: ai-gateway/1.1.0/deployment/deployment-modes/kubernetes/gateway-operator.md
+  ai-gateway/1.1.0/deployment-modes/kubernetes/kubernetes-standalone.md: ai-gateway/1.1.0/deployment/deployment-modes/kubernetes/kubernetes-standalone.md
+  ai-gateway/1.1.0/deployment-modes/kubernetes/overview.md: ai-gateway/1.1.0/deployment/deployment-modes/kubernetes/overview.md
   ai-gateway/llm-proxy/guardrails/aws-bedrock-guardrail.md: ai-gateway/1.1.0/llm-proxy/guardrails/aws-bedrock-guardrail.md
   ai-gateway/llm-proxy/guardrails/azure-content-safety.md: ai-gateway/1.1.0/llm-proxy/guardrails/azure-content-safety.md
   ai-gateway/llm-proxy/guardrails/content-length.md: ai-gateway/1.1.0/llm-proxy/guardrails/content-length.md
@@ -189,12 +195,12 @@ redirect_maps:
 
   # API Gateway deployment restructuring
   api-gateway/deploying-apis/bottom-up-api-deployment.md: api-gateway/1.1.0/deployment/deploying-apis/bottom-up-api-deployment.md
-  api-gateway/deploying-apis/gateway-operator.md: ai-gateway/1.1.0/deployment-modes/kubernetes/gateway-operator.md
+  api-gateway/deploying-apis/gateway-operator.md: ai-gateway/1.1.0/deployment/deployment-modes/kubernetes/gateway-operator.md
   api-gateway/deployment-modes/immutable-gateway.md: api-gateway/1.1.0/deployment/deployment-modes/immutable-gateway.md
   api-gateway/deployment-modes/kubernetes/gateway-operator.md: api-gateway/1.1.0/deployment/deployment-modes/kubernetes/gateway-operator.md
   api-gateway/deployment-modes/kubernetes/kubernetes-standalone.md: api-gateway/1.1.0/deployment/deployment-modes/kubernetes/kubernetes-standalone.md
   api-gateway/deployment-modes/kubernetes/overview.md: api-gateway/1.1.0/deployment/deployment-modes/kubernetes/overview.md
-  api-gateway/setup/immutable-gateway.md: ai-gateway/1.1.0/deployment-modes/immutable-gateway.md
+  api-gateway/setup/immutable-gateway.md: ai-gateway/1.1.0/deployment/deployment-modes/immutable-gateway.md
 
   # API Gateway observability split (single pages -> section overview)
   api-gateway/observability/metrics.md: api-gateway/1.1.0/observability/metrics/overview.md

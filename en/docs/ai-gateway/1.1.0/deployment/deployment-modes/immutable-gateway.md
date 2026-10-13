@@ -1,8 +1,8 @@
 ---
 title: "Immutable Gateway"
 description: "Run API Platform AI Gateway in immutable mode, loading LLM and MCP configurations from files at startup for GitOps workflows."
-canonical_url: https://wso2.com/api-platform/docs/ai-gateway/deployment-modes/immutable-gateway/
-md_url: https://wso2.com/api-platform/docs/ai-gateway/deployment-modes/immutable-gateway.md
+canonical_url: https://wso2.com/api-platform/docs/ai-gateway/1.1.0/deployment/deployment-modes/immutable-gateway/
+md_url: https://wso2.com/api-platform/docs/ai-gateway/1.1.0/deployment/deployment-modes/immutable-gateway.md
 tags:
   - ai-gateway
   - deployment
@@ -77,7 +77,7 @@ Artifact files support Go template expressions for injecting dynamic values. Tem
 | `{{ env "KEY" | redact }}` | Yes | Sensitive env vars (tokens, API keys) |
 {% endraw %}
 
-Use `| redact` for sensitive values to hide them from config dumps. A `| default "value"` pipe is available for fallback values. See [Gateway Artifact Templating](../../../api-gateway/1.1.0/setup/artifact-templating.md) for the full function reference.
+Use `| redact` for sensitive values to hide them from config dumps. A `| default "value"` pipe is available for fallback values. See [Gateway Artifact Templating](../../../../api-gateway/1.1.0/setup/artifact-templating.md) for the full function reference.
 
 ### Sample: Reading List API
 
