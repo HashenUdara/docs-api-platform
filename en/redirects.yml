@@ -7,6 +7,11 @@ redirect_maps:
   ai-gateway/deployment-modes/kubernetes/gateway-operator.md: ai-gateway/1.1.0/deployment-modes/kubernetes/gateway-operator.md
   ai-gateway/deployment-modes/kubernetes/kubernetes-standalone.md: ai-gateway/1.1.0/deployment-modes/kubernetes/kubernetes-standalone.md
   ai-gateway/deployment-modes/kubernetes/overview.md: ai-gateway/1.1.0/deployment-modes/kubernetes/overview.md
+  # AI Gateway 1.0.0: deployment-modes nested under deployment/
+  ai-gateway/1.0.0/deployment-modes/immutable-gateway.md: ai-gateway/1.0.0/deployment/deployment-modes/immutable-gateway.md
+  ai-gateway/1.0.0/deployment-modes/kubernetes/gateway-operator.md: ai-gateway/1.0.0/deployment/deployment-modes/kubernetes/gateway-operator.md
+  ai-gateway/1.0.0/deployment-modes/kubernetes/kubernetes-standalone.md: ai-gateway/1.0.0/deployment/deployment-modes/kubernetes/kubernetes-standalone.md
+  ai-gateway/1.0.0/deployment-modes/kubernetes/overview.md: ai-gateway/1.0.0/deployment/deployment-modes/kubernetes/overview.md
   ai-gateway/llm-proxy/guardrails/aws-bedrock-guardrail.md: ai-gateway/1.1.0/llm-proxy/guardrails/aws-bedrock-guardrail.md
   ai-gateway/llm-proxy/guardrails/azure-content-safety.md: ai-gateway/1.1.0/llm-proxy/guardrails/azure-content-safety.md
   ai-gateway/llm-proxy/guardrails/content-length.md: ai-gateway/1.1.0/llm-proxy/guardrails/content-length.md

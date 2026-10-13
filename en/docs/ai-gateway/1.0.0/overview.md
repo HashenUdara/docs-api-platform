@@ -1,8 +1,8 @@
 ---
 title: "API Platform AI Gateway Overview"
 description: "Manage and secure AI traffic with API Platform AI Gateway: LLM providers, LLM proxies, MCP proxies, and guardrails for LLM APIs and MCP servers."
-canonical_url: https://wso2.com/api-platform/docs/ai-gateway/overview/
-md_url: https://wso2.com/api-platform/docs/ai-gateway/overview.md
+canonical_url: https://wso2.com/api-platform/docs/ai-gateway/1.0.0/overview/
+md_url: https://wso2.com/api-platform/docs/ai-gateway/1.0.0/overview.md
 tags:
   - ai-gateway
   - llm
@@ -18,8 +18,8 @@ A gateway for managing and securing AI traffic, including Large Language Model (
 
 ## Quick Start
 
-- [LLM Quick Start Guide](llm-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to LLM providers like OpenAI
-- [MCP Quick Start Guide](mcp-proxy/quick-start-guide.md) - Set up the gateway, verify the controller admin health endpoint, and route traffic to MCP servers
+- [LLM Quick Start Guide](./llm-proxy/quick-start-guide.md)—Install the gateway, confirm the Gateway Controller admin health endpoint reports it healthy, and route traffic to an LLM provider such as OpenAI.
+- [MCP Quick Start Guide](./mcp-proxy/quick-start-guide.md)—Install the gateway, confirm the Gateway Controller admin health endpoint reports it healthy, and route traffic to an MCP server.
 
 ## Key Concepts
 
@@ -103,15 +103,18 @@ AI Guardrails allow you to enforce safety, content, and compliance policies on A
 
 The complete and up-to-date guardrail catalogue — with configuration references and examples — is maintained in the gateway-controllers repository: [https://github.com/wso2/gateway-controllers/blob/main/docs/README.md](https://github.com/wso2/gateway-controllers/blob/main/docs/README.md)
 
-You can extend the AI Gateway with custom guardrail policies by building a custom gateway image using the `ap` CLI. See [Customizing the Gateway by Adding and Removing Policies](../../tools/cli/customizing-gateway-policies.md).
+A guardrail is a gateway policy. To add a guardrail to the gateway, or update one to a different version, build a custom gateway image with the `ap` CLI and see [Add or Update Policies in a Gateway](../../api-gateway/1.0.0/policies/add-or-update-policies.md). To write your own guardrail policy, see [Writing a Custom Policy](../../api-gateway/1.0.0/policies/custom-policies/writing-a-custom-policy.md).
 
 ## Documentation
 
+The following table lists the AI Gateway documentation sections and what each one covers:
+
 | Section | Description |
 |---------|-------------|
-| [LLM](llm-proxy/quick-start-guide.md) | LLM provider configuration, guardrails, prompt management, and semantic caching |
-| [MCP](mcp-proxy/quick-start-guide.md) | MCP proxy setup and policies |
-| [Observability](observability/logging.md) | Logging and tracing configuration |
-| [Analytics](analytics/moesif-analytics.md) | Analytics integrations (Moesif) |
+| [LLM](./llm-proxy/quick-start-guide.md) | LLM provider configuration, guardrails, prompt management, and semantic caching |
+| [MCP](./mcp-proxy/quick-start-guide.md) | MCP proxy setup and policies |
+| [Observability](./observability/logging.md) | Logging and tracing configuration |
+| [Analytics](./analytics/moesif-analytics.md) | Analytics integrations (Moesif) |
 | [Policies and Guardrails](https://github.com/wso2/gateway-controllers/blob/main/docs/README.md) | Gateway policies and guardrails for AI traffic control |
-| [REST APIs](ai-gateway-rest-api/authentication.md) | REST API authentication and usage |
+| [REST APIs](./ai-gateway-rest-api/authentication.md) | REST API authentication and usage |
+| [Production deployment](./deployment/production-deployment/overview.md) | Hardened Kubernetes deployment with Helm: encryption, TLS, replica sizing, and AI workload tuning |
