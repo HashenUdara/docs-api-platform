@@ -47,7 +47,7 @@ It's written for platform engineers, developers, and anyone evaluating AI Worksp
 
 The gateway you run fans out to both back ends:
 
-![AI Gateway routes requests to an LLM provider and an MCP server, configured by AI Workspace, which WSO2 hosts](../../assets/img/ai-gateway/ai-workspace/quickstart/architecture-overview.svg)
+![AI Gateway routes requests to an LLM provider and an MCP server, configured by AI Workspace, which WSO2 hosts](../assets/img/ai-gateway/ai-workspace/quickstart/architecture-overview.svg)
 
 ## Before you start
 
@@ -70,14 +70,14 @@ Everything in the platform lives under an *organization*, which you create once,
 1. Go to the [API Platform Console](https://console.bijira.dev/) and sign in. If you already have an organization, open it from the **Organization** menu and skip to [Part 2](#part-2-connect-an-ai-gateway).
 2. On first sign-in, enter a name for your organization, accept the Privacy Policy and Terms of Use, and click **Create**.
 
-    ![Console screen for creating your first organization, with a name field and an agree checkbox](../../assets/img/ai-gateway/ai-workspace/quickstart/create-organization.png)
+    ![Console screen for creating your first organization, with a name field and an agree checkbox](../assets/img/ai-gateway/ai-workspace/quickstart/create-organization.png)
 
 ### Step 2: Choose what to build
 
 1. When asked to select a region, keep the default and click **Get Started** (you can add your own data plane later).
 2. On **What do you want to build?**, select **AI Service**, then click **Next**.
 
-    ![What do you want to build? screen with the AI Service option selected](../../assets/img/ai-gateway/ai-workspace/quickstart/select-ai-service.png)
+    ![What do you want to build? screen with the AI Service option selected](../assets/img/ai-gateway/ai-workspace/quickstart/select-ai-service.png)
 
 The Console provisions a **Default** project with **Development** and **Production** environments, then opens AI Workspace in a new tab. AI Workspace opens on a guided setup page. Click **Skip and go to Console** to follow this guide's steps directly.
 
@@ -95,7 +95,7 @@ An AI Gateway is the runtime that enforces authentication, rate limits, and guar
     - **URL**: keep the pre-filled `https://localhost:8443`. This is the address the gateway is reachable at once it's running. AI Workspace uses this to build the Invoke URL and MCP Proxy URL you'll call from your own terminal later in this guide. Use an address your terminal can actually reach, not `host.docker.internal`. That hostname only resolves from inside a container, not from your host machine.
     - **Associated Environment**: select **Development**.
 
-    ![Add AI Gateway form with a name, the localhost URL, and the Development environment](../../assets/img/ai-gateway/ai-workspace/quickstart/add-ai-gateway-form.png)
+    ![Add AI Gateway form with a name, the localhost URL, and the Development environment](../assets/img/ai-gateway/ai-workspace/quickstart/add-ai-gateway-form.png)
 
 4. Click **Add Gateway**.
 
@@ -137,7 +137,7 @@ Run these on the machine where the gateway will run. Copy each command from the 
 
 The gateway connects to the control plane, and its logs show `Control plane connection established`. Back in AI Workspace, the gateway's status changes from **Inactive** to **Active**, and the page shows **Your gateway is connected successfully**:
 
-![AI Gateway page with a green Active status and a connected-successfully message](../../assets/img/ai-gateway/ai-workspace/quickstart/ai-gateway-connected.png)
+![AI Gateway page with a green Active status and a connected-successfully message](../assets/img/ai-gateway/ai-workspace/quickstart/ai-gateway-connected.png)
 
 Keep this gateway running for the rest of this guide.
 
@@ -152,7 +152,7 @@ This section configures Mistral AI as a worked example. The same steps apply to 
 1. Navigate to **LLM Providers** in the left navigation menu, then click **Create Provider**.
 2. Select a provider tile. The built-in options are **Anthropic**, **Azure AI Foundry**, **Azure OpenAI**, **Gemini**, **Mistral**, and **OpenAI**. Select **Mistral**.
 
-    ![Provider selection panel with tiles for OpenAI, Mistral, Gemini, Azure OpenAI, Azure AI Foundry, and Anthropic](../../assets/img/ai-gateway/ai-workspace/quickstart/select-llm-provider.png)
+    ![Provider selection panel with tiles for OpenAI, Mistral, Gemini, Azure OpenAI, Azure AI Foundry, and Anthropic](../assets/img/ai-gateway/ai-workspace/quickstart/select-llm-provider.png)
 
     !!! tip "Using a different provider?"
         The steps below are the same for any of them. Azure OpenAI and Azure AI Foundry also need the **Upstream URL** from your Azure resource.
@@ -164,7 +164,7 @@ This section configures Mistral AI as a worked example. The same steps apply to 
     - **Context**: the URL path segment this provider is reachable under, for example `/mistral`.
     - **API Key**: your Mistral AI API key. Mistral's endpoint URL is pre-configured automatically.
 
-    ![Provider form with Mistral selected and the name, context, and API key filled in](../../assets/img/ai-gateway/ai-workspace/quickstart/configure-mistral-provider.png)
+    ![Provider form with Mistral selected and the name, context, and API key filled in](../assets/img/ai-gateway/ai-workspace/quickstart/configure-mistral-provider.png)
 
     The **Guardrails & Policies** panel pre-selects a suggested `llm-cost` guardrail. Leave it, remove it, or add more later from the provider's **Guardrails & Policies** tab. See [Policies overview](policies/overview.md).
 
@@ -190,7 +190,7 @@ A provider isn't reachable until you deploy it to a running gateway.
 
 The deployment status changes to **Active** within a few seconds, without needing to refresh the page, and the running gateway logs `Configuration deployed successfully`:
 
-![Deploy to Gateway page with the deployment status Active and a history entry](../../assets/img/ai-gateway/ai-workspace/quickstart/provider-deployed-to-gateway.png)
+![Deploy to Gateway page with the deployment status Active and a history entry](../assets/img/ai-gateway/ai-workspace/quickstart/provider-deployed-to-gateway.png)
 
 ### Step 8: Generate an API key
 
@@ -201,7 +201,7 @@ The **API Keys** section on the provider's **Overview** tab only appears once th
 3. Under **API Keys**, click **Generate API Key**.
 4. Enter a **Key Name**, for example `quickstart-test-key`, and click **Generate**.
 
-    ![API key generated dialog with the header name and a sample curl command](../../assets/img/ai-gateway/ai-workspace/quickstart/generated-api-key.png)
+    ![API key generated dialog with the header name and a sample curl command](../assets/img/ai-gateway/ai-workspace/quickstart/generated-api-key.png)
 
 !!! danger "Copy the key"
     An API key is displayed only once, in a dialog that also shows a ready-to-run `curl` command using one of the provider's models. Store the key securely immediately. You can't retrieve it again, though you can always generate a new one. It's also different from the Mistral API key you added earlier: the Mistral key authenticates AI Workspace to Mistral, while this key authenticates your own callers to the gateway.
@@ -266,7 +266,7 @@ AI Workspace includes a hosted sample MCP server, so you don't need to run one y
 1. Navigate to **MCP Proxies** in the left navigation menu, then click **Create MCP Proxy**.
 2. Click **Try with Sample URL**, then click **Fetch Server Info**.
 
-    ![Create MCP Proxy screen with the sample URL and the fetched tools, resources, and prompts](../../assets/img/ai-gateway/ai-workspace/quickstart/mcp-create-proxy.png)
+    ![Create MCP Proxy screen with the sample URL and the fetched tools, resources, and prompts](../assets/img/ai-gateway/ai-workspace/quickstart/mcp-create-proxy.png)
 
     AI Workspace fetches the server's capabilities and lists them: 4 tools (including `echo` and `add`), 10 resources, and 3 prompts.
 
@@ -291,7 +291,7 @@ The proxy page opens with a **Capabilities** tab listing its tools, resources, a
 
 The deployment status changes to **Active** within a few seconds, without needing to refresh the page, and the running gateway logs `Configuration deployed successfully` with `kind=Mcp`:
 
-![MCP proxy Deploy to Gateway page with the deployment status Active](../../assets/img/ai-gateway/ai-workspace/quickstart/mcp-proxy-deployed.png)
+![MCP proxy Deploy to Gateway page with the deployment status Active](../assets/img/ai-gateway/ai-workspace/quickstart/mcp-proxy-deployed.png)
 
 ## Part 6: Call your first MCP tool
 
@@ -299,7 +299,7 @@ This part sends a real tool call through your deployed MCP proxy and confirms th
 
 Go back to the proxy's **Overview** tab. Under **MCP Proxy URL**, select your gateway from the **Gateways** dropdown and copy the URL shown. It ends in `/mcp`, for example, `https://localhost:8443/default/bijira-mcp-everything/mcp`.
 
-![MCP proxy Overview tab with the gateway-specific MCP Proxy URL and the capabilities list](../../assets/img/ai-gateway/ai-workspace/quickstart/mcp-proxy-url.png)
+![MCP proxy Overview tab with the gateway-specific MCP Proxy URL and the capabilities list](../assets/img/ai-gateway/ai-workspace/quickstart/mcp-proxy-url.png)
 
 Every MCP client starts a session with an `initialize` request before it can call a tool. Replace `<MCP_PROXY_URL>` with the URL you copied, then run:
 

@@ -204,6 +204,7 @@ nav:
           - Analytics Header Filter: ai-gateway/analytics/analytics-header-filter.md
     - AI Workspace:
         - Overview: ai-workspace/overview.md
+        - Quickstart: ai-workspace/quickstart.md
         - Getting Started: ai-workspace/getting-started.md
         - AI Gateways:
             - Setting Up: ai-workspace/ai-gateways/setting-up.md
