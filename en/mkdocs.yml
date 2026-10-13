@@ -175,6 +175,7 @@ nav:
         - Getting Started: api-portal/1.0.0/getting-started.md
         - Setting Up:
             - Configuration & Interpolation: api-portal/1.0.0/setting-up/configuration.md
+            - Minimum resource requirements: api-portal/1.0.0/setting-up/resource-requirement.md
             - Ports: api-portal/1.0.0/setting-up/ports.md
             - Database: api-portal/1.0.0/setting-up/database.md
             - Authentication:
