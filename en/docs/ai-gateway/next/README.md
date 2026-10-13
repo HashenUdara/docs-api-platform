@@ -1,14 +1,14 @@
 ---
 title: "API Platform AI Gateway"
 description: "Overview of API Platform AI Gateway for managing LLM and MCP traffic, covering key concepts, architecture, and quick start links."
-canonical_url: https://wso2.com/api-platform/docs/ai-gateway/
-md_url: https://wso2.com/api-platform/docs/ai-gateway.md
+canonical_url: https://wso2.com/api-platform/docs/ai-gateway/next/
+md_url: https://wso2.com/api-platform/docs/ai-gateway/next.md
 tags:
   - ai-gateway
   - llm
   - mcp
 author: WSO2 API Platform Documentation Team
-last_updated: 2026-06-16
+last_updated: 2026-08-11
 content_type: "overview"
 ---
 
@@ -18,8 +18,9 @@ A gateway for managing and securing AI traffic, including Large Language Model (
 
 ## Quick Start
 
-- [LLM Quick Start Guide](llm-proxy/quick-start-guide.md) - Set up the gateway and route traffic to LLM providers like OpenAI
-- [MCP Quick Start Guide](mcp-proxy/quick-start-guide.md) - Set up the gateway and route traffic to MCP servers
+- [LLM Quick Start Guide](quick-start-guide.md) — Set up the gateway and route traffic to LLM providers like OpenAI
+- [MCP proxy](gateway-artifacts/mcp-proxy.md) — Set up the gateway and route traffic to MCP servers
+- [A2A agent quick start guide](agent-governance/quick-start-guide.md) — Put an A2A agent behind the gateway and invoke it on both protocol bindings
 
 ## Key Concepts
 
@@ -35,6 +36,7 @@ Following templates are shipped out-of-the-box
 - AWS Bedrock
 - Azure AI Foundry
 - Gemini
+- MistralAI
 
 ### LLM Provider
 
@@ -48,6 +50,8 @@ An LLM Provider represents a connection to an AI backend service such as OpenAI,
 - Organization-wide policies such as guardrails
 
 Once configured, the LLM Provider allows traffic to flow through the gateway to the AI backend.
+
+To connect the gateway to AWS Bedrock, see [Configure an AWS Bedrock LLM Provider](gateway-artifacts/llm-provider/supported-providers/aws-bedrock.md). The guide covers both Bedrock bearer API keys and AWS Signature Version 4 (SigV4) authentication.
 
 ### LLM Proxy
 
@@ -64,6 +68,14 @@ An MCP Proxy routes Model Context Protocol traffic to MCP servers. MCP is a prot
 - Expose MCP servers through a centralized gateway
 - Apply authentication and access control to MCP traffic
 - Manage multiple MCP servers from a single control plane
+
+### Agent
+
+An Agent fronts an Agent2Agent (A2A) agent. A2A is a protocol that lets one AI agent discover another and delegate work to it. With Agents, you can:
+
+- Expose an A2A agent on the JSON-RPC binding, the HTTP+JSON binding, or both
+- Serve an Agent Card that advertises the gateway rather than the agent
+- Apply authentication and rate limits to individual A2A operations
 
 ## Default Ports
 
@@ -104,4 +116,4 @@ An MCP Proxy routes Model Context Protocol traffic to MCP servers. MCP is a prot
 | [mcp/](mcp/) | MCP proxy setup and policies |
 | [observability/](observability/) | Logging and tracing configuration |
 | [analytics/](analytics/) | Analytics integrations (Moesif) |
-| [ai-gateway-rest-api/](ai-gateway-rest-api/) | REST API authentication and usage |
+| [gateway-controller-management-api/](gateway-controller-management-api/) | Management API reference |
