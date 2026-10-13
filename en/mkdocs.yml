@@ -229,6 +229,7 @@ nav:
         - Policies:
           - Overview: api-gateway/1.1.0/policies/overview.md
           - Policy execution order: api-gateway/1.1.0/policies/policy-execution-order.md
+          - Add or Update Policies: api-gateway/1.1.0/policies/add-or-update-policies.md
           - Custom Policies:
             - Writing a Custom Policy: api-gateway/1.1.0/policies/custom-policies/writing-a-custom-policy.md
             - Building Gateway with Custom Policies: api-gateway/1.1.0/policies/custom-policies/building-gateway-with-custom-policies.md
