@@ -1,8 +1,8 @@
 ---
 title: "Deploy in Kubernetes Standalone Mode"
 description: "Install and manage API Platform Gateway on Kubernetes using the standalone Helm chart, without the Gateway Operator."
-canonical_url: https://wso2.com/api-platform/docs/api-gateway/deployment/deployment-modes/kubernetes/kubernetes-standalone/
-md_url: https://wso2.com/api-platform/docs/api-gateway/deployment/deployment-modes/kubernetes/kubernetes-standalone.md
+canonical_url: https://wso2.com/api-platform/docs/api-gateway/next/deployment/deployment-modes/kubernetes/kubernetes-standalone/
+md_url: https://wso2.com/api-platform/docs/api-gateway/next/deployment/deployment-modes/kubernetes/kubernetes-standalone.md
 tags:
   - api-gateway
   - kubernetes
@@ -237,12 +237,13 @@ helm install ap-gateway oci://ghcr.io/wso2/api-platform/helm-charts/gateway \
 ### Port-forward Gateway Controller Service
 
 ```bash
-kubectl port-forward svc/ap-gateway-controller 9090:9090
+kubectl port-forward svc/ap-gateway-controller 9090:9090 9094:9094
 ```
 
-### Verify gateway controller admin endpoint is running
+### Verify the Gateway Controller's admin endpoint is running
+
 ```bash
-curl http://localhost:9094/api/admin/v0.9/health
+curl --fail http://localhost:9094/api/admin/v1/health
 ```
 
 ### Deploy an API configuration

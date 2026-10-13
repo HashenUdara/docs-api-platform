@@ -1,8 +1,8 @@
 ---
 title: "Artifact Templating"
 description: "Use Go text template expressions in API Platform Gateway YAML artifacts to inject environment variables and dynamic values at startup."
-canonical_url: https://wso2.com/api-platform/docs/api-gateway/setup/artifact-templating/
-md_url: https://wso2.com/api-platform/docs/api-gateway/setup/artifact-templating.md
+canonical_url: https://wso2.com/api-platform/docs/api-gateway/next/setup/artifact-templating/
+md_url: https://wso2.com/api-platform/docs/api-gateway/next/setup/artifact-templating.md
 tags:
   - api-gateway
   - configuration
@@ -117,3 +117,7 @@ In this example:
 - `ORDERS_BACKEND_URL` is optional — falls back to the default URL if not set.
 - `ORDERS_API_KEY` is required — the gateway will not start if it is missing, and the value is redacted in config dumps.
 - `DEPLOYMENT_ENV` is optional with a default of `production`.
+
+---
+
+[← Setting Up the Database](./database-setup.md) &nbsp;|&nbsp; [Health Checks →](./health-checks.md)

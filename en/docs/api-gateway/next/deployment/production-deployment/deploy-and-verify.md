@@ -1,8 +1,8 @@
 ---
 title: "Deploy and Verify the Gateway"
 description: "Install API Platform Gateway using Helm, verify that pods and services are healthy, and perform upgrade and rollback procedures."
-canonical_url: https://wso2.com/api-platform/docs/api-gateway/deployment/production-deployment/deploy-and-verify/
-md_url: https://wso2.com/api-platform/docs/api-gateway/deployment/production-deployment/deploy-and-verify.md
+canonical_url: https://wso2.com/api-platform/docs/api-gateway/next/deployment/production-deployment/deploy-and-verify/
+md_url: https://wso2.com/api-platform/docs/api-gateway/next/deployment/production-deployment/deploy-and-verify.md
 tags:
   - api-gateway
   - deployment
@@ -58,7 +58,7 @@ kubectl get svc -n ap-gateway
 
 ```bash
 kubectl exec -n ap-gateway deploy/ap-gateway-controller -- \
-  wget -qO- http://localhost:9094/api/admin/v0.9/health
+  wget -qO- http://localhost:9094/api/admin/v1/health
 ```
 
 ## Upgrade Procedure
