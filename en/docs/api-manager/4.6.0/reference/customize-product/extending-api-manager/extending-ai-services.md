@@ -1,3 +1,18 @@
+---
+title: "Extend AI services"
+description: "Add request properties or replace Marketplace Assistant, Design Assistant, and API Chat with a user-owned AI service."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-ai-services/
+md_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-ai-services.md
+tags:
+  - api-manager
+  - reference
+  - customize-product
+  - extending-api-manager
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-09-21
+content_type: "how-to"
+---
+
 # Extending AI Services
 
 WSO2 API Manager (WSO2 API-M) provides extension points for integrating user-owned AI services with Marketplace Assistant, Design Assistant, and API Chat.
@@ -19,7 +34,7 @@ You can use these extension points to:
 
 The following diagram shows how API-M enriches AI service requests and connects to user-owned AI service implementations.
 
-[![AI service extension architecture]({{base_path}}/assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)]({{base_path}}/assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)
+[![AI service extension architecture](../../../assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)](../../../assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)
 
 ## Add custom properties to AI service requests
 

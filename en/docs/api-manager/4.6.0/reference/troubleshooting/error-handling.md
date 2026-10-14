@@ -463,7 +463,7 @@ message's HTTP status code as a custom error message:
 
 ## Customize Error Responses for AI APIs
 
-To enable custom error response formatting for AI APIs, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see the [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+To enable custom error response formatting for AI APIs, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see the [Configuration Catalog](../config-catalog.md).
 
 ```toml
 [apim.ai]

@@ -1,3 +1,18 @@
+---
+title: "Google Vertex AI"
+description: "Configure Google Vertex AI as an AI service provider, set Claude models and the global endpoint, and authenticate with a service account."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/ai-gateway/ai-vendor-management/google-vertex-ai/
+md_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/ai-gateway/ai-vendor-management/google-vertex-ai.md
+tags:
+  - api-manager
+  - ai-gateway
+  - ai-vendor-management
+  - google-vertex-ai
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-09-21
+content_type: "how-to"
+---
+
 # Google Vertex AI
 
 !!! note
@@ -22,7 +37,7 @@ Follow these steps to review and customize the Vertex AI provider in your API Ma
 2. Navigate to the **AI Service Providers** section in the left navigation pane.
 3. Find **VertexAI-Anthropic** in the list and click on it to edit the configuration.
 
-[![Vertex AI Configuration]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-config.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-config.png)
+[![Vertex AI Configuration](../../assets/img/learn/ai-gateway/vertex-ai-config.png){: style="width:90%"}](../../assets/img/learn/ai-gateway/vertex-ai-config.png)
 
 ### Step 2: Configure Models
 
@@ -95,7 +110,7 @@ The following configurations can be updated:
 
 - By default, the following models are included: `claude-sonnet-4` and `claude-3-5-sonnet-v2`.
 - To add available models supported by Claude on Vertex AI, type the model name and press enter.
-- This enables model-based load balancing and failover capabilities. For more details, see [Multi-Model Routing Overview]({{base_path}}/ai-gateway/multi-model-routing/overview/).
+- This enables model-based load balancing and failover capabilities. For more details, see [Multi-Model Routing Overview](../multi-model-routing/overview.md).
 
 !!! Note
     Make sure the models you add are available &mdash; and enabled in Vertex AI Model Garden &mdash; in the Google Cloud region you configure on the AI API endpoint. See [Step 1: Grant Vertex AI permissions in Google Cloud](#step-1-grant-vertex-ai-permissions-in-google-cloud).
@@ -182,7 +197,7 @@ The service account that the Gateway uses (whether via an uploaded key or the at
     - **Regional**: `https://{region}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{region}/publishers/anthropic/models`
     - **Global**: `https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/global/publishers/anthropic/models`
 
-    [![Vertex AI Endpoint URL Builder]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png){: style="width:100%"}]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png)
+    [![Vertex AI Endpoint URL Builder](../../assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png){: style="width:100%"}](../../assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png)
 
 4. Configure the **GCP Service Account Key** section according to the credential mode:
 
@@ -205,7 +220,7 @@ The service account that the Gateway uses (whether via an uploaded key or the at
         </tbody>
     </table>
 
-    [![Vertex AI Service Account Key]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-service-account-key.png){: style="width:100%"}]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-service-account-key.png)
+    [![Vertex AI Service Account Key](../../assets/img/learn/ai-gateway/vertex-ai-service-account-key.png){: style="width:100%"}](../../assets/img/learn/ai-gateway/vertex-ai-service-account-key.png)
 
 5. Click **Update** to save the endpoint.
 6. **Save and deploy the API** for the changes to take effect.
@@ -221,4 +236,4 @@ The service account that the Gateway uses (whether via an uploaded key or the at
 
     **Why it is needed:** By default the Gateway forwards the request body to the backend using HTTP *chunked transfer-encoding*. The Anthropic Claude models on Vertex AI (`:rawPredict` / `:streamRawPredict`) expect the request with a fixed **`Content-Length`** header and do not reliably accept a chunked request body, so requests can be rejected by the backend. The `DISABLE_CHUNKING` policy makes the Gateway buffer the request and send it with a `Content-Length` header instead of chunked transfer-encoding, which is what the Vertex AI Anthropic endpoints require.
 
-For more information on securing the backend of AI APIs, see [AI Backend Security]({{base_path}}/ai-gateway/ai-backend-security/).
+For more information on securing the backend of AI APIs, see [AI Backend Security](../ai-backend-security.md).

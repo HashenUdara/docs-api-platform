@@ -244,7 +244,7 @@ You have successfully published the AWS Lambda API. Try invoking the Lambda API 
 
     When enabled, the API Manager parses the Lambda response as an [AWS API Gateway Lambda proxy integration response](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format) envelope and maps the `statusCode`, `headers`, `multiValueHeaders`, `body`, and `isBase64Encoded` fields to the HTTP response.
 
-    To enable proxy response mapping, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+    To enable proxy response mapping, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file. For more information, see [Configuration Catalog](../reference/config-catalog.md).
 
     ```toml
     [apim.aws_lambda]
@@ -262,7 +262,7 @@ You have successfully published the AWS Lambda API. Try invoking the Lambda API 
 
     You can configure the maximum number of retry attempts for AWS Lambda invocations. When not configured, the AWS SDK default retry behavior is preserved.
 
-    To configure the retry behavior, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+    To configure the retry behavior, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file. For more information, see [Configuration Catalog](../reference/config-catalog.md).
 
     ```toml
     [apim.aws_lambda.sdk]

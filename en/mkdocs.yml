@@ -1122,7 +1122,6 @@ nav:
                     -   Securing APIs Using Certificate Bound Access Tokens: api-manager/4.6.0/api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
                 -   Authorization:
                     -   Overview: api-manager/4.6.0/api-security/runtime/authorization/api-authorization.md
-                    -   Role-based Access Control Using XACML: api-manager/4.6.0/api-security/runtime/authorization/role-based-access-control-using-xacml.md
                     -   Fine Grained Access Control with OAuth Scopes: api-manager/4.6.0/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                     -   Application Scopes: api-manager/4.6.0/api-security/runtime/authorization/oauth2-scopes/application-scopes.md
                     -   Scope Whitelisting: api-manager/4.6.0/api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
@@ -1242,6 +1241,7 @@ nav:
                     -   Azure AI Foundry: api-manager/4.6.0/ai-gateway/ai-vendor-management/azure-ai-foundry.md
                     -   Azure OpenAI: api-manager/4.6.0/ai-gateway/ai-vendor-management/azure-openai.md
                     -   Gemini: api-manager/4.6.0/ai-gateway/ai-vendor-management/gemini.md
+                    -   Google Vertex AI: api-manager/4.6.0/ai-gateway/ai-vendor-management/google-vertex-ai.md
                     -   Mistral AI: api-manager/4.6.0/ai-gateway/ai-vendor-management/mistral-ai.md
                     -   OpenAI: api-manager/4.6.0/ai-gateway/ai-vendor-management/openai.md
                     -   Custom AI Service Providers:
@@ -1424,6 +1424,7 @@ nav:
                         -   Extend Scope Validation: api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
                         -   Extend Key Manager: api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
                         -   Write Custom Grant Types: api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                    -   Extend AI Services: api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-ai-services.md
                     -   Extend API Gateway:
                         -   Customize API Template: api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
                         -   Write Custom Handlers: api-manager/4.6.0/reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md

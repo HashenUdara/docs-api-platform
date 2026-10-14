@@ -88,7 +88,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
         ```
         - Starting from API-M 4.6.0 U2 update level 29, users can disable provisioned app validation for a specific KM as well. To disable validation only for a specific KM, users should keep the global value as true or unset, then disable provisioned app validation from the KM's Advanced section in the Admin Portal by unchecking the option and saving the changes.
 
-        [![Provisioned App Validation]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provisioned-app-validation.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provisioned-app-validation.png)
+        [![Provisioned App Validation](../../../assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provisioned-app-validation.png)](../../../assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provisioned-app-validation.png)
 
 3.  [Start the server](../../../install-and-setup/install/installing-the-product/running-the-api-m.md#starting-the-api-m-server).
 

@@ -193,7 +193,7 @@ The values your matcher exchanges with the Gateway are passed through the reques
 
 ## Verifying the extension
 
-1. Deploy a WebSub API that has at least one topic defined (see [Create a WebSub/WebHook API]({{base_path}}/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api/)).
+1. Deploy a WebSub API that has at least one topic defined (see [Create a WebSub/WebHook API](../../../../api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md)).
 2. Enable `DEBUG` logging for your extension package by adding the following to `<API-M_HOME>/repository/conf/log4j2.properties` on the Gateway:
     ```
     logger.custom-websub.name = com.example.apim.websub
@@ -205,6 +205,6 @@ The values your matcher exchanges with the Gateway are passed through the reques
 
 ## See also
 
-- [Configuring an External WebSub Hub]({{base_path}}/install-and-setup/setup/advance-configurations/configuring-external-websub-hub/)
-- [Write Custom Handlers]({{base_path}}/reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers/)
-- [Create a WebSub/WebHook API]({{base_path}}/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api/)
+- [Configuring an External WebSub Hub](../../../../install-and-setup/setup/advance-configurations/configuring-external-websub-hub.md)
+- [Write Custom Handlers](./writing-custom-handlers.md)
+- [Create a WebSub/WebHook API](../../../../api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md)

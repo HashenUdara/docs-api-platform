@@ -182,7 +182,7 @@ The **UserInfo Endpoint** allows clients to verify the identity of the end-user 
     - Distributed deployment - Universal Gateway (`wso2am-universal-gw`): 4.6.0.46
 
 - `https://localhost:9444/scim2/Me`
-- `https://localhost:9444/keymanager-operations/user-info` - This should be used if WSO2 Identity Server 7.x is using a federated login for applications that are created by the WSO2 IS 7.x Key Manager, and the users are not stored in WSO2 IS 7.x. In order to use this, download the [`keymanager-operations.war`]({{base_path}}/assets/attachments/administer/wso2-is7-km/keymanager-operations.war) and place it in the `<IS7_HOME>/repository/deployment/server/webapps/` directory.
+- `https://localhost:9444/keymanager-operations/user-info` - This should be used if WSO2 Identity Server 7.x is using a federated login for applications that are created by the WSO2 IS 7.x Key Manager, and the users are not stored in WSO2 IS 7.x. In order to use this, download the [`keymanager-operations.war`](../../../assets/attachments/administer/wso2-is7-km/keymanager-operations.war) and place it in the `<IS7_HOME>/repository/deployment/server/webapps/` directory.
 
 
 !!! note "Scope names containing `/`"
