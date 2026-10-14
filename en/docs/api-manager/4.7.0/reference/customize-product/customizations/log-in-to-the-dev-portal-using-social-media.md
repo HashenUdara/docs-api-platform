@@ -15,7 +15,7 @@ content_type: "tutorial"
 
 # Log in to the Developer Portal using Social Media
 
-You can integrate WSO2 Identity Server with WSO2 API Manager and use your social media credentials to log in to the Developer Portal and Publisher. This tutorial shows you how to integrate Facebook authentication and log in to the Developer Portal. Before following these steps, [configure WSO2 Identity Server as a Key Manager with API Manager](../../../install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md).
+You can integrate WSO2 Identity Server with WSO2 API Manager and use your social media credentials to log in to the Developer Portal and Publisher. This tutorial shows you how to integrate Facebook authentication and log in to the Developer Portal. Before following these steps, [configure WSO2 Identity Server as a Key Manager with API Manager](../../../api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md).
 
 !!! note
         Note that the Facebook application development UI might be slightly different from the demonstrated UIs in this tutorial due to the frequent updates in the Facebook Developer Portal.

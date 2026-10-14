@@ -25,7 +25,6 @@ Organizations can configure multiple Key Managers within a single tenant, allowi
 
 ### Enterprise Identity Providers
 - **[WSO2 Identity Server](configure-wso2is7-connector.md)**: Latest identity server with enhanced capabilities  
-- **[WSO2 Identity Server 6.x](configure-wso2is-connector.md)**: Full-featured identity and access management platform
 - **[Keycloak](configure-keycloak-connector.md)**: Open-source identity and access management solution
 
 ### Cloud Identity Services

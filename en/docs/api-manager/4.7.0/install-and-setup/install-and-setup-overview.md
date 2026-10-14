@@ -84,9 +84,6 @@ To set up the API Manager component, see the following topics.
             <li>
                 <a href="../setup/distributed-deployment/configure-a-third-party-key-manager.md">Configure a Third-party Key Manager</a>
             </li>
-            <li>
-                <a href="../setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md">Configuring WSO2 Identity Server as a Key Manager</a>
-            </li>
         </ul>
     </td>
 </tr>

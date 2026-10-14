@@ -5123,7 +5123,7 @@ redirect_maps:
   api-manager/4.7.0/administer/key-managers/configure-keycloak-connector.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
   api-manager/4.7.0/administer/key-managers/configure-okta-connector.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-okta-connector.md
   api-manager/4.7.0/administer/key-managers/configure-pingfederate-connector.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-pingfederate-connector.md
-  api-manager/4.7.0/administer/key-managers/configure-wso2is-connector.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
+  api-manager/4.7.0/administer/key-managers/configure-wso2is-connector.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
   api-manager/4.7.0/administer/key-managers/configure-wso2is7-connector.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
   api-manager/4.7.0/administer/key-managers/overview.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/overview.md
   api-manager/4.7.0/administer/logging-and-monitoring/logging/configuring-logging.md: api-manager/4.7.0/monitoring/observability/configuring-logging.md
@@ -5390,7 +5390,7 @@ redirect_maps:
   api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-resources.md: api-manager/4.7.0/install-and-setup/install/deploying-api-manager-with-kubernetes-resources.md
   api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/deployment-patterns.md: api-manager/4.7.0/get-started/deployment-patterns.md
   api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
-  api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
+  api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
   api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
   api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
   api-manager/4.7.0/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md: api-manager/4.7.0/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
@@ -5853,3 +5853,6 @@ redirect_maps:
   api-manager/4.7.0/troubleshooting/troubleshooting-jms.md: api-manager/4.7.0/reference/troubleshooting/troubleshooting-jms.md
   api-manager/4.7.0/troubleshooting/troubleshooting-websocket-api.md: api-manager/4.7.0/reference/troubleshooting/troubleshooting-websocket-api.md
   api-manager/4.7.0/troubleshooting/utilizing-runtime-diagnostic-tool.md: api-manager/4.7.0/reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
+  # WSO2 IS 6.x Key Manager pages removed in docs-apim ("Remove IS 6.x references")
+  api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is-connector.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+  api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md

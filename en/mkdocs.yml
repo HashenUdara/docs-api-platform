@@ -105,7 +105,6 @@ nav:
                     - Set up Kubernetes Gateway with APIM: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
                     - Set up a Key Manager:
                         - Set up a Third-party Key Manager: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
-                        - Set up WSO2 Identity Server as a Resident Key Manager: api-manager/4.7.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
                     - Set up Databases:
                         - Overview: api-manager/4.7.0/install-and-setup/setup/setting-up-databases/overview.md
                         - Change Default Databases:
@@ -405,7 +404,6 @@ nav:
                     - Securing APIs Using Certificate Bound Access Tokens: api-manager/4.7.0/api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
                 - Authorization:
                     - Overview: api-manager/4.7.0/api-security/runtime/authorization/api-authorization.md
-                    - Role-based Access Control Using XACML: api-manager/4.7.0/api-security/runtime/authorization/role-based-access-control-using-xacml.md
                     - Fine Grained Access Control with OAuth Scopes: api-manager/4.7.0/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                     - Application Scopes: api-manager/4.7.0/api-security/runtime/authorization/oauth2-scopes/application-scopes.md
                     - Scope Whitelisting: api-manager/4.7.0/api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
@@ -443,7 +441,6 @@ nav:
                 - Third-Party Key Managers:
                     - Overview: api-manager/4.7.0/api-security/key-management/third-party-key-managers/overview.md
                     - Configure WSO2 IS Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
-                    - Configure WSO2 IS 6.x as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
                     - Configure Asgardeo as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-asgardeo-connector.md
                     - Configure Keycloak as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                     - Configure Okta as a Key Manager: api-manager/4.7.0/api-security/key-management/third-party-key-managers/configure-okta-connector.md
@@ -462,6 +459,7 @@ nav:
                 - Getting Started: api-manager/4.7.0/api-gateway/platform-gateway/getting-started.md
                 - Setting Up: api-manager/4.7.0/api-gateway/platform-gateway/setting-up.md
                 - Adding and Managing Policies: api-manager/4.7.0/api-gateway/platform-gateway/adding-and-managing-policies.md
+                - Gateway Registration and Deployment: api-manager/4.7.0/api-gateway/platform-gateway/gateway-registration-and-deployment.md
             - Classic Gateway (Universal):
                 - Overview of the WSO2 Classic Gateway: api-manager/4.7.0/api-gateway/overview-of-the-api-gateway.md
                 - Deploy an API to Gateway: api-manager/4.7.0/api-gateway/deploy-api-to-gateway.md
@@ -473,6 +471,7 @@ nav:
                     - Classic Gateway with Dedicated Tenants: api-manager/4.7.0/api-gateway/maintain-seperate-gateways-per-tenants.md
                     - Classic Gateways with Dedicated Backends: api-manager/4.7.0/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between Classic Gateway and Backend: api-manager/4.7.0/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - WebSocket Proxy Profiles: api-manager/4.7.0/api-gateway/websocket-proxy-profiles.md
                     - Storing Custom Synapse Artifacts in the Gateway: api-manager/4.7.0/api-gateway/custom-synapse-artifacts.md
                 - Gateway Policies:
                     - Adding Dynamic Endpoints: api-manager/4.7.0/api-gateway/policies/adding-dynamic-endpoints.md
@@ -566,6 +565,7 @@ nav:
                     - Claude Code configuration with AI Gateway: api-manager/4.7.0/ai-gateway/ai-tools/claude-code-with-ai-gateway.md
                     - Google Gemini CLI configuration with AI Gateway: api-manager/4.7.0/ai-gateway/ai-tools/gemini-cli-with-ai-gateway.md
                     - OpenAI Codex CLI configuration with AI Gateway: api-manager/4.7.0/ai-gateway/ai-tools/codex-with-ai-gateway.md
+                    - GitHub Copilot configuration with AI Gateway: api-manager/4.7.0/ai-gateway/ai-tools/github-copilot-with-ai-gateway.md
             - MCP Gateway:
                 - Getting Started: api-manager/4.7.0/ai-gateway/mcp-gateway/overview.md
                 - Create from an OpenAPI Definition: api-manager/4.7.0/ai-gateway/mcp-gateway/create-from-openapi.md

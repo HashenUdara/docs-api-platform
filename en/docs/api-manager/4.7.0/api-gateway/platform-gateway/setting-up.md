@@ -232,3 +232,4 @@ This guide provides detailed instructions for deploying Platform Gateway in prod
 ## What's Next?
 
 - [Adding and Managing Policies](adding-and-managing-policies.md)
+- [Gateway Registration and Deployment](gateway-registration-and-deployment.md)
