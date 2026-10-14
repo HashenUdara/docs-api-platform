@@ -1,18 +1,3 @@
----
-title: "Configuring an external WebSub hub"
-description: "Delegate WebSub hub duties to an external hub in WSO2 API Manager, with topic naming, distributed deployment, and verification."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/install-and-setup/setup/advance-configurations/configuring-external-websub-hub/
-md_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/install-and-setup/setup/advance-configurations/configuring-external-websub-hub.md
-tags:
-  - api-manager
-  - install-and-setup
-  - setup
-  - advance-configurations
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-07-23
-content_type: "how-to"
----
-
 # Configuring an External WebSub Hub
 
 By default, WSO2 API Manager handles the WebSub protocol (topic registration, subscription, unsubscription, and content publishing) inside the Universal Gateway itself. This works well for most deployments, but there are situations where you may want to delegate the hub responsibility to a dedicated external WebSub hub — for example, to reuse an existing hub that already serves other systems, to scale hub traffic independently of API traffic, or to take advantage of hub-specific features such as guaranteed deliveries.

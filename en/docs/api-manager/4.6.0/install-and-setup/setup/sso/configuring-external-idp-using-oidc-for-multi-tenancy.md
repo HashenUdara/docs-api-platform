@@ -1,18 +1,3 @@
----
-title: "Configuring external IdP using OIDC for multi tenancy"
-description: "Connect WSO2 Identity Server 7.x as an external OIDC identity provider for multi-tenant single sign-on across API Manager portals."
-canonical_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/install-and-setup/setup/sso/configuring-external-idp-using-oidc-for-multi-tenancy/
-md_url: https://wso2.com/api-platform/docs/api-manager/4.6.0/install-and-setup/setup/sso/configuring-external-idp-using-oidc-for-multi-tenancy.md
-tags:
-  - api-manager
-  - install-and-setup
-  - setup
-  - sso
-author: WSO2 API Platform Documentation Team
-last_updated: 2026-07-23
-content_type: "how-to"
----
-
 # Configuring external IdP using OIDC for Multi Tenancy
 
 WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server 7.x (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager for multi tenant work flows.
@@ -378,6 +363,9 @@ order = 20
 
     [![Tenant Selection Page](../../../assets/img/setup-and-install/tenant-selection-page.png)](../../../assets/img/setup-and-install/tenant-selection-page.png)
 
+
+!!! Note For secondary user stores
+    If your Identity Provider has multiple secondary user stores (such as LDAP) and you want to include the user domain in the subject identifier (`LDAP_DOMAIN/username`), you must also connect the same user stores to the API Manager in read-only mode. This is required when the secondary user stores contain users with the same name and you cannot provision those users to the API Manager primary user store.
 
 !!! Note For secondary user stores
     If your Identity Provider has multiple secondary user stores (such as LDAP) and you want to include the user domain in the subject identifier (`LDAP_DOMAIN/username`), you must also connect the same user stores to the API Manager in read-only mode. This is required when the secondary user stores contain users with the same name and you cannot provision those users to the API Manager primary user store.

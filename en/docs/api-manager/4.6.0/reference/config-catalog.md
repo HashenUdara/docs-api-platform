@@ -2615,7 +2615,10 @@ type = "moesif"
 moesifKey = "estY2FtcGxlLW1vZXNpZi1rZXk="
 moesif_base_url = "https://api.moesif.net"
 send_headers = false
-build_response_message = false</code></pre>
+build_response_message = false
+send_payloads = false
+payload_size_limit = 100000
+capture_payloads_without_content_length = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2660,14 +2663,14 @@ build_response_message = false</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>moesif</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>moesif, log</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Analytics provider type. For API-M 4.6.0+, use &#39;moesif&#39; or &#39;log&#39;.</p>
+                                        <p>Analytics provider type. There is no default; set it explicitly. For API-M 4.6.0+, use &#39;moesif&#39; or &#39;log&#39;.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2757,6 +2760,67 @@ build_response_message = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>If TRUE, response will be build and calculate the responseSize which will includes in response analytics event</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>send_payloads</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE, include request/response bodies in events sent to analytics. Captured bodies are published in full and are not masked.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>payload_size_limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum size in bytes of a single request or response body captured for analytics. A larger body is dropped, not truncated. Applies only when send_payloads is TRUE.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>capture_payloads_without_content_length</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE, capture bodies that do not declare a Content-Length header, such as chunked payloads. Such a body is read into memory in full before its size is checked. Applies only when send_payloads is TRUE.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3179,6 +3243,7 @@ enable = true
 token = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
 default_request_timeout = 30
+custom_error_response_sequence = "openai_error_response_formatter"
 
 [apim.ai.failover_configurations]
 failover_endpoints_limit = 10
@@ -3273,6 +3338,109 @@ default_request_timeout = 30</code></pre>
                                         <p>The default timeout (in seconds) for AI API requests</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>api_chat_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable the API Chat feature.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>marketplace_assistant_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable the Marketplace Assistant feature.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>design_assistant_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable the API Design Assistant feature.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>property_enricher_impl</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The fully qualified class name of the AIRequestPropertyEnricher implementation used to add customer-specific properties to outbound AI service request payloads. When this is not configured, the standard request payloads remain unchanged.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>custom_error_response_sequence</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>openai_error_response_formatter</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the Synapse sequence used to format gateway error responses for AI APIs. Applies only to AI APIs. If not set, AI APIs use the default error response format.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div><div class="config-wrap">
                             <code>[apim.ai.failover_configurations]</code>
@@ -3345,6 +3513,7 @@ default_request_timeout = 30</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mcp]
 enable = true
+enforce_auth_for_all_mcp_methods = false
 </code></pre>
                     </div>
                 </div>
@@ -3379,6 +3548,85 @@ enable = true
                                         <p>Enable the MCP features.</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enforce_auth_for_all_mcp_methods</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>By default, all MCP requests sent over POST except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all such MCP requests sent over POST. This option does not apply to the GET request made to the MCP endpoint (used to check for SSE transport support), which is never authenticated regardless of this setting. For improved security, it is recommended to enable this option.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## API Product Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="30" type="checkbox" id="_tab_30">
+                <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.api_product]
+enable_revision_based_resources = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.api_product]</code>
+                            
+                            <p>
+                                Collection of API Product related configs
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_revision_based_resources</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable revision based resources for the API Product.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3398,8 +3646,8 @@ enable = true
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="30" type="checkbox" id="_tab_30">
-                <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
+            <input name="31" type="checkbox" id="_tab_31">
+                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.oauth_config]
@@ -3559,8 +3807,8 @@ enable_token_hashing = false</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="31" type="checkbox" id="_tab_31">
-                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
+            <input name="32" type="checkbox" id="_tab_32">
+                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification]
@@ -3637,8 +3885,8 @@ gateway_id = "gateway_00"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="32" type="checkbox" id="_tab_32">
-                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
+            <input name="33" type="checkbox" id="_tab_33">
+                <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification.heartbeat]
@@ -3693,8 +3941,8 @@ notify_interval = "1m"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="33" type="checkbox" id="_tab_33">
-                <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
+            <input name="34" type="checkbox" id="_tab_34">
+                <label class="tab-selector" for="_tab_34"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification.deployment_ack]
@@ -3909,8 +4157,8 @@ batch_processor_queue_size = 50</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="34" type="checkbox" id="_tab_34">
-                <label class="tab-selector" for="_tab_34"><i class="icon fa fa-code"></i></label>
+            <input name="35" type="checkbox" id="_tab_35">
+                <label class="tab-selector" for="_tab_35"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification.registration]
@@ -4005,8 +4253,8 @@ retry_progression_factor = 2</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="35" type="checkbox" id="_tab_35">
-                <label class="tab-selector" for="_tab_35"><i class="icon fa fa-code"></i></label>
+            <input name="36" type="checkbox" id="_tab_36">
+                <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification.cleanup]
@@ -4082,8 +4330,8 @@ data_retention_period = "30d"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="36" type="checkbox" id="_tab_36">
-                <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
+            <input name="37" type="checkbox" id="_tab_37">
+                <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apimgt.mutual_ssl]
@@ -4205,8 +4453,8 @@ enable_certificate_chain_validation = false
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="37" type="checkbox" id="_tab_37">
-                <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
+            <input name="38" type="checkbox" id="_tab_38">
+                <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[security_audit]
@@ -4324,8 +4572,8 @@ base_url="https://platform.42crunch.com/api/v1/apis"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="38" type="checkbox" id="_tab_38">
-                <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
+            <input name="39" type="checkbox" id="_tab_39">
+                <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.devportal]
@@ -4604,8 +4852,8 @@ mode = "HYBRID"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="39" type="checkbox" id="_tab_39">
-                <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
+            <input name="40" type="checkbox" id="_tab_40">
+                <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.cors]
@@ -4741,8 +4989,8 @@ allow_credentials = false</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="40" type="checkbox" id="_tab_40">
-                <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
+            <input name="41" type="checkbox" id="_tab_41">
+                <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.throttling]
@@ -5186,8 +5434,8 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="41" type="checkbox" id="_tab_41">
-                <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
+            <input name="42" type="checkbox" id="_tab_42">
+                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.throttling.blacklist_condition]
@@ -5689,8 +5937,8 @@ tenants = "*"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="42" type="checkbox" id="_tab_42">
-                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
+            <input name="43" type="checkbox" id="_tab_43">
+                <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.throttling.blacklist_condition]
@@ -5816,8 +6064,8 @@ tenants = "*"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="43" type="checkbox" id="_tab_43">
-                <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
+            <input name="44" type="checkbox" id="_tab_44">
+                <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.workflow]
@@ -6013,8 +6261,8 @@ client_registration_password = "$ref{super_admin.password}"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="44" type="checkbox" id="_tab_44">
-                <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
+            <input name="45" type="checkbox" id="_tab_45">
+                <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.sdk]
@@ -6152,8 +6400,8 @@ supported_languages = ["android", "java", "csharp", "dart", "groovy", "javascrip
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="45" type="checkbox" id="_tab_45">
-                <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
+            <input name="46" type="checkbox" id="_tab_46">
+                <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.open_tracer]
@@ -6289,8 +6537,8 @@ log_tracer.enable = true
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="46" type="checkbox" id="_tab_46">
-                <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
+            <input name="47" type="checkbox" id="_tab_47">
+                <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.token.revocation]
@@ -6449,8 +6697,8 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="47" type="checkbox" id="_tab_47">
-                <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
+            <input name="48" type="checkbox" id="_tab_48">
+                <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.event_hub]
@@ -6627,8 +6875,8 @@ event_duplicate_url = ["tcp://control-plane-2-host:5672"]
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="48" type="checkbox" id="_tab_48">
-                <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
+            <input name="49" type="checkbox" id="_tab_49">
+                <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[apim.event_hub.publish.url_group]]
@@ -6708,8 +6956,8 @@ auth_urls = ["ssl://control-plane-2-host:9711"]
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="49" type="checkbox" id="_tab_49">
-                <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
+            <input name="50" type="checkbox" id="_tab_50">
+                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.notification]
@@ -6903,8 +7151,8 @@ enable_authentication = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="50" type="checkbox" id="_tab_50">
-                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
+            <input name="51" type="checkbox" id="_tab_51">
+                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[tenant_mgt]
@@ -6959,8 +7207,8 @@ enable_email_domain = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="51" type="checkbox" id="_tab_51">
-                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
+            <input name="52" type="checkbox" id="_tab_52">
+                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[output_adapter.email]
@@ -7155,8 +7403,8 @@ enable_authentication = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="52" type="checkbox" id="_tab_52">
-                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
+            <input name="53" type="checkbox" id="_tab_53">
+                <label class="tab-selector" for="_tab_53"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.stratos]
@@ -7409,8 +7657,8 @@ sso_loading_message = "Loading..."</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="53" type="checkbox" id="_tab_53">
-                <label class="tab-selector" for="_tab_53"><i class="icon fa fa-code"></i></label>
+            <input name="54" type="checkbox" id="_tab_54">
+                <label class="tab-selector" for="_tab_54"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.stratos.paypal]
@@ -7543,8 +7791,8 @@ environment = "live"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="54" type="checkbox" id="_tab_54">
-                <label class="tab-selector" for="_tab_54"><i class="icon fa fa-code"></i></label>
+            <input name="55" type="checkbox" id="_tab_55">
+                <label class="tab-selector" for="_tab_55"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.stratos.manager_service]
@@ -7637,8 +7885,8 @@ admin_password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="55" type="checkbox" id="_tab_55">
-                <label class="tab-selector" for="_tab_55"><i class="icon fa fa-code"></i></label>
+            <input name="56" type="checkbox" id="_tab_56">
+                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.usage_agent.data_persistence_task]
@@ -7733,8 +7981,8 @@ execution_interval_in_ms = "-1"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="56" type="checkbox" id="_tab_56">
-                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
+            <input name="57" type="checkbox" id="_tab_57">
+                <label class="tab-selector" for="_tab_57"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.throttling_manager_tasks]
@@ -7790,8 +8038,8 @@ data_providers = [
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="57" type="checkbox" id="_tab_57">
-                <label class="tab-selector" for="_tab_57"><i class="icon fa fa-code"></i></label>
+            <input name="58" type="checkbox" id="_tab_58">
+                <label class="tab-selector" for="_tab_58"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.throttling_manager_tasks.parameters]
@@ -7866,8 +8114,8 @@ delay = "60"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="58" type="checkbox" id="_tab_58">
-                <label class="tab-selector" for="_tab_58"><i class="icon fa fa-code"></i></label>
+            <input name="59" type="checkbox" id="_tab_59">
+                <label class="tab-selector" for="_tab_59"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.cloud_services]
@@ -8022,8 +8270,8 @@ description = "API Manager in the cloud"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="59" type="checkbox" id="_tab_59">
-                <label class="tab-selector" for="_tab_59"><i class="icon fa fa-code"></i></label>
+            <input name="60" type="checkbox" id="_tab_60">
+                <label class="tab-selector" for="_tab_60"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo]
@@ -8096,8 +8344,8 @@ subscription_charge = 0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="60" type="checkbox" id="_tab_60">
-                <label class="tab-selector" for="_tab_60"><i class="icon fa fa-code"></i></label>
+            <input name="61" type="checkbox" id="_tab_61">
+                <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo.users]
@@ -8170,8 +8418,8 @@ charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="61" type="checkbox" id="_tab_61">
-                <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
+            <input name="62" type="checkbox" id="_tab_62">
+                <label class="tab-selector" for="_tab_62"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo.resource_volume]
@@ -8244,8 +8492,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="62" type="checkbox" id="_tab_62">
-                <label class="tab-selector" for="_tab_62"><i class="icon fa fa-code"></i></label>
+            <input name="63" type="checkbox" id="_tab_63">
+                <label class="tab-selector" for="_tab_63"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo.bandwidth]
@@ -8318,8 +8566,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="63" type="checkbox" id="_tab_63">
-                <label class="tab-selector" for="_tab_63"><i class="icon fa fa-code"></i></label>
+            <input name="64" type="checkbox" id="_tab_64">
+                <label class="tab-selector" for="_tab_64"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb]
@@ -8392,8 +8640,8 @@ subscription_charge = "100"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="64" type="checkbox" id="_tab_64">
-                <label class="tab-selector" for="_tab_64"><i class="icon fa fa-code"></i></label>
+            <input name="65" type="checkbox" id="_tab_65">
+                <label class="tab-selector" for="_tab_65"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb.users]
@@ -8466,8 +8714,8 @@ charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="65" type="checkbox" id="_tab_65">
-                <label class="tab-selector" for="_tab_65"><i class="icon fa fa-code"></i></label>
+            <input name="66" type="checkbox" id="_tab_66">
+                <label class="tab-selector" for="_tab_66"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb.resource_volume]
@@ -8540,8 +8788,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="66" type="checkbox" id="_tab_66">
-                <label class="tab-selector" for="_tab_66"><i class="icon fa fa-code"></i></label>
+            <input name="67" type="checkbox" id="_tab_67">
+                <label class="tab-selector" for="_tab_67"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb.bandwidth]
@@ -8614,8 +8862,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="67" type="checkbox" id="_tab_67">
-                <label class="tab-selector" for="_tab_67"><i class="icon fa fa-code"></i></label>
+            <input name="68" type="checkbox" id="_tab_68">
+                <label class="tab-selector" for="_tab_68"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom]
@@ -8688,8 +8936,8 @@ subscription_charge = "500"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="68" type="checkbox" id="_tab_68">
-                <label class="tab-selector" for="_tab_68"><i class="icon fa fa-code"></i></label>
+            <input name="69" type="checkbox" id="_tab_69">
+                <label class="tab-selector" for="_tab_69"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom.users]
@@ -8762,8 +9010,8 @@ charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="69" type="checkbox" id="_tab_69">
-                <label class="tab-selector" for="_tab_69"><i class="icon fa fa-code"></i></label>
+            <input name="70" type="checkbox" id="_tab_70">
+                <label class="tab-selector" for="_tab_70"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom.resource_volume]
@@ -8836,8 +9084,8 @@ overuse_charge = "0.03"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="70" type="checkbox" id="_tab_70">
-                <label class="tab-selector" for="_tab_70"><i class="icon fa fa-code"></i></label>
+            <input name="71" type="checkbox" id="_tab_71">
+                <label class="tab-selector" for="_tab_71"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom.bandwidth]
@@ -8912,8 +9160,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="71" type="checkbox" id="_tab_71">
-                <label class="tab-selector" for="_tab_71"><i class="icon fa fa-code"></i></label>
+            <input name="72" type="checkbox" id="_tab_72">
+                <label class="tab-selector" for="_tab_72"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[indexing]
@@ -9070,8 +9318,8 @@ re_indexing = 1</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="72" type="checkbox" id="_tab_72">
-                <label class="tab-selector" for="_tab_72"><i class="icon fa fa-code"></i></label>
+            <input name="73" type="checkbox" id="_tab_73">
+                <label class="tab-selector" for="_tab_73"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.http.properties]
@@ -9480,8 +9728,8 @@ URIEncoding = "UTF-8"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="73" type="checkbox" id="_tab_73">
-                <label class="tab-selector" for="_tab_73"><i class="icon fa fa-code"></i></label>
+            <input name="74" type="checkbox" id="_tab_74">
+                <label class="tab-selector" for="_tab_74"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.https.properties]
@@ -9978,8 +10226,8 @@ SSLEnabled = "true"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="74" type="checkbox" id="_tab_74">
-                <label class="tab-selector" for="_tab_74"><i class="icon fa fa-code"></i></label>
+            <input name="75" type="checkbox" id="_tab_75">
+                <label class="tab-selector" for="_tab_75"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.passthru_http]
@@ -11041,8 +11289,8 @@ force_json_validation = false
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="75" type="checkbox" id="_tab_75">
-                <label class="tab-selector" for="_tab_75"><i class="icon fa fa-code"></i></label>
+            <input name="76" type="checkbox" id="_tab_76">
+                <label class="tab-selector" for="_tab_76"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking_http]
@@ -11441,8 +11689,8 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="76" type="checkbox" id="_tab_76">
-                <label class="tab-selector" for="_tab_76"><i class="icon fa fa-code"></i></label>
+            <input name="77" type="checkbox" id="_tab_77">
+                <label class="tab-selector" for="_tab_77"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">#You can use one of the two options listed below for the configuration
@@ -11620,8 +11868,8 @@ bypass_hosts = ["localhost"]</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="77" type="checkbox" id="_tab_77">
-                <label class="tab-selector" for="_tab_77"><i class="icon fa fa-code"></i></label>
+            <input name="78" type="checkbox" id="_tab_78">
+                <label class="tab-selector" for="_tab_78"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">#You can use one of the two options listed below for the configuration
@@ -11800,8 +12048,8 @@ bypass_hosts = ["localhost"]
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="78" type="checkbox" id="_tab_78">
-                <label class="tab-selector" for="_tab_78"><i class="icon fa fa-code"></i></label>
+            <input name="79" type="checkbox" id="_tab_79">
+                <label class="tab-selector" for="_tab_79"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.ws]
@@ -11946,8 +12194,8 @@ sender.parameter.customParameter = ""</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="79" type="checkbox" id="_tab_79">
-                <label class="tab-selector" for="_tab_79"><i class="icon fa fa-code"></i></label>
+            <input name="80" type="checkbox" id="_tab_80">
+                <label class="tab-selector" for="_tab_80"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.wss]
@@ -12136,8 +12384,8 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="80" type="checkbox" id="_tab_80">
-                <label class="tab-selector" for="_tab_80"><i class="icon fa fa-code"></i></label>
+            <input name="81" type="checkbox" id="_tab_81">
+                <label class="tab-selector" for="_tab_81"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_builders]
@@ -12370,8 +12618,8 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="81" type="checkbox" id="_tab_81">
-                <label class="tab-selector" for="_tab_81"><i class="icon fa fa-code"></i></label>
+            <input name="82" type="checkbox" id="_tab_82">
+                <label class="tab-selector" for="_tab_82"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_builders]
@@ -12415,8 +12663,8 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="82" type="checkbox" id="_tab_82">
-                <label class="tab-selector" for="_tab_82"><i class="icon fa fa-code"></i></label>
+            <input name="83" type="checkbox" id="_tab_83">
+                <label class="tab-selector" for="_tab_83"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_formatters]
@@ -12693,8 +12941,8 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="83" type="checkbox" id="_tab_83">
-                <label class="tab-selector" for="_tab_83"><i class="icon fa fa-code"></i></label>
+            <input name="84" type="checkbox" id="_tab_84">
+                <label class="tab-selector" for="_tab_84"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_formatters]
@@ -12740,8 +12988,8 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="84" type="checkbox" id="_tab_84">
-                <label class="tab-selector" for="_tab_84"><i class="icon fa fa-code"></i></label>
+            <input name="85" type="checkbox" id="_tab_85">
+                <label class="tab-selector" for="_tab_85"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_builders]]
@@ -12820,8 +13068,8 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="85" type="checkbox" id="_tab_85">
-                <label class="tab-selector" for="_tab_85"><i class="icon fa fa-code"></i></label>
+            <input name="86" type="checkbox" id="_tab_86">
+                <label class="tab-selector" for="_tab_86"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_builders]]
@@ -12858,8 +13106,8 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="86" type="checkbox" id="_tab_86">
-                <label class="tab-selector" for="_tab_86"><i class="icon fa fa-code"></i></label>
+            <input name="87" type="checkbox" id="_tab_87">
+                <label class="tab-selector" for="_tab_87"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_formatters]]
@@ -12938,8 +13186,8 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="87" type="checkbox" id="_tab_87">
-                <label class="tab-selector" for="_tab_87"><i class="icon fa fa-code"></i></label>
+            <input name="88" type="checkbox" id="_tab_88">
+                <label class="tab-selector" for="_tab_88"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_formatters]]
@@ -12976,8 +13224,8 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="88" type="checkbox" id="_tab_88">
-                <label class="tab-selector" for="_tab_88"><i class="icon fa fa-code"></i></label>
+            <input name="89" type="checkbox" id="_tab_89">
+                <label class="tab-selector" for="_tab_89"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_formatter.options]
@@ -13057,8 +13305,8 @@ preserveMultipartPartContentTransferEncoding = true
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="89" type="checkbox" id="_tab_89">
-                <label class="tab-selector" for="_tab_89"><i class="icon fa fa-code"></i></label>
+            <input name="90" type="checkbox" id="_tab_90">
+                <label class="tab-selector" for="_tab_90"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[mediation]
@@ -13395,8 +13643,8 @@ inbound.max_threads = 100</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="90" type="checkbox" id="_tab_90">
-                <label class="tab-selector" for="_tab_90"><i class="icon fa fa-code"></i></label>
+            <input name="91" type="checkbox" id="_tab_91">
+                <label class="tab-selector" for="_tab_91"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">enabled_global_handlers= ["custom_logger"]
@@ -13477,8 +13725,8 @@ custom_logger.class= "com.wso2.apim.log.handler.SynapseLogHandler"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="91" type="checkbox" id="_tab_91">
-                <label class="tab-selector" for="_tab_91"><i class="icon fa fa-code"></i></label>
+            <input name="92" type="checkbox" id="_tab_92">
+                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[governance]
@@ -13535,8 +13783,8 @@ life_cycle_checklist_items_enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="92" type="checkbox" id="_tab_92">
-                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
+            <input name="93" type="checkbox" id="_tab_93">
+                <label class="tab-selector" for="_tab_93"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[qpid.heartbeat]
@@ -13611,8 +13859,8 @@ timeout_factor = 3.0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="93" type="checkbox" id="_tab_93">
-                <label class="tab-selector" for="_tab_93"><i class="icon fa fa-code"></i></label>
+            <input name="94" type="checkbox" id="_tab_94">
+                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check]
@@ -13667,8 +13915,8 @@ enable = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="94" type="checkbox" id="_tab_94">
-                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
+            <input name="95" type="checkbox" id="_tab_95">
+                <label class="tab-selector" for="_tab_95"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.super_tenant_health_checker]
@@ -13743,8 +13991,8 @@ order = "98"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="95" type="checkbox" id="_tab_95">
-                <label class="tab-selector" for="_tab_95"><i class="icon fa fa-code"></i></label>
+            <input name="96" type="checkbox" id="_tab_96">
+                <label class="tab-selector" for="_tab_96"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.super_tenant_health_checker.properties]
@@ -13797,8 +14045,8 @@ monitored.user.stores = "primary,sec"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="96" type="checkbox" id="_tab_96">
-                <label class="tab-selector" for="_tab_96"><i class="icon fa fa-code"></i></label>
+            <input name="97" type="checkbox" id="_tab_97">
+                <label class="tab-selector" for="_tab_97"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.data_source_health_checker]
@@ -13873,8 +14121,8 @@ order = "97"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="97" type="checkbox" id="_tab_97">
-                <label class="tab-selector" for="_tab_97"><i class="icon fa fa-code"></i></label>
+            <input name="98" type="checkbox" id="_tab_98">
+                <label class="tab-selector" for="_tab_98"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.data_source_health_checker.properties]
@@ -13947,8 +14195,8 @@ monitored.datasources = "jdbc/WSO2AM_DB,jdbc/SHARED_DB,jdbc/WSO2CarbonDB"</code>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="98" type="checkbox" id="_tab_98">
-                <label class="tab-selector" for="_tab_98"><i class="icon fa fa-code"></i></label>
+            <input name="99" type="checkbox" id="_tab_99">
+                <label class="tab-selector" for="_tab_99"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[health_checker]
@@ -14044,8 +14292,8 @@ first_property = "value"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="99" type="checkbox" id="_tab_99">
-                <label class="tab-selector" for="_tab_99"><i class="icon fa fa-code"></i></label>
+            <input name="100" type="checkbox" id="_tab_100">
+                <label class="tab-selector" for="_tab_100"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth]
@@ -14223,8 +14471,8 @@ token_context_dialect_uri = "http://wso2.org/claims"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="100" type="checkbox" id="_tab_100">
-                <label class="tab-selector" for="_tab_100"><i class="icon fa fa-code"></i></label>
+            <input name="101" type="checkbox" id="_tab_101">
+                <label class="tab-selector" for="_tab_101"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_validation]
@@ -14318,8 +14566,8 @@ refresh_token_validity = "86400"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="101" type="checkbox" id="_tab_101">
-                <label class="tab-selector" for="_tab_101"><i class="icon fa fa-code"></i></label>
+            <input name="102" type="checkbox" id="_tab_102">
+                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_cleanup]
@@ -14396,8 +14644,8 @@ retain_access_tokens_for_auditing = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="102" type="checkbox" id="_tab_102">
-                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
+            <input name="103" type="checkbox" id="_tab_103">
+                <label class="tab-selector" for="_tab_103"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.oidc.extensions]
@@ -14625,8 +14873,8 @@ enable_unmapped_user_attributes = true
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="103" type="checkbox" id="_tab_103">
-                <label class="tab-selector" for="_tab_103"><i class="icon fa fa-code"></i></label>
+            <input name="104" type="checkbox" id="_tab_104">
+                <label class="tab-selector" for="_tab_104"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.grant_type.authorization_code]
@@ -15242,8 +15490,8 @@ enable_multi_value_claim_handling = false
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="104" type="checkbox" id="_tab_104">
-                <label class="tab-selector" for="_tab_104"><i class="icon fa fa-code"></i></label>
+            <input name="105" type="checkbox" id="_tab_105">
+                <label class="tab-selector" for="_tab_105"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[session_data.persistence]
@@ -15296,8 +15544,8 @@ persistence_pool_size = 0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="105" type="checkbox" id="_tab_105">
-                <label class="tab-selector" for="_tab_105"><i class="icon fa fa-code"></i></label>
+            <input name="106" type="checkbox" id="_tab_106">
+                <label class="tab-selector" for="_tab_106"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_generation]
@@ -15352,8 +15600,8 @@ retry_count_on_persistence_failures = 5</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="106" type="checkbox" id="_tab_106">
-                <label class="tab-selector" for="_tab_106"><i class="icon fa fa-code"></i></label>
+            <input name="107" type="checkbox" id="_tab_107">
+                <label class="tab-selector" for="_tab_107"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[user_store.properties]
@@ -16181,8 +16429,8 @@ UserCoreCacheTimeOut = 5 </code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="107" type="checkbox" id="_tab_107">
-                <label class="tab-selector" for="_tab_107"><i class="icon fa fa-code"></i></label>
+            <input name="108" type="checkbox" id="_tab_108">
+                <label class="tab-selector" for="_tab_108"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[custom_keystore.APIKeyKeyStore]
@@ -16317,8 +16565,8 @@ key_password = "wso2carbon"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="108" type="checkbox" id="_tab_108">
-                <label class="tab-selector" for="_tab_108"><i class="icon fa fa-code"></i></label>
+            <input name="109" type="checkbox" id="_tab_109">
+                <label class="tab-selector" for="_tab_109"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[http_access_log]
@@ -16375,8 +16623,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="109" type="checkbox" id="_tab_109">
-                <label class="tab-selector" for="_tab_109"><i class="icon fa fa-code"></i></label>
+            <input name="110" type="checkbox" id="_tab_110">
+                <label class="tab-selector" for="_tab_110"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">#### Sample deployment.toml entry
@@ -16723,8 +16971,8 @@ mediaType = "application/vnd.wso2-service+xml"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="110" type="checkbox" id="_tab_110">
-                <label class="tab-selector" for="_tab_110"><i class="icon fa fa-code"></i></label>
+            <input name="111" type="checkbox" id="_tab_111">
+                <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.transport_headers]
@@ -16864,8 +17112,8 @@ excludeResponseHeaders = ""
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="111" type="checkbox" id="_tab_111">
-                <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
+            <input name="112" type="checkbox" id="_tab_112">
+                <label class="tab-selector" for="_tab_112"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[synapse_handlers.custom_handler_name]
@@ -16941,8 +17189,8 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="112" type="checkbox" id="_tab_112">
-                <label class="tab-selector" for="_tab_112"><i class="icon fa fa-code"></i></label>
+            <input name="113" type="checkbox" id="_tab_113">
+                <label class="tab-selector" for="_tab_113"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.governance.scheduler]
@@ -17058,8 +17306,8 @@ task_cleanup_interval_minutes = 30
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="113" type="checkbox" id="_tab_113">
-                <label class="tab-selector" for="_tab_113"><i class="icon fa fa-code"></i></label>
+            <input name="114" type="checkbox" id="_tab_114">
+                <label class="tab-selector" for="_tab_114"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mediator_config.oauth.trust_store]
@@ -17152,8 +17400,8 @@ password = "wso2carbon"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="114" type="checkbox" id="_tab_114">
-                <label class="tab-selector" for="_tab_114"><i class="icon fa fa-code"></i></label>
+            <input name="115" type="checkbox" id="_tab_115">
+                <label class="tab-selector" for="_tab_115"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.receiver]
@@ -17205,8 +17453,8 @@ max_reconnection_interval = 3600
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="115" type="checkbox" id="_tab_115">
-                <label class="tab-selector" for="_tab_115"><i class="icon fa fa-code"></i></label>
+            <input name="116" type="checkbox" id="_tab_116">
+                <label class="tab-selector" for="_tab_116"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.basic_authenticator]
@@ -17322,8 +17570,8 @@ max_wait_millis = 30000
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="116" type="checkbox" id="_tab_116">
-                <label class="tab-selector" for="_tab_116"><i class="icon fa fa-code"></i></label>
+            <input name="117" type="checkbox" id="_tab_117">
+                <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.synapse_artifact_generator.thread_pool]
@@ -17438,8 +17686,8 @@ queue_capacity = 50</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="117" type="checkbox" id="_tab_117">
-                <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
+            <input name="118" type="checkbox" id="_tab_118">
+                <label class="tab-selector" for="_tab_118"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[web_app.cookie_processor]
@@ -17497,8 +17745,8 @@ same_site_cookies = "lax"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="118" type="checkbox" id="_tab_118">
-                <label class="tab-selector" for="_tab_118"><i class="icon fa fa-code"></i></label>
+            <input name="119" type="checkbox" id="_tab_119">
+                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.aws_lambda]
@@ -17678,8 +17926,8 @@ connection_acquisition_timeout = 60
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="119" type="checkbox" id="_tab_119">
-                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
+            <input name="120" type="checkbox" id="_tab_120">
+                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[synapse_properties]
@@ -17759,8 +18007,8 @@ connection_acquisition_timeout = 60
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="120" type="checkbox" id="_tab_120">
-                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
+            <input name="121" type="checkbox" id="_tab_121">
+                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication.authenticator.oidc.parameters]
@@ -17818,8 +18066,8 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="121" type="checkbox" id="_tab_121">
-                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
+            <input name="122" type="checkbox" id="_tab_122">
+                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[dependency_properties]
@@ -17875,8 +18123,8 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="122" type="checkbox" id="_tab_122">
-                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
+            <input name="123" type="checkbox" id="_tab_123">
+                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml"># API KEY CONFIGS
@@ -18053,8 +18301,8 @@ azure_umi_scope = "https://cognitiveservices.azure.com/.default"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="123" type="checkbox" id="_tab_123">
-                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
+            <input name="124" type="checkbox" id="_tab_124">
+                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.vector_db_provider]
@@ -18090,11 +18338,11 @@ ttl = 3600
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>zilliz</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>zilliz,elasticache</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance.</p>
+                                        <p>The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance, or elasticache to connect to AWS ElastiCache (Redis/Valkey). Support for elasticache is available only from WSO2 API Manager 4.6.0 U2 update level (wso2am-4.6.0.40) onwards.</p>
                                     </div>
                                 </div>
                             </div>
@@ -18122,7 +18370,7 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530).</p>
+                                        <p>The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530). Not applicable to Vector DB providers other than Zilliz and Milvus.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -18141,7 +18389,125 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus).</p>
+                                        <p>The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus). Not applicable to Vector DB providers other than Zilliz and Milvus.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>host</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The hostname or endpoint of the ElastiCache/Redis instance. Applicable only when type is elasticache. When cluster_mode_enabled is true, this must be the ElastiCache cluster&#39;s Configuration Endpoint (its hostname contains clustercfg.) rather than an individual node/shard endpoint.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The port of the ElastiCache/Redis instance. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The username used to authenticate with the ElastiCache/Redis instance, if authentication is enabled. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The password used to authenticate with the ElastiCache/Redis instance, if authentication is enabled. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>ssl_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to use SSL/TLS when connecting to the ElastiCache/Redis instance. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>cluster_mode_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether the ElastiCache deployment is running in cluster mode. Applicable only when type is elasticache.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -18160,7 +18526,205 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour).</p>
+                                        <p>Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour). Applicable to all vector database provider types.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.max_total</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>8</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of connections the Jedis connection pool can allocate at a given time. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.max_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>8</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of idle connections kept in the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.min_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum number of idle connections the Jedis connection pool tries to maintain. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.test_on_borrow</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to validate a connection before it is handed out from the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.test_on_return</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to validate a connection before it is returned to the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.test_while_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether idle connections in the Jedis connection pool are validated by the idle object evictor. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.block_when_exhausted</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether callers block and wait for a connection when the Jedis connection pool is exhausted, instead of failing immediately. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.min_evictable_idle_time_millis</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum time (in milliseconds) a connection may sit idle in the Jedis connection pool before it becomes eligible for eviction. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.time_between_eviction_runs_millis</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Time (in milliseconds) between runs of the idle connection evictor thread of the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.num_tests_per_eviction_run</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-1</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Number of connections checked per eviction run (-1 checks all idle connections). Applicable only when type is elasticache.</p>
                                     </div>
                                 </div>
                             </div>
@@ -18182,8 +18746,8 @@ ttl = 3600
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="124" type="checkbox" id="_tab_124">
-                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
+            <input name="125" type="checkbox" id="_tab_125">
+                <label class="tab-selector" for="_tab_125"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.azure_umi]
@@ -18229,3 +18793,61 @@ scope = "https://ai.azure.com/.default"
     </section>
 </div>
 
+
+
+## Authentication Policy
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="126" type="checkbox" id="_tab_126">
+                <label class="tab-selector" for="_tab_126"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[authentication_policy]
+disable_account_disable_handler = false
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[authentication_policy]</code>
+                            
+                            <p>
+                                Defines the authentication policy settings for WSO2 API Manager.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_account_disable_handler</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the account disable handler during authentication. Note that this configuration is available in wso2am-4.6.0, wso2am-tm-4.6.0, wso2am-universal-gw-4.6.0 starting from update level 38 and wso2am-acp-4.6.0 starting from update level 39.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
