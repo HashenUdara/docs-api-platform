@@ -269,9 +269,9 @@ See [deployment synchronization](deployment_synchronization.md) for instructions
 ## Registry synchronization (sharing)
 
 !!! Note
-    Registry sharing is only required if you have Message Processors in your deployment.
+    Registry sharing is required if you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API, or if any other artifact state or data needs to be consistent across all nodes in the cluster.
 
-The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor artifact. This ensures that the same state is maintained for Message Processor in all the Micro Integrator nodes of the cluster.
+The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor or Inbound Endpoint artifact. This ensures that the same state is maintained for Message Processor or Inbound Endpoint in all the Micro Integrator nodes of the cluster.
 
 1.  Follow the instructions on [configuring the file-based registry](file_based_registry.md) for a two-node deployment of the Micro Integrator.
 2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization](deployment_synchronization.md).
