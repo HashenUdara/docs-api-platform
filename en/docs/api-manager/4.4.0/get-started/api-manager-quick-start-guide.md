@@ -129,7 +129,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      
 5. Click **Create & Publish**.
 
-    [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
+    [![Create an API](../assets/img/get_started/api-create.png){: style="width:100%"}](../assets/img/get_started/api-create.png)
 
     This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
