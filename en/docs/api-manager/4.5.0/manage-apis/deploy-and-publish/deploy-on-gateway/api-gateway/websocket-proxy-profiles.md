@@ -1,3 +1,18 @@
+---
+title: "Configure WebSocket Proxy Profiles"
+description: "Route the Classic Gateway's outbound WebSocket connections to ws and wss backends through HTTP CONNECT proxies, with per-profile host matching and authentication."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/websocket-proxy-profiles/
+md_url: https://wso2.com/api-platform/docs/api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/websocket-proxy-profiles.md
+tags:
+  - api-manager
+  - api-gateway
+  - websocket
+  - configuration
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-10-14
+content_type: "how-to"
+---
+
 # Configure WebSocket Proxy Profiles
 
 !!! note

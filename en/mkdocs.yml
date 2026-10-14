@@ -1689,6 +1689,7 @@ nav:
                             -   Universal Gateways with Dedicated Backends: api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                             -   Mutual SSL Between Universal Gateway and Backend: api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                             -   Storing Custom Synapse Artifacts in the Gateway: api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
+                            -   WebSocket Proxy Profiles: api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/websocket-proxy-profiles.md
                     -   Federated Gateways:
                         -   Deploy on AWS API Gateway: api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway.md
                         -   Configure a Custom Gateway Agent: api-manager/4.5.0/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
