@@ -454,17 +454,13 @@ You can also use `apictl` to encrypt secrets. For further guidance, refer to [En
     Example:
 
     ```
-    - If you need to change hostnames, update them under the Kubernetes Gateway API or Ingress section.
-    - Update the keystore passwords in the security section of the `values.yaml` file.
-    - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
-      - [All-in-one](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
-      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
-    - Update the admin credentials in the configuration directory.
-    ```yaml
-      # -- Super admin username
-      adminUsername: ""
-      # -- Super admin password
-      adminPassword: ""
+    apictl secret init
+    Enter Key Store location: /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2carbon.jks
+    Enter Key Store password: 
+    Enter Key alias: wso2carbon
+    Enter Key password: 
+
+    Key Store initialization completed
     ```
 
 2. Encrypt each of the following values using `apictl secret create`:
@@ -698,7 +694,13 @@ See [Working with user store properties](https://apim.docs.wso2.com/en/latest/ad
 
 Once your `values.yaml` is configured, deploy with:
 
-- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
+```bash
+helm install <release-name> <helm-chart-path> \
+  --version 4.7.0-1 \
+  --namespace <namespace> --create-namespace \
+  --dependency-update \
+  -f values.yaml
+```
 
 !!! tip "Deployment Parameters"
     - `<release-name>` — Name for your Helm release (e.g. `apim`)

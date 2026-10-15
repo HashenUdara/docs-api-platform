@@ -68,10 +68,6 @@ The table below lists the minimum CPU and memory each node must provide, based o
     kubectl cluster-info
     kubectl get nodes
     ```
-  
-  - Dockerfile for Classic Gateway
-    ```dockerfile
-    FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 
     All nodes should show a `Ready` status.
 
@@ -152,9 +148,9 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
 
 Pattern 3 requires a custom Docker image for the API Control Plane with the JDBC driver for your database.
 
-# Deploy Classic Gateway
-helm install apim-gw wso2/wso2am-universal-gw --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml -n apim
-```
+!!! note "Choosing a base image"
+    - **DockerHub** (`wso2/wso2am-acp:4.7.0`, `wso2/wso2am-tm:4.7.0`, `wso2/wso2am-universal-gw:4.7.0`) — packages the GA release. Suitable for evaluation and development.
+    - **WSO2 Private Registry** (`registry.wso2.com/wso2-apim/am-acp:4.7.0.0`, `registry.wso2.com/wso2-apim/am-tm:4.7.0.0`, `registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
 
 1. Create a directory for the custom images:
 
@@ -617,49 +613,83 @@ sh ciphertool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
 
 **Option 2: apictl**
 
-### 4. Classic Gateway Configuration
+You can also use `apictl` to encrypt secrets. For further guidance, refer to [Encrypting Secrets with apictl](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
 
-### 4.1 Configure Key Manager, Eventhub and Throttling
-- Configure Control Plane as the Key Manager
-  ```yaml
-    km:
-      # -- Key manager service name if default Resident KM is used
-      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
-  ```
-- Configure eventhub
-  ```yaml
-  eventhub:
-    # -- Event hub (control plane) load balancer service URL
-    serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
-    # -- Event hub service URLs
-    urls:
-      - "<CONTROL_PLANE_1_SERVICE_NAME>"
-      - "<CONTROL_PLANE_2_SERVICE_NAME>"
-  ```
-- Configure throttling
-  ```yaml
-  throttling:
-    serviceUrl: "<TRAFFIC_MANAGER_SERVICE_NAME>"
-    portOffset: 0
-    # -- Port of the service URL
-    servicePort: 9443
-    # -- Traffic manager service URLs. You only need to define one if the Traffic Manager is not in HA.
-    urls:
-      - "<TRAFFIC_MANAGER_1_SERVICE_NAME>"
-      - "<TRAFFIC_MANAGER_2_SERVICE_NAME>"
-    # -- Enable unlimited throttling tier
-    unlimitedTier: true
-    # -- Enable header-based throttling
-    headerBasedThrottling: false
-    # -- Enable JWT claim-based throttling
-    jwtClaimBasedThrottling: false
-    # -- Enable query param-based throttling
-    queryParamBasedThrottling: false
-  ```
+1. Initialize `apictl` using the trust store:
 
-### 4.2 Enable Replicas
+    ```bash
+    apictl secret init
+    ```
 
-To ensure high availability and scalability of the Classic Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+    Example:
+
+    ```
+    apictl secret init
+    Enter Key Store location: /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/wso2carbon.jks
+    Enter Key Store password: 
+    Enter Key alias: wso2carbon
+    Enter Key password: 
+
+    Key Store initialization completed
+    ```
+
+2. Encrypt each of the following values using `apictl secret create`:
+
+    - `admin_password`
+    - `keystore_password`
+    - `keystore_key_password`
+    - `ssl_keystore_password`
+    - `ssl_key_password`
+    - `internal_keystore_password`
+    - `internal_keystore_key_password`
+    - `truststore_password`
+    - `apim_db_password`
+    - `shared_db_password`
+
+    Example:
+
+    ```
+    apictl secret create
+    Enter plain alias for secret: db_password
+    Enter plain text secret: 
+    Repeat plain text secret: 
+
+    db_password : eKALmLVA+HFVl7vxxxxxxxxxxxxxxxxxxxxxxxxxxxjakhHN
+    ```
+
+3. Replace the plain text values in your values files with the encrypted values.
+
+4. Enable secure vault:
+
+    ```yaml
+    # -- Secure vault enabled
+    secureVaultEnabled: true
+    ```
+
+5. If you are using a cloud provider secret manager, store the secret encryption key there and reference it so the runtime can fetch and use it to decrypt secrets:
+
+    ```yaml
+    aws:
+      secretsManager:
+        secretIdentifiers:
+          secretEncryptionKey:
+            # -- Secret name in the cloud provider's secret manager
+            secretName: ""
+            # -- Secret key in the cloud provider's secret manager
+            secretKey: ""
+    ```
+
+    !!! note
+        Currently, AWS, Azure, and GCP Secrets Managers are supported.
+
+#### 3.3 Configure SSL
+
+For WSO2 recommended SSL best practices when exposing services outside the cluster, refer to the [WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
+
+#### 3.4 Configure JWKS URL
+
+!!! note "Important for Pattern 3 deployments"
+    In Pattern 3, the Gateway and Traffic Manager are on separate pods from the ACP. Use the ACP Kubernetes service name for the JWKS URL so all components can resolve it via cluster DNS:
 
 ```yaml
 wso2:
@@ -673,24 +703,33 @@ wso2:
 
 #### 4.1 Configure Envoy Gateway (Default in 4.7.x)
 
-### 4.3 Deploy Classic Gateway
+Envoy Gateway is the default routing controller in WSO2 API Manager 4.7.0. It uses the Kubernetes Gateway API, which provides more flexibility than traditional Ingress resources.
 
-After configuring all the necessary parameters, you can deploy the Classic Gateway using Helm:
+**Step 1: Create a TLS secret**
 
 ```bash
-# Deploy Classic Gateway using Helm
-helm install <release-name> <helm-chart-path> \
-  --version 4.7.0-1 \
-  --namespace <namespace> \
-  --dependency-update \
-  -f values.yaml \
+kubectl create secret tls apim-tls-secret \
+  --key <private-key-file> \
+  --cert <certificate-file> \
+  -n apim
+```
+
+**Step 2: Install Envoy Gateway** (if not already done in Step 4 of the Quick Start)
+
+```bash
+helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+  --version v1.7.0 -n envoy-gateway-system \
+  --set config.envoyGateway.extensionApis.enableBackend=true \
+  --set envoyGateway.gateway.experimentalFeatures.enabled=true \
   --create-namespace
 ```
 
-!!! tip "Deployment Parameters"
-    - `<release-name>`: Choose a name for your release (e.g., `apim-gw`)
-    - `<namespace>`: Specify the same Kubernetes namespace as the Control Plane and Traffic Manager
-    - `<helm-chart-path>`: Path to the Classic Gateway Helm chart (e.g., `./distributed/gateway` or use the repository URL)
+**Step 3: Apply the Gateway manifest**
+
+```bash
+kubectl apply \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/assets/sample-gateway.yaml \
+  -n apim
 ```
 
 **Step 4: (Optional) Create a CA ConfigMap for backend TLS**

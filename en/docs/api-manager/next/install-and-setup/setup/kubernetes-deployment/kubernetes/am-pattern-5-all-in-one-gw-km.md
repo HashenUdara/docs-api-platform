@@ -127,11 +127,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
               --namespace ingress-nginx --create-namespace
             ```
 
-**Deploy Classic Gateway**:
-```bash
-helm install gw wso2/wso2am-universal-gw --version 4.7.0-1 \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml -n apim
-```
+        === "Managed cluster (AKS / GKE)"
 
             ```bash
             helm upgrade --install ingress-nginx ingress-nginx \
@@ -806,11 +802,15 @@ helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
 
 **Step 3: Apply the Gateway manifest**
 
-### 4. Classic Gateway Configuration
+```bash
+kubectl apply \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/assets/sample-gateway.yaml \
+  -n apim
+```
 
 **Step 4: (Optional) Create a CA ConfigMap for backend TLS**
 
-The Classic Gateway needs to connect to several components to function properly:
+If you want Envoy Gateway to verify backend TLS certificates, create a ConfigMap with your CA certificate:
 
 ```bash
 kubectl create configmap wso2-ca-cert \
@@ -939,12 +939,7 @@ In Pattern 5, the Gateway connects to the dedicated KM for token validation, and
       queryParamBasedThrottling: false
     ```
 
-
-Choose the configuration that matches your deployment pattern. For high availability, specify all Control Plane service URLs under `urls` for both `eventhub` and `throttling` sections.
-
-### 4.2 Enable Replicas
-
-To ensure high availability and scalability of the Classic Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+#### 5.2 Configure Gateway Replicas
 
 ```yaml
 wso2:
@@ -954,14 +949,7 @@ wso2:
     maxReplicas: 3
 ```
 
-!!! info
-    - `replicas`: The initial number of pods to start with (e.g., 2).
-    - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
-    - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
-
-### 4.3 Deploy Classic Gateway
-
-Deploy the Classic Gateway component with your custom configuration:
+#### 5.3 Configure Multiple Gateways
 
 ```yaml
 gateway:

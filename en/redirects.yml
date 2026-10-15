@@ -5884,11 +5884,11 @@ redirect_maps:
   api-manager/next/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-windows-service.md: api-manager/next/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service.md
   api-manager/next/install-and-setup/installation-guide/running-the-product.md: api-manager/next/install-and-setup/install/installing-the-product/running-the-api-m.md
   api-manager/next/install-and-setup/installation-guide/basic-health-checks.md: api-manager/next/install-and-setup/setup/deployment-best-practices/basic-health-checks.md
-  api-manager/next/install-and-setup/deploying-wso2-api-manager/deployment-patterns.md: api-manager/next/install-and-setup/setup/deployment-overview.md
+  api-manager/next/install-and-setup/deploying-wso2-api-manager/deployment-patterns.md: api-manager/next/get-started/deployment-patterns.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/single-node/all-in-one-deployment-overview.md: api-manager/next/install-and-setup/setup/single-node/all-in-one-deployment-overview.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/single-node/configuring-a-single-node.md: api-manager/next/install-and-setup/setup/single-node/configuring-a-single-node.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/single-node/configuring-an-active-active-deployment.md: api-manager/next/install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-  api-manager/next/install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md: api-manager/next/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+  api-manager/next/install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md: api-manager/next/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md: api-manager/next/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -5896,7 +5896,7 @@ redirect_maps:
   api-manager/next/install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-resources.md: api-manager/next/install-and-setup/install/deploying-api-manager-with-kubernetes-resources.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md: api-manager/next/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
   api-manager/next/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md: api-manager/next/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
-  api-manager/next/install-and-setup/product-compatibility.md: api-manager/next/install-and-setup/setup/reference/product-compatibility.md
+  api-manager/next/install-and-setup/product-compatibility.md: api-manager/next/reference/product-compatibility.md
   api-manager/next/install-and-setup/performance-tuning-and-test-results/tuning-performance.md: api-manager/next/install-and-setup/setup/deployment-best-practices/tuning-performance.md
   api-manager/next/install-and-setup/sso/okta-as-an-external-idp-using-oidc.md: api-manager/next/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
   api-manager/next/install-and-setup/sso/okta-as-an-external-idp-using-saml.md: api-manager/next/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
@@ -5919,8 +5919,8 @@ redirect_maps:
   api-manager/next/design/create-api/test-a-rest-api.md: api-manager/next/api-design-manage/design/create-api/create-rest-api/test-a-rest-api.md
   api-manager/next/getting-started/overview.md: api-manager/next/get-started/overview.md
   api-manager/next/getting-started/basic-architecture.md: api-manager/next/get-started/key-concepts.md
-  api-manager/next/getting-started/key-concepts.md: api-manager/next/get-started/architecture.md
-  api-manager/next/getting-started/quick-start-guide.md: api-manager/next/get-started/quick-start-guide/quick-start-guide.md
+  api-manager/next/getting-started/key-concepts.md: api-manager/next/get-started/apim-architecture.md
+  api-manager/next/getting-started/quick-start-guide.md: api-manager/next/get-started/api-manager-quick-start-guide.md
   api-manager/next/getting-started/about-this-release.md: api-manager/next/get-started/about-this-release.md
   api-manager/next/get-started/quick-start-guide/quick-start-guide.md: api-manager/next/get-started/api-manager-quick-start-guide.md
   api-manager/next/learn/design-api/create-api/create-a-rest-api.md: api-manager/next/api-design-manage/design/create-api/create-rest-api/create-a-rest-api.md
@@ -5987,39 +5987,39 @@ redirect_maps:
   api-manager/next/learn/api-security/configuring-api-security-audit.md: api-manager/next/api-security/design-time/configuring-api-security-audit.md
   api-manager/next/learn/api-security/api-request-response-schema-validation/json-schema-validator.md: api-manager/next/api-security/runtime/api-request-response-schema-validation/json-schema-validator.md
   api-manager/next/learn/api-security/oauth2/access-token-types/jwt-tokens.md: api-manager/next/api-security/key-management/tokens/jwt-tokens.md
-  api-manager/next/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md: api-manager/next/api-security/runtime/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-  api-manager/next/learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md: api-manager/next/api-security/runtime/oauth2/oauth2-scopes/scope-whitelisting.md
+  api-manager/next/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md: api-manager/next/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+  api-manager/next/learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md: api-manager/next/api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
   api-manager/next/learn/tutorials/create-and-publish-a-graphql-api.md: api-manager/next/tutorials/create-and-publish-a-graphql-api.md
   api-manager/next/learn/tutorials/create-and-publish-awslambda-api.md: api-manager/next/tutorials/create-and-publish-awslambda-api.md
   api-manager/next/learn/tutorials/create-and-publish-a-sequencebackend-api.md: api-manager/next/tutorials/create-and-publish-a-sequencebackend-api.md
   api-manager/next/learn/tutorials/expose-a-soap-service-as-a-rest-api.md: api-manager/next/tutorials/expose-a-soap-service-as-a-rest-api.md
   api-manager/next/learn/tutorials/edit-an-api-by-modifying-the-api-definition.md: api-manager/next/tutorials/edit-an-api-by-modifying-the-api-definition.md
   api-manager/next/learn/tutorials/create-and-publish-websocket-api.md: api-manager/next/tutorials/streaming-api/create-and-publish-websocket-api.md
-  api-manager/next/learn/analytics/overview-of-api-analytics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/viewing-api-statistics/monitoring-dashboard.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/viewing-api-statistics/business-analytics-dashboard.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/viewing-api-statistics/api-analytics-dashboard.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/viewing-api-statistics/application-analytics-dashboard.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/monthly-api-usage-report.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/alert-types.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/configuring-apim-analytics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/configuring-keystores-in-apim-analytics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/managing-dashboard-permissions.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/configuring-alerts.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/subscribing-for-alerts.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/integrating-with-google-analytics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/purging-analytics-data.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/default-ports-of-wso2-api-m-analytics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/creating-custom-widgets-in-analytics-dashboards.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/customizing-analytics-dashboards.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/white-labeling-tenants.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/adding-third-party-non-osgi-libraries.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/publishing-custom-data.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/analytics/analytics-event-streams-and-aggregations.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
+  api-manager/next/learn/analytics/overview-of-api-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/viewing-api-statistics/monitoring-dashboard.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/viewing-api-statistics/business-analytics-dashboard.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/viewing-api-statistics/api-analytics-dashboard.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/viewing-api-statistics/application-analytics-dashboard.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/monthly-api-usage-report.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/alert-types.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/configuring-apim-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/configuring-keystores-in-apim-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/managing-dashboard-permissions.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/configuring-alerts.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/subscribing-for-alerts.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/integrating-with-google-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/purging-analytics-data.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/default-ports-of-wso2-api-m-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/creating-custom-widgets-in-analytics-dashboards.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/customizing-analytics-dashboards.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/white-labeling-tenants.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/adding-third-party-non-osgi-libraries.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/publishing-custom-data.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/learn/analytics/analytics-event-streams-and-aggregations.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
   api-manager/next/learn/user-account-management/change-dev-portal-password.md: api-manager/next/api-developer-portal/user-account-management/change-dev-portal-password.md
   api-manager/next/learn/user-account-management/recover-password.md: api-manager/next/api-developer-portal/user-account-management/recover-password.md
   api-manager/next/learn/api-security/oauth2/grant-types/overview.md: api-manager/next/api-security/key-management/authentication/grant-types/overview.md
@@ -6059,7 +6059,7 @@ redirect_maps:
   api-manager/next/learn/design-api/advanced-topics/enabling-cors-for-apis.md: api-manager/next/api-design-manage/design/advanced-topics/enabling-cors-for-apis.md
   api-manager/next/learn/design-api/advanced-topics/adding-an-api-state-change-workflow.md: api-manager/next/api-design-manage/design/advanced-topics/adding-an-api-state-change-workflow.md
   api-manager/next/learn/design-api/advanced-topics/block-subscription-to-an-api.md: api-manager/next/api-design-manage/design/advanced-topics/block-subscription-to-an-api.md
-  api-manager/next/install-and-setup/setup/deployment-patterns.md: api-manager/next/install-and-setup/setup/deployment-overview.md
+  api-manager/next/install-and-setup/setup/deployment-patterns.md: api-manager/next/get-started/deployment-patterns.md
   api-manager/next/learn/api-controller/getting-started-with-wso2-api-controller.md: api-manager/next/apiops/cli/getting-started-with-wso2-api-controller.md
   api-manager/next/learn/api-controller/importing-apis-via-dev-first-approach.md: api-manager/next/apiops/cli/cicd-using-cli.md
   api-manager/next/learn/api-controller/migrating-apis-to-different-environments.md: api-manager/next/apiops/cli/managing-apis-api-products/migrating-apis-to-different-environments.md
@@ -6069,36 +6069,36 @@ redirect_maps:
   api-manager/next/learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md: api-manager/next/apiops/cli/building-jenkins-ci-cd-pipeline.md
   api-manager/next/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md: api-manager/next/apiops/cli/building-jenkins-ci-cd-pipeline.md
   api-manager/next/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md: api-manager/next/apiops/cli/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
-  api-manager/next/learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md: api-manager/next/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-  api-manager/next/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md: api-manager/next/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
-  api-manager/next/learn/api-controller/advanced-topics/configuring-different-endpoint-types.md: api-manager/next/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
-  api-manager/next/learn/api-controller/advanced-topics/configuring-git-integration.md: api-manager/next/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
-  api-manager/next/administer/product-administration/updating-wso2-api-manager.md: api-manager/next/administer/updating-wso2-api-manager.md
+  api-manager/next/learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md: api-manager/next/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md
+  api-manager/next/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md: api-manager/next/apiops/cli/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+  api-manager/next/learn/api-controller/advanced-topics/configuring-different-endpoint-types.md: api-manager/next/apiops/cli/advanced-topics/configuring-different-endpoint-types.md
+  api-manager/next/learn/api-controller/advanced-topics/configuring-git-integration.md: api-manager/next/apiops/cli/advanced-topics/configuring-git-integration.md
+  api-manager/next/administer/product-administration/updating-wso2-api-manager.md: api-manager/next/install-and-setup/setup/updating-wso2-api-manager.md
   api-manager/next/administer/product-administration/managing-users-and-roles/introduction-to-user-management.md: api-manager/next/administer/managing-users-and-roles/introduction-to-user-management.md
   api-manager/next/administer/product-administration/managing-users-and-roles/managing-users.md: api-manager/next/administer/managing-users-and-roles/managing-users.md
   api-manager/next/administer/product-administration/managing-users-and-roles/managing-permissions.md: api-manager/next/administer/managing-users-and-roles/managing-permissions.md
   api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
-  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
-  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
-  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
-  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
+  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-the-primary-user-store.md
+  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-jdbc-user-store.md
+  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
+  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
+  api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
   api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
   api-manager/next/administer/product-administration/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md: api-manager/next/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
   api-manager/next/administer/product-administration/multitenancy/managing-tenants.md: api-manager/next/administer/multitenancy/managing-tenants.md
   api-manager/next/administer/product-administration/multitenancy/configuring-the-tenant-loading-policy.md: api-manager/next/administer/multitenancy/configuring-the-tenant-loading-policy.md
   api-manager/next/administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md: api-manager/next/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
-  api-manager/next/administer/product-administration/monitoring/working-with-observability.md: api-manager/next/observe/api-manager/monitoring-correlation-logs.md
-  api-manager/next/administer/product-administration/monitoring/monitoring-with-opentracing.md: api-manager/next/observe/api-manager/traces/monitoring-with-opentracing.md
-  api-manager/next/administer/product-administration/monitoring/capturing-system-data-in-error-situations.md: api-manager/next/troubleshooting/capturing-system-data-in-error-situations.md
-  api-manager/next/administer/product-administration/monitoring/jmx-based-monitoring.md: api-manager/next/observe/api-manager/metrics/jmx-based-monitoring.md
+  api-manager/next/administer/product-administration/monitoring/working-with-observability.md: api-manager/next/monitoring/observability/monitoring-correlation-logs.md
+  api-manager/next/administer/product-administration/monitoring/monitoring-with-opentracing.md: api-manager/next/monitoring/observability/traces/monitoring-with-opentracing.md
+  api-manager/next/administer/product-administration/monitoring/capturing-system-data-in-error-situations.md: api-manager/next/reference/troubleshooting/capturing-system-data-in-error-situations.md
+  api-manager/next/administer/product-administration/monitoring/jmx-based-monitoring.md: api-manager/next/monitoring/observability/metrics/jmx-based-monitoring.md
   api-manager/next/administer/product-administration/monitoring/monitoring-tcp-based-messages.md: api-manager/next/administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
   api-manager/next/administer/product-administration/removing-unused-tokens-from-the-database.md: api-manager/next/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
-  api-manager/next/administer/product-administration/revoke-oauth2-application.md: api-manager/next/consume/manage-application/generate-keys/revoke-oauth2-application.md
+  api-manager/next/administer/product-administration/revoke-oauth2-application.md: api-manager/next/api-developer-portal/manage-application/generate-keys/revoke-oauth2-application.md
   api-manager/next/administer/product-configurations/changing-the-default-transport.md: api-manager/next/install-and-setup/setup/advance-configurations/changing-the-default-transport.md
-  api-manager/next/administer/product-configurations/default-product-ports.md: api-manager/next/install-and-setup/setup/reference/default-product-ports.md
+  api-manager/next/administer/product-configurations/default-product-ports.md: api-manager/next/reference/default-product-ports.md
   api-manager/next/administer/product-configurations/configuring-caching.md: api-manager/next/install-and-setup/setup/advance-configurations/configuring-caching.md
-  api-manager/next/administer/product-configurations/common-runtime-and-configuration-artifacts.md: api-manager/next/install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
+  api-manager/next/administer/product-configurations/common-runtime-and-configuration-artifacts.md: api-manager/next/reference/common-runtime-and-configuration-artifacts.md
   api-manager/next/administer/product-configurations/customizing-the-management-console.md: api-manager/next/install-and-setup/setup/advance-configurations/customizing-the-management-console.md
   api-manager/next/administer/product-configurations/adding-internationalization.md: api-manager/next/reference/customize-product/customizations/adding-internationalization.md
   api-manager/next/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores.md: api-manager/next/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
@@ -6111,42 +6111,42 @@ redirect_maps:
   api-manager/next/administer/product-security/enabling-hostname-verification.md: api-manager/next/install-and-setup/setup/security/enabling-hostname-verification.md
   api-manager/next/administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md: api-manager/next/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
   api-manager/next/administer/product-security/configuring-transport-level-security.md: api-manager/next/install-and-setup/setup/security/configuring-transport-level-security.md
-  api-manager/next/administer/product-security/mutual-ssl-between-api-gateway-and-backend.md: api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+  api-manager/next/administer/product-security/mutual-ssl-between-api-gateway-and-backend.md: api-manager/next/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
   api-manager/next/administer/product-security/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md: api-manager/next/reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
   api-manager/next/administer/product-security/identity-management-for-the-api-dev-portal.md: api-manager/next/install-and-setup/setup/security/user-account-management.md
-  api-manager/next/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
+  api-manager/next/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
   api-manager/next/learn/tutorials/edit-and-consume-apis-using-swagger-tools.md: api-manager/next/tutorials/edit-an-api-by-modifying-the-api-definition.md
   api-manager/next/install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md: api-manager/next/install-and-setup/setup/security/user-account-management.md
   api-manager/next/troubleshooting/removing-unused-tokens-from-the-database.md: api-manager/next/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
   api-manager/next/develop/product-apis/restful-apis.md: api-manager/next/reference/product-apis/overview.md
   api-manager/next/develop/product-apis/configuring-rest-api.md: api-manager/next/reference/product-apis/advanced-configurations.md
-  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md: api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
-  api-manager/next/consume/collaboration/use-the-community-features.md: api-manager/next/consume/collaboration/interact-with-the-community.md
-  api-manager/next/learn/consume-api/discover-apis/search.md: api-manager/next/consume/discover-apis/search.md
-  api-manager/next/learn/consume-api/manage-application/create-application.md: api-manager/next/consume/manage-application/create-application.md
-  api-manager/next/learn/consume-api/manage-application/generate-keys/generate-api-keys.md: api-manager/next/consume/manage-application/generate-keys/generate-api-keys.md
-  api-manager/next/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md: api-manager/next/consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
-  api-manager/next/learn/consume-api/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md: api-manager/next/consume/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md
-  api-manager/next/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md: api-manager/next/consume/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md
-  api-manager/next/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application.md: api-manager/next/consume/manage-application/generate-keys/revoke-oauth2-application.md
-  api-manager/next/learn/consume-api/manage-application/sharing-applications/sharing-applications.md: api-manager/next/consume/manage-application/sharing-applications/sharing-applications.md
-  api-manager/next/learn/consume-api/manage-application/advanced-topics/add-custom-attributes-to-applications.md: api-manager/next/consume/manage-application/advanced-topics/add-custom-attributes-to-applications.md
-  api-manager/next/learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application.md: api-manager/next/consume/manage-application/advanced-topics/changing-the-owner-of-an-application.md
-  api-manager/next/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow.md: api-manager/next/consume/manage-application/advanced-topics/adding-an-application-creation-workflow.md
-  api-manager/next/learn/consume-api/manage-application/advanced-topics/adding-an-application-update-workflow.md: api-manager/next/consume/manage-application/advanced-topics/adding-an-application-update-workflow.md
-  api-manager/next/learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md: api-manager/next/consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
-  api-manager/next/learn/consume-api/manage-subscription/subscribe-to-an-api.md: api-manager/next/consume/manage-subscription/subscribe-to-an-api.md
-  api-manager/next/learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md: api-manager/next/consume/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
-  api-manager/next/learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md: api-manager/next/consume/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
-  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md: api-manager/next/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
-  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md: api-manager/next/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
-  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md: api-manager/next/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
-  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md: api-manager/next/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
-  api-manager/next/learn/consume-api/collaboration/use-the-community-features.md: api-manager/next/consume/collaboration/interact-with-the-community.md
-  api-manager/next/learn/consume-api/generating-sdks/generate-sdks-in-dev-portal.md: api-manager/next/consume/generating-sdks/generate-sdks-in-dev-portal.md
-  api-manager/next/learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md: api-manager/next/consume/generating-sdks/write-a-client-application-using-the-sdk.md
+  api-manager/next/learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md: api-manager/next/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
+  api-manager/next/consume/collaboration/use-the-community-features.md: api-manager/next/api-developer-portal/collaboration/interact-with-the-community.md
+  api-manager/next/learn/consume-api/discover-apis/search.md: api-manager/next/api-developer-portal/discover-apis/search.md
+  api-manager/next/learn/consume-api/manage-application/create-application.md: api-manager/next/api-developer-portal/manage-application/create-application.md
+  api-manager/next/learn/consume-api/manage-application/generate-keys/generate-api-keys.md: api-manager/next/api-developer-portal/manage-application/generate-keys/generate-api-keys.md
+  api-manager/next/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md: api-manager/next/api-developer-portal/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
+  api-manager/next/learn/consume-api/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md: api-manager/next/api-developer-portal/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md
+  api-manager/next/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md: api-manager/next/api-developer-portal/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md
+  api-manager/next/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application.md: api-manager/next/api-developer-portal/manage-application/generate-keys/revoke-oauth2-application.md
+  api-manager/next/learn/consume-api/manage-application/sharing-applications/sharing-applications.md: api-manager/next/api-developer-portal/manage-application/sharing-applications/sharing-applications.md
+  api-manager/next/learn/consume-api/manage-application/advanced-topics/add-custom-attributes-to-applications.md: api-manager/next/api-developer-portal/manage-application/advanced-topics/add-custom-attributes-to-applications.md
+  api-manager/next/learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application.md: api-manager/next/api-developer-portal/manage-application/advanced-topics/changing-the-owner-of-an-application.md
+  api-manager/next/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow.md: api-manager/next/api-developer-portal/manage-application/advanced-topics/adding-an-application-creation-workflow.md
+  api-manager/next/learn/consume-api/manage-application/advanced-topics/adding-an-application-update-workflow.md: api-manager/next/api-developer-portal/manage-application/advanced-topics/adding-an-application-update-workflow.md
+  api-manager/next/learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md: api-manager/next/api-developer-portal/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
+  api-manager/next/learn/consume-api/manage-subscription/subscribe-to-an-api.md: api-manager/next/api-developer-portal/manage-subscription/subscribe-to-an-api.md
+  api-manager/next/learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md: api-manager/next/api-developer-portal/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
+  api-manager/next/learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md: api-manager/next/api-developer-portal/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
+  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md: api-manager/next/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
+  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md: api-manager/next/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
+  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md: api-manager/next/api-developer-portal/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
+  api-manager/next/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md: api-manager/next/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
+  api-manager/next/learn/consume-api/collaboration/use-the-community-features.md: api-manager/next/api-developer-portal/collaboration/interact-with-the-community.md
+  api-manager/next/learn/consume-api/generating-sdks/generate-sdks-in-dev-portal.md: api-manager/next/api-developer-portal/generating-sdks/generate-sdks-in-dev-portal.md
+  api-manager/next/learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md: api-manager/next/api-developer-portal/generating-sdks/write-a-client-application-using-the-sdk.md
   api-manager/next/develop/product-apis/overview.md: api-manager/next/reference/product-apis/overview.md
   api-manager/next/develop/product-apis/advanced-configurations.md: api-manager/next/reference/product-apis/advanced-configurations.md
   api-manager/next/develop/extending-api-manager/extending-key-management/extending-key-validation.md: api-manager/next/reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation.md
@@ -6191,20 +6191,20 @@ redirect_maps:
   api-manager/next/develop/wso2-admin-services.md: api-manager/next/reference/wso2-admin-services.md
   api-manager/next/develop/working-with-the-source-code.md: api-manager/next/reference/working-with-the-source-code.md
   api-manager/next/develop/java-documentation.md: api-manager/next/reference/java-documentation.md
-  api-manager/next/observe/api-manager-analytics/configure-analytics/working-with-organizations.md: api-manager/next/api-analytics/role-based-access-control.md
-  api-manager/next/observe/api-manager-analytics/configure-analytics/register-for-analytics.md: api-manager/next/api-analytics/getting-started-guide.md
-  api-manager/next/observe/api-manager-analytics/configure-analytics/configure-alerts.md: api-manager/next/api-analytics/configure-alerts.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md: api-manager/next/api-analytics/viewing/analytics-pages-introduction.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md: api-manager/next/api-analytics/viewing/analytics-pages-overview.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md: api-manager/next/api-analytics/viewing/analytics-pages-traffic.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md: api-manager/next/api-analytics/viewing/analytics-pages-errors.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-latency.md: api-manager/next/api-analytics/viewing/analytics-pages-latency.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md: api-manager/next/api-analytics/viewing/analytics-pages-devices.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md: api-manager/next/api-analytics/viewing/analytics-pages-alerts.md
-  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-report.md: api-manager/next/api-analytics/viewing/analytics-pages-report.md
-  api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md: api-manager/next/api-analytics/getting-started-guide.md
+  api-manager/next/observe/api-manager-analytics/configure-analytics/working-with-organizations.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/configure-analytics/register-for-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/observe/api-manager-analytics/configure-analytics/configure-alerts.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-latency.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/analytics-pages/analytics-pages-report.md: api-manager/next/monitoring/api-analytics/analytics-overview.md
+  api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
   api-manager/next/get-started/architecture.md: api-manager/next/get-started/apim-architecture.md
-  api-manager/next/api-analytics/getting-started-guide.md: api-manager/next/api-analytics/choreo-analytics/getting-started-guide.md
+  api-manager/next/api-analytics/getting-started-guide.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
   api-manager/next/api-analytics/viewing/analytics-pages-alerts.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#alerts
   api-manager/next/api-analytics/viewing/analytics-pages-introduction.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/
   api-manager/next/api-analytics/viewing/analytics-pages-overview.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#overview
@@ -6213,10 +6213,10 @@ redirect_maps:
   api-manager/next/api-analytics/viewing/analytics-pages-latency.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#latency
   api-manager/next/api-analytics/viewing/analytics-pages-devices.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#devices
   api-manager/next/api-analytics/viewing/analytics-pages-report.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#reports
-  api-manager/next/administer/logging-and-monitoring/monitoring/working-with-observability.md: api-manager/next/observe/api-manager/monitoring-correlation-logs.md
-  api-manager/next/administer/logging-and-monitoring/logging/monitoring-http-access-logs.md: api-manager/next/observe/api-manager/monitoring-http-access-logs.md
-  api-manager/next/administer/logging-and-monitoring/logging/monitoring-audit-logs.md: api-manager/next/observe/api-manager/monitoring-audit-logs.md
-  api-manager/next/administer/logging-and-monitoring/logging/setting-up-logging.md: api-manager/next/administer/logging-and-monitoring/logging/configuring-logging.md
+  api-manager/next/administer/logging-and-monitoring/monitoring/working-with-observability.md: api-manager/next/monitoring/observability/monitoring-correlation-logs.md
+  api-manager/next/administer/logging-and-monitoring/logging/monitoring-http-access-logs.md: api-manager/next/monitoring/observability/monitoring-http-access-logs.md
+  api-manager/next/administer/logging-and-monitoring/logging/monitoring-audit-logs.md: api-manager/next/monitoring/observability/monitoring-audit-logs.md
+  api-manager/next/administer/logging-and-monitoring/logging/setting-up-logging.md: api-manager/next/monitoring/observability/configuring-logging.md
   api-manager/next/api-analytics/viewing/view-overview-of-api-analytics.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#overview
   api-manager/next/api-analytics/viewing/view-api-analytics-on-traffic.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#traffic
   api-manager/next/api-analytics/viewing/view-api-analytics-on-errors.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#errors
@@ -6224,13 +6224,13 @@ redirect_maps:
   api-manager/next/api-analytics/viewing/view-analytics-on-devices.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#devices
   api-manager/next/api-analytics/viewing/view-api-analytics-on-alerts.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#alerts
   api-manager/next/api-analytics/viewing/download-api-analytics-reports.md: https://wso2.com/choreo/docs/monitoring-and-insights/usage-insights/#reports
-  api-manager/next/design/prototype-api/create-a-mock-api-with-an-inline-script.md: api-manager/next/design/prototype-api/create-a-prototype-api.md
-  api-manager/next/design/prototype-api/deploy-and-test-mock-apis.md: api-manager/next/design/prototype-api/create-a-prototype-api.md
-  api-manager/next/design/prototype-api/create-a-prototype-api.md: api-manager/next/design/prototype-api/overview.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md: api-manager/next/get-started/about-this-release/#removed-features-and-functionalities.md
+  api-manager/next/design/prototype-api/create-a-mock-api-with-an-inline-script.md: api-manager/next/api-design-manage/design/prototype-api/overview.md
+  api-manager/next/design/prototype-api/deploy-and-test-mock-apis.md: api-manager/next/api-design-manage/design/prototype-api/overview.md
+  api-manager/next/design/prototype-api/create-a-prototype-api.md: api-manager/next/api-design-manage/design/prototype-api/overview.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md: api-manager/next/api-design-manage/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md
   api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md: api-manager/next/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
   api-manager/next/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md: api-manager/next/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
-  api-manager/next/administer/logging-and-monitoring/logging/configuring-logging.md: api-manager/next/observe/api-manager/configuring-logging.md
+  api-manager/next/administer/logging-and-monitoring/logging/configuring-logging.md: api-manager/next/monitoring/observability/configuring-logging.md
   api-manager/next/mcp/overview.md: api-manager/next/ai-gateway/mcp-gateway/overview.md
   api-manager/next/mcp/create-from-api.md: api-manager/next/ai-gateway/mcp-gateway/create-from-api.md
   api-manager/next/mcp/create-from-openapi.md: api-manager/next/ai-gateway/mcp-gateway/create-from-openapi.md
@@ -6336,7 +6336,7 @@ redirect_maps:
   api-manager/next/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md: api-manager/next/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
   api-manager/next/manage-apis/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md: api-manager/next/api-design-manage/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
   api-manager/next/manage-apis/design/advanced-topics/adding-an-api-state-change-workflow.md: api-manager/next/api-design-manage/design/advanced-topics/adding-an-api-state-change-workflow.md
-  api-manager/next/manage-apis/design/advanced-topics/api-governance-cli-tool.md: api-manager/next/api-design-manage/design/advanced-topics/api-governance-cli-tool.md
+  api-manager/next/manage-apis/design/advanced-topics/api-governance-cli-tool.md: api-manager/next/apiops/cli/api-governance-cli-tool.md
   api-manager/next/manage-apis/design/advanced-topics/block-subscription-to-an-api.md: api-manager/next/api-design-manage/design/advanced-topics/block-subscription-to-an-api.md
   api-manager/next/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md: api-manager/next/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
   api-manager/next/manage-apis/design/advanced-topics/disable-subscriptions-for-an-api.md: api-manager/next/api-design-manage/design/advanced-topics/disable-subscriptions-for-an-api.md
@@ -6369,7 +6369,7 @@ redirect_maps:
   api-manager/next/manage-apis/design/api-security/api-authentication/secure-apis-using-basic-authentication.md: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
   api-manager/next/manage-apis/design/api-security/api-authentication/secure-apis-using-mutual-ssl.md: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
   api-manager/next/manage-apis/design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md
-  api-manager/next/manage-apis/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md: api-manager/next/api-design-manage/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
+  api-manager/next/manage-apis/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md: api-manager/next/api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
   api-manager/next/manage-apis/design/api-security/api-request-response-schema-validation/json-schema-validator.md: api-manager/next/api-security/runtime/api-request-response-schema-validation/json-schema-validator.md
   api-manager/next/manage-apis/design/api-security/authorization/api-authorization.md: api-manager/next/api-security/runtime/authorization/api-authorization.md
   api-manager/next/manage-apis/design/api-security/authorization/publisher-portal-in-read-only-mode.md: api-manager/next/administer/publisher-portal-in-read-only-mode.md
@@ -6444,9 +6444,9 @@ redirect_maps:
   api-manager/next/manage-apis/design/rate-limiting/advanced-topics/distributed-throttling.md: api-manager/next/api-gateway/rate-limiting/distributed-throttling.md
   api-manager/next/manage-apis/design/rate-limiting/resetting-application-throttling-policies.md: api-manager/next/api-developer-portal/rate-limiting/resetting-application-throttling-policies.md
   api-manager/next/install-and-setup/setup/deployment-overview.md: api-manager/next/get-started/deployment-patterns.md
-  api-manager/next/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md: api-manager/next/get-started/deployment-patterns/#pattern-3-recommended-distributed-deployment.md
+  api-manager/next/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
   api-manager/next/install-and-setup/setup/single-node/deployment-overview.md: api-manager/next/get-started/deployment-patterns.md
-  api-manager/next/manage-apis/design/rate-limiting/access-control.md: api-manager/next/administer/rate-limiting/manage-advanced-policies/#allowed-ips.md
+  api-manager/next/manage-apis/design/rate-limiting/access-control.md: api-manager/next/administer/rate-limiting/manage-advanced-policies.md
   api-manager/next/manage-apis/design/rate-limiting/adding-new-throttling-policies.md: api-manager/next/administer/rate-limiting/manage-subscription-policies.md
   api-manager/next/manage-apis/design/rate-limiting/advanced-topics/custom-throttling.md: api-manager/next/administer/rate-limiting/implement-custom-policies.md
   api-manager/next/manage-apis/design/rate-limiting/enforce-throttling-and-resource-access-policies.md: api-manager/next/tutorials/enforce-throttling-and-resource-access-policies.md
@@ -6499,33 +6499,33 @@ redirect_maps:
   api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
   api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
   api-manager/next/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
-  api-manager/next/design/design-api-overview.md: api-manager/next/manage-apis/design/design-api-overview.md
-  api-manager/next/design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md: api-manager/next/manage-apis/design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
-  api-manager/next/design/create-api/create-streaming-api/streaming-api-overview.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/streaming-api-overview.md
-  api-manager/next/design/create-api/create-streaming-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/test-a-websub-api.md
-  api-manager/next/design/create-api/create-ai-api/create-an-ai-api.md: api-manager/next/manage-apis/design/create-api/create-ai-api/create-an-ai-api.md
+  api-manager/next/design/design-api-overview.md: api-manager/next/api-design-manage/design/design-api-overview.md
+  api-manager/next/design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md: api-manager/next/api-design-manage/design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
+  api-manager/next/design/create-api/create-streaming-api/streaming-api-overview.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/streaming-api-overview.md
+  api-manager/next/design/create-api/create-streaming-api.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/test-a-websub-api.md
+  api-manager/next/design/create-api/create-ai-api/create-an-ai-api.md: api-manager/next/api-design-manage/design/create-api/create-ai-api/create-an-ai-api.md
   api-manager/next/design/prototype-api/create-mocked-js-api.md: https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/prototype-api/create-mocked-js-api/
-  api-manager/next/design/endpoints/endpoint-security/basic-auth.md: api-manager/next/manage-apis/design/endpoints/endpoint-security/basic-auth.md
-  api-manager/next/design/endpoints/endpoint-security/digest-auth.md: api-manager/next/manage-apis/design/endpoints/endpoint-security/digest-auth.md
-  api-manager/next/design/endpoints/endpoint-security/oauth-2.0.md: api-manager/next/manage-apis/design/endpoints/endpoint-security/oauth-2.0.md
-  api-manager/next/design/endpoints/high-availability-for-endpoints.md: api-manager/next/manage-apis/design/endpoints/high-availability-for-endpoints.md
-  api-manager/next/design/endpoints/resiliency/endpoint-timeouts.md: api-manager/next/manage-apis/design/endpoints/resiliency/endpoint-timeouts.md
-  api-manager/next/design/endpoints/resiliency/endpoint-suspension.md: api-manager/next/manage-apis/design/endpoints/resiliency/endpoint-suspension.md
-  api-manager/next/design/endpoints/resiliency/prevent-api-suspension.md: api-manager/next/manage-apis/design/endpoints/resiliency/prevent-api-suspension.md
-  api-manager/next/design/api-versioning/deprecate-the-old-version.md: api-manager/next/manage-apis/design/api-versioning/deprecate-the-old-version.md
-  api-manager/next/design/api-versioning/backward-compatibility.md: api-manager/next/manage-apis/design/api-versioning/backward-compatibility.md
-  api-manager/next/design/api-documentation/view-generated-documentation.md: api-manager/next/manage-apis/design/api-documentation/view-generated-documentation.md
+  api-manager/next/design/endpoints/endpoint-security/basic-auth.md: api-manager/next/api-design-manage/design/endpoints/endpoint-security/basic-auth.md
+  api-manager/next/design/endpoints/endpoint-security/digest-auth.md: api-manager/next/api-design-manage/design/endpoints/endpoint-security/digest-auth.md
+  api-manager/next/design/endpoints/endpoint-security/oauth-2.0.md: api-manager/next/api-design-manage/design/endpoints/endpoint-security/oauth-2.0.md
+  api-manager/next/design/endpoints/high-availability-for-endpoints.md: api-manager/next/api-design-manage/design/endpoints/high-availability-for-endpoints.md
+  api-manager/next/design/endpoints/resiliency/endpoint-timeouts.md: api-manager/next/api-design-manage/design/endpoints/resiliency/endpoint-timeouts.md
+  api-manager/next/design/endpoints/resiliency/endpoint-suspension.md: api-manager/next/api-design-manage/design/endpoints/resiliency/endpoint-suspension.md
+  api-manager/next/design/endpoints/resiliency/prevent-api-suspension.md: api-manager/next/api-design-manage/design/endpoints/resiliency/prevent-api-suspension.md
+  api-manager/next/design/api-versioning/deprecate-the-old-version.md: api-manager/next/api-design-manage/design/api-versioning/deprecate-the-old-version.md
+  api-manager/next/design/api-versioning/backward-compatibility.md: api-manager/next/api-design-manage/design/api-versioning/backward-compatibility.md
+  api-manager/next/design/api-documentation/view-generated-documentation.md: api-manager/next/api-design-manage/design/api-documentation/view-generated-documentation.md
   api-manager/next/design/api-policies/attach-policy.md: https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/api-policies/attach-policy/
   api-manager/next/design/api-policies/create-policy.md: https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/api-policies/create-policy/
-  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
-  api-manager/next/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md: api-manager/next/manage-apis/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md: api-manager/next/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md: api-manager/next/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md: api-manager/next/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md: api-manager/next/api-gateway/overview-of-the-api-gateway.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md: api-manager/next/api-gateway/gateway-policies.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md: api-manager/next/api-gateway/response-caching.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md: api-manager/next/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md: api-manager/next/api-gateway/scaling-the-gateway.md
+  api-manager/next/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md: api-manager/next/api-design-manage/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
   api-manager/next/api-analytics/moesif-analytics/moesif-integration-guide.md: api-manager/next/monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
   api-manager/next/api-analytics/choreo-analytics/api-analytics-architecture.md: api-manager/next/monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
   api-manager/next/api-analytics/choreo-analytics/getting-started-guide.md: api-manager/next/monitoring/api-analytics/choreo-analytics/getting-started-guide.md
@@ -6542,38 +6542,38 @@ redirect_maps:
   api-manager/next/observe/api-manager/traces/monitoring-with-opentracing.md: api-manager/next/monitoring/observability/traces/monitoring-with-opentracing.md
   api-manager/next/observe/api-manager/traces/monitoring-with-opentelemetry.md: api-manager/next/monitoring/observability/traces/monitoring-with-opentelemetry.md
   api-manager/next/observe/api-manager/metrics/jmx-based-monitoring.md: api-manager/next/monitoring/observability/metrics/jmx-based-monitoring.md
-  api-manager/next/design/api-definitions/create-a-rest-api-from-an-openapi-definition.md: api-manager/next/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
-  api-manager/next/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md: api-manager/next/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
-  api-manager/next/design/create-api/create-rest-api/create-a-rest-api.md: api-manager/next/manage-apis/design/create-api/create-rest-api/create-a-rest-api.md
+  api-manager/next/design/api-definitions/create-a-rest-api-from-an-openapi-definition.md: api-manager/next/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
+  api-manager/next/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md: api-manager/next/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
+  api-manager/next/design/create-api/create-rest-api/create-a-rest-api.md: api-manager/next/api-design-manage/design/create-api/create-rest-api/create-a-rest-api.md
   api-manager/next/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md: api-manager/next/tutorials/expose-a-soap-service-as-a-rest-api.md
-  api-manager/next/design/create-api/create-rest-api/test-a-rest-api.md: api-manager/next/manage-apis/design/create-api/create-rest-api/test-a-rest-api.md
-  api-manager/next/design/create-api/create-a-graphql-api.md: api-manager/next/manage-apis/design/create-api/create-a-graphql-api.md
-  api-manager/next/design/create-api/create-a-websocket-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-  api-manager/next/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-  api-manager/next/design/create-api/create-a-websub-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
-  api-manager/next/design/create-api/create-streaming-api/create-a-websub-streaming-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
-  api-manager/next/design/create-api/create-a-sse-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
-  api-manager/next/design/create-api/create-streaming-api/create-a-sse-streaming-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
-  api-manager/next/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
-  api-manager/next/design/create-api/adding-custom-properties-to-apis.md: api-manager/next/manage-apis/design/create-api/adding-custom-properties-to-apis.md
-  api-manager/next/design/create-api/change-api-thumbnail.md: api-manager/next/manage-apis/design/create-api/change-api-thumbnail.md
-  api-manager/next/design/create-api/create-api-revisions.md: api-manager/next/manage-apis/design/create-api/create-api-revisions.md
-  api-manager/next/design/create-api/create-an-api-using-a-service.md: api-manager/next/manage-apis/design/create-api/create-an-api-using-a-service.md
-  api-manager/next/design/prototype-api/overview.md: api-manager/next/manage-apis/design/prototype-api/overview.md
-  api-manager/next/design/prototype-api/backend-url-prototype-api.md: api-manager/next/manage-apis/design/prototype-api/backend-url-prototype-api.md
-  api-manager/next/design/create-api-product/api-product-overview.md: api-manager/next/manage-apis/design/create-api-product/api-product-overview.md
-  api-manager/next/design/create-api-product/create-api-product.md: api-manager/next/manage-apis/design/create-api-product/create-api-product.md
-  api-manager/next/design/endpoints/endpoint-types.md: api-manager/next/manage-apis/design/endpoints/endpoint-types.md
-  api-manager/next/design/endpoints/certificates.md: api-manager/next/manage-apis/design/endpoints/certificates.md
-  api-manager/next/design/lifecycle-management/api-lifecycle.md: api-manager/next/manage-apis/design/lifecycle-management/api-lifecycle.md
-  api-manager/next/design/lifecycle-management/customize-api-life-cycle.md: api-manager/next/manage-apis/design/lifecycle-management/customize-api-life-cycle.md
-  api-manager/next/design/api-versioning/create-a-new-api-version.md: api-manager/next/manage-apis/design/api-versioning/create-a-new-api-version.md
-  api-manager/next/design/api-versioning/enabling-notifications.md: api-manager/next/manage-apis/design/api-versioning/enabling-notifications.md
-  api-manager/next/design/api-documentation/add-api-documentation.md: api-manager/next/manage-apis/design/api-documentation/add-api-documentation.md
-  api-manager/next/design/api-collaborations/comment-on-an-api-via-the-publisher.md: api-manager/next/manage-apis/design/api-collaborations/comment-on-an-api-via-the-publisher.md
-  api-manager/next/design/api-policies/overview.md: api-manager/next/manage-apis/design/api-policies/overview.md
-  api-manager/next/design/rate-limiting/introducing-throttling-use-cases.md: api-manager/next/manage-apis/design/rate-limiting/introducing-throttling-use-cases.md
-  api-manager/next/design/api-monetization/monetizing-an-api.md: api-manager/next/manage-apis/design/api-monetization/monetizing-an-api.md
-  api-manager/next/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md: api-manager/next/manage-apis/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
-  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
-  api-manager/next/deploy-and-publish/publish-on-dev-portal/publish-an-api.md: api-manager/next/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api.md
+  api-manager/next/design/create-api/create-rest-api/test-a-rest-api.md: api-manager/next/api-design-manage/design/create-api/create-rest-api/test-a-rest-api.md
+  api-manager/next/design/create-api/create-a-graphql-api.md: api-manager/next/api-design-manage/design/create-api/create-a-graphql-api.md
+  api-manager/next/design/create-api/create-a-websocket-api.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+  api-manager/next/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+  api-manager/next/design/create-api/create-a-websub-api.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+  api-manager/next/design/create-api/create-streaming-api/create-a-websub-streaming-api.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+  api-manager/next/design/create-api/create-a-sse-api.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
+  api-manager/next/design/create-api/create-streaming-api/create-a-sse-streaming-api.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
+  api-manager/next/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md: api-manager/next/api-design-manage/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+  api-manager/next/design/create-api/adding-custom-properties-to-apis.md: api-manager/next/api-design-manage/design/create-api/adding-custom-properties-to-apis.md
+  api-manager/next/design/create-api/change-api-thumbnail.md: api-manager/next/api-design-manage/design/create-api/change-api-thumbnail.md
+  api-manager/next/design/create-api/create-api-revisions.md: api-manager/next/api-design-manage/design/create-api/create-api-revisions.md
+  api-manager/next/design/create-api/create-an-api-using-a-service.md: api-manager/next/api-design-manage/design/create-api/create-an-api-using-a-service.md
+  api-manager/next/design/prototype-api/overview.md: api-manager/next/api-design-manage/design/prototype-api/overview.md
+  api-manager/next/design/prototype-api/backend-url-prototype-api.md: api-manager/next/api-design-manage/design/prototype-api/backend-url-prototype-api.md
+  api-manager/next/design/create-api-product/api-product-overview.md: api-manager/next/api-design-manage/design/create-api-product/api-product-overview.md
+  api-manager/next/design/create-api-product/create-api-product.md: api-manager/next/api-design-manage/design/create-api-product/create-api-product.md
+  api-manager/next/design/endpoints/endpoint-types.md: api-manager/next/api-design-manage/design/endpoints/endpoint-types.md
+  api-manager/next/design/endpoints/certificates.md: api-manager/next/api-design-manage/design/endpoints/certificates.md
+  api-manager/next/design/lifecycle-management/api-lifecycle.md: api-manager/next/api-design-manage/design/lifecycle-management/api-lifecycle.md
+  api-manager/next/design/lifecycle-management/customize-api-life-cycle.md: api-manager/next/api-design-manage/design/lifecycle-management/customize-api-life-cycle.md
+  api-manager/next/design/api-versioning/create-a-new-api-version.md: api-manager/next/api-design-manage/design/api-versioning/create-a-new-api-version.md
+  api-manager/next/design/api-versioning/enabling-notifications.md: api-manager/next/api-design-manage/design/api-versioning/enabling-notifications.md
+  api-manager/next/design/api-documentation/add-api-documentation.md: api-manager/next/api-design-manage/design/api-documentation/add-api-documentation.md
+  api-manager/next/design/api-collaborations/comment-on-an-api-via-the-publisher.md: api-manager/next/api-design-manage/design/api-collaborations/comment-on-an-api-via-the-publisher.md
+  api-manager/next/design/api-policies/overview.md: api-manager/next/api-design-manage/design/api-policies/overview.md
+  api-manager/next/design/rate-limiting/introducing-throttling-use-cases.md: api-manager/next/api-gateway/rate-limiting/understand-rate-limit-enforcement.md
+  api-manager/next/design/api-monetization/monetizing-an-api.md: api-manager/next/monitoring/api-monetization/monetizing-an-api.md
+  api-manager/next/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md: api-manager/next/api-design-manage/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
+  api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md: api-manager/next/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
+  api-manager/next/deploy-and-publish/publish-on-dev-portal/publish-an-api.md: api-manager/next/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api.md

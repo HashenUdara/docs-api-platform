@@ -741,10 +741,112 @@ kubernetes:
 
 #### 4.2 Configure NGINX Ingress Controller
 
-- API Manager Publisher: `https://<kubernetes.gatewayAPI.management.hostname>/publisher`
-- API Manager DevPortal: `https://<kubernetes.gatewayAPI.management.hostname>/devportal`
-- API Manager Carbon Console: `https://<kubernetes.gatewayAPI.management.hostname>/carbon`
-- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
+Use this section if you are using NGINX Ingress Controller instead of Envoy Gateway.
+
+**Configure ingress annotations**
+
+You may need to customise these if you want to enable sticky sessions, change the backend protocol, or apply rate limiting.
+
+```yaml
+ingressClass: "nginx"
+ingress:
+  tlsSecret: ""
+  ratelimit:
+    enabled: false
+    zoneName: ""
+    burstLimit: ""
+  controlPlane:
+    hostname: "am.wso2.com"
+    annotations:
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      nginx.ingress.kubernetes.io/affinity: "cookie"
+      nginx.ingress.kubernetes.io/session-cookie-name: "route"
+      nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
+```
+
+Refer to the [NGINX ingress annotations documentation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) for the full list of supported options.
+
+**Configure TLS for Ingress**
+
+```bash
+kubectl create secret tls my-tls-secret \
+  --key <private-key-file> \
+  --cert <certificate-file> \
+  -n apim
+```
+
+Then set the secret name in your `values.yaml` under `ingress.tlsSecret`. Refer to the [Kubernetes ingress TLS documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) for more details.
+
+### 5. Gateway, High Availability, and User Management
+
+#### 5.1 Configure Multiple Gateways
+
+```yaml
+gateway:
+  environments:
+    - name: "Default"
+      type: "hybrid"
+      gatewayType: "Regular"
+      provider: "wso2"
+      displayInApiConsole: true
+      description: "Handles both production and sandbox token traffic."
+      showAsTokenEndpointUrl: true
+      serviceName: "apim-gw-wso2am-gateway-service"
+      servicePort: 9443
+      wsHostname: "websocket.wso2.com"
+      httpHostname: "gw.wso2.com"
+      websubHostname: "websub.wso2.com"
+    - name: "Default_apk"
+      type: "hybrid"
+      gatewayType: "APK"
+      provider: "wso2"
+      displayInApiConsole: true
+      description: "Handles both production and sandbox token traffic."
+      showAsTokenEndpointUrl: true
+      serviceName: "apim-gw-wso2am-gateway-service"
+      servicePort: 9443
+      wsHostname: "websocket.wso2.com"
+      httpHostname: "default.gw.wso2.com:9095"
+      websubHostname: "websub.wso2.com"
+```
+
+See [Deploy through multiple API Gateways](https://apim.docs.wso2.com/en/latest/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/) for more details.
+
+#### 5.2 Configure User Store Properties
+
+```yaml
+userStore:
+  type: "database_unique_id"
+  properties:
+    ReadGroups: true
+```
+
+!!! warning
+    If you do not need to set any custom properties, remove the `properties` block entirely. An empty `properties` block will cause the deployment to fail.
+
+See [Working with user store properties](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/) for the full list of options.
+
+#### 5.3 Configure High Availability
+
+High availability is enabled by default in Pattern 1, which deploys two pods. For local testing where resources are limited, you can disable it to run a single pod:
+
+```yaml
+wso2:
+  deployment:
+    highAvailability: false
+```
+
+### 6. Deploy with Custom Values
+
+Once your `values.yaml` is configured, deploy with:
+
+```bash
+helm install <release-name> <helm-chart-path> \
+  --version 4.7.0-1 \
+  --namespace <namespace> --create-namespace \
+  --dependency-update \
+  -f values.yaml
+```
 
 !!! tip "Deployment Parameters"
     - `<release-name>` — Name for your Helm release (e.g. `apim-1`)
