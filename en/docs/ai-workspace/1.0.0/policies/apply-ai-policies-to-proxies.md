@@ -36,7 +36,7 @@ The console fetches the manifest from the gateway and displays a table of all po
 | **Policy Type** | `Policy Hub` for policy hub managed policies, `Custom` for your own AI policies |
 | **Sync Status** | Whether the policy is synced to the organization — shows a **Sync** button when the policy is unsynced or a later version is available, or **Latest Version Available**/**N/A** if already up to date |
 
-![AI Gateway detail page showing the Policies tab with a table of installed policies, their Policy Type, and Sync Status](../../../assets/img/custom-policies/ViewGatewayPolicies.svg)
+![AI Gateway detail page showing the Policies tab with a table of installed policies, their Policy Type, and Sync Status](../assets/img/custom-policies/ViewGatewayPolicies.svg)
 
 ## Step 2: Sync the custom AI policy to the organization
 
@@ -52,7 +52,7 @@ In the **Sync Status** column, each custom AI policy shows one of the following:
 
 Once synced, the custom AI policy is available organization-wide and can be applied to LLM providers, App LLM proxies, and MCP proxies.
 
-![Policies tab after syncing, showing the Sensitive Data Mask custom policy with Policy Type Custom and Sync Status Latest Version Available](../../../assets/img/custom-policies/SyncCustomPolicy.png)
+![Policies tab after syncing, showing the Sensitive Data Mask custom policy with Policy Type Custom and Sync Status Latest Version Available](../assets/img/custom-policies/SyncCustomPolicy.png)
 
 !!! note
     - Each major version of a custom AI policy is maintained as a separate policy entry with the same name.
@@ -77,7 +77,7 @@ This section lists all custom AI policies available in the organization with the
 | **Created At** | Date and time the policy was first synced |
 | **Updated At** | Date and time the policy was last updated |
 
-![Settings > Custom Policies page listing the synced sensitive-data-mask policy with its version, description, and timestamps](../../../assets/img/custom-policies/ShowinCustomPolicySection.png)
+![Settings > Custom Policies page listing the synced sensitive-data-mask policy with its version, description, and timestamps](../assets/img/custom-policies/ShowinCustomPolicySection.png)
 
 !!! note
     To delete a synced custom AI policy, none of the LLM providers, App LLM proxies, or MCP proxies in the organization should be using it.
@@ -94,7 +94,7 @@ Once synced, a custom AI policy is attached the same way for LLM providers, App 
 4. Select your custom AI policy from the sidebar — it's listed alongside the built-in policies — and configure its parameters.
 5. Click **Add** or **Submit** to attach it, then deploy or redeploy the resource to the gateway to apply the changes.
 
-![Guardrails & Policies sidebar showing the synced custom policy listed alongside built-in policies](../../../assets/img/custom-policies/SyncedCustomPolicyinPoliciesSection.svg)
+![Guardrails & Policies sidebar showing the synced custom policy listed alongside built-in policies](../assets/img/custom-policies/SyncedCustomPolicyinPoliciesSection.svg)
 
 For more detail on the global and per-resource scopes, see [Policy scope: global or per resource](overview.md#policy-scope-global-or-per-resource).
 

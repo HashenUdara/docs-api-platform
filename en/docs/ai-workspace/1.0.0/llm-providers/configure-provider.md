@@ -39,7 +39,7 @@ An LLM provider connects an AI service platform such as OpenAI or Anthropic to A
 2. Select **LLM Providers** from the menu.
 3. Click **+ Add New Provider** and choose your provider type, for example **OpenAI** or **Anthropic**. Any [custom LLM provider templates](../llm-provider-templates/overview.md) you have created also appear in the picker.
 
-   ![Add LLM Service Provider panel showing selectable tiles for OpenAI, Mistral, Gemini, Azure OpenAI, Azure AI Foundry, AWS Bedrock, and Anthropic](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider/select-llm-provider-type.png)
+   ![Add LLM Service Provider panel showing selectable tiles for OpenAI, Mistral, Gemini, Azure OpenAI, Azure AI Foundry, AWS Bedrock, and Anthropic](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider/select-llm-provider-type.png)
 
 4. If the selected template has more than one version, select a version and click **Continue**. A single version is selected automatically.
 
@@ -47,7 +47,7 @@ An LLM provider connects an AI service platform such as OpenAI or Anthropic to A
 
 After selecting your provider type, fill in the provider configuration form:
 
-   ![Add LLM Service Provider form with OpenAI selected, showing Name, Version, Description, Context, API Key, and Guardrails fields](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider/llm-provider-details.png)
+   ![Add LLM Service Provider form with OpenAI selected, showing Name, Version, Description, Context, API Key, and Guardrails fields](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider/llm-provider-details.png)
 
 ### Basic information
 

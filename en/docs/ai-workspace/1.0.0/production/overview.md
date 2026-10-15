@@ -40,7 +40,7 @@ AI Workspace handles user interactions and communicates with the Platform API. T
 
 The following diagram shows that deployment architecture, with browsers and gateways on one side and the database and identity provider on the other:
 
-![Deployment architecture showing browsers and gateways reaching AI Workspace and the Platform API, which connects to a database and an identity provider](../../../assets/img/ai-gateway/standalone-ai-workspace/production/deployment-architecture.png)
+![Deployment architecture showing browsers and gateways reaching AI Workspace and the Platform API, which connects to a database and an identity provider](../assets/img/ai-gateway/standalone-ai-workspace/production/deployment-architecture.png)
 
 ## Choose a deployment shape
 

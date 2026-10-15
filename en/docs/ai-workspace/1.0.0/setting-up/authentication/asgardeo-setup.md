@@ -175,7 +175,7 @@ Don't put the client secret in `api-platform.env`. Compose loads that file into 
 
 Once configured, opening AI Workspace redirects you to the Asgardeo-hosted login page instead of the file-based login form:
 
-![AI Workspace login page redirecting to the Asgardeo-hosted login page](../../../../assets/img/ai-gateway/standalone-ai-workspace/authentication/oidc-login-redirect.png)
+![AI Workspace login page redirecting to the Asgardeo-hosted login page](../../assets/img/ai-gateway/standalone-ai-workspace/authentication/oidc-login-redirect.png)
 
 ## Claim flow summary
 

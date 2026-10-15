@@ -22,11 +22,11 @@ When [adding an LLM provider](../llm-providers/configure-provider.md):
 
 1. Pick a template from the template picker. Custom templates appear alongside the built-in ones.
 
-    ![Template picker in the Add Provider flow showing built-in and custom template cards](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/select-template-for-provider.png)
+    ![Template picker in the Add Provider flow showing built-in and custom template cards](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/select-template-for-provider.png)
 
 2. If the template has more than one version, select the version you want and click **Continue**. If there is only one version, it is selected for you.
 
-    ![Version selection step with available template versions and the Continue button](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/select-template-version.png)
+    ![Version selection step with available template versions and the Continue button](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/select-template-version.png)
 
 3. Enter the provider name and credentials. The provider takes its endpoint, authentication, and token mappings from the selected template version.
 
@@ -46,7 +46,7 @@ Editing a template version doesn't affect the providers already created from it.
 
 You can turn a **built-in** template version on or off from the template's **Overview** tab.
 
-![Built-in template Overview tab showing the Enable/Disable action](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/enable-disable-template.png)
+![Built-in template Overview tab showing the Enable/Disable action](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/enable-disable-template.png)
 
 - Only built-in templates can be enabled or disabled. To remove a custom template, delete it instead.
 - A version can't be disabled while a provider is using it.
@@ -60,7 +60,7 @@ To remove a **custom** template version:
 2. Pick the version you want to remove from the **version selector**.
 3. Click **Delete** and confirm.
 
-![Delete confirmation dialog for a custom template version](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/delete-template.png)
+![Delete confirmation dialog for a custom template version](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/delete-template.png)
 
 !!! warning "Deletion is blocked while in use"
     You can't delete a template version while a provider created from it still exists. The console shows the error `Cannot delete: one or more providers were created from this template.` Delete those providers first, then try again.

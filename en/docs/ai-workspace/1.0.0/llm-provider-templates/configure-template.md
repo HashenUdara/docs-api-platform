@@ -31,13 +31,13 @@ When the built-in templates don't cover the upstream large language model (LLM) 
 
 The new template starts at version **v1.0**. Open it to complete the rest of the configuration.
 
-![Create LLM provider template form with name and endpoint URL fields](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/create-template-form.png)
+![Create LLM provider template form with name and endpoint URL fields](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/create-template-form.png)
 
 ## Configure the template
 
 The template details page has an overview, a version selector, and the tabs described below.
 
-![Template details page showing the version selector and configuration tabs](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-overview.png)
+![Template details page showing the version selector and configuration tabs](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-overview.png)
 
 ### Overview
 
@@ -55,7 +55,7 @@ Configure how the gateway connects to the upstream service:
 - **OpenAPI specification**: provide a **URL** and click **Fetch** to load it, or **upload** the file.
 - **Authentication**: the inbound auth type, header or parameter name, and value prefix.
 
-![Connection tab showing endpoint URL, OpenAPI specification, and authentication settings](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-connection.png)
+![Connection tab showing endpoint URL, OpenAPI specification, and authentication settings](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-connection.png)
 
 ### Token mapping
 
@@ -64,7 +64,7 @@ Define where token usage and model information are read from in requests and res
 - **Default (Global) mappings**: prompt, completion, total, and remaining tokens, plus the request and response model.
 - **Per-resource overrides**: different mappings for individual API resources.
 
-![Token mapping tab showing default mappings and per-resource overrides](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-token-mapping.png)
+![Token mapping tab showing default mappings and per-resource overrides](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-token-mapping.png)
 
 ## Versioning
 
@@ -77,7 +77,7 @@ Built-in template versions are read-only. You can edit a custom template version
 3. Enter the new version (for example, `v2.0`) and adjust the configuration as needed.
 4. Click **Create**.
 
-![Version selector dropdown with the Create new version option](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/create-new-version.png)
+![Version selector dropdown with the Create new version option](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/create-new-version.png)
 
 !!! note
     Creating a new version of a **built-in** template produces a **custom** version.

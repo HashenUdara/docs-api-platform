@@ -57,7 +57,7 @@ The AI Gateways page displays a list of all configured gateways with the followi
 
     The Add AI Gateway form collects the name, description, and URL:
 
-    ![Add AI Gateway form showing Name, Description, URL pre-filled with localhost:8443](../../../assets/img/ai-gateway/standalone-ai-workspace/ai-gateway/ai-gateway-form.png)
+    ![Add AI Gateway form showing Name, Description, URL pre-filled with localhost:8443](../assets/img/ai-gateway/standalone-ai-workspace/ai-gateway/ai-gateway-form.png)
 
 4. Click **Add Gateway** to create the gateway.
 

@@ -37,7 +37,7 @@ Once a template holds this configuration, you can create any number of [LLM prov
 
 Custom and built-in templates appear in separate sections, and each template card shows its most recent version. Disabled templates appear dimmed.
 
-![LLM provider templates listing showing custom and built-in template sections](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-listing.png)
+![LLM provider templates listing showing custom and built-in template sections](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider-template/template-listing.png)
 
 ## Next step
 
