@@ -1,7 +1,7 @@
-# Stage 1: Build the MkDocs static site for API Manager 4.7.0 only.
+# Stage 1: Build the MkDocs static site for API Manager next only.
 # en/mkdocs.yml's nav lists every APIM version; trim-mkdocs-version.py strips
 # it down to just this one before `mkdocs build` runs, and
-# Dockerfile.4.7.0.dockerignore keeps every other version's docs out of the
+# Dockerfile.next.dockerignore keeps every other version's docs out of the
 # build context so they never reach this image.
 FROM python:3.12 AS builder
 

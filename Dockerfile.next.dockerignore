@@ -5,8 +5,8 @@ __pycache__
 .python-version
 en/site
 
-# Keep only the 4.7.0 docs out of the ~5.7GB en/docs/api-manager tree so the
+# Keep only the next docs out of the ~5.7GB en/docs/api-manager tree so the
 # build context (and this image) don't carry every other APIM version.
 en/docs/api-manager/*
-!en/docs/api-manager/4.7.0
-!en/docs/api-manager/4.7.0/**
+!en/docs/api-manager/next
+!en/docs/api-manager/next/**
