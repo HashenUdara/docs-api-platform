@@ -23,7 +23,8 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
 ### Step 1 - Design a WebSub/WebHook API
 
-1.  {!includes/sign-in-publisher.md!}
+1.  
+    --8<-- "api-manager/next/includes/sign-in-publisher.md"
 
 2.  Click **CREATE API**, go to **Streaming API**, and Click **WebHook API**.
 
@@ -234,7 +235,8 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
 ### Step 6 - Invoke the WebSub/WebHook API
 
-1. {!includes/sign-in-devportal.md!}
+1. 
+    --8<-- "api-manager/next/includes/sign-in-devportal.md"
 
 2. Click on the WebSub/WebHook API. 
 

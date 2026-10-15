@@ -23,7 +23,8 @@ Follow the instructions below to use the Publisher test console to test an API:
 !!! note
     Create the `PizzaShack` REST API or an API of your choice before following the instructions below. For more information, see [Create a REST API.](create-a-rest-api.md).
 
-1.  {!includes/sign-in-publisher.md!}
+1.  
+    --8<-- "api-manager/next/includes/sign-in-publisher.md"
 
      The list of APIs that are available in the Publisher appears.
 

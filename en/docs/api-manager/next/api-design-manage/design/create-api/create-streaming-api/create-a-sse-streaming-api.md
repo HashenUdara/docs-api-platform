@@ -36,7 +36,8 @@ Follow the instructions below to create the API using the basic flow.
 
 ### Step 1 - Design a SSE API
 
-1.  {!includes/sign-in-publisher.md!}
+1.  
+    --8<-- "api-manager/next/includes/sign-in-publisher.md"
 
 2.  Click **CREATE API**, go to **Streaming API**, and Click **SSE API**.
 

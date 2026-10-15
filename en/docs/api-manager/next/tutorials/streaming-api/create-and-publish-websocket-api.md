@@ -26,7 +26,8 @@ This will demonstrate a simple command line based chat room which has two channe
 
 ### Step 1 - Design a WebSocket API
 
-1.  {!includes/sign-in-publisher.md!}
+1.  
+    --8<-- "api-manager/next/includes/sign-in-publisher.md"
 
 2.  Click **Create API**, go to **Streaming API**, and click **WebSocket API**.
 
@@ -159,7 +160,8 @@ Now, you have created and configured the WebSocket API successfully.
 
 ### Step 4 - Invoke the WebSocket API
 
-1. {!includes/sign-in-devportal.md!}
+1. 
+    --8<-- "api-manager/next/includes/sign-in-devportal.md"
 
 2. Click on the WebSocket API. 
 

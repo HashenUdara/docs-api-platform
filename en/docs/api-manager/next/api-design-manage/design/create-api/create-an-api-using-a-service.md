@@ -32,7 +32,8 @@ More information:
 
 Follow the instructions below to discover the integration services:
 
-1.  {!includes/sign-in-publisher.md!}
+1.  
+    --8<-- "api-manager/next/includes/sign-in-publisher.md"
 
 2.  Click **Services**. The available integration services appear.
 
