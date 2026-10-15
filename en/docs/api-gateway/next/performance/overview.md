@@ -35,7 +35,7 @@ The WSO2 API Platform Gateway and Netty HTTP Backend are deployed on an Amazon E
 
 The diagram below shows the deployment architecture used for the performance tests documented here.
 
-![Performance test deployment architecture showing Apache JMeter client and servers on EC2 instances, with the WSO2 API Platform Gateway and Netty HTTP backend deployed on an Amazon EKS cluster](../../../assets/img/api-gateway/performance/1.2.0/deployment-used-for-test.png){ width="900" }
+![Performance test deployment architecture showing Apache JMeter client and servers on EC2 instances, with the WSO2 API Platform Gateway and Netty HTTP backend deployed on an Amazon EKS cluster](../assets/img/api-gateway/performance/1.2.0/deployment-used-for-test.png){ width="900" }
 
 | Component                 | Deployment   | Instance Type | vCPU | Memory (GiB) |
 | ------------------------- | ------------ | ------------- | :--: | :----------: |
