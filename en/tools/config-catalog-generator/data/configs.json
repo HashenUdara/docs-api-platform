@@ -117,7 +117,7 @@
                             "required": true,
                             "default": "false",
                             "possible": "true, false",
-                            "description": "True when required to browse the H2 database from a browser. False when not."
+                            "description": "True when required to browser the H2 database from a browser. False when not."
                         }
                     ]
                 }
@@ -294,7 +294,7 @@
                             "type": "string",
                             "required": false,
                             "default": "X-JWT-Assertion",
-                            "description": "The HTTP header name used to send the previously generated JWT."
+                            "description": "The HTTP header name used to send the JWT generated prev."
                         },
                         {
                             "name": "enable_user_claims",
@@ -302,7 +302,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "false true",
-                            "description": "No user store claims are included in the JWT if false."
+                            "description": "No user store claims included in the JWT if false. "
                         },
                         {
                             "name": "claims_extractor_impl",
@@ -310,7 +310,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "You can define the custom claim retriever implementation by setting apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name."
+                            "description": "You can define the custom claim retriever implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name."
                         },
                         {
                             "name": "claim_dialect",
@@ -326,7 +326,7 @@
                             "required": false,
                             "default": "SHA256withRSA",
                             "possible": "NONE",
-                            "description": "Specify NONE to disable the signing."
+                            "description": "Specify NONE to disable the sigining."
                         },
                         {
                             "name": "enable_claim_retrieval",
@@ -342,7 +342,7 @@
                             "required": false,
                             "default": "org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.APIMgtGatewayJWTGeneratorImpl",
                             "possible": "",
-                            "description": "Fully qualified custom JWT generator to use in JWT (Self Contained) Access Tokens."
+                            "description": "Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens."
                         },
                         {
                             "name": "gateway_generator.excluded_claims",
@@ -592,7 +592,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "",
-                            "description": "Set TRUE to enable."
+                            "description": "Set TRUE to enable "
                         },
                         {
                             "name": "tenants",
@@ -667,7 +667,7 @@
                             "type": "string",
                             "required": false,
                             "default": "http://<host of https endpoint>:80",
-                            "possible": "http://<host>:<port>/<optional context>",
+                            "possible": "http://<host>:<por>/<optional context>",
                             "description": "HTTP endpoint e.g. http://dev.wso2.com:8280"
                         },
                         {
@@ -675,7 +675,7 @@
                             "type": "string",
                             "required": true,
                             "default": "",
-                            "possible": "https://<host>:<port>/<optional context>",
+                            "possible": "https://<host>:<por>/<optional context>",
                             "description": "HTTPS endpoint e.g. https://dev.wso2.com:8243"
                         },
                         {
@@ -683,7 +683,7 @@
                             "type": "string",
                             "required": false,
                             "default": "ws://<host of https endpoint>:9099",
-                            "possible": "ws://<host>:<port>",
+                            "possible": "ws://<host>:<por>",
                             "description": "WS endpoint e.g. ws://dev.wso2.com:9099"
                         },
                         {
@@ -691,7 +691,7 @@
                             "type": "string",
                             "required": false,
                             "default": "wss://<host of https endpoint>:8099",
-                            "possible": "wss://<host>:<port>",
+                            "possible": "wss://<host>:<por>",
                             "description": "WSS endpoint e.g. wss://dev.wso2.com:8099"
                         }
                     ]
@@ -952,7 +952,7 @@
                   "required": false,
                   "default": false,
                   "possible": "TRUE | FALSE",
-                  "description": "If TRUE, the response will be built and the responseSize will be calculated, which will be included in the response analytics event."
+                  "description": "If TRUE, response will be build and calculate the responseSize which will includes in response analytics event"
                 },
                 {
                   "name": "send_payloads",
@@ -997,7 +997,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Define each analytics node that the API Manager will connect to, as an array. If there are multiple nodes, you need to define this configuration for each node."
+                            "description": "Define each analytics node that the API Manager will connect to, as an array. If there are multiple node, you need to define this configuration for each node."
                         },
                         {
                             "name": "analytics_url",
@@ -1175,6 +1175,14 @@
                             "default": "30",
                             "possible": "",
                             "description": "The default timeout (in seconds) for AI API requests"
+                        },
+                        {
+                            "name": "custom_error_response_sequence",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "openai_error_response_formatter",
+                            "description": "The name of the Synapse sequence used to format gateway error responses for AI APIs. Applies only to AI APIs. If not set, AI APIs use the default error response format."
                         }
                     ]
                 },
@@ -1219,14 +1227,6 @@
                             "default": "true",
                             "possible": "true,false",
                             "description": "Enable the MCP features."
-                        },
-                        {
-                            "name": "enforce_auth_for_all_mcp_methods",
-                            "type": "boolean",
-                            "required": false,
-                            "default": "false",
-                            "possible": "true,false",
-                            "description": "By default, all MCP requests sent over POST except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all such MCP requests sent over POST. This option does not apply to the GET request made to the MCP endpoint (used to check for SSE transport support), which is never authenticated regardless of this setting. For improved security, it is recommended to enable this option."
                         }
                     ]
                 }
@@ -1615,7 +1615,7 @@
                             "required": false,
                             "default": "If the config is not mentioned, then undefined.default",
                             "possible": "default, saml",
-                            "description": "Use the application_sharing_impl as the default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response."
+                            "description": "Use the application_sharing_impl as default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response."
                         },
                         {
                             "name": "application_sharing_impl",
@@ -1623,7 +1623,7 @@
                             "required": false,
                             "default": "Based on the application sharing type.",
                             "possible": "",
-                            "description": "Need to define if the application_sharing_type is custom. If both application_sharing_type and application_sharing_impl are defined, take value from application_sharing_impl."
+                            "description": "Need to define if the application_sharing_type is custom. If both application_sharing_type and application_sharing_impl is defined, take value from application_sharing_impl."
                         },
                         {
                             "name": "login_username_case_insensitive",
@@ -2076,7 +2076,7 @@
                             "name": "jms.start_delay",
                             "type": "string",
                             "required": false,
-                            "default": "not defined",
+                            "default": "not define",
                             "possible": "",
                             "description": "Connection delay to read the Traffic Manager at startup."
                         },
@@ -3392,7 +3392,7 @@
                             "required": false,
                             "default": "40",
                             "possible": "",
-                            "description": "Number of resources submitted for a given indexing thread."
+                            "description": "Number of resources submitted for given indexing thread."
                         },
                         {
                             "name": "pool_size",
@@ -3443,9 +3443,9 @@
                             "name": "maxHttpHeaderSize",
                             "type": "integer",
                             "required": true,
-                            "default": "8192",
+                            "default": "32768",
                             "possible": "-",
-                            "description": ""
+                            "description": "Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error."
                         },
                         {
                             "name": "acceptorThreadCount",
@@ -3592,9 +3592,9 @@
                             "name": "maxHttpHeaderSize",
                             "type": "integer",
                             "required": true,
-                            "default": "8192",
+                            "default": "32768",
                             "possible": "-",
-                            "description": ""
+                            "description": "Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error."
                         },
                         {
                             "name": "acceptorThreadCount",
@@ -4940,23 +4940,23 @@
                 {
                     "name": "message_formatter.options",
                     "required": false,
-                    "description": "",
+                    "description": "This configuration header is required for configuring the message formatter options that are used during the message building process before sending the request to the backend. These options are mainly used for tuning the message formatting process for multipart form data content type.",
                     "params": [
                         {
                             "name": "disableSendingMultipartPartCharset",
                             "type": "boolean",
                             "required": false,
-                            "default": "true",
-                            "possible": "true, false",
-                            "description": "Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data."
+                            "default": true,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data during the message building process before sending the request to the backend."
                         },
                         {
                             "name": "preserveMultipartPartContentTransferEncoding",
                             "type": "boolean",
                             "required": false,
-                            "default": "false",
-                            "possible": "true, false",
-                            "description": "Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data."
+                            "default": true,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data during the message building process before sending the request to the backend."
                         }
                     ]
                 }
@@ -5330,7 +5330,7 @@
                     "params": [
                         {
                             "name": "additional_params_from_error_url",
-                            "type": "boolean",
+                            "type": "boolan",
                             "required": false,
                             "default": "false",
                             "possible": "true,false",
@@ -5475,7 +5475,7 @@
                             "required": false,
                             "default": "org.wso2.carbon.identity.openidconnect.SAMLAssertionClaimsCallback",
                             "possible": "",
-                            "description": "This can be used to return extra custom claims with the IDToken. You can implement a claims callback handler to push the custom claims to the IDToken by implementing the CustomClaimsCallbackHandler interface."
+                            "description": "This can be used to return extra custom claims with the IDToken . You can implement a claims call back handler to push the custom claims to the IDToken implementing interface CustomClaimsCallbackHandler."
                         },
                         {
                             "name": "extensions.user_info_claim_retriever",
@@ -6326,7 +6326,7 @@
                 {
                     "name": "synapse_handlers.custom_handler_name",
                     "required": false,
-                    "description": "Configuration used to define, enable, or disable a global handler.",
+                    "description": "configuration used to define or enable disable global handler.",
                     "params": [
                         {
                             "name": "enabled",
@@ -6725,7 +6725,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "true, false",
-                            "description": "Enables proxy response mapping mode for the AWS Lambda mediator. When enabled, Lambda functions must return payloads in the AWS API Gateway Lambda proxy integration response envelope format (containing statusCode, headers, multiValueHeaders, body, and isBase64Encoded fields). The mediator maps these fields to the HTTP response, allowing Lambda functions to control the response status code, headers, and content type. Supported content types for body routing are application/json, text/plain, and application/xml. Note that this configuration is available in wso2am-4.7.0 and wso2am-universal-gw-4.7.0 starting from update level 8."
+                            "description": "Enables proxy response mapping mode for the AWS Lambda mediator. When enabled, Lambda functions must return payloads in the AWS API Gateway Lambda proxy integration response envelope format (containing statusCode, headers, multiValueHeaders, body, and isBase64Encoded fields). The mediator maps these fields to the HTTP response, allowing Lambda functions to control the response status code, headers, and content type. Supported content types for body routing are application/json, text/plain, and application/xml."
                         }
                     ]
                 },
@@ -6740,7 +6740,7 @@
                             "required": false,
                             "default": "4",
                             "possible": "",
-                            "description": "The total number of attempts for AWS Lambda invocations, including the initial request. Must be an integer greater than or equal to 1. If this configuration is not provided, the AWS SDK default retry behavior will be used. Note that this configuration is available in wso2am-4.7.0 and wso2am-universal-gw-4.7.0 starting from update level 8."
+                            "description": "The total number of attempts for AWS Lambda invocations, including the initial request. Must be an integer greater than or equal to 1. If this configuration is not provided, the AWS SDK default retry behavior will be used."
                         }
                     ]
                 }
@@ -6843,6 +6843,14 @@
                     "description": "Provider-specific properties for the embedding provider.",
                     "params": [
                         {
+                            "name": "auth_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "apikey",
+                            "possible": "apikey, umi",
+                            "description": "The authentication type for the embedding provider. This is applicable when embedding provider type is azure-openai. Supported values are apikey (use API key for authentication) and umi (use Azure User Managed Identity for authentication). If not specified, defaults to apikey."
+                        },
+                        {
                             "name": "apikey",
                             "type": "string",
                             "required": true,
@@ -6865,6 +6873,14 @@
                             "default": "",
                             "possible": "",
                             "description": "The embedding model to use. Required for openai (e.g., text-embedding-3-small) and mistral (e.g., mistral-embed) provider types. Not required for azure-openai as the model is determined by the endpoint."
+                        },
+                        {
+                            "name": "azure_umi_scope",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://cognitiveservices.azure.com/.default",
+                            "possible": "",
+                            "description": "The scope to use when authenticating with Azure User Managed Identity. This is applicable when embedding provider type is azure-openai and auth_type is set to umi. The scope should be in the format https://<custom-scope>.azure.com/.default. Defaults to cognitive services scope (https://cognitiveservices.azure.com/.default) if not specified."
                         }
                     ]
                 }
@@ -6884,8 +6900,8 @@
                             "type": "string",
                             "required": true,
                             "default": "",
-                            "possible": "zilliz",
-                            "description": "The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance."
+                            "possible": "zilliz,elasticache",
+                            "description": "The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance, or elasticache to connect to AWS ElastiCache (Redis/Valkey)."
                         }
                     ]
                 },
@@ -6900,7 +6916,7 @@
                             "required": true,
                             "default": "",
                             "possible": "",
-                            "description": "The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530)."
+                            "description": "The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530). Not applicable to Vector DB providers other than Zilliz and Milvus."
                         },
                         {
                             "name": "token",
@@ -6908,7 +6924,55 @@
                             "required": true,
                             "default": "",
                             "possible": "",
-                            "description": "The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus)."
+                            "description": "The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus). Not applicable to Vector DB providers other than Zilliz and Milvus."
+                        },
+                        {
+                            "name": "host",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The hostname or endpoint of the ElastiCache/Redis instance. Applicable only when type is elasticache. When cluster_mode_enabled is true, this must be the ElastiCache cluster's Configuration Endpoint (its hostname contains clustercfg.) rather than an individual node/shard endpoint."
+                        },
+                        {
+                            "name": "port",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The port of the ElastiCache/Redis instance. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The username used to authenticate with the ElastiCache/Redis instance, if authentication is enabled. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The password used to authenticate with the ElastiCache/Redis instance, if authentication is enabled. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "ssl_enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Whether to use SSL/TLS when connecting to the ElastiCache/Redis instance. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "cluster_mode_enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Whether the ElastiCache deployment is running in cluster mode. Applicable only when type is elasticache."
                         },
                         {
                             "name": "ttl",
@@ -6916,13 +6980,159 @@
                             "required": false,
                             "default": "3600",
                             "possible": "",
-                            "description": "Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour)."
+                            "description": "Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour). Applicable to all vector database provider types."
+                        },
+                        {
+                            "name": "jedis.pool.max_total",
+                            "type": "integer",
+                            "required": false,
+                            "default": "8",
+                            "possible": "",
+                            "description": "Maximum number of connections the Jedis connection pool can allocate at a given time. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.max_idle",
+                            "type": "integer",
+                            "required": false,
+                            "default": "8",
+                            "possible": "",
+                            "description": "Maximum number of idle connections kept in the Jedis connection pool. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.min_idle",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "Minimum number of idle connections the Jedis connection pool tries to maintain. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.test_on_borrow",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Whether to validate a connection before it is handed out from the Jedis connection pool. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.test_on_return",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Whether to validate a connection before it is returned to the Jedis connection pool. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.test_while_idle",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Whether idle connections in the Jedis connection pool are validated by the idle object evictor. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.block_when_exhausted",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Whether callers block and wait for a connection when the Jedis connection pool is exhausted, instead of failing immediately. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.min_evictable_idle_time_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "60000",
+                            "possible": "",
+                            "description": "Minimum time (in milliseconds) a connection may sit idle in the Jedis connection pool before it becomes eligible for eviction. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.time_between_eviction_runs_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "30000",
+                            "possible": "",
+                            "description": "Time (in milliseconds) between runs of the idle connection evictor thread of the Jedis connection pool. Applicable only when type is elasticache."
+                        },
+                        {
+                            "name": "jedis.pool.num_tests_per_eviction_run",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-1",
+                            "possible": "",
+                            "description": "Number of connections checked per eviction run (-1 checks all idle connections). Applicable only when type is elasticache."
                         }
                     ]
                 }
             ],
             "exampleFile": "apim.ai.vector_db_provider.toml"
         },
+        {
+            "title": "Azure AI Foundry UMI configurations",
+            "options": [
+                {
+                    "name": "apim.ai.azure_umi",
+                    "required": false,
+                    "description": "Configuration for Azure User Managed Identity (UMI) authentication used with Azure AI Foundry.",
+                    "params": [
+                        {
+                            "name": "scope",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://ai.azure.com/.default",
+                            "possible": "",
+                            "description": "The OAuth scope used when authenticating with Azure User Managed Identity for Azure AI Foundry. Use this to override the default scope (https://ai.azure.com/.default) with a custom scope in the format https://<custom-scope>.azure.com/.default."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.ai.azure_umi.toml"
+        },
+      {
+        "title": "API-M AWS Lambda Configurations",
+        "options": [
+          {
+            "name": "apim.aws_lambda.http_client",
+            "required": false,
+            "description": " Configurations to tune the underlying HTTP connection pool settings used by each AWS Lambda client instance, to improve performance under high load.",
+            "params": [
+              {
+                "name": "max_connections",
+                "type": "integer",
+                "required": false,
+                "default": "100",
+                "possible": "",
+                "description": "The maximum number of concurrent HTTP connections allowed per AWS Lambda client instance. Increase this value if you expect high concurrent throughput to Lambda functions."
+              },
+              {
+                "name": "connection_timeout",
+                "type": "integer",
+                "required": false,
+                "default": "2",
+                "possible": "",
+                "description": "The maximum time (in seconds) to wait when establishing a new TCP connection to AWS."
+              },
+              {
+                "name": "socket_timeout",
+                "type": "integer",
+                "required": false,
+                "default": "30",
+                "possible": "",
+                "description": "The maximum time (in seconds) to wait for data to be transferred after a connection is established."
+              },
+              {
+                "name": "connection_acquisition_timeout",
+                "type": "integer",
+                "required": false,
+                "default": "30",
+                "possible": "",
+                "description": "The maximum time (in seconds) to wait for a connection to become available from the pool if max_connections has been reached."
+              }
+            ]
+          }
+        ],
+        "exampleFile": "apim.aws_lambda.http_client.toml"
+      },
         {
             "title": "Authentication Policy",
             "options": [
@@ -6937,7 +7147,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "true,false",
-                            "description": "Disables the account disable handler during authentication. Note that this configuration is available in wso2am-4.7.0, wso2am-universal-gw-4.7.0, wso2am-acp-4.7.0, and wso2am-tm-4.7.0 starting from update level 9."
+                            "description": "Disables the account disable handler during authentication."
                         },
                         {
                             "name": "disable_account_confirmation_validation_handler",
@@ -6945,12 +7155,189 @@
                             "required": false,
                             "default": "false",
                             "possible": "true,false",
-                            "description": "Disables the account confirmation validation handler during authentication. Note that this configuration is available in wso2am-4.7.0, wso2am-universal-gw-4.7.0, wso2am-acp-4.7.0, and wso2am-tm-4.7.0 starting from update level 9."
+                            "description": "Disables the account confirmation validation handler during authentication."
                         }
                     ]
                 }
             ],
             "exampleFile": "authentication_policy.toml"
+        },
+        {
+            "title": "API-M Redis configurations",
+            "options": [
+                {
+                    "name": "apim.redis_config",
+                    "required": false,
+                    "description": "Redis connection configurations used by the gateway for distributed/hybrid throttling. Declaring this table (with any key set) automatically enables Redis-backed distributed throttling on the node — there is no separate enable flag. If this table is absent entirely, throttling falls back to local in-memory counters.",
+                    "params": [
+                        {
+                            "name": "host",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Host name of the Redis server."
+                        },
+                        {
+                            "name": "port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Port of the Redis server."
+                        },
+                        {
+                            "name": "user",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Username of the Redis server. If the Redis server is configured in NOAUTH mode, this is not required. This depends on the Redis server. In Azure Cache for Redis by default 'user' is not required and only the password (access key) is required."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Password of the Redis server. If the Redis server is configured in NOAUTH mode, this is not required."
+                        },
+                        {
+                            "name": "database_id",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The Redis logical database index (SELECT n) used for throttling data. Use a dedicated index to isolate throttle keys from other Redis tenants on the same server."
+                        },
+                        {
+                            "name": "connection_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "2000",
+                            "possible": "",
+                            "description": "The timeout (in ms) for establishing a connection to the Redis server. If this is not configured, or is set to 0, the Jedis default of 2000 ms is applied."
+                        },
+                        {
+                            "name": "socket_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "2000",
+                            "possible": "",
+                            "description": "The timeout (in ms) for socket reads after the connection is established. If this is not configured, or is set to 0, the Jedis default of 2000 ms is applied."
+                        },
+                        {
+                            "name": "ssl",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Whether to connect to the Redis server over TLS. Enable this for managed Redis offerings that mandate in-transit encryption."
+                        },
+                        {
+                            "name": "gateway_id",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "ID of the gateway node. This is used to identify the gateway node, hence should be a unique value for each gateway node."
+                        },
+                        {
+                            "name": "min_gateway_count",
+                            "type": "integer",
+                            "required": false,
+                            "default": "1",
+                            "possible": "",
+                            "description": "This is used to define the minimum number of gateway nodes in the cluster if required. Gateway count of the cluster is calculated by each of the gateway nodes using the redis server and this gateway count is used to calculate the local quota of API requests in the throttling calculations."
+                        },
+                        {
+                            "name": "key_lock_retrieval_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "50",
+                            "possible": "",
+                            "description": "This timeout value defines the timeout value (in ms) that the gateway will wait to acquire the required lock in Redis. This lock is required for gateways to perform syncing of throttle parameters in-between gateway nodes and the Redis server. Optimal default value observed for this is 50ms, and this can be tuned based on the deployment."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.redis_config.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.redis_config.pool_options",
+                    "required": false,
+                    "description": "Jedis connection pool tuning for the Redis connection used by [apim.redis_config].",
+                    "params": [
+                        {
+                            "name": "max_total",
+                            "type": "integer",
+                            "required": false,
+                            "default": "8",
+                            "possible": "",
+                            "description": "Maximum number of total Redis connections (active + idle) that can be allocated by the connection pool at a time."
+                        },
+                        {
+                            "name": "max_idle",
+                            "type": "integer",
+                            "required": false,
+                            "default": "8",
+                            "possible": "",
+                            "description": "The maximum number of idle (unused, kept warm) connections retained in the pool."
+                        },
+                        {
+                            "name": "min_idle",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "Minimum number of idle Redis connections that should be maintained in the pool."
+                        },
+                        {
+                            "name": "max_wait_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-1 (Jedis default)",
+                            "possible": "",
+                            "description": "The maximum time (in ms) a thread waits for a pooled connection when the pool is exhausted. The default of -1 is the underlying Redis/Jedis client's own default (block indefinitely, no timeout), not a value tuned for this product. Do not keep this default in production — always set an explicit bound so request threads fail fast instead of hanging if Redis is slow or overloaded."
+                        },
+                        {
+                            "name": "test_on_borrow",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Whether to validate (PING) a connection's health before handing it out from the pool. Enable this in environments with flaky network paths to Redis to avoid handing out dead connections."
+                        },
+                        {
+                            "name": "block_when_exhausted",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Whether a connection borrow blocks (rather than throwing immediately) when the pool is exhausted. Set this to false to fail fast instead of having request-handling threads stall, bounded otherwise by max_wait_millis."
+                        },
+                        {
+                            "name": "min_evictable_idle_time_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "60000",
+                            "possible": "",
+                            "description": "The idle duration (in ms) a pooled connection must remain unused before it becomes eligible for eviction."
+                        },
+                        {
+                            "name": "time_between_eviction_runs_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "30000",
+                            "possible": "",
+                            "description": "Time interval (in milliseconds) between idle connection eviction runs. If set to a negative value, eviction will not run."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.redis_config.pool_options.toml"
         }
     ]
 }
