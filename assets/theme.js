@@ -78,6 +78,73 @@ function initVersionDropdown() {
 // The dropdown lives in the header, which survives instant navigation.
 onFirstPage(initVersionDropdown);
 
+/*
+ * "Copy page" content action (see partials/actions.html)
+ */
+onFirstPage(function () {
+  document.addEventListener('click', function (event) {
+    var toggle = event.target.closest('.md-content__copy-toggle');
+    if (toggle) {
+      event.preventDefault();
+      event.stopPropagation();
+      var toggleContainer = toggle.closest('.md-content__copy');
+      if (toggleContainer) toggleContainer.classList.toggle('open');
+      return;
+    }
+
+    var trigger = event.target.closest('.md-content__copy-trigger');
+    if (trigger) {
+      event.preventDefault();
+      var container = trigger.closest('.md-content__copy');
+      var mdUrl = container && container.getAttribute('data-md-copy-page-url');
+      if (!mdUrl) return;
+
+      // The check mark confirming a copy always appears on the main "Copy page" 
+      // button, even when we copy from the "Copy Markdown" dropdown item. The icon
+      // changes to a check mark; the label text stays the same.
+      var mainTrigger = container.querySelector(':scope > .md-content__copy-trigger');
+
+      fetch(mdUrl)
+        .then(function (response) {
+          return response.ok ? response.text() : Promise.reject(response.status);
+        })
+        .then(function (text) {
+          return navigator.clipboard.writeText(text);
+        })
+        .then(function () {
+          container.classList.remove('open');
+          if (mainTrigger) {
+            mainTrigger.classList.add('md-content__copy-trigger--copied');
+            clearTimeout(mainTrigger._copyResetTimer);
+            mainTrigger._copyResetTimer = setTimeout(function () {
+              mainTrigger.classList.remove('md-content__copy-trigger--copied');
+            }, 1500);
+          }
+        })
+        .catch(function (error) {
+          console.error('Failed to copy page as Markdown:', error);
+        });
+      return;
+    }
+
+    // For any other menu item like "View Markdown", let the link navigate, but
+    // close the menu it came from.
+    var menuItem = event.target.closest('.md-content__copy-menu-item');
+    if (menuItem) {
+      var menuContainer = menuItem.closest('.md-content__copy');
+      if (menuContainer) menuContainer.classList.remove('open');
+      return;
+    }
+
+    // Clicking outside an open menu closes the menu 
+    document.querySelectorAll('.md-content__copy.open').forEach(function (openContainer) {
+      if (!openContainer.contains(event.target)) {
+        openContainer.classList.remove('open');
+      }
+    });
+  });
+});
+
 // Content tab styling and navigation sidebar state: both are re-rendered on
 // every navigation, so this runs per page.
 onEachPage(function() {
@@ -374,6 +441,22 @@ var LIVE_SITE_BASE = 'https://wso2.com/api-platform/docs/';
  *   3. On change, keep the user on the equivalent page under the new version,
  *      falling back to that version's overview when it does not exist.
  */
+// A native <select> is as wide as its longest option. Size it to the selected
+// option instead by measuring a one-option clone, which keeps the browser's own
+// padding and arrow width. The clone is attached to <body> so it still measures
+// while the nav drawer is hidden (mobile).
+function fitSelectToValue(select) {
+  var selected = select.options[select.selectedIndex];
+  if (!selected) return;
+  var probe = document.createElement('select');
+  probe.className = select.className;
+  probe.style.cssText = 'position:absolute;visibility:hidden;left:-9999px;width:auto;max-width:none;';
+  probe.appendChild(new Option(selected.textContent));
+  document.body.appendChild(probe);
+  select.style.width = Math.ceil(probe.getBoundingClientRect().width) + 'px';
+  document.body.removeChild(probe);
+}
+
 // The navigation sidebar is re-rendered on every navigation, so resolve the
 // active version and rebind the selectors per page.
 onEachPage(function () {
@@ -451,6 +534,7 @@ onEachPage(function () {
         unreleasedGroup.appendChild(option);
       }
       if (select.value !== version) select.value = version;
+      fitSelectToValue(select);
       try {
         window.localStorage.setItem(storageKey, version);
       } catch (e) {
@@ -477,6 +561,7 @@ onEachPage(function () {
     }
 
     select.addEventListener('change', function () {
+      fitSelectToValue(select);
       var target = select.value;
       var group = groupForVersion(target);
 
@@ -927,6 +1012,7 @@ onEachPage(function () {
 
     insertProductSection(li, slug, order, style.hr);
     renderVersionGroup(initialVersion);
+    fitSelectToValue(select);
   }
 
   // An unversioned product's manifest (see hooks.py's _build_product_nav_
