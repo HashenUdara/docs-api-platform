@@ -285,6 +285,10 @@ extra:
         - "1.2.0"
         - "1.1.0"
         - "1.0.0"
+      # Shown under "Latest STS Version" in the dropdown; never the default.
+      # Setting this also relabels the default as "Latest LTS Version".
+      sts_versions:
+        - "2026.09.24"
   # Choreo Connect gateway version referenced by {{ choreo_connect.* }}
   # placeholders in the API Manager 4.2.0 docs.
   choreo_connect:
