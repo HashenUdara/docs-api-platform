@@ -119,6 +119,9 @@ nav:
                         - Configure the Proxy Server and the Load Balancer: api-manager/next/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
                         - Add a custom Proxy Path: api-manager/next/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
                     - Security:
+                        - Encryption:
+                            - Symmetric Encryption: api-manager/next/install-and-setup/setup/security/encryption/symmetric-encryption.md
+                            - Asymmetric Encryption: api-manager/next/install-and-setup/setup/security/encryption/asymmetric-encryption.md
                         - Logins and Passwords:
                             - Maintain Logins and Passwords: api-manager/next/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
                             - Secure Passwords:
@@ -131,11 +134,10 @@ nav:
                         - Configure Keystores:
                             - Configure Keystores in API Manager: api-manager/next/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                             - Keystore Basics:
+                                - About Keystores and Truststores: api-manager/next/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores.md
                                 - Create a New Keystore: api-manager/next/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
                                 - Renew a CA Signed Certificate: api-manager/next/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
-                                - About Asymetric Cryptography: api-manager/next/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
                         - Enable HostName Verification: api-manager/next/install-and-setup/setup/security/enabling-hostname-verification.md
-                        - Enable Java Security Manager: api-manager/next/install-and-setup/setup/security/enabling-java-security-manager.md
                         - General Data Protection Regulation (GDPR) for WSO2 API Manager: api-manager/next/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                         - Configure Transport Level Security: api-manager/next/install-and-setup/setup/security/configuring-transport-level-security.md
                         - User Account Management: api-manager/next/install-and-setup/setup/security/user-account-management.md
@@ -150,6 +152,7 @@ nav:
                             - Configure a Read-Write Active Directory User Store: api-manager/next/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
                     - SSO:
                         - Configure Identity Server As External IDP with OIDC: api-manager/next/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                        - Configure External IDP with OIDC for Multi-tenancy: api-manager/next/install-and-setup/setup/sso/configuring-external-idp-using-oidc-for-multi-tenancy.md
                         - Configure Identity Server As External IDP with SAML: api-manager/next/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
                         - OKTA As An External IDP With OIDC: api-manager/next/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
                         - OKTA As An External IDP With SAML: api-manager/next/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
@@ -161,12 +164,12 @@ nav:
             - Deploy:
                 - Deploy on VMs:
                     - All-In-One Deployment:
-                        - Single Node Deployment: api-manager/next/install-and-setup/setup/single-node/configuring-a-single-node.md
-                        - Active-Active Deployment: api-manager/next/install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                        - Pattern 0 - All-in-One Setup: api-manager/next/install-and-setup/setup/single-node/configuring-a-single-node.md
+                        - Pattern 1 - All-in-One HA Setup: api-manager/next/install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                     - Distributed Deployment:
-                        - Simple Scalable Deployment: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
-                        - Distributed Deployment (Recommended): api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                        - Distributed Deployment with Key Manager Separation: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
+                        - Pattern 2 - Simple Scalable Setup: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
+                        - Pattern 3 - Distributed Setup: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                        - Pattern 4 - Distributed Setup with Key Manager Separation: api-manager/next/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
                     - Multi-DC Deployment:
                         - Patterns Overview: api-manager/next/install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
                         - Multi-DC Deployment - Pattern 1: api-manager/next/install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
@@ -174,17 +177,20 @@ nav:
                 - Deploy on Kubernetes:
                     - API-M on K8s:
                         - Overview: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+                        - Quick Start: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-quick-start.md
                         - All-In-One Deployment:
-                            - Single Node Deployment: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
-                            - Active-Active Deployment: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
+                            - Pattern 0 - All-in-One Setup: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
+                            - Pattern 1 - All-in-One HA Setup: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
                         - Distributed Deployment:
-                            - Simple Scalable Deployment: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
-                            - Distributed Deployment (Recommended): api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
-                            - Distributed Deployment with Key Manager Separation: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
-                            - Simple Scalable Deployment with Key Manager Separation: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
-                            - Configure IS as Key Manager: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
+                            - Pattern 2 - Simple Scalable Setup: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
+                            - Pattern 3 - Distributed Setup: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                            - Pattern 4 - Fully Distributed Setup: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
+                            - Pattern 5 - Simple Scalable with Dedicated Key Manager: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+                            - Pattern 6 - All-in-One with IS as Key Manager: api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
                     - API-M on Openshift: api-manager/next/install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
                     - API-M on EKS: api-manager/next/install-and-setup/setup/kubernetes-deployment/aws/deploying-wso2-api-m-on-eks.md
+                    - API-M on AKS: api-manager/next/install-and-setup/setup/kubernetes-deployment/azure/deploying-wso2-api-m-on-aks.md
+                    - API-M on GKE: api-manager/next/install-and-setup/setup/kubernetes-deployment/gke/deploying-wso2-api-m-on-gke.md
                 - Deployment Best Practices:
                     - Deployment Checklist: api-manager/next/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                     - Security Guidelines for a Production Deployment: api-manager/next/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -227,7 +233,7 @@ nav:
                 - Create and Publish an AWS Lambda API: api-manager/next/tutorials/create-and-publish-awslambda-api.md
                 - Create and Publish an API with Sequence as a Backend: api-manager/next/tutorials/create-and-publish-a-sequencebackend-api.md
                 - Expose a SOAP Service as a REST API: api-manager/next/tutorials/expose-a-soap-service-as-a-rest-api.md
-                - Edit an API by Modifying the API Definition: api-manager/next/tutorials/edit-an-api-by-modifyng-the-api-definition.md
+                - Edit an API by Modifying the API Definition: api-manager/next/tutorials/edit-an-api-by-modifying-the-api-definition.md
                 - Enforce Rate Limiting and Resource Access Policies: api-manager/next/tutorials/enforce-throttling-and-resource-access-policies.md
         - API Design & Manage:
             - Design APIs:
@@ -292,6 +298,7 @@ nav:
                     - Overview: api-manager/next/api-design-manage/design/api-policies/overview.md
                     - Attach Policy: api-manager/next/api-design-manage/design/api-policies/attach-policy.md
                     - Create Policy: api-manager/next/api-design-manage/design/api-policies/create-policy.md
+                    - Develop and Test Policies: api-manager/next/api-design-manage/design/api-policies/develop-and-test-policies.md
                 - Rate Limiting:
                     - Set API Operation Limits: api-manager/next/api-design-manage/design/rate-limiting/set-api-level-throttling.md
                     - Protect Backend Services: api-manager/next/api-design-manage/design/rate-limiting/protect-backend-services.md
@@ -340,6 +347,7 @@ nav:
                 - Advanced Topics:
                     - Add Custom Attributes to Applications: api-manager/next/api-developer-portal/manage-application/advanced-topics/add-custom-attributes-to-applications.md
                     - Change the Owner of an Application: api-manager/next/api-developer-portal/manage-application/advanced-topics/changing-the-owner-of-an-application.md
+                    - Upgrade the Token Type of an Application to JWT: api-manager/next/api-developer-portal/manage-application/advanced-topics/upgrade-token-type-of-application-to-jwt.md
                     - Change the Provider of an Api: api-manager/next/api-developer-portal/manage-application/advanced-topics/changing-the-provider-of-an-api.md
                     - Add an Application Creation Workflow: api-manager/next/api-developer-portal/manage-application/advanced-topics/adding-an-application-creation-workflow.md
                     - Add an Application Update Workflow: api-manager/next/api-developer-portal/manage-application/advanced-topics/adding-an-application-update-workflow.md
@@ -358,6 +366,8 @@ nav:
                 - SOAP Client: api-manager/next/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
                 - Postman: api-manager/next/api-developer-portal/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
                 - Test APIs with API Chat: api-manager/next/api-developer-portal/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md
+            - View API Documentation:
+                - View API Documents: api-manager/next/api-developer-portal/view-api-documentation/view-api-documentation.md
             - Collaborations:
                 - Interact with the Community: api-manager/next/api-developer-portal/collaboration/interact-with-the-community.md
             - Generating SDKs:
@@ -381,14 +391,15 @@ nav:
                 - Authentication:
                     - Overview: api-manager/next/api-security/runtime/api-authentication/api-authentication-overview.md
                     - Disable Security: api-manager/next/api-security/runtime/api-authentication/disable-security.md
-                    - Secure APIs Using API Keys: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                    - Secure APIs Using API Keys:
+                        - API Keys: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                        - Legacy API Keys (DEPRECATED): api-manager/next/api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
                     - Secure APIs Using Basic Authentication: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
                     - Secure APIs Using Mutual SSL: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
                     - Secure APIs Using OAuth2 Tokens: api-manager/next/api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md
                     - Securing APIs Using Certificate Bound Access Tokens: api-manager/next/api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
                 - Authorization:
                     - Overview: api-manager/next/api-security/runtime/authorization/api-authorization.md
-                    - Role-based Access Control Using XACML: api-manager/next/api-security/runtime/authorization/role-based-access-control-using-xacml.md
                     - Fine Grained Access Control with OAuth Scopes: api-manager/next/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                     - Application Scopes: api-manager/next/api-security/runtime/authorization/oauth2-scopes/application-scopes.md
                     - Scope Whitelisting: api-manager/next/api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
@@ -425,29 +436,38 @@ nav:
                     - Obtain User Profile Information with OpenID Connect: api-manager/next/api-security/key-management/identity/obtaining-user-profile-information-with-openid-connect.md
                 - Third-Party Key Managers:
                     - Overview: api-manager/next/api-security/key-management/third-party-key-managers/overview.md
-                    - Configure WSO2 IS as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
-                    - Configure WSO2 IS 7.x as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                    - Configure WSO2 IS Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                    - Configure WSO2 IS 6.x as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
                     - Configure Asgardeo as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-asgardeo-connector.md
                     - Configure Keycloak as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                     - Configure Okta as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-okta-connector.md
                     - Configure Auth0 as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-auth0-connector.md
                     - Configure PingFederate as A Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-pingfederate-connector.md
                     - Configure ForgeRock as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-forgerock-connector.md
+                    - Configure the Azure AD as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
+                    - Configure a Custom Key Manager for Out-of-Band Provisioning: api-manager/next/api-security/key-management/third-party-key-managers/configure-custom-km-out-of-band.md
                     - Configure a Custom Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-custom-connector.md
                     - Configure the Global Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-global-key-manager.md
-                    - Configure the Azure AD as a Key Manager: api-manager/next/api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
+                    - Application Configuration Constraints: api-manager/next/api-security/key-management/third-party-key-managers/configure-km-application-configuration-constraints.md
         - API Gateway:
-            - Universal Gateway:
-                - Overview of the WSO2 Universal Gateway: api-manager/next/api-gateway/overview-of-the-api-gateway.md
+            - Overview: api-manager/next/api-gateway/platform-gateway-capability.md
+            - Platform Gateway:
+                - Getting Started: api-manager/next/api-gateway/platform-gateway/getting-started.md
+                - Setting Up: api-manager/next/api-gateway/platform-gateway/setting-up.md
+                - Adding and Managing Policies: api-manager/next/api-gateway/platform-gateway/adding-and-managing-policies.md
+                - Gateway Registration and Deployment: api-manager/next/api-gateway/platform-gateway/gateway-registration-and-deployment.md
+            - Classic Gateway (Universal):
+                - Overview of the WSO2 Classic Gateway: api-manager/next/api-gateway/overview-of-the-api-gateway.md
                 - Deploy an API to Gateway: api-manager/next/api-gateway/deploy-api-to-gateway.md
                 - Response Caching: api-manager/next/api-gateway/response-caching.md
                 - Pass End User Attributes to the Backend: api-manager/next/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
                 - Gateway Environments: api-manager/next/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scale the Gateway: api-manager/next/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
-                    - Universal Gateway with Dedicated Tenants: api-manager/next/api-gateway/maintain-seperate-gateways-per-tenants.md
-                    - Universal Gateways with Dedicated Backends: api-manager/next/api-gateway/api-gateways-with-dedicated-backends.md
-                    - Mutual SSL Between Universal Gateway and Backend: api-manager/next/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - Classic Gateway with Dedicated Tenants: api-manager/next/api-gateway/maintain-seperate-gateways-per-tenants.md
+                    - Classic Gateways with Dedicated Backends: api-manager/next/api-gateway/api-gateways-with-dedicated-backends.md
+                    - Mutual SSL Between Classic Gateway and Backend: api-manager/next/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - WebSocket Proxy Profiles: api-manager/next/api-gateway/websocket-proxy-profiles.md
                     - Storing Custom Synapse Artifacts in the Gateway: api-manager/next/api-gateway/custom-synapse-artifacts.md
                 - Gateway Policies:
                     - Adding Dynamic Endpoints: api-manager/next/api-gateway/policies/adding-dynamic-endpoints.md
@@ -501,6 +521,8 @@ nav:
                     - Overview: api-manager/next/ai-gateway/multi-model-routing/overview.md
                     - Load Balancing: api-manager/next/ai-gateway/multi-model-routing/load-balancing.md
                     - Failover: api-manager/next/ai-gateway/multi-model-routing/failover.md
+                    - Intelligent Model Routing: api-manager/next/ai-gateway/multi-model-routing/intelligent-model-routing.md
+                    - Semantic Model Routing: api-manager/next/ai-gateway/multi-model-routing/semantic-model-routing.md
                 - AI Service Provider Management:
                     - Overview: api-manager/next/ai-gateway/ai-vendor-management/overview.md
                     - Anthropic: api-manager/next/ai-gateway/ai-vendor-management/anthropic.md
@@ -527,12 +549,17 @@ nav:
                     - URL Guardrail: api-manager/next/ai-gateway/ai-guardrails/url-guardrail.md
                     - Word Count Guardrail: api-manager/next/ai-gateway/ai-guardrails/word-count-guardrail.md
                     - Semantic Prompt Guardrail: api-manager/next/ai-gateway/ai-guardrails/semantic-prompt-guardrail.md
+                    - Semantic Tool Filtering Guardrail: api-manager/next/ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail.md
                     - PII Masking with Regex: api-manager/next/ai-gateway/ai-guardrails/regex-pii-masking.md
                     - Azure Content Safety: api-manager/next/ai-gateway/ai-guardrails/azure-content-safety.md
                     - AWS Bedrock Guardrail: api-manager/next/ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
                     - Guardrail Error Response: api-manager/next/ai-gateway/ai-guardrails/guardrail-error-response.md
                 - Semantic Caching: api-manager/next/ai-gateway/semantic-caching.md
                 - AI APIs via SDKs: api-manager/next/ai-gateway/using-proxy-apis-in-sdks.md
+                - AI Tools:
+                    - Claude Code configuration with AI Gateway: api-manager/next/ai-gateway/ai-tools/claude-code-with-ai-gateway.md
+                    - Google Gemini CLI configuration with AI Gateway: api-manager/next/ai-gateway/ai-tools/gemini-cli-with-ai-gateway.md
+                    - OpenAI Codex CLI configuration with AI Gateway: api-manager/next/ai-gateway/ai-tools/codex-with-ai-gateway.md
             - MCP Gateway:
                 - Getting Started: api-manager/next/ai-gateway/mcp-gateway/overview.md
                 - Create from an OpenAPI Definition: api-manager/next/ai-gateway/mcp-gateway/create-from-openapi.md
@@ -544,7 +571,9 @@ nav:
         - API Analytics & Monetization:
             - API Analytics:
                 - Overview: api-manager/next/monitoring/api-analytics/analytics-overview.md
-                - Moesif Analytics: api-manager/next/monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
+                - Moesif Analytics:
+                    - Integration Guide: api-manager/next/monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
+                    - Analytics Dashboards: api-manager/next/monitoring/api-analytics/moesif-analytics/moesif-analytics-dashboards.md
                 - Other Analytics Solutions:
                     - ELK Based Analytics Installation Guide: api-manager/next/monitoring/api-analytics/on-prem/elk-installation-guide.md
                     - Datadog Analytics Installation Guide: api-manager/next/monitoring/api-analytics/on-prem/datadog-installation-guide.md
@@ -690,6 +719,7 @@ nav:
                         - Extend Scope Validation: api-manager/next/reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
                         - Extend Key Manager: api-manager/next/reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
                         - Write Custom Grant Types: api-manager/next/reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                    - Extend AI Services: api-manager/next/reference/customize-product/extending-api-manager/extending-ai-services.md
                     - Extend API Gateway:
                         - Customize API Template: api-manager/next/reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
                         - Write Custom Handlers: api-manager/next/reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
@@ -745,7 +775,7 @@ nav:
             - Guides:
                 - Message Flow in the API Manager Gateway: api-manager/next/reference/guides/message-flow-in-the-api-manager-gateway.md
                 - Accessing API Manager by Multiple Devices Simultaneously: api-manager/next/reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-                - admin_Directory Structure of WSO2 Products: api-manager/next/reference/guides/directory-structure-of-wso2-products.md
+                - Directory Structure of WSO2 Products: api-manager/next/reference/guides/directory-structure-of-wso2-products.md
             - Common Runtime and Configuration Artifacts: api-manager/next/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: api-manager/next/reference/default-product-ports.md
             - Product Compatibility: api-manager/next/reference/product-compatibility.md

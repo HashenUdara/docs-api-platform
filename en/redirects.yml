@@ -5993,7 +5993,7 @@ redirect_maps:
   api-manager/next/learn/tutorials/create-and-publish-awslambda-api.md: api-manager/next/tutorials/create-and-publish-awslambda-api.md
   api-manager/next/learn/tutorials/create-and-publish-a-sequencebackend-api.md: api-manager/next/tutorials/create-and-publish-a-sequencebackend-api.md
   api-manager/next/learn/tutorials/expose-a-soap-service-as-a-rest-api.md: api-manager/next/tutorials/expose-a-soap-service-as-a-rest-api.md
-  api-manager/next/learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md: api-manager/next/tutorials/edit-an-api-by-modifyng-the-api-definition.md
+  api-manager/next/learn/tutorials/edit-an-api-by-modifying-the-api-definition.md: api-manager/next/tutorials/edit-an-api-by-modifying-the-api-definition.md
   api-manager/next/learn/tutorials/create-and-publish-websocket-api.md: api-manager/next/tutorials/streaming-api/create-and-publish-websocket-api.md
   api-manager/next/learn/analytics/overview-of-api-analytics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
   api-manager/next/learn/analytics/viewing-api-statistics/monitoring-dashboard.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
@@ -6109,7 +6109,6 @@ redirect_maps:
   api-manager/next/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation.md: api-manager/next/install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
   api-manager/next/administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md: api-manager/next/install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
   api-manager/next/administer/product-security/enabling-hostname-verification.md: api-manager/next/install-and-setup/setup/security/enabling-hostname-verification.md
-  api-manager/next/administer/product-security/enabling-java-security-manager.md: api-manager/next/install-and-setup/setup/security/enabling-java-security-manager.md
   api-manager/next/administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md: api-manager/next/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
   api-manager/next/administer/product-security/configuring-transport-level-security.md: api-manager/next/install-and-setup/setup/security/configuring-transport-level-security.md
   api-manager/next/administer/product-security/mutual-ssl-between-api-gateway-and-backend.md: api-manager/next/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
@@ -6117,7 +6116,7 @@ redirect_maps:
   api-manager/next/administer/product-security/identity-management-for-the-api-dev-portal.md: api-manager/next/install-and-setup/setup/security/user-account-management.md
   api-manager/next/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
   api-manager/next/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md: api-manager/next/observe/api-manager-analytics/overview-of-api-analytics.md
-  api-manager/next/learn/tutorials/edit-and-consume-apis-using-swagger-tools.md: api-manager/next/tutorials/edit-an-api-by-modifyng-the-api-definition.md
+  api-manager/next/learn/tutorials/edit-and-consume-apis-using-swagger-tools.md: api-manager/next/tutorials/edit-an-api-by-modifying-the-api-definition.md
   api-manager/next/install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md: api-manager/next/install-and-setup/setup/security/user-account-management.md
   api-manager/next/troubleshooting/removing-unused-tokens-from-the-database.md: api-manager/next/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
   api-manager/next/develop/product-apis/restful-apis.md: api-manager/next/reference/product-apis/overview.md
@@ -6505,7 +6504,7 @@ redirect_maps:
   api-manager/next/design/create-api/create-streaming-api/streaming-api-overview.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/streaming-api-overview.md
   api-manager/next/design/create-api/create-streaming-api.md: api-manager/next/manage-apis/design/create-api/create-streaming-api/test-a-websub-api.md
   api-manager/next/design/create-api/create-ai-api/create-an-ai-api.md: api-manager/next/manage-apis/design/create-api/create-ai-api/create-an-ai-api.md
-  api-manager/next/design/prototype-api/create-mocked-js-api.md: https://apim.docs.wso2.com/en/4.6.0/manage-apis/design/prototype-api/create-mocked-js-api/
+  api-manager/next/design/prototype-api/create-mocked-js-api.md: https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/prototype-api/create-mocked-js-api/
   api-manager/next/design/endpoints/endpoint-security/basic-auth.md: api-manager/next/manage-apis/design/endpoints/endpoint-security/basic-auth.md
   api-manager/next/design/endpoints/endpoint-security/digest-auth.md: api-manager/next/manage-apis/design/endpoints/endpoint-security/digest-auth.md
   api-manager/next/design/endpoints/endpoint-security/oauth-2.0.md: api-manager/next/manage-apis/design/endpoints/endpoint-security/oauth-2.0.md
@@ -6516,8 +6515,8 @@ redirect_maps:
   api-manager/next/design/api-versioning/deprecate-the-old-version.md: api-manager/next/manage-apis/design/api-versioning/deprecate-the-old-version.md
   api-manager/next/design/api-versioning/backward-compatibility.md: api-manager/next/manage-apis/design/api-versioning/backward-compatibility.md
   api-manager/next/design/api-documentation/view-generated-documentation.md: api-manager/next/manage-apis/design/api-documentation/view-generated-documentation.md
-  api-manager/next/design/api-policies/attach-policy.md: https://apim.docs.wso2.com/en/4.6.0/manage-apis/design/api-policies/attach-policy/
-  api-manager/next/design/api-policies/create-policy.md: https://apim.docs.wso2.com/en/4.6.0/manage-apis/design/api-policies/create-policy/
+  api-manager/next/design/api-policies/attach-policy.md: https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/api-policies/attach-policy/
+  api-manager/next/design/api-policies/create-policy.md: https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/api-policies/create-policy/
   api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
   api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
   api-manager/next/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md: api-manager/next/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
