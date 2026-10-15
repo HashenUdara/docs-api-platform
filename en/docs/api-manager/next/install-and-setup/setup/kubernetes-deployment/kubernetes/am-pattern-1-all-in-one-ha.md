@@ -1,3 +1,18 @@
+---
+title: "Pattern 1: All-in-One HA Kubernetes Setup"
+description: "Deploy WSO2 API Manager as a highly available active-active two-node Kubernetes cluster using Helm, with an external database and custom Docker image."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+  - high-availability
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Pattern 1: All-in-One HA Setup
 
 This pattern deploys WSO2 API Manager as a highly available active-active cluster with two nodes, each running all components — Control Plane, Gateway, Traffic Manager, and Key Manager. It is suitable for production environments that require high availability and can handle moderate traffic.

@@ -1,3 +1,18 @@
+---
+title: "Configure Mutual SSL Between the Classic Gateway and Backend"
+description: "Secure backend connections with mutual SSL between the Classic Gateway and a backend service, exchanging certificates and testing the setup."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/mutual-ssl-between-api-gateway-and-backend/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+tags:
+  - api-manager
+  - api-gateway
+  - tls
+  - endpoint-security
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Mutual SSL Between Classic Gateway and Backend
 
 In contrast to the usual one-way SSL authentication where a client verifies the identity of the server, in mutual SSL the server validates the identity of the client so that both parties trust each other. This builds a system that has very tight security and avoids any requests made to the client to provide the username/password, as long as the server is aware of the certificates that belong to the client.

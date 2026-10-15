@@ -1,3 +1,18 @@
+---
+title: "Configure Intelligent Model Routing for AI APIs"
+description: "Configure the LLM-powered Intelligent Model Routing policy to classify AI requests by intent and route them using plain-language rules."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/multi-model-routing/intelligent-model-routing/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/multi-model-routing/intelligent-model-routing.md
+tags:
+  - api-manager
+  - ai-gateway
+  - multi-model-routing
+  - ai-apis
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Intelligent Model Routing
 
 Intelligent Model Routing is an LLM-powered routing policy for WSO2 API Manager that directs AI requests to specific models based on the meaning and intent of the user's input, as determined by a configured LLM classifier. Unlike [Semantic Routing](semantic-model-routing.md), which uses vector embeddings and utterance similarity, Intelligent Model Routing asks an LLM to read each incoming request and classify it into one of your predefined routing rules — making it effective even for short, keyword-style queries.

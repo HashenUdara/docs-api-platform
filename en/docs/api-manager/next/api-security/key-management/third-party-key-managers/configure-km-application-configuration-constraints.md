@@ -1,3 +1,17 @@
+---
+title: "Constraints for Key Manager application configurations"
+description: "Configure MAX, MIN, RANGE, REGEX, and ENUM constraints on Key Manager application configuration fields, enforced in the Developer Portal and Admin REST API."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-security/key-management/third-party-key-managers/configure-km-application-configuration-constraints/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-security/key-management/third-party-key-managers/configure-km-application-configuration-constraints.md
+tags:
+  - api-manager
+  - key-managers
+  - rest-api
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Admin-Defined Constraints for Key Manager Application Configurations
 
 Admin-defined constraints allow administrators to set limits on application configuration fields (such as token expiry times) at the key manager level. These limits are enforced when generating or updating keys. If a developer provides a value that violates a constraint via the Developer Portal or REST API, the action is rejected and an error is returned.

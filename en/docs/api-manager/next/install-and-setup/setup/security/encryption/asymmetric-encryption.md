@@ -1,3 +1,17 @@
+---
+title: "Asymmetric Encryption in WSO2 API Manager"
+description: "Understand how asymmetric encryption uses public and private key pairs in WSO2 API Manager, and how to switch from symmetric encryption to it."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/security/encryption/asymmetric-encryption/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/security/encryption/asymmetric-encryption.md
+tags:
+  - api-manager
+  - security
+  - keystores
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "concept"
+---
+
 # Asymmetric Encryption
 
 Asymmetric encryption uses public and private keys to encrypt and decrypt data. While the **public key** of the key pair is shared with external parties, the **private key** is kept secret. When one of the key pairs is used to encrypt a message, the other key can be used to decrypt it. In a **keystore**, you can store both private and public keys, and in a **truststore** you can store only public keys.

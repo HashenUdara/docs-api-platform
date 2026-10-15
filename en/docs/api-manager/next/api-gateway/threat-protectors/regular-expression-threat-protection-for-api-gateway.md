@@ -1,3 +1,18 @@
+---
+title: "Configure regex threat protection for the Classic Gateway"
+description: "Use predefined regex patterns to detect and block SQL, XPath, and JavaScript injection in request payloads, headers, and query parameters."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+tags:
+  - api-manager
+  - threat-protection
+  - api-gateway
+  - mediation
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Regular Expression Threat Protection for Classic Gateway
 
 WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks 

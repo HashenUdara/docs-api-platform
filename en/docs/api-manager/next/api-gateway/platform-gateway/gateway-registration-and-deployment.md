@@ -1,3 +1,18 @@
+---
+title: "Gateway Registration and Deployment"
+description: "Register a Platform Gateway with the Control Plane and deploy it, either from the UI or declaratively through deployment.toml."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/platform-gateway/gateway-registration-and-deployment/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/platform-gateway/gateway-registration-and-deployment.md
+tags:
+  - api-manager
+  - api-gateway
+  - platform-gateway
+  - deployment
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-10-13
+content_type: "how-to"
+---
+
 # Gateway Registration and Deployment
 
 ## Overview

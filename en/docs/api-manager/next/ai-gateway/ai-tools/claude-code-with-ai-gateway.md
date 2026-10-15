@@ -1,3 +1,18 @@
+---
+title: "Configuring Claude Code with AI Gateway"
+description: "Proxy Anthropic API calls from Claude Code through the AI Gateway to apply guardrails, rate limiting, and analytics."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-tools/claude-code-with-ai-gateway/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-tools/claude-code-with-ai-gateway.md
+tags:
+  - api-manager
+  - ai-gateway
+  - ai-tools
+  - ai-vendor-management
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Configuring Claude Code with AI Gateway
 
 It is possible to proxy Anthropic AI API calls through WSO2 API Manager using the AI Gateway, enabling tools such as Claude Code to access Anthropic services through the AI Gateway.

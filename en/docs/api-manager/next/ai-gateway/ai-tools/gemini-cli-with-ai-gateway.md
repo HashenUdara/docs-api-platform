@@ -1,3 +1,18 @@
+---
+title: "Configuring Google Gemini CLI with AI Gateway"
+description: "Proxy Google Gemini CLI requests through the AI Gateway to apply guardrails, rate limiting, and multi-model routing."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-tools/gemini-cli-with-ai-gateway/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-tools/gemini-cli-with-ai-gateway.md
+tags:
+  - api-manager
+  - ai-gateway
+  - ai-tools
+  - multi-model-routing
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Configuring Google Gemini CLI with AI Gateway
 
 It is possible to proxy Google Gemini API calls through WSO2 API Manager using the AI Gateway, enabling tools such as Gemini CLI to access Google Gemini services through the AI Gateway.

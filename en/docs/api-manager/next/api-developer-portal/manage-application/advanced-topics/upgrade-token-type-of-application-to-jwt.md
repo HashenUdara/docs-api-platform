@@ -1,3 +1,18 @@
+---
+title: "Upgrade the Token Type of an Application to JWT"
+description: "Upgrade legacy applications using opaque access tokens to JWT-based tokens from the Admin Portal's Change Application Settings page."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-developer-portal/manage-application/advanced-topics/upgrade-token-type-of-application-to-jwt/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-developer-portal/manage-application/advanced-topics/upgrade-token-type-of-application-to-jwt.md
+tags:
+  - api-manager
+  - jwt
+  - access-tokens
+  - admin-portal
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Upgrading the Token Type of an Application to JWT
 
 It is recommended to upgrade the token type of your **legacy opaque applications** to JWT as we have deprecated the support for opaque access tokens. If you already have legacy applications that are using opaque access tokens please consider upgrading them to use [JWT-based access tokens](../../../api-security/key-management/tokens/jwt-tokens.md).

@@ -1,3 +1,18 @@
+---
+title: "Pattern 5: scalable setup with dedicated Key Manager"
+description: "Deploy WSO2 API Manager on Kubernetes with a dedicated Key Manager alongside the All-in-One node and Classic Gateway."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+  - key-managers
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Pattern 5: Simple Scalable Setup with Key Manager
 
 This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the All-in-One and Classic Gateway. It is suitable for production environments where token issuance and validation need to be isolated from the Control Plane, without the overhead of a fully distributed setup.

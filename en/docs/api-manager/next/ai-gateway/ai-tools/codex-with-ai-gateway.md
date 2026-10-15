@@ -1,3 +1,18 @@
+---
+title: "Configuring OpenAI Codex CLI with AI Gateway"
+description: "Proxy OpenAI Codex CLI requests through WSO2 API Manager's AI Gateway to apply guardrails, rate limiting, prompt decorators, and analytics to Codex CLI usage."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-tools/codex-with-ai-gateway/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-tools/codex-with-ai-gateway.md
+tags:
+  - api-manager
+  - ai-gateway
+  - ai-tools
+  - ai-vendor-management
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Configuring OpenAI Codex CLI with AI Gateway
 
 It is possible to proxy OpenAI Codex CLI requests through WSO2 API Manager using the AI Gateway, enabling Codex CLI to access OpenAI services through the AI Gateway.

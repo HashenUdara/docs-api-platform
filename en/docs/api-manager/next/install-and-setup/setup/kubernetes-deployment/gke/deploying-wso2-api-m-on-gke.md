@@ -1,3 +1,18 @@
+---
+title: "Deploy WSO2 API Manager on Google Cloud GKE"
+description: "Deploy WSO2 API Manager on Google Kubernetes Engine, covering cluster setup, Envoy Gateway, Cloud SQL, custom Docker images, and Helm chart deployment."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/gke/deploying-wso2-api-m-on-gke/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/gke/deploying-wso2-api-m-on-gke.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+  - distributed-deployment
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Deploying WSO2 API Manager on Google Cloud GKE
 
 This guide provides a step-by-step approach to deploying WSO2 API Manager on Google Kubernetes Engine (GKE). This deployment follows the standard WSO2 Kubernetes architecture, extended to use Google Cloud-specific services such as Cloud SQL for databases and Artifact Registry for container image storage.

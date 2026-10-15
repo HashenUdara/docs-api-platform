@@ -1,3 +1,18 @@
+---
+title: "Develop and Test Custom API Policies Locally"
+description: "Use the WSO2 Micro Integrator VS Code extension to author, validate, and test custom API policies locally before uploading them."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-design-manage/design/api-policies/develop-and-test-policies/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-design-manage/design/api-policies/develop-and-test-policies.md
+tags:
+  - api-manager
+  - api-policies
+  - gateway-policies
+  - troubleshooting
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Develop and test custom policies
 
 This guide explains how to develop and test custom policies locally before uploading them to API Manager. You can use the WSO2 Micro Integrator for Visual Studio Code extension to create and validate policy files on your local machine.

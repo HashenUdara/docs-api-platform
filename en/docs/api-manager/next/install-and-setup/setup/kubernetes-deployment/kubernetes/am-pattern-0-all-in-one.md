@@ -1,3 +1,18 @@
+---
+title: "Pattern 0: All-in-One Kubernetes Setup"
+description: "Deploy all WSO2 API Manager components on a single Kubernetes node using Helm, suitable for development, testing, and evaluation environments."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+  - getting-started
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "quickstart"
+---
+
 # Pattern 0: All-in-One Setup
 
 This pattern deploys all WSO2 API Manager components — Control Plane, Gateway, Traffic Manager, and Key Manager — in a single node. It is suitable for development, testing, and evaluation environments where high availability is not required.

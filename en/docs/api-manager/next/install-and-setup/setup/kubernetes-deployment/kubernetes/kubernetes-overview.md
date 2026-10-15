@@ -1,3 +1,17 @@
+---
+title: "Deploying WSO2 API Manager on Kubernetes"
+description: "An overview of WSO2 API Manager's Kubernetes deployment patterns using Helm charts, from All-in-One and HA setups to fully distributed configurations."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "concept"
+---
+
 # Deploying WSO2 API Manager on Kubernetes
 
 WSO2 API Manager (WSO2 API-M) can be deployed on Kubernetes using Helm charts, making it easy to manage, scale, and maintain in cloud-native environments.

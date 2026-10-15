@@ -1,3 +1,17 @@
+---
+title: "Secure APIs Using Legacy API Keys"
+description: "Configure and use deprecated Legacy API keys to secure APIs in WSO2 API Manager, and migrate applications to the newer API-bound API Keys feature."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
+tags:
+  - api-manager
+  - api-security
+  - access-tokens
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Secure APIs with Legacy API Keys
 
 !!! warning "Deprecated"

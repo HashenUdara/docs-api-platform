@@ -1,3 +1,18 @@
+---
+title: "Semantic Tool Filtering Policy"
+description: "Dynamically filter tools in AI API requests by semantic relevance to the user query using vector embeddings and cosine similarity."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail.md
+tags:
+  - api-manager
+  - ai-gateway
+  - ai-guardrails
+  - ai-tools
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Semantic Tool Filtering Policy
 
 ## Overview

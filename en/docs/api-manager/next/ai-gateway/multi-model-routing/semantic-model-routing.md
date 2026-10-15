@@ -1,3 +1,18 @@
+---
+title: "Configure Semantic Model Routing for AI APIs"
+description: "Configure the embedding-based Semantic Routing policy to direct AI requests to models based on similarity to predefined utterances."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/multi-model-routing/semantic-model-routing/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/ai-gateway/multi-model-routing/semantic-model-routing.md
+tags:
+  - api-manager
+  - ai-gateway
+  - multi-model-routing
+  - ai-apis
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Semantic Model Routing
 
 Semantic Routing is an intelligent routing policy for WSO2 API Manager that directs AI requests to specific models based on the semantic meaning of the user's input. Unlike traditional routing that relies on exact keyword matching or rule-based logic, Semantic Routing uses vector embeddings to understand the intent and context of requests, ensuring they are routed to the most appropriate AI model.

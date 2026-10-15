@@ -1,3 +1,17 @@
+---
+title: "About Keystores and Truststores"
+description: "Learn the core concepts behind keystores and truststores in WSO2 API Manager, including key pairs, digital certificates, and certificate authorities."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores.md
+tags:
+  - api-manager
+  - keystores
+  - security
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "concept"
+---
+
 # About Keystores and Truststores
 
 A keystore is a secure repository (protected by a password) that holds the keys and certificates of a trust chain. There may be multiple trust chains (i.e., multiple keys with corresponding certificates) in one keystore. You use these artifacts for security purposes such as protecting sensitive information and establishing trust between your server and outside parties that connect to the server. The usage of keys and certificates contained in a keystore are explained below.

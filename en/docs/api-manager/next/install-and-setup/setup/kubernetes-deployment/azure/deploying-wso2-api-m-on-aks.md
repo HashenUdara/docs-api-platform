@@ -1,3 +1,18 @@
+---
+title: "Deploy WSO2 API Manager on Azure AKS"
+description: "Deploy WSO2 API Manager on Azure AKS, covering cluster setup, Envoy Gateway, Azure databases, custom Docker images, and Helm chart deployment."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/azure/deploying-wso2-api-m-on-aks/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/azure/deploying-wso2-api-m-on-aks.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+  - distributed-deployment
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Deploying WSO2 API Manager on Azure AKS
 
 This guide provides a step-by-step approach to deploying WSO2 API Manager on Azure Kubernetes Service (AKS). This deployment follows the standard WSO2 Kubernetes architecture, extended to use Azure-specific services such as Azure Database for PostgreSQL/MySQL for databases and Azure Application Gateway for ingress.

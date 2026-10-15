@@ -1,3 +1,18 @@
+---
+title: "Getting Started with Platform Gateway"
+description: "Set up a Platform Gateway end to end: register it, start it with Docker Compose, deploy a REST API, and invoke it with a key or token."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/platform-gateway/getting-started/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/platform-gateway/getting-started.md
+tags:
+  - api-manager
+  - api-gateway
+  - deployment
+  - getting-started
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "quickstart"
+---
+
 # Getting Started with Platform Gateway
 
 This guide walks you through setting up a Platform Gateway in your environment. Follow these steps to get the gateway running and connected to the Control Plane.

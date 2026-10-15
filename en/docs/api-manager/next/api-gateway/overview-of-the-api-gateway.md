@@ -1,3 +1,17 @@
+---
+title: "Overview of the Classic Gateway (Universal)"
+description: "How the Classic Gateway processes API calls through transports, message builders, QoS handlers, and formatters, plus its main features."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/overview-of-the-api-gateway/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/api-gateway/overview-of-the-api-gateway.md
+tags:
+  - api-manager
+  - api-gateway
+  - architecture
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "concept"
+---
+
 # Overview of the Classic Gateway (Universal)
 
 [![API-M overview](../assets/img/learn/apim-overview.png){: style="width:60%"}](../assets/img/learn/apim-overview.png)

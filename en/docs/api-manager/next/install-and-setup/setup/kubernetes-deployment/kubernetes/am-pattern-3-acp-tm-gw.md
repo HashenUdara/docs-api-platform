@@ -1,3 +1,18 @@
+---
+title: "Pattern 3: Distributed Kubernetes Setup"
+description: "Deploy WSO2 API Manager on Kubernetes with dedicated, independently scalable nodes for the Control Plane, Traffic Manager, and Classic Gateway."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+  - distributed-deployment
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "how-to"
+---
+
 # Pattern 3: Distributed Setup
 
 This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager, and Classic Gateway. Each component scales independently, making it suitable for production environments with high API traffic where fine-grained control over scaling and fault isolation is required.

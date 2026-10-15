@@ -1,3 +1,18 @@
+---
+title: "Quick Start: WSO2 API Manager on Kubernetes"
+description: "Get WSO2 API Manager running on Kubernetes in minutes using default settings with an embedded H2 database, Envoy Gateway, and a single node."
+canonical_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-quick-start/
+md_url: https://wso2.com/api-platform/docs/api-manager/next/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-quick-start.md
+tags:
+  - api-manager
+  - kubernetes
+  - deployment
+  - getting-started
+author: WSO2 API Platform Documentation Team
+last_updated: 2026-08-20
+content_type: "quickstart"
+---
+
 # Quick Start Guide: WSO2 API Manager on Kubernetes
 
 This guide gets WSO2 API Manager running on Kubernetes in minutes using default settings — an embedded H2 database, default keystores, and a single node. It is intended for evaluation only.
