@@ -33,7 +33,7 @@ copyright: ©2025 WSO2 LLC.
 # Configuration
 watch:
   - theme/
-  - docs/assets/
+  - docs/ai-gateway/1.2.0/assets/
 
 theme:
   name: material
@@ -444,13 +444,13 @@ plugins:
       redirect_maps: {}  # Do not add redirects here. Add them to redirects.yml instead.
 extra_css:
   - assets/css/extra.css
-  - assets/lib/highlightjs/default.min.css
+  - ai-gateway/1.2.0/assets/lib/highlightjs/default.min.css
   - assets/css/theme.css
-  - assets/css/api-manager-legacy.css
-  - assets/lib/json-formatter/json-formatter.css
+  - ai-gateway/1.2.0/assets/css/api-manager-legacy.css
+  - ai-gateway/1.2.0/assets/lib/json-formatter/json-formatter.css
 extra_javascript:
-  - assets/lib/json-formatter/json-formatter.umd.js
-  - assets/lib/highlightjs/highlight.min.js
+  - ai-gateway/1.2.0/assets/lib/json-formatter/json-formatter.umd.js
+  - ai-gateway/1.2.0/assets/lib/highlightjs/highlight.min.js
   - https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure.choreoapps.dev/theme.js
 extra:
   show_repo_in_nav: false
