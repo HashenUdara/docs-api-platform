@@ -33,7 +33,7 @@ The following key metrics were used to evaluate gateway performance:
 
 The diagram below shows the deployment architecture used for the performance tests documented here.
 
-![Performance test deployment architecture showing Apache JMeter client and servers, Netty HTTP backend, and WSO2 API Platform Gateway on separate EC2 instances connected in a test topology](../../../assets/img/api-gateway/performance/deployment-used-for-test.png){ width="900" }
+![Performance test deployment architecture showing Apache JMeter client and servers, Netty HTTP backend, and WSO2 API Platform Gateway on separate EC2 instances connected in a test topology](../assets/img/api-gateway/performance/deployment-used-for-test.png){ width="900" }
 
 | Component                 | EC2 Instance Type | vCPU | Memory (GiB) |
 | ------------------------- | ----------------- | :--: | :----------: |
