@@ -10,7 +10,7 @@ deployment's URL, and `nginx.conf` decides, per version, which real
 deployment to invisibly forward to (`proxy_pass`, server-side - the
 reader's address bar never sees the raw Choreo URL underneath).
 
-Versions covered: `1.2.0`, `1.1.0`, `1.0.0`, `next` (default: `1.2.0`).
+Versions covered: `1.2.0`, `2026.09.24`, `1.1.0`, `1.0.0`, `next` (default: `1.2.0`).
 
 Adding a new AI Gateway version later means editing `nginx.conf` here
 and redeploying this one component - infra's gateway rule never changes
