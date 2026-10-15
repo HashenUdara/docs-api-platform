@@ -1,6 +1,0 @@
-[apim.ai.vector_db_provider]
-type = "zilliz"
-[apim.ai.vector_db_provider.properties]
-uri = "<your-zilliz-instance-uri>"
-token = "<your-zilliz-token>"
-ttl = 3600

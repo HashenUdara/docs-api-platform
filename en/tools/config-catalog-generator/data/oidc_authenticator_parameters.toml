@@ -1,2 +1,0 @@
-[authentication.authenticator.oidc.parameters]
-excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
