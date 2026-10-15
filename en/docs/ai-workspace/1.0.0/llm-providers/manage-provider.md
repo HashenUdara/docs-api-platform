@@ -133,7 +133,7 @@ The Backend section supports two configuration modes:
 
 The Backend section of the Rate Limiting tab presents both the Provider-wide and Per Resource modes:
 
-![Rate Limiting tab showing Provider-wide and Per Resource configuration modes in the Backend section](../../../assets/img/ai-gateway/standalone-ai-workspace/llm-provider/rate-limiting-tab.png)
+![Rate Limiting tab showing Provider-wide and Per Resource configuration modes in the Backend section](../assets/img/ai-gateway/standalone-ai-workspace/llm-provider/rate-limiting-tab.png)
 
 !!! note
     Provider-wide and Per Resource modes are mutually exclusive. Clear existing limits before switching modes.

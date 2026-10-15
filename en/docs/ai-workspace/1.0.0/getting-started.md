@@ -143,7 +143,7 @@ Your browser warns that the connection isn't private. This is expected, because 
 
 Sign in with the **Username** and **Password** fields, using the admin credentials `setup.sh` printed in [Step 2](#step-2-run-the-setup-script):
 
-![AI Workspace file-based login window with Username and Password fields](../../assets/img/ai-gateway/standalone-ai-workspace/authentication/filebased-login.png)
+![AI Workspace file-based login window with Username and Password fields](assets/img/ai-gateway/standalone-ai-workspace/authentication/filebased-login.png)
 
 This file-based sign-in is intended for trying out AI Workspace, not for production or shared use. It supports a single organization with a static, manually managed user list. Before you share this instance with a team, connect an identity provider instead. See [Authentication in AI Workspace](setting-up/authentication/overview.md).
 
@@ -159,7 +159,7 @@ Click **Got it** to dismiss the tour. The page then asks **What would you like t
 
 Each is a guided version of the steps this guide walks through by hand, with a **What you'll do** preview before you commit to one. The tour looks like this:
 
-![AI Workspace Quick Start page with the tour dialog open above the setup-path options](../../assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/first-run-tour.png)
+![AI Workspace Quick Start page with the tour dialog open above the setup-path options](assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/first-run-tour.png)
 
 This guide doesn't follow the wizard directly. It walks through the same underlying steps with enough detail to explain what each screen and field does. Click **Skip and go to overview** if you'd rather open the **Overview** page instead.
 
@@ -236,7 +236,7 @@ Its **Configure the gateway** command includes a single-use registration token. 
 
 Give the gateway a few seconds to start and register itself. Back in AI Workspace, the gateway's status changes from **Inactive** to **Active**:
 
-![AI Gateway detail page showing the Get Started panel with download and setup commands, and a green Active status badge after the gateway connects](../../assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/gateway-get-started-panel.png)
+![AI Gateway detail page showing the Get Started panel with download and setup commands, and a green Active status badge after the gateway connects](assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/gateway-get-started-panel.png)
 
 ## Part 3: Configure an LLM provider
 
@@ -255,7 +255,7 @@ This section configures Mistral AI as a worked example. The same steps apply to 
     - **Context**: the URL path segment this provider is reachable under, for example `/mistral`.
     - **API Key**: your Mistral AI API key. Mistral's endpoint URL is pre-configured automatically.
 
-    ![Add LLM Provider form with Mistral selected, showing Name, Version, Description, Context, API Key, and a pre-selected llm-cost guardrail](../../assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/mistral-provider-form.png)
+    ![Add LLM Provider form with Mistral selected, showing Name, Version, Description, Context, API Key, and a pre-selected llm-cost guardrail](assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/mistral-provider-form.png)
 
     The **Guardrails & Policies** panel pre-selects a suggested `llm-cost` guardrail. Leave it, remove it, or add more later from the provider's **Guardrails & Policies** tab. See [Policies overview](policies/overview.md).
 
@@ -279,7 +279,7 @@ The provider's **Models** tab lists the models available through it.
 
 The deployment status changes to **Active** within a few seconds, without needing to refresh the page:
 
-![Deploy to Gateway page showing the deployment status as Active, with a deployment history entry](../../assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/provider-deployed-active.png)
+![Deploy to Gateway page showing the deployment status as Active, with a deployment history entry](assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/provider-deployed-active.png)
 
 ### Step 12: Generate an API key
 
@@ -290,7 +290,7 @@ The **API Keys** section on the provider's **Overview** tab only appears once th
 3. Under **API Keys**, click **Generate API Key**.
 4. Enter a **Key Name**, for example `quickstart-test-key`, and click **Generate**.
 
-    ![Generate API Key dialog with a Key Name field, and Cancel and Generate buttons](../../assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/generate-api-key.png)
+    ![Generate API Key dialog with a Key Name field, and Cancel and Generate buttons](assets/img/ai-gateway/standalone-ai-workspace/quick-start-guide/generate-api-key.png)
 
 !!! danger "Copy the key"
     An API key is displayed only once, in a dialog that also shows a ready-to-run `curl` command using one of the provider's models. Store the key securely immediately. You can't retrieve it again, though you can always generate a new one.

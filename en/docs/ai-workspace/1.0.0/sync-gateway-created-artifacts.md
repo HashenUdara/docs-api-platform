@@ -255,25 +255,25 @@ Open **AI Workspace** for the organization your gateway is registered with, then
 
 The template appears under **Settings** > **LLM Provider Templates**:
 
-![LLM provider template synced from the gateway to AI Workspace](../../assets/img/ai-workspace/bottom-up/dp-to-cp-llm-provider-template.png)
+![LLM provider template synced from the gateway to AI Workspace](assets/img/ai-workspace/bottom-up/dp-to-cp-llm-provider-template.png)
 
 ### LLM provider
 
 The provider appears under **LLM** > **LLM Providers**:
 
-![LLM provider synced from the gateway to AI Workspace](../../assets/img/ai-workspace/bottom-up/dp-to-cp-llm-provider.png)
+![LLM provider synced from the gateway to AI Workspace](assets/img/ai-workspace/bottom-up/dp-to-cp-llm-provider.png)
 
 ### LLM proxy
 
 The proxy appears under **LLM** > **App LLM Proxies**, in the **Default** project:
 
-![LLM proxy synced from the gateway to AI Workspace](../../assets/img/ai-workspace/bottom-up/dp-to-cp-llm-proxy.png)
+![LLM proxy synced from the gateway to AI Workspace](assets/img/ai-workspace/bottom-up/dp-to-cp-llm-proxy.png)
 
 ### MCP proxy
 
 The MCP proxy appears under **MCP** > **MCP Proxies**, in the **Default** project:
 
-![MCP proxy synced from the gateway to AI Workspace](../../assets/img/ai-workspace/bottom-up/dp-to-cp-mcp-proxy.png)
+![MCP proxy synced from the gateway to AI Workspace](assets/img/ai-workspace/bottom-up/dp-to-cp-mcp-proxy.png)
 
 Open any of them to browse the full configuration. It opens in a read-only view — the edit and deploy actions are unavailable because the gateway owns the artifact.
 
@@ -293,15 +293,15 @@ A gateway-created artifact is **read-only** in AI Workspace because the gateway 
 
 - Upstreams, the auth/routing used to serve traffic, and policies
 
-    ![Read-only access control settings of a gateway-origin LLM provider](../../assets/img/ai-workspace/bottom-up/dp-origin-llm-provider-access-control.png)
+    ![Read-only access control settings of a gateway-origin LLM provider](assets/img/ai-workspace/bottom-up/dp-origin-llm-provider-access-control.png)
 
 - An LLM provider template's token-tracking settings
 
-    ![Read-only token mapping settings of a gateway-origin LLM provider template](../../assets/img/ai-workspace/bottom-up/dp-origin-llm-provider-template-token-mapping.png)
+    ![Read-only token mapping settings of a gateway-origin LLM provider template](assets/img/ai-workspace/bottom-up/dp-origin-llm-provider-template-token-mapping.png)
 
 - Deploying, redeploying, or undeploying the artifact
 
-    ![Deployment view of a gateway-origin LLM proxy, with the deploy actions unavailable](../../assets/img/ai-workspace/bottom-up/dp-origin-llm-proxy-deployment.png)
+    ![Deployment view of a gateway-origin LLM proxy, with the deploy actions unavailable](assets/img/ai-workspace/bottom-up/dp-origin-llm-proxy-deployment.png)
 
 - Deleting it while it's still deployed on a gateway (undeploy it from all gateways first)
 

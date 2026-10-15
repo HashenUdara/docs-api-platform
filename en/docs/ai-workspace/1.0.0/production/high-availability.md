@@ -30,7 +30,7 @@ The Platform API coordinates across replicas through an event table in the share
 
 The following diagram shows the resulting topology, with both services replicated behind ClusterIP Services, an ingress in front, and the shared database behind:
 
-![Two AI Workspace pods and two Platform API pods behind ClusterIP Services, with an ingress in front and a shared database behind](../../../assets/img/ai-gateway/standalone-ai-workspace/production/kubernetes-high-availability.png)
+![Two AI Workspace pods and two Platform API pods behind ClusterIP Services, with an ingress in front and a shared database behind](../assets/img/ai-gateway/standalone-ai-workspace/production/kubernetes-high-availability.png)
 
 ## Step 1: Move to a shared database
 
