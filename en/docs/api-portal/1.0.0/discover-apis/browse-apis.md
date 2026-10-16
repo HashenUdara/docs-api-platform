@@ -22,7 +22,7 @@ Click **APIs** in the sidebar. The listing page shows a card for every published
 
 The listing shows one card per API, with the search bar above it:
 
-![API listing page with a search bar and four API cards, each showing type badges, tags, plan count, and a Subscribe button](../../../assets/img/standalone-devportal/discover-apis/api-search/api-listing-page.png)
+![API listing page with a search bar and four API cards, each showing type badges, tags, plan count, and a Subscribe button](../assets/img/standalone-devportal/discover-apis/api-search/api-listing-page.png)
 
 Each card shows:
 
@@ -45,7 +45,7 @@ Click a card to open the API. Model Context Protocol (MCP) servers are listed se
 
 The page reloads with your term applied as a `query` parameter, and the results bar reports how many APIs matched. To return to the full listing, clear the search bar and press <kbd>Enter</kbd> again.
 
-![Search bar with "Naviga" query returning a single matching APIs count of 1 and the Navigation API WebSocket card](../../../assets/img/standalone-devportal/discover-apis/api-search/search-result.png)
+![Search bar with "Naviga" query returning a single matching APIs count of 1 and the Navigation API WebSocket card](../assets/img/standalone-devportal/discover-apis/api-search/search-result.png)
 
 ### What a search term matches
 
@@ -69,7 +69,7 @@ Two details depend on which database backs your deployment:
 
 Clicking a card opens the API's overview page, which gathers its endpoints, operations, and plans on one screen:
 
-![API overview page with header badges, endpoint URLs, a resources list, and a subscription plans panel](../../../assets/img/standalone-devportal/discover-apis/api-overview/api-overview.png)
+![API overview page with header badges, endpoint URLs, a resources list, and a subscription plans panel](../assets/img/standalone-devportal/discover-apis/api-overview/api-overview.png)
 
 What the page shows depends on the API type. **Resources** lists every operation for REST and SOAP APIs; **Channels** replaces it for WebSocket and WebSub, where WebSocket channels carry both a PUB and a SUB badge and WebSub channels carry SUB only. **Scopes** appears for REST and SOAP. GraphQL APIs show **Endpoints** alone — their operations live in the schema, which you reach through **Documentation**.
 
@@ -98,7 +98,7 @@ The **Try It** console calls the endpoint straight from your browser, so **the A
 
 Attached guides render in the same pane and cover what a specification can't: authentication walkthroughs, worked examples, known limitations. Every one is also served as raw Markdown for AI agents.
 
-![Attached document showing an authentication headers table, a subscription plans table, and numbered steps for consuming the API](../../../assets/img/standalone-devportal/discover-apis/api-documentations/api-doc-md.png)
+![Attached document showing an authentication headers table, a subscription plans table, and numbered steps for consuming the API](../assets/img/standalone-devportal/discover-apis/api-documentations/api-doc-md.png)
 
 ## Related
 

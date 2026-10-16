@@ -24,7 +24,7 @@ Go to **Settings** and select **LLM Instructions** under **AI & DISCOVERY**.
 
 The page puts the editable fields beside a live preview of the file they produce:
 
-![LLM Instructions page with the AI-discoverable toggle, portal name and description fields, and a live llms.txt preview](../../../assets/img/devportal/llm-instructions.png)
+![LLM Instructions page with the AI-discoverable toggle, portal name and description fields, and a live llms.txt preview](../assets/img/devportal/llm-instructions.png)
 
 ## Turn AI discoverability on or off
 
@@ -67,7 +67,7 @@ GET /api-portal/{orgName}/views/{viewName}/llms.txt
 
 The generated file lists each agent-visible artifact under its own section:
 
-![Generated llms.txt showing an API Workflows section with workflow names, descriptions, and links](../../../assets/img/devportal/llms-txt.png)
+![Generated llms.txt showing an API Workflows section with workflow names, descriptions, and links](../assets/img/devportal/llms-txt.png)
 
 Only your name and description are editable. Everything below them—the API Workflows, APIs, MCPs, GraphQL, WebSocket, and WebSub sections—is generated from the catalog and reflects each artifact's own agent visibility. See [AI Agent Discovery](../ai-agent-discovery.md) for how that index is built.
 

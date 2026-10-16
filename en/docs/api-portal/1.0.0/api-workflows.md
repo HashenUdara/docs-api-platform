@@ -42,7 +42,7 @@ The detail page opens with the workflow's name and description, then renders the
 
 An Arazzo workflow opens with its description above the interactive viewer:
 
-![Workflow detail page with a description, version and Arazzo badges, and a flow diagram of the workflow steps](../../assets/img/standalone-devportal/api-workflows/workflow-overview.png)
+![Workflow detail page with a description, version and Arazzo badges, and a flow diagram of the workflow steps](assets/img/standalone-devportal/api-workflows/workflow-overview.png)
 
 An Arazzo workflow names its source APIs in `sourceDescriptions`. Those are the APIs you'll be calling, and each one's own documentation gives you the base URL, the operations, and the authentication it expects. To fetch the raw specification for tooling that reads Arazzo, request it directly:
 
