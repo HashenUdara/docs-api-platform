@@ -55,7 +55,7 @@ This separation means no single-node failure takes down the gateway, autoscaling
 
 High availability comes from running several Gateway Controller replicas and several Gateway Runtime replicas, with the database as the shared state between controllers:
 
-![Gateway controller replicas sharing a database and distributing configuration to gateway runtime replicas](../../../../assets/img/api-platform-gateway/gateway/high-availability-architecture.png)
+![Gateway controller replicas sharing a database and distributing configuration to gateway runtime replicas](../../assets/img/api-platform-gateway/gateway/high-availability-architecture.png)
 
 When you deploy an LLM provider, an LLM proxy, or an MCP proxy, one controller replica receives the request, validates the artifact, and writes it to the shared database. The other controller replicas read that state back and generate the runtime configuration for the Gateway Runtime instances connected to them. Each runtime then applies the configuration and starts serving the artifact.
 
@@ -65,7 +65,7 @@ Gateway Runtime replicas never read the database directly. They receive configur
 
 The following diagram shows a deployment request reaching one controller replica while a second replica serves its own runtime replicas from the same shared database:
 
-![Deployment request reaching one controller replica while a second replica serves its own runtime replicas from the same database](../../../../assets/img/api-gateway/high-availability-deployment-example.png)
+![Deployment request reaching one controller replica while a second replica serves its own runtime replicas from the same database](../../assets/img/api-gateway/high-availability-deployment-example.png)
 
 If one controller replica becomes unavailable, another replica keeps accepting deployment requests and keeps synchronizing configuration from the state already in the database. If one runtime replica becomes unavailable, the remaining replicas keep serving LLM and MCP traffic.
 
