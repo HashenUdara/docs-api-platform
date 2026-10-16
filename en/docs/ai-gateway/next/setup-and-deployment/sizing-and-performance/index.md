@@ -34,7 +34,7 @@ The following key metrics were used to evaluate AI Gateway performance:
 
 The diagram below shows the deployment architecture used for the performance tests documented here.
 
-![Performance test topology with a JMeter client and servers, a Netty HTTP backend, and AI Gateway on separate EC2 instances](../../../../assets/img/ai-gateway/performance/deployment-used-for-test.png){ width="900" }
+![Performance test topology with a JMeter client and servers, a Netty HTTP backend, and AI Gateway on separate EC2 instances](../../assets/img/ai-gateway/performance/deployment-used-for-test.png){ width="900" }
 
 | Component                    | EC2 Instance Type | vCPU | Memory (GiB) |
 | ---------------------------- | ----------------- | :--: | :----------: |
