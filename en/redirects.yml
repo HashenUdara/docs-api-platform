@@ -6067,3 +6067,5 @@ redirect_maps:
   ai-gateway/next/mcp-proxy/policies/mcp-authentication.md: https://wso2.com/api-platform/policy-hub/policies/mcp-auth
   ai-gateway/next/mcp-proxy/policies/mcp-authorization.md: https://wso2.com/api-platform/policy-hub/policies/mcp-authz
   ai-gateway/next/mcp-proxy/policies/mcp-rewrite.md: https://wso2.com/api-platform/policy-hub/policies/mcp-rewrite
+  # The version root: README.md is excluded from the build
+  ai-gateway/next/index.md: ai-gateway/next/overview.md
