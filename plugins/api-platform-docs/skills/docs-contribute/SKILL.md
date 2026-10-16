@@ -10,9 +10,10 @@ to both.** A change that only reaches `main` or docs-apim never shows on the
 site. A change that only reaches a deployment branch is lost the next time the
 branch is synced.
 
-Run it end to end: make the change, port it, verify it, and open the PRs. Ask
-the user only when they need to choose, such as which versions a change
-applies to or where a moved page should redirect.
+Make the change, port it, verify it and push the branches. Then **stop and
+ask the user before opening any PR**: show them what will be opened and wait
+for a yes. Also ask the user when they need to choose, such as which versions a
+change applies to or where a moved page should redirect.
 
 ## 1. Where a change goes
 
@@ -90,7 +91,18 @@ both work.
    with its links, images and `#anchors` resolving. A broken link that was
    already on the page shows up too: fix it in the same PR, or mention it.
    Don't open PRs while the build fails.
-5. **Commit, push and open the PRs**, the source PR first:
+5. **Commit and push** the branches to the user's forks. **Don't open any PR
+   yet.**
+6. **Ask before opening the PRs.** Show the user, for every PR:
+   - the repo and base branch, and the compare link
+     (`https://github.com/<upstream>/compare/<base>...<fork-owner>:<repo>:<branch>`)
+   - the proposed title and description
+   - the verify result
+
+   Open them only after the user says yes, and only the ones they approve,
+   with the source PR first. If they want changes, make them, push, and ask
+   again. If they say no, leave the pushed branches and give them the compare
+   links. For the PRs themselves:
    - Title `[<Product> <version>] <what changed>` on both, so they read as a
      pair.
    - Each body says what changed and links the other PR(s): "Paired with
@@ -98,9 +110,9 @@ both work.
    - Deployment PR bodies list what the port changed beyond the source diff
      (moved images, rewritten links), and the verify result.
    - Use the PR template's sections if the repo has one.
-6. **Report** the PR links and anything left for the user: nav decisions,
-   redirect targets, items that need someone else, such as a `docs-shared`
-   deploy or a router change.
+7. **Report** the PR links (or the compare links, if no PR was opened) and
+   anything left for the user: nav decisions, redirect targets, items that
+   need someone else, such as a `docs-shared` deploy or a router change.
 
 ## Gotchas
 
