@@ -1,5 +1,5 @@
 ---
-name: docs-change
+name: docs-contribute
 description: Make a change to the WSO2 API Platform documentation and send it to every branch it has to land on. Every docs change goes to its source branch AND its deployment branch. API Manager changes go to wso2/docs-apim (version branch, or master for next) and the apim-<version> branch of wso2/docs-api-platform. API Gateway, AI Gateway, AI Workspace, API Portal, Cloud and the common pages go to main and the matching branch of wso2/docs-api-platform. Theme and styling changes go to platform-common, plus every branch whose templates change, and docs-shared for theme.js or hooks. Use it whenever someone adds, edits, moves or deletes a docs page, image, link, nav entry, redirect or style, e.g. "update the AI Gateway 1.2.0 rate limiting page", "add a new page to API Manager 4.7.0", "fix this image in API Gateway", "change the button style", or "send this doc fix to both branches".
 ---
 
