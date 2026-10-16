@@ -1,0 +1,14 @@
+{
+  "name": "api-platform-docs",
+  "owner": {
+    "name": "WSO2 API Platform docs team"
+  },
+  "description": "Claude Code skills for working on the WSO2 API Platform documentation",
+  "plugins": [
+    {
+      "name": "api-platform-docs",
+      "source": "./plugins/api-platform-docs",
+      "description": "docs-contribute: make a docs change and send it to its source branch and its deployment branch (docs-apim + apim-<version>, or main + <product>-<version>/cloud/platform-common), with paths, images and links converted and the deployment build verified."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "api-platform-docs",
+  "version": "0.1.0",
+  "description": "Skills for the WSO2 API Platform documentation (wso2/docs-api-platform and wso2/docs-apim).",
+  "repository": "https://github.com/Thenujan-Nagaratnam/docs-bijira/tree/docs-contribute-skill",
+  "keywords": ["wso2", "docs", "mkdocs", "api-platform"]
+}
