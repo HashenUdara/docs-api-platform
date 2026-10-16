@@ -878,7 +878,10 @@ onEachPage(function () {
     var latestLabel = (manifest.default && allVersions.indexOf(manifest.default) !== -1)
       ? manifest.default
       : allVersions[0];
-    var previousLabels = allVersions.filter(function (v) { return v !== latestLabel; });
+    var stsVersions = manifest.stsVersions || [];
+    var previousLabels = allVersions.filter(function (v) {
+      return v !== latestLabel && stsVersions.indexOf(v) === -1;
+    });
 
     // What to actually show first must be a version this manifest has data
     // for - not necessarily latestLabel, which can be configured as the
@@ -933,9 +936,16 @@ onEachPage(function () {
     }
 
     var latestGroup = document.createElement('optgroup');
-    latestGroup.label = 'Latest Version';
+    latestGroup.label = stsVersions.length ? 'Latest LTS Version' : 'Latest Version';
     addOption(latestGroup, latestLabel);
     select.appendChild(latestGroup);
+
+    if (stsVersions.length) {
+      var stsGroup = document.createElement('optgroup');
+      stsGroup.label = 'Latest STS Version';
+      stsVersions.forEach(function (v) { addOption(stsGroup, v); });
+      select.appendChild(stsGroup);
+    }
 
     if (previousLabels.length) {
       var previousGroup = document.createElement('optgroup');

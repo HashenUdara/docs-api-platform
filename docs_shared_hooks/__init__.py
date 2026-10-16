@@ -283,6 +283,10 @@ def _build_product_nav_manifest(nav, config):
                 # missing from "versions" below falls back to the live site,
                 # same as the same-product dropdown already does.
                 "allVersions": cfg.get("versions") or [],
+                # STS releases are listed in the dropdown but are never the
+                # default. theme.js renders them under "Latest STS Version"
+                # and relabels the default group "Latest LTS Version".
+                "stsVersions": cfg.get("sts_versions") or [],
                 "versions": versions,
                 "icon": _section_icon(title, config),
                 **_section_style(title, config),
