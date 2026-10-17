@@ -28,15 +28,7 @@ const outputFileName = 'config-catalog.md';
 const outputPath = path.join(__dirname, '..', 'dist');
 const output = path.join(outputPath, outputFileName);
 
-// Frontmatter last_updated, as YYYY-MM-DD in local time.
-const now = new Date();
-const lastUpdated = [
-    now.getFullYear(),
-    String(now.getMonth() + 1).padStart(2, '0'),
-    String(now.getDate()).padStart(2, '0')
-].join('-');
-
-const content = nunjucks.render(template, { ...configData, lastUpdated });
+const content = nunjucks.render(template, configData);
 
 const writeFile = () => {
     fs.writeFileSync(output, content, (error) => {
