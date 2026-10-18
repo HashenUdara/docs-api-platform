@@ -28,7 +28,7 @@ Follow the instructions below to design a GraphQL API.
 
 ### Create a GraphQL API
 
-{!includes/design/create-graphql-api.md!}
+--8<-- "api-manager/4.3.0/includes/design/create-graphql-api.md"
 
 !!! note
     For more information on the payload, see [GraphQL operations](#graphql-operations).
