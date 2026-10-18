@@ -209,7 +209,7 @@ Create the artifacts:
 2. [Create an ESB Config project](../../develop/create-integration-project.md#sub-projects).
 3. [Create the REST API](../../develop/creating-artifacts/creating-an-api.md) with the configurations given above.
 4. [Create a local entry](../../develop/creating-artifacts/registry/creating-local-registry-entries.md) named **in_transform** with the above XSLT configuration.
-5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run) in your Micro Integrator.
+5. [Deploy the artifacts](https://apim.docs.wso2.com/en/4.0.0/integrate/develop/deploy-and-run) in your Micro Integrator.
 
 Set up the back-end service:
 

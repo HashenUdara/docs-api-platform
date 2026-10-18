@@ -78,7 +78,7 @@ Use `kubectl describe pod` to find the root cause. Allocate more resources if yo
 
 * [Choreo Connect standalone Gateway mode with apictl](concepts/as-a-standalone-gateway.md)
     * [Deploy APIs as Immutable Gateway](deploy-api/deploy-apis-as-immutable-gateway.md)
-    * [Git integration with source watcher]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration/)
+    * [Git integration with source watcher](https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/git-integration/)
 * [Choreo Connect with API-M as a Control Plane](concepts/apim-as-control-plane.md)
 
 ### Is it possible to scale different components of WSO2 Choreo Connect separately ?

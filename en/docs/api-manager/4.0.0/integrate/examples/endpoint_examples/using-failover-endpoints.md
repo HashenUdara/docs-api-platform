@@ -197,7 +197,7 @@ Create the artifacts:
 1. [Set up WSO2 Integration Studio](../../develop/installing-wso2-integration-studio.md).
 2. [Create an ESB Solution project](../../develop/create-integration-project.md#sub-projects).
 3. [Create the REST API](../../develop/creating-artifacts/creating-an-api.md) with the configurations given above.
-4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-and-run) in your Micro Integrator.
+4. [Deploy the artifacts](https://apim.docs.wso2.com/en/4.0.0/integrate/develop/deploy-and-run) in your Micro Integrator.
 
 Invoke the sample API by executing the following command:
 
