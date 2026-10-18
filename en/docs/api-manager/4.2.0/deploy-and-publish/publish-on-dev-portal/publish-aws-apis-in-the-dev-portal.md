@@ -122,7 +122,7 @@ The initial state of the API will be set to `CREATED` so the user will be able t
 
 If any errors are being printed and if the problem is not clear, execute the `aws init` command with the `--verbose` flag to get a more detailed output.
 
-### Unable to find an API with the name `<api-name>`
+### Unable to find an API with the name `<api-name>` { #unable-to-find-an-api-with-the-name-api-name }
 
 After making sure the user has provided the correct API name and that the API is in the AWS API gateway if the problem persists, it is possible that the user has disabled AWS CLI pagination which will cause the AWS CLI to output only a limited number of APIs. In such cases, the API the user is looking for might not be in the APIs list provided by the AWS CLI. Enable AWS CLI pagination and try again. Refer [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-pagination.html).
 
