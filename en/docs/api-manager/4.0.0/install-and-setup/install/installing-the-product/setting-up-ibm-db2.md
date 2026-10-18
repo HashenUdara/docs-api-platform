@@ -35,13 +35,13 @@ db2 -tvmf <MI_DASHBOARD_HOME>/dbscripts/db2/db2.sql
 
 ```
 
-## Setting up DB2 JDBC drivers
+## Setting up DB2 JDBC drivers { #setting-up-db2-jdbc-drivers }
 
 Copy the DB2 JDBC drivers (`db2jcc.jar` and `db2jcc_license_c0u.jar`) from the `<DB2_HOME>/SQLLIB/java/` directory to the `MI_DASHBOARD_HOME/lib/` directory.
 
 `<DB2_HOME>` refers to the installation directory of DB2.
 
-## Connecting the database to the server
+## Connecting the database to the server { #connecting-the-database-to-the-server }
 
 Open the `deployment.toml` file in the `<MI_DASHBOARD_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator (MI) Dashboard and the database.
 

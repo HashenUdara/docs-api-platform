@@ -145,7 +145,7 @@ TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" -d "scope=read:pets" -H "Auth
     More information
     -   You can obtain a JWT token from any third-party secure token service or via the WSO2 API Manager.
 
-### Step 4.2 - Invoke the API
+### Step 4.2 - Invoke the API { #step-42-invoke-the-api }
 
 Execute the following command to invoke the API using the test key: You can now invoke the API running on WSO2 Choreo Connect using the following cURL command.
 

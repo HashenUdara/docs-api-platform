@@ -63,12 +63,12 @@ readinessProbe:
     scheme: HTTPS
 ```
 
-## Micro Integrator health checks
+## Micro Integrator health checks { #micro-integrator-health-checks }
 
 WSO2 Micro Integrator provides a dedicated API for checking the health of the server. This can be used by a load 
 balancer prior to routing traffic to a particular server node.
 
-### Health Check API
+### Health Check API { #health-check-api }
 
 The health check API has two behaviors depending on whether the deployment is mutable or immutable. If the deployment 
 is mutable (which is mostly the configuration in centralized deployments), the probe gives a **ready** status when the 

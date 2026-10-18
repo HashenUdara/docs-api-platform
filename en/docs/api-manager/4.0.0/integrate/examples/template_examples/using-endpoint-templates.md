@@ -132,7 +132,7 @@ In this example, the endpoint template is configured to invoke the endpoints bas
 </api>
 ```
 
-### Build and run
+### Build and run { #build-and-run }
 
 Create the artifacts:
 
@@ -141,7 +141,7 @@ Create the artifacts:
 3. Create the [REST API](../../develop/creating-artifacts/creating-an-api.md) and [endpoint template](../../develop/creating-artifacts/creating-endpoint-templates.md) with the configurations given above.
 4. [Deploy the artifacts](../../develop/deploy-artifacts.md) in your Micro Integrator.
 
-### Invoke the API
+### Invoke the API { #invoke-the-api }
 1. Using REST client:
 Invoke this REST API using the HTTP client in WSO2 Integration Studio.
 See that the response from the backend is logged on the console.
