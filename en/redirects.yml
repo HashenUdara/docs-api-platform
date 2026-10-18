@@ -5849,3 +5849,6 @@ redirect_maps:
   api-manager/4.7.0/troubleshooting/troubleshooting-jms.md: api-manager/4.7.0/reference/troubleshooting/troubleshooting-jms.md
   api-manager/4.7.0/troubleshooting/troubleshooting-websocket-api.md: api-manager/4.7.0/reference/troubleshooting/troubleshooting-websocket-api.md
   api-manager/4.7.0/troubleshooting/utilizing-runtime-diagnostic-tool.md: api-manager/4.7.0/reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
+  # URLs apim.docs.wso2.com serves (its redirects, or the same page with different case)
+  api-manager/4.3.0/getting-started/key-concepts.md: https://wso2.com/api-platform/docs/api-manager/4.2.0/get-started/apim-architecture/
+  api-manager/4.3.0/install-and-setup/ProductCompatibility.md: https://wso2.com/api-platform/docs/api-manager/4.2.0/install-and-setup/setup/reference/product-compatibility/
