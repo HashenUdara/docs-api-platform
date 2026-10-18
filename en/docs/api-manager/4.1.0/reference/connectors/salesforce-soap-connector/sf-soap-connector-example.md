@@ -219,7 +219,7 @@ Now follow the steps below to add configurations to the resource.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/salesforcesoap.zip">
+<a href="https://apim.docs.wso2.com/en/4.1.0/assets/attachments/connectors/salesforcesoap.zip">
     <img src="../../../../assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

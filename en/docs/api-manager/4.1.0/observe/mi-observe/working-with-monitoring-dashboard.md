@@ -299,133 +299,133 @@ Now you can view details of artifacts, update artifacts, and perform various oth
 
 Select this option to manage proxy services deployed in the environment.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-proxy-service-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-proxy-service-1.png">
 
 You can view details, and update the <b>status</b> and enable <b>tracing</b>/<b>statistics</b> for each proxy service.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-proxy-service-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-proxy-service-2.png">
 
 ### Endpoints
 
 Select this option to manage endpoint artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-endpoint-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-endpoint-1.png">
 
 You can view details, update the <b>status</b>, and enable <b>tracing</b>/<b>statistics</b> for each endpoint.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-endpoint-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-endpoint-2.png">
 
 ### Inbound Endpoints
 
 Select this option to manage inbound endpoint artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-inbound-endpoint-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-inbound-endpoint-1.png">
 
 You can view details of each inbound endpoint as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-inbound-endpoint-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-inbound-endpoint-2.png">
 
 ### Message Processors
 
 Select this option to manage message processor artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-message-processor-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-message-processor-1.png">
 
 You can view details, update the <b>status</b>, and enable <b>tracing</b>/<b>statistics</b> for each message processor.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-message-processor-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-message-processor-1.png">
 
 ### Message Stores
 
 Select this option to manage message store artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-message-store-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-message-store-1.png">
 
 You can view details of each message store as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-message-store-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-message-store-2.png">
 
 ### API
 
 Select this option to manage REST API artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-api-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-api-1.png">
 
 You can view details and update <b>tracing</b> for each API as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-api-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-api-2.png">
 
 ### Templates
 
 Select this option to manage template artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-template-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-template-1.png">
 
 You can view details for each template as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-template-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-template-2.png">
 
 ### Sequences
 
 Select this option to manage sequence artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-sequence-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-sequence-1.png">
 
 You can view details and update <b>tracing</b> for each sequence as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-template-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-template-2.png">
 
 ### Tasks
 
 Select this option to manage scheduled tasks deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-task-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-task-1.png">
 
 You can view details for each task as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-task-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-task-2.png">
 
 ### Local Entries
 
 Select this option to manage local entries deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-localentry-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-localentry-1.png">
 
 You can view details for each local entry as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-localentry-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-localentry-2.png">
 
 ### Data Services
 
 Select this option to manage data services deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-dataservice-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-dataservice-1.png">
 
 You can view details for each data service as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-dataservice-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-dataservice-2.png">
 
 ### Connectors
 
 Select this option to manage connector artifacts deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-connector-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-connector-1.png">
 
 You can view details for each connector as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-connector-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-connector-2.png">
 
 ### Carbon Applications
 
 Select this option to see the list of composite applications deployed in the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-capp.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-capp.png">
 
 ### Log Files
 
 Select this option to view and download log files of the Micro Integrator instance.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-view-logs.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-view-logs.png">
 
 ### Log Configs
 
@@ -433,11 +433,11 @@ Select this option to manage the log4j loggers of the Micro Integrator instance.
 
 To view log configs and update log levels:
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-logger-1.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-logger-1.png">
 
 To add new loggers:
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-logger-2.png">
+<img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/monitoring-dashboard/dashboard-logger-2.png">
 
 ### Users
 

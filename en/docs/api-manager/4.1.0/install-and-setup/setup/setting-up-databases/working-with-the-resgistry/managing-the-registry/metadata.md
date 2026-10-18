@@ -29,13 +29,13 @@ The **Metadata** panel displays the following properties of the resource or the 
 
 For example,
 
-![]({{base_path}}/assets/attachments/22185146/22514191.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/22185146/22514191.png)
 <a name="creating-a-checkpoint"></a>
 #### Creating a checkpoint
 
 To create a checkpoint, click on the **Create Checkpoint** link:
 
-![]({{base_path}}/assets/attachments/126562605/126562606.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562605/126562606.png)
 
 !!! info
 **NOTE** : When checkpoints are created, properties, comments, ratings and tags will also be taken into consideration. If you do not want them to be versioned along with resource content, you can disable it by making changes to the [Static Configuration](https://docs.wso2.com/display/Governance460/Configuration+for+Static+%28One-time%29+and+Auto+Versioning+Resources) . However, these changes need to be done before the server starts for the first time.
@@ -46,11 +46,11 @@ To create a checkpoint, click on the **Create Checkpoint** link:
 
 To view the resource versions, click on the **View versions** link:
 
-![]({{base_path}}/assets/attachments/126562605/126562611.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562605/126562611.png)
 
 It opens the versions. For example,
 
-![]({{base_path}}/assets/attachments/22185146/22514195.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/22185146/22514195.png)
 This page gives the following information:
 
 -   The number of a resource/collection version

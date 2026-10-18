@@ -82,7 +82,7 @@ The following image depicts a typical message transformation scenario using the 
 			<b>Examples</b>
 			<ul>
 				<li>
-					<a href="{{base_path}}/integrate/examples/message-transformations/soap-to-json-conversion">Converting SOAP Messages to JSON</a>
+					<a href="https://apim.docs.wso2.com/en/4.1.0/integrate/examples/message-transformations/soap-to-json-conversion">Converting SOAP Messages to JSON</a>
 				</li>
 				<li>
 					<a href="../examples/message_transformation_examples/pox-to-json-conversion.md">Converting POX Messages to JSON</a>
@@ -91,10 +91,10 @@ The following image depicts a typical message transformation scenario using the 
 					<a href="../examples/message_transformation_examples/json-to-soap-conversion.md">Converting JSON Messages to SOAP</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/integrate/examples/message-transformations/csv-to-other-formats-conversion">Converting CSV Messages to Other Formats</a>
+					<a href="https://apim.docs.wso2.com/en/4.1.0/integrate/examples/message-transformations/csv-to-other-formats-conversion">Converting CSV Messages to Other Formats</a>
 				</li>
 				<li>
-					<a href="{{base_path}}/integrate/examples/message-transformations/csv-conversion">Converting to CSV Message Formats</a>
+					<a href="https://apim.docs.wso2.com/en/4.1.0/integrate/examples/message-transformations/csv-conversion">Converting to CSV Message Formats</a>
 				</li>
 			</ul>
 		</td>

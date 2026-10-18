@@ -51,9 +51,9 @@ The following sections describe how to replace the default H2 database with Embe
     Before you begin,
 
 <<<<<<< HEAD:en/docs/install-and-setup/setting-up-databases/changing-default-databases/changing-to-embedded-h2.md
-    You need to set up Embedded H2 before following the steps to configure your product with it. For more information, see [Setting up Embedded H2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-embedded-h2/) .
+    You need to set up Embedded H2 before following the steps to configure your product with it. For more information, see [Setting up Embedded H2](https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setting-up-databases/changing-default-databases/changing-to-embedded-h2/) .
 =======
-    You need to set up Embedded H2 before following the instructions to configure your product with it. For more information, see [Setting up Embedded H2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-embedded-h2/).
+    You need to set up Embedded H2 before following the instructions to configure your product with it. For more information, see [Setting up Embedded H2](https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setting-up-databases/changing-default-databases/changing-to-embedded-h2/).
 >>>>>>> 3.0.0:en/docs/wip/deleted-pages/changing-to-embedded-h2.md
 
 
@@ -106,7 +106,7 @@ The elements in the above configuration are described below:
 
 
 !!! warning
-    The following elements are available only as a **WUM** update and is effective from 14th September 2018 (2018-09-14).  For more information, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager).
+    The following elements are available only as a **WUM** update and is effective from 14th September 2018 (2018-09-14).  For more information, see [Updating WSO2 API Manager](https://apim.docs.wso2.com/en/4.1.0/administer/product-administration/updating-wso2-api-manager).
     This WUM update is only applicable to Carbon 4.4.11 and will be shipped out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more information on Carbon compatibility, see [Release Matrix](https://wso2.com/products/carbon/release-matrix/).
 
 
@@ -120,7 +120,7 @@ The elements in the above configuration are described below:
 When a database connection is returned to the pool, by default  the product rolls back the pending transactions if `defaultAutoCommit =true`. However, if required, you can disable the latter mentioned default behavior by disabling the `ConnectionRollbackOnReturnInterceptor`, which is a JDBC-Pool JDBC interceptor, and setting the connection pool behavior on return via the datasource configurations by using the following options.
 
 !!! warning
-    Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager). This WUM update is only applicable to Carbon 4.4.11.
+    Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 API Manager](https://apim.docs.wso2.com/en/4.1.0/administer/product-administration/updating-wso2-api-manager). This WUM update is only applicable to Carbon 4.4.11.
 
 
 -   **Configure the connection pool to commit pending transactions on connection return**

@@ -284,7 +284,7 @@ Follow the instructions on [setting up a load balancer](setting_up_lb.md) for a 
 
 ## Deployment hardening
 
-Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the Micro Integrator. For more information, see the [production deployment guidelines]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist).
+Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the Micro Integrator. For more information, see the [production deployment guidelines](https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/mi-setup/deployment/deployment_checklist).
 
 ## Testing the cluster
 
