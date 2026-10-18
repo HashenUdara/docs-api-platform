@@ -23,7 +23,7 @@ Below extension can be used to do above configuration per API. This extension is
 x-wso2-auth-header: "XAuth"
 ```
 
-## Global configuration
+## Global configuration { #global-configuration }
 
 This security configuration is to be added in to the config.toml file and it is global for all API in a specific runtime.
 

@@ -117,13 +117,13 @@ curl -k -X GET "https://localhost:9095/petstore/v1/pet/1" -H  "accept: applicati
 ```
  
    
-## Additional Information
+## Additional Information { #additional-information }
 
 Choreo Connect API Key Authentication supports restrictions for IP address and HTTP referrer. 
 
 --8<-- "api-manager/4.1.0/includes/design/additional-api-key.md"
 
-## Configurations related to API Key
+## Configurations related to API Key { #configurations-related-to-api-key }
 
 Following is the default config referred for API Key authentication. The token service name "APIM Publisher" refers to the Control Plane and holds the configurations for API key, and not to be confused with the access token issuer which is the "Resident Key Manager" as defined in the config. Therefore, even if both of the token types (API keys and access tokens) are produced by the same token issuer which is the Resident Key Manager, subscription validation can be enabled independently.
 

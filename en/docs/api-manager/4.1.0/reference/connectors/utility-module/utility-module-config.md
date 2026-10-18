@@ -67,7 +67,7 @@ The following is a sample request, Synapse configuration, and response for the g
 length=14
 ```
 
-## string.LowerCase
+## string.LowerCase { #stringlowercase }
 
 You can use the `string.LowerCase` operation to change the case of the string to lowercase.
 
@@ -167,7 +167,7 @@ The following is a sample request, Synapse configuration, and response for the g
 uppercase="UTILITY MODULE"
 ```
 
-## string.RegexMatcher
+## string.RegexMatcher { #stringregexmatcher }
 
 You can use the `string.RegexMatcher` operation to check whether the given string is in the desired format. It returns true if the string matches with the regular expression (Regex).
 
@@ -432,7 +432,7 @@ The following is a sample request, Synapse configuration, and response for the g
 signature="32423411140bdebed0b017e738797be452481dbb"
 ```
 
-## signature.Verify
+## signature.Verify { #signatureverify }
 
 You can use the `signature.Verify` operation to verify the payload using the HMAC signature in the header of the request. Thereby, this is used to ensure that the payload is not modified.
 
