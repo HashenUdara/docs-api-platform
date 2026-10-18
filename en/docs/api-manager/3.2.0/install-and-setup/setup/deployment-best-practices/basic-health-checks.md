@@ -53,7 +53,7 @@ curl -v http://localhost:9763/services/Version
 !!! note
     Basic health checks for WebSocket ports 9099 and 8099 are available as a product update in WSO2 API-M 3.2.0 from January 22, 2022 onwards. For example, use the `curl -v http://<HOSTNAME>:9099/health` cURL command to check the health of port 9099. The response will be `200 OK` if the port is healthy.
 
-## APIM Analytics Profiles
+## APIM Analytics Profiles { #apim-analytics-profiles }
 
 Basic health checks can be performed on APIM analytics profiles by connecting to relevant ports. 
 

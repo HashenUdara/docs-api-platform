@@ -412,7 +412,7 @@ Follow the instructions to configure the WSO2 product with the generated KeyStor
 
 2.  Restart the server for the changes to be applicable.
 
-### How can I fix a fatal alert: unknown\_ca error when invoking the methods of an API via the API Console?
+### How can I fix a fatal alert: unknown\_ca error when invoking the methods of an API via the API Console? { #how-can-i-fix-a-fatal-alert-unknown95ca-error-when-invoking-the-methods-of-an-api-via-the-api-console }
 
 The root cause for the `javax.net.ssl.SSLException: Received fatal alert: unknown_ca` error is because the default pack is not shipped with a CA-signed certificate. When using the API Console, the web browser sends an HTTPs request to the API Gateway. As the certificate on the Gateway is not CA-signed, the browser does not accept it.
 
@@ -460,7 +460,7 @@ The Gateway Failures UI error occurs when the `service_url`, `username`, `passwo
 
 At the time of an error, you can use a tool called Carbon Dump (`carbondump.sh`) to collect all the necessary data (i.e., heap and thread dumps) from a running WSO2 API Manager instance in order to carryout a head dump and thread stack analysis. For more information on using this tool, see [Capturing the state of the system](../troubleshooting/admin-troubleshooting-in-production-environments.md#capturing-the-state-of-the-system) in the Administration guide.
 
-### How can I clean up the REG\_LOG table?
+### How can I clean up the REG\_LOG table? { #how-can-i-clean-up-the-reg95log-table }
 
 The `REG_LOG` table contains all the registry operations performed for all the registry resources in the system. When you clean up this table, you need to keep the latest record from every resource path to maintain atleast one resource reference in case of reindexing. Exceute the following query to clean this table.
 

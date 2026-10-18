@@ -33,7 +33,7 @@ Follow the instructions below to install API Manager on Solaris.
 1.  [Download WSO2 API Manager 3.2.0](https://wso2.com/api-management/).
 2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>`.
 
-### Setting up JAVA\_HOME
+### Setting up JAVA\_HOME { #setting-up-java95home }
 
 You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
 
