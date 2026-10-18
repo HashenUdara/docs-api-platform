@@ -232,7 +232,7 @@ The elements of the above configuration are explained below.
     3.  Assign this role to a user.
     4.  Update `<DCREndPointUser>` and `<DCREndPointPassword>` with this user's credentials.
 
-    For more details on how to create users and roles see [managing users and roles]({{base_path}}/administer/product-administration/managing-users-and-roles/admin-managing-users-roles-and-permissions).
+    For more details on how to create users and roles see [managing users and roles](https://apim.docs.wso2.com/en/3.0.0/administer/product-administration/managing-users-and-roles/admin-managing-users-roles-and-permissions).
 
 
 The configurations that can be changed by editing the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` are given below.

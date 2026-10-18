@@ -268,7 +268,7 @@ username = "admin"
 admin_role = "admin"
 create_admin_account = true
 ```
-For information information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/ConfigCatalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption](../../../../product-security/configuring-keystores/keystore-basics/creating-new-keystores) .
+For information information about the system administrator user, see [Configuring the System Administrator](https://apim.docs.wso2.com/en/3.0.0/reference/ConfigCatalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption](../../../../product-security/configuring-keystores/keystore-basics/creating-new-keystores) .
 
 ### Step 3: Starting the server
 

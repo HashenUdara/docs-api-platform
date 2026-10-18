@@ -112,7 +112,7 @@ The Traffic Manager helps users to regulate API traffic, make APIs and applicati
 <a name="analytics"></a>
 #### Analytics
 
-![]({{base_path}}/assets/attachments/103327648/126556775.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/103327648/126556775.png)
 ![](../assets/img/get_started/analytics.png)
 
 Additionally, monitoring and analytics are provided by the analytics component, WSO2 API Manager Analytics. This component provides a host of statistical graphs and an alerting mechanism on pre-determined events. For more information, see [Working with Analytics](../learn/analytics/configuring-apim-analytics).

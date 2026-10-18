@@ -19,7 +19,7 @@ content_type: "how-to"
 
     **Before you begin:**
 
-    -   See [our compatibility matrix]({{base_path}}/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on Linux or OS X.
+    -   See [our compatibility matrix](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on Linux or OS X.
 
 Follow the instructions below to install API Manager on Linux or Mac OS X.
 

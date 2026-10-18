@@ -266,7 +266,7 @@ uses OpenJDK. Therefore, you don't require a separate JDK. However, if you have 
 When a WSO2 product starts, it starts all components, features and related artifacts bundled with it. Multi-profile 
 support allows you to run the product on a selected profile so that only the features specific to that profile along 
 with common features start up with the server. For more on product-profiles please refer 
-[Product Profiles]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles
+[Product Profiles](distributed-deployment/product-profiles.md
 /#product-profiles).
 
 ### Stopping the Server
@@ -387,9 +387,9 @@ hostname = "test.wso2.com"
 </div>
 <div class="panelContent">
 
-<p>See <a href="{{base_path}}/administer/product-administration/managing-users-and-roles
+<p>See <a href="https://apim.docs.wso2.com/en/3.0.0/administer/product-administration/managing-users-and-roles
 /managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/">Configuring Primary User 
-Store</a> and <a href="{{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores
+Store</a> and <a href="https://apim.docs.wso2.com/en/3.0.0/administer/product-administration/managing-users-and-roles/managing-user-stores
 /configuring-secondary-user-stores/">Configuring Secondary User Stores</a> for more information on user stores, how 
 they work, and how to configure them.</p>
 </div>

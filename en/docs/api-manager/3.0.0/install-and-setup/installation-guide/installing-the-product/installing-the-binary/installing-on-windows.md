@@ -19,7 +19,7 @@ content_type: "how-to"
 
     **Before you begin:**
 
-    -   See [our compatibility matrix]({{base_path}}/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on Windows.
+    -   See [our compatibility matrix](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on Windows.
 
 Follow the instructions below to install API Manager on Windows.
 
@@ -97,6 +97,6 @@ You can temporarily set the `JAVA_HOME` environment variable within a Windows co
 If you need to set additional system properties when the server starts, you can take the following approaches:
 
 -   **Set the properties from a script** : Setting your system properties in the startup script is ideal, because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your own startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
--   **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [secure vault]({{base_path}}/administer/product-security/General/logins-and-passwords/admin-carbon-secure-vault-implementation).
+-   **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [secure vault](https://apim.docs.wso2.com/en/3.0.0/administer/product-security/General/logins-and-passwords/admin-carbon-secure-vault-implementation).
 
 You are now ready to [run the product](../../running-the-product).

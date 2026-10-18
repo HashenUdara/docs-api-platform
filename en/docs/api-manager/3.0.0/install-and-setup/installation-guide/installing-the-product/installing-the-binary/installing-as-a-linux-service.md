@@ -23,7 +23,7 @@ content_type: "how-to"
 
     **Before you begin:**
 
-    - See [our compatibility matrix]({{base_path}}/install-and-setup/ProductCompatibility) to check the compatible JDK versions. 
+    - See [our compatibility matrix](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/ProductCompatibility) to check the compatible JDK versions. 
     - Set up the `JAVA_HOME` environment variable.
 
 #### Setting up CARBON\_HOME

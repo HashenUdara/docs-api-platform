@@ -24,9 +24,9 @@ Access and performance statistics are available in system level as follows:
 Follow the instructions given below to access system-level statistics.
 
 1.  Log in to the management console and click **System Statistics** in the **Monitor** tab:
-    ![]({{base_path}}/assets/attachments/126562881/126562882.png)
+    ![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562881/126562882.png)
 2.  The **System Statistics** page appears as follows:
-    ![]({{base_path}}/assets/attachments/126562881/126562886.png)
+    ![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562881/126562886.png)
     The following information is available:
     -   [Service Summary](#service-summary)
     -   [Server Information](#server-information)
@@ -37,7 +37,7 @@ Follow the instructions given below to access system-level statistics.
 <a name="service-summary"></a>
 #### Service Summary
 
-![]({{base_path}}/assets/attachments/126562881/126562883.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562881/126562883.png)
 
 This panel provides the following information:
 
@@ -52,7 +52,7 @@ This panel provides the following information:
 <a name="server-information"></a>
 #### Server Information
 
-![]({{base_path}}/assets/attachments/126562881/126562885.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562881/126562885.png)
 
 This panel provides the following information:
 
@@ -65,14 +65,14 @@ This panel provides the following information:
 <a name="response-time-graph"></a>
 #### Response Time Graph
 
-![]({{base_path}}/assets/attachments/126562881/126562884.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562881/126562884.png)
 
 This graph shows the temporal variation of the Average Response time.
 
 <a name="memory-graph"></a>
 #### Memory Graph
 
-![]({{base_path}}/assets/attachments/126562881/126562890.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562881/126562890.png)
 
 This graph shows the temporal variation of the server Memory.
 
@@ -81,7 +81,7 @@ This graph shows the temporal variation of the server Memory.
 
 The **Statistics Configuration** panel is provided to customize the **System Statistics** display by configuring the level information that can be viewed on the panel.
 
-![]({{base_path}}/assets/attachments/126562881/126562888.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562881/126562888.png)
 
 The following information can be configured:
 
