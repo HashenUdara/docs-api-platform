@@ -39,7 +39,7 @@ Follow the instructions below to install API Manager on Windows.
 2.  Copy the jar to `<API-M_HOME>\repository\components\lib`.
 3.  If the API Manager server is currently running, restart it to apply the changes.
 
-## Setting up JAVA\_HOME
+## Setting up JAVA\_HOME { #setting-up-java95home }
 
 You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk1.8.0_xx` . If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
@@ -50,7 +50,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
 You set up `JAVA_HOME` using the System Properties, as described below. Alternatively, if you just want to set `JAVA_HOME` temporarily for the current command prompt window, [set it at the command prompt](installing-on-windows#setting-java95home-temporarily-using-the-windows-command-prompt-cmd).
 
-### Setting up JAVA\_HOME using the system properties
+### Setting up JAVA\_HOME using the system properties { #setting-up-java95home-using-the-system-properties }
 
 1.  Right-click the **My Computer** icon on the desktop and click **Properties.**
 
@@ -74,7 +74,7 @@ The `JAVA_HOME` variable is now set and will apply to any subsequent command pro
 
 The system returns the JDK installation path. You are now ready to [run the product](../../running-the-product).
 
-### Setting JAVA\_HOME temporarily using the Windows command prompt (CMD)
+### Setting JAVA\_HOME temporarily using the Windows command prompt (CMD) { #setting-java95home-temporarily-using-the-windows-command-prompt-cmd }
 
 You can temporarily set the `JAVA_HOME` environment variable within a Windows command prompt window (CMD). This is useful when you have an existing command prompt window running and you do not want to restart it.
 

@@ -26,7 +26,7 @@ content_type: "how-to"
     - See [our compatibility matrix](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/ProductCompatibility) to check the compatible JDK versions. 
     - Set up the `JAVA_HOME` environment variable.
 
-#### Setting up CARBON\_HOME
+#### Setting up CARBON\_HOME { #setting-up-carbon95home }
 
 Extract the WSO2 product to a preferred directory in your machine and set the environment variable `CARBON_HOME` to the extracted directory location.
 

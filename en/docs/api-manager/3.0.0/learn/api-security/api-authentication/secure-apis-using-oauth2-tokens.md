@@ -217,7 +217,7 @@ Each tenant can define their own name for the authorization header by following 
 
 6.  If you have already published APIs, [sign in to the API Publisher](../../../install-and-setup/installation-guide/running-the-product.md#accessing-the-api-publisher) using your tenant credentials and republish those APIs.
 
-### Customize per API
+### Customize per API { #customize-per-api }
 
 The API Publisher application allows an API Developer or Product Manager to specify the name of the authorization header when creating or modifying an API.
 

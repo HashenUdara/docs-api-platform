@@ -17,7 +17,7 @@ content_type: "concept"
 
 The API lifecycle is one of the key factors in API management. An API lifecycle has predefined states. These states represent the stages that an API has in the process of starting to develop an API until it's retirement. WSO2 API Manager related APIs has a lifecycle that contains six stages which allows you to identify in which state that the API is currently in.
 
-## API lifecycle states
+## API lifecycle states { #api-lifecycle-states }
 
 The following API lifecycle states are available in the default API lifecycle.
 

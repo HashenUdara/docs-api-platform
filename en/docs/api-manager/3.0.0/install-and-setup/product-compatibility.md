@@ -15,7 +15,7 @@ content_type: "reference"
 # Product Compatibility
 The following compatibility details are with regard to WSO2 API Manager (WSO2 API-M) 3.0.0.
 
-## Tested Operating Systems and JDKs
+## Tested Operating Systems and JDKs { #tested-operating-systems-and-jdks }
 As WSO2 API Manager is a Java application, you can generally run WSO2 API-M on most operating systems. The following are the JDKs that are tested with WSO2 API-M.
 
 <table>
@@ -62,13 +62,13 @@ WSO2 API Manager supports the following DBMSs.
 -   Google Chrome 69
 -   Firefox 62.0.2
 
-## Tested WSO2 Products
+## Tested WSO2 Products { #tested-wso2-products }
 The following is a list of other WSO2 products that is tested with WSO2 API Manager 3.0.0.
 
 - WSO2 Enterprise Integrator 6.5.0
 - WSO2 Identity Server 5.9.0
 
-## Compatible WSO2 Identity Server as the Key Managers
+## Compatible WSO2 Identity Server as the Key Managers { #compatible-wso2-identity-server-as-the-key-managers }
 
 <table>
 <thead>
