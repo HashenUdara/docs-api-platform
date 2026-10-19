@@ -18,7 +18,7 @@ Guardrails are policies that run in the LLM Proxy's request and response pipelin
 
 AI Guardrails allow you to enforce safety, content, and compliance policies on AI traffic flowing through the AI Gateway. They can be applied at the LLM Provider level (organization-wide), at the LLM Proxy level (per-application), or on MCP Proxies.
 
-Guardrails use the same underlying policy engine as [API Gateway policies](../../../api-gateway/next/policies/overview.md). Each guardrail declares which execution phases it participates in, and the engine calls the appropriate hook for each phase.
+Guardrails use the same underlying policy engine as [API Gateway policies](../../../api-gateway/next/policies/overview/). Each guardrail declares which execution phases it participates in, and the engine calls the appropriate hook for each phase.
 
 ## What guardrails do
 
@@ -38,7 +38,7 @@ This section contains the following pages:
 | [Guardrails catalogue](guardrails-catalogue.md) | Every guardrail policy the AI Gateway ships, what each one checks, and how to extend the gateway with a guardrail of your own. |
 | [Guardrail execution order](execution-order.md) | How guardrails execute in the dual-hop model: the LLM Proxy chain runs before the LLM Provider chain on request, and in reverse on response. |
 
-Guardrail policies are documented in the [Policy Hub](https://wso2.com/api-platform/policy-hub), the versioned reference for every API Platform policy. For policy categories and how policies chain, see the [Policy Hub overview](../../../policy-hub/overview.md).
+Guardrail policies are documented in the [Policy Hub](https://wso2.com/api-platform/policy-hub), the versioned reference for every API Platform policy. For policy categories and how policies chain, see the [Policy Hub overview](../../../policy-hub/overview/).
 
 ## Prompt management
 

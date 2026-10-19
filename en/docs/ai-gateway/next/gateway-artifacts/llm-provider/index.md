@@ -49,4 +49,4 @@ This section contains the following pages:
 
 ## Related guides
 
-- [Set up a governed multi-model LLM proxy](../../../../guides/ai-and-mcp/set-up-a-governed-multi-model-llm-proxy-with-cost-controls-and-failover.md) — adds Azure OpenAI as an LLM provider, then distributes requests across models behind a single proxy.
+- [Set up a governed multi-model LLM proxy](../../../../guides/ai-and-mcp/set-up-a-governed-multi-model-llm-proxy-with-cost-controls-and-failover/) — adds Azure OpenAI as an LLM provider, then distributes requests across models behind a single proxy.
