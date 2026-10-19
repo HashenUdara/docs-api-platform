@@ -16,7 +16,7 @@ content_type: "concept"
 
 Guardrails are policies that run in the LLM Proxy's request and response pipeline to validate, filter, or transform content before it reaches an LLM or is returned to the client.
 
-Guardrails use the same underlying policy engine as [API Gateway policies](../../../../../api-gateway/1.1.0/policies/overview.md). Each guardrail declares which execution phases it participates in, and the engine calls the appropriate hook for each phase.
+Guardrails use the same underlying policy engine as [API Gateway policies](../../../../../api-gateway/1.1.0/policies/overview/). Each guardrail declares which execution phases it participates in, and the engine calls the appropriate hook for each phase.
 
 ## What guardrails do
 
