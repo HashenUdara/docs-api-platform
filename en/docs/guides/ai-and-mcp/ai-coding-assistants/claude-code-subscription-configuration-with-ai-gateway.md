@@ -333,7 +333,7 @@ WSO2 API Platform AI Gateway supports Prompt Decorators, which allow you to modi
 
 Under a flat subscription, usage that isn't related to work costs the organization capacity rather than money, and it puts an organizational account behind requests the organization never intended to make. A Prompt Decorator applied in the request flow prepends an organizational usage restriction to the system prompt of every request, which keeps the restriction outside any single developer's control.
 
-A Prompt Decorator guides the model rather than filtering traffic. It states the policy on every request, and the model acts on it, but the gateway still forwards the request. To reject off-policy prompts before they reach Anthropic, pair the decorator with a guardrail. [Semantic Prompt Guard](../../../ai-gateway/1.2.0/llm-proxy/guardrails/semantic-prompt-guard.md) compares each prompt against allowed and denied phrase lists. It blocks the prompts that fall outside them.
+A Prompt Decorator guides the model rather than filtering traffic. It states the policy on every request, and the model acts on it, but the gateway still forwards the request. To reject off-policy prompts before they reach Anthropic, pair the decorator with a guardrail. [Semantic Prompt Guard](https://wso2.com/api-platform/policy-hub/policies/semantic-prompt-guard) compares each prompt against allowed and denied phrase lists. It blocks the prompts that fall outside them.
 
 The following policy configuration states the restriction. Adjust the wording of `text` to match your organization's acceptable use policy.
 
