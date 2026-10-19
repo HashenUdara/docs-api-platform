@@ -37,7 +37,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "publisher-v0.15.yaml",
+    url: "../publisher-v0.15.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
