@@ -17,6 +17,9 @@ The source list is /app/root-index.json, the copy baked into the image.
 The file mounted over /usr/share/nginx/html/root-index.json is the public
 staging list and is not used here. A failed fetch leaves that host's pages
 and crumbs from the previous files in place.
+
+Outputs default to /tmp/docs-search/ because Choreo runs the container
+filesystem read-only; nginx serves those paths via alias (see nginx.conf).
 """
 
 import fcntl
@@ -29,11 +32,11 @@ from urllib.parse import urlparse
 
 ROOT_INDEX = os.environ.get("ROOT_INDEX_PATH", "/app/root-index.json")
 OUTPUT = os.environ.get(
-    "SEARCH_INDEX_PATH", "/usr/share/nginx/html/search/search_index.json"
+    "SEARCH_INDEX_PATH", "/tmp/docs-search/search_index.json"
 )
 BREADCRUMBS_OUTPUT = os.environ.get(
     "SEARCH_BREADCRUMBS_PATH",
-    "/usr/share/nginx/html/assets/search-breadcrumbs.json",
+    "/tmp/docs-search/search-breadcrumbs.json",
 )
 LOCK = os.environ.get("SEARCH_INDEX_LOCK", "/tmp/search-index.lock")
 TIMEOUT = int(os.environ.get("SEARCH_INDEX_FETCH_TIMEOUT", "90"))
