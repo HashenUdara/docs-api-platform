@@ -21,7 +21,7 @@ Follow the instructions below to add a new child entry to a collection.
 
 1. To add a new resource, click on the *Add Resource* link.
 
-![]({{base_path}}/assets/attachments/126562631/126562638.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562631/126562638.png)
 
 2. In the *Add Resource* panel, select *Method* from the drop-down menu.
 
@@ -32,7 +32,7 @@ The following methods are available:
 -   **[Create Text content](#text-content-creation)**
 -   **[Create custom content](#custom-content-creation)**
 
-![]({{base_path}}/assets/attachments/126562631/126562637.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562631/126562637.png)
 
 ### Uploading Content from File
 
@@ -45,7 +45,7 @@ The following methods are available:
 
 2. Click *Add* once the information is added as shown in the example below.
 
-![]({{base_path}}/assets/attachments/126562631/126562635.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562631/126562635.png)
 
 ### Importing Content from URL
 
@@ -58,7 +58,7 @@ The following methods are available:
 
 2. Click *Add* once the information is added.
 
-![]({{base_path}}/assets/attachments/126562631/126562633.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562631/126562633.png)
 
 ### Text Content Creation
 
@@ -71,13 +71,13 @@ The following methods are available:
 
 2. Click *Add* once the information is added.
 
-![]({{base_path}}/assets/attachments/126562631/126562632.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562631/126562632.png)
 
 ### Custom Content Creation
 
 1. If this method was selected, choose the *Media Type* from the drop-down menu and click *Create Content* .
 
-![]({{base_path}}/assets/attachments/126562631/126562636.png)
+![](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/126562631/126562636.png)
 
 **Media Types**
 

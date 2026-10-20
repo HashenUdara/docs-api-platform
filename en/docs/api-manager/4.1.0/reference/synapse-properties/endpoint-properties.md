@@ -231,7 +231,7 @@ See the topics given below for the list of properties that can be configured for
 ```
 -->
 
-### Basic Properties
+### Basic Properties { #basic-properties }
 
 Listed below are the basic properties that used to [define an endpoint artifact](../../integrate/develop/creating-artifacts/creating-endpoints.md).
 
@@ -329,7 +329,7 @@ Given below are the basic properties for the <b>Template Endpoint</b>:
       </tr>
 </table>
 
-### Session Management Properties
+### Session Management Properties { #session-management-properties }
 
 The following properties <b>only</b> apply to the LoadBalance endpoint:
 
@@ -384,7 +384,7 @@ Member properties can be used to associate configuration data with an endpoint.
 </table>
 -->
 
-### Miscellaneous Properties
+### Miscellaneous Properties { #miscellaneous-properties }
 
 <table>
     <tr>
@@ -510,7 +510,7 @@ Member properties can be used to associate configuration data with an endpoint.
       </tr>
 </table>
 
-### Basic Auth Properties
+### Basic Auth Properties { #basic-auth-properties }
 
 The following properties <b>only</b> apply to HTTP endpoint.
 
@@ -550,7 +550,7 @@ The following is an HTTP endpoint configured with basic authentication.
 </endpoint>
 ```
 
-### OAuth Properties
+### OAuth Properties { #oauth-properties }
 
 The following properties <b>only</b> apply to HTTP endpoint. 
 
@@ -640,7 +640,7 @@ The following is an HTTP endpoint configured with refresh token grant type.
 </endpoint>
 ```
 
-#### Client Credentials grant type
+#### Client Credentials grant type { #client-credentials-grant-type }
 
 The `clientCredentials` element contains the following parameters that are used to configure OAuth for the endpoint.
 
@@ -706,7 +706,7 @@ The following is an HTTP endpoint configured with the client credentials grant t
 </endpoint>
 ```
 
-#### Password grant type
+#### Password grant type { #password-grant-type }
 
 The `passwordCredentials` element contains the following parameters that are used to configure OAuth for the endpoint.
 
@@ -793,7 +793,7 @@ The following is an HTTP endpoint configured with the password grant type.
 ```
 
 <a name="send-additional-parameters-in-the-oauth-request-body"></a>
-#### Send additional parameters in the OAuth request body
+#### Send additional parameters in the OAuth request body { #send-additional-parameters-in-the-oauth-request-body }
 
 By default the `grant_type`, `client_id`, and `client_secret` parameters are sent in the OAuth request body. To send additional parameters you can define them as a list of parameters under the `requestParameters` tag as shown in the example below.
 
@@ -818,7 +818,7 @@ By default the `grant_type`, `client_id`, and `client_secret` parameters are sen
 ```
 
 <a name="define-dynamic-expressions"></a>
-#### Define dynamic expressions
+#### Define dynamic expressions { #define-dynamic-expressions }
 
 You can use dynamic values for OAuth configurations such as XPATH, JSON expressions or vault-lookup to get data from a secure vault. Make sure you define the elements within curly brackets.
 
@@ -841,7 +841,7 @@ You can use dynamic values for OAuth configurations such as XPATH, JSON expressi
 </endpoint>
 ```
 
-### Quality of Service Properties
+### Quality of Service Properties { #quality-of-service-properties }
 
 QoS (Quality of Service) aspects such as WS-Security and WS-Addressing may be enabled on messages sent to an endpoint using `enableSec` and `enableAddressing` elements. Optionally, the WS-Security policies could be specified using the `policy` attribute.
 
@@ -864,7 +864,7 @@ QoS (Quality of Service) aspects such as WS-Security and WS-Addressing may be en
     </tr>
 </table>
 
-### Endpoint Error Handling Properties
+### Endpoint Error Handling Properties { #endpoint-error-handling-properties }
 
 Errors that can occur at [endpoints](endpoint-properties.md) can be specifically configured using the endpoint error handling properties.
 
@@ -948,7 +948,7 @@ The following is the configuration for the address endpoint. Note that you can a
 </address>
 ```
 
-#### Timeout Properties
+#### Timeout Properties { #timeout-properties }
 
 The `timeout` element contains the following parameters that are used to consider an endpoint as "timeout" by not being responsive for a specified time duration.
 
@@ -991,7 +991,7 @@ The `timeout` element contains the following parameters that are used to conside
     </tbody>
 </table>
 
-#### MarkForSuspension Properties
+#### MarkForSuspension Properties { #markforsuspension-properties }
 
 The `markForSuspension` element contains the following parameters that are used to mark an endpoint as "suspended" after the time out duration is reached.
 
@@ -1038,7 +1038,7 @@ The `markForSuspension` element contains the following parameters that are used 
     </tbody>
 </table>
 
-#### SuspendOnFailure Properties
+#### SuspendOnFailure Properties { #suspendonfailure-properties }
 
 Leaf endpoints (Address and WSDL) can be suspended if they are detected
 as failed endpoints. When an endpoint is in suspended state for a
@@ -1109,7 +1109,7 @@ to a maximum duration.
     </tbody>
 </table>
 
-##### Sample Configuration:
+##### Sample Configuration: { #sample-configuration }
 
 ``` xml
 <endpoint name="Sample_First" statistics="enable" >
@@ -1139,7 +1139,7 @@ In this example, 101504 and 101505 errors move the endpoint into the "Timeout" s
 
 When the endpoint is first suspended, the retry happens after one second. Because the progression factor is 2, the next suspension duration before retry is two seconds, then four seconds, then eight, and so on until it gets to sixty seconds, which is the maximum duration we have configured. At this point, all subsequent suspension periods will be sixty seconds until the endpoint succeeds and is back in the Active state, at which point the initial duration will be used on subsequent suspensions.
 
-### WS Addressing Properties
+### WS Addressing Properties { #ws-addressing-properties }
 
 <table>
     <thead>

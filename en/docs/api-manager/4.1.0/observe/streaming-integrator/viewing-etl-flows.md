@@ -111,24 +111,24 @@ The **RDBMS Table Statistics** dashboard opens with statistics specific to the s
     
 Kafka related statistics are displayed in the **Sources** and **Destinations** sections of the **WSO2 Streaming Integrator App Statistics** dashboard. 
 
-<!-- [![Kafka Sources Table]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-sources-table.png)]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-sources-table.png)
+<!-- [![Kafka Sources Table](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-sources-table.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-sources-table.png)
 
-[![Kafka Sinks Table]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-destinations-table.png)]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-destinations-table.png) -->
+[![Kafka Sinks Table](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-destinations-table.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-destinations-table.png) -->
 
 To view the details on the overall Kafka Statistics for a specific app, click on any stream link on the table. As a result, the **WSO2 Streaming Integrator Kafka Statistics** dashboard appears.
 
-<!-- [![Kafka Statistics Dashboard]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-statistics-dashboard.png)]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-statistics-dashboard.png) -->
+<!-- [![Kafka Statistics Dashboard](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-statistics-dashboard.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-statistics-dashboard.png) -->
 
 This page has two sections: **Source** and **Sink**. 
 
 - The **Source** section shows the overall Kafka Source metrics such as total reads, input event rate etc. It also contains a table that lists all the streams that are associated with a Kafka source. If you click on a stream, it will take you to **WSO2 Streaming Integrator Kafka Source Statistics** dashboard.
 
-      <!-- [![Kafka Source Statistics Dashboard]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-source-statistics-dashboard.png)]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-source-statistics-dashboard.png) -->
+      <!-- [![Kafka Source Statistics Dashboard](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-source-statistics-dashboard.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-source-statistics-dashboard.png) -->
 
       This dashboard shows the Kafka Source statistics related to the selected stream. A stream is associated with one or more topics. Furthermore, each topic is associated with a partition. You can use this dashboard to view statistics for each separate Topic-Partition combination to which the selected stream is subscribed.
 
 - The **Sink** section shows the overall Kafka Sink metrics such as total writes, output event rate, etc. It also contains a table that lists all the streams that are associated with a Kafka source. If you click on a stream, it will take you to **WSO2 Streaming Integrator Kafka Sink Statistics** dashboard.
 
-      <!-- [![Kafka Sink Statistics Dashboard]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-sink-statistics-dashboard.png)]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/kafka-sink-statistics-dashboard.png) -->
+      <!-- [![Kafka Sink Statistics Dashboard](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-sink-statistics-dashboard.png)](https://apim.docs.wso2.com/en/4.1.0/assets/img/streaming/managing-wso2-dashboards/kafka-sink-statistics-dashboard.png) -->
 
       This dashboard shows the Kafka Sink statistics related to the selected stream. Here, a stream publishes to a specific Kafka Topic and to one or more partitions. You can use this dashboard to view statistics for each separate Topic-Partition combination to which the selected stream publishes messages.

@@ -22,7 +22,7 @@ Follow the steps given below to set up the required MSSQL databases for your Mic
 
 	-	<a href='../../deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
     -	<a href='../../user_stores/setting_up_a_userstore/'>using an RDBMS user store</a>
-    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
+    -	<a href='https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Enable TCP/IP
 
@@ -56,7 +56,7 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>mssql_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
+		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='https://apim.docs.wso2.com/en/4.1.0/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
 	</tr>
 </table>
 

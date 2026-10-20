@@ -80,7 +80,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
        
     12. After setting up CRM permissions you will see following console.   
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/after-setup-permission.png" title="After setup CRM permissions" width="800" alt="After setup CRM permissions"/> 
+        <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/after-setup-permission.png" title="After setup CRM permissions" width="800" alt="After setup CRM permissions"/> 
     
     13. Now you need to create secret keys. Navigate to **Certificates & secrets**.
         

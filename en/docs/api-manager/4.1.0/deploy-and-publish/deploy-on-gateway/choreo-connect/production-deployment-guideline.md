@@ -318,7 +318,7 @@ wso2:
             value: "admin"
 ```
 
-### Configure Ingress Secrets
+### Configure Ingress Secrets { #configure-ingress-secrets }
 
 By default, the helm chart installation of Choreo Connect creates default certificates for ingress resources.
 Providing TLS Secret name in the following values will replace those default certs with provided certs.
@@ -334,7 +334,7 @@ wso2.deployment.adapter.ingress.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMES
 wso2.deployment.gatewayRuntime.router.ingress.tlsSecretName=<TLS_CERT_SECRET_IN_THE_SAME_NAMESPACE>
 ```
 
-### Disable Test Token Issuer
+### Disable Test Token Issuer { #disable-test-token-issuer }
 
 Choreo Connect provides the ability to generate a JWT as a test key to access the APIs. It is recommended to disable the `/testkey` endpoint in the Production environments.
 Refer the document [Generate a Test JWT](security/generate-a-test-jwt.md) to read more about Test JWT.
@@ -393,7 +393,7 @@ wso2:
 
   deployment:
     # Deployment option: one of "STANDALONE" or "APIM_AS_CP"
-    # Refer deployment options: {{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
+    # Refer deployment options: https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
     mode: APIM_AS_CP
 ```
 
@@ -411,7 +411,7 @@ wso2:
 
   deployment:
     # Deployment option: one of "STANDALONE" or "APIM_AS_CP"
-    # Refer deployment options: {{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
+    # Refer deployment options: https://apim.docs.wso2.com/en/4.1.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/deploy/cc-deploy-overview/
     mode: "APIM_AS_CP"
 ```
 
@@ -435,7 +435,7 @@ mkdir apictl-projects-dir
 cp -r petstore/ apictl-projects-dir/petstore
 ```
 
-#### Step 2: Create Custom Adapter Docker Image
+#### Step 2: Create Custom Adapter Docker Image { #step-2-create-custom-adapter-docker-image }
 Create a Dockerfile as follows.
 
 ```dockerfile tab='Format'
@@ -458,7 +458,7 @@ docker build -t <IMAGE_NAME> -f <DOCKER_FILE_PATH> <CONTEXT>
 docker build -t myimages/choreo-connect-adapter-petstore:{{choreo_connect.version}} -f Dockerfile .
 ```
 
-#### Step 3: Update Adapter Docker Image Name
+#### Step 3: Update Adapter Docker Image Name { #step-3-update-adapter-docker-image-name }
 
 Update the following values in the helm release with the Adapter docker image, image pull secrets. You can separate each gateway environments by specifying the value `wso2.deployment.labelName`.
 
@@ -513,7 +513,7 @@ wso2:
       apiArtifactsMountEmptyDir: false
 ```
 
-#### Step 4: Disable the Adapter Rest API
+#### Step 4: Disable the Adapter Rest API { #step-4-disable-the-adapter-rest-api }
 
 Since we want to make our gateway immutable, we can disable the Adapter Rest API which is used by the `apictl` communicate the Choreo Connect to
 deploy, undeploy APIs. Update the following value of the helm release for that purpose.

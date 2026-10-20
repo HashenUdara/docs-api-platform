@@ -180,7 +180,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.additional.30 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
 ```
 
-### Setting up carbon\_home
+### Setting up carbon\_home { #setting-up-carbon95home }
 
 Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the extracted product directory location.
 
