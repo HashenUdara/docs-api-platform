@@ -530,6 +530,7 @@ nav:
                     - Azure AI Foundry: api-manager/next/ai-gateway/ai-vendor-management/azure-ai-foundry.md
                     - Azure OpenAI: api-manager/next/ai-gateway/ai-vendor-management/azure-openai.md
                     - Gemini: api-manager/next/ai-gateway/ai-vendor-management/gemini.md
+                    - Google Vertex AI: api-manager/next/ai-gateway/ai-vendor-management/google-vertex-ai.md
                     - Mistral AI: api-manager/next/ai-gateway/ai-vendor-management/mistral-ai.md
                     - OpenAI: api-manager/next/ai-gateway/ai-vendor-management/openai.md
                     - Custom AI Service Providers:
