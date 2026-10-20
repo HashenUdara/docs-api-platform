@@ -11,9 +11,10 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN apk upgrade --no-cache libcrypto3 libssl3 \
     && apk add --no-cache python3 \
-    && chmod 755 /app/docker-entrypoint.sh \
-    && mkdir -p /usr/share/nginx/html/search /usr/share/nginx/html/assets \
-    && chown 10014:nginx /usr/share/nginx/html/search /usr/share/nginx/html/assets
+    && chmod 755 /app/docker-entrypoint.sh
+# Combined search files are written to /tmp/docs-search at runtime (read-only
+# root FS on Choreo). nginx aliases /search/search_index.json and
+# /assets/search-breadcrumbs.json to that directory.
 
 RUN adduser -u 10014 -D -H -G nginx appuser \
     && chown -R 10014:nginx /var/log/nginx \

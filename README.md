@@ -37,13 +37,14 @@ staging file) and fetches `{host}/search/search_index.json` and
 `{host}/assets/search-breadcrumbs.json` from each product host in that list.
 Platform-common is fetched once. Its pages and crumbs are kept whole. From
 each other host, only paths that start with that product's slug are kept
-(`cloud/`, `api-manager/4.7.0/`, and so on). Results are written to
-`/usr/share/nginx/html/search/search_index.json` and
-`/usr/share/nginx/html/assets/search-breadcrumbs.json` (an `assets/` folder
-created for this file; `theme.js` and `root-index.json` still live at the
-site root). `theme.js` loads the breadcrumb file from this deployment
-(`SHARED_BASE`), so a landing-page search can label hits from every product
-the same way `main` does.
+(`cloud/`, `api-manager/4.7.0/`, and so on). Results are written under
+`/tmp/docs-search/` (Choreo's container root filesystem is read-only, so
+writing under `/usr/share/nginx/html` fails with `Errno 30`). nginx serves
+them at `/search/search_index.json` and `/assets/search-breadcrumbs.json`
+via `alias`. `theme.js` and `root-index.json` still live at the site root.
+`theme.js` loads the breadcrumb file from this deployment (`SHARED_BASE`),
+so a landing-page search can label hits from every product the same way
+`main` does.
 
 A doc change is deployed on that product branch as usual. The next refresh
 reads the new index and breadcrumbs from that product's host. No product
