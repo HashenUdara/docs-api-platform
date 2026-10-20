@@ -62,7 +62,7 @@ final XML tree. If the original JSON payload is of type `object` , the special e
 </jsonArray>
 ```
 
-### Named arrays
+### Named arrays { #named-arrays }
 
 ``` javascript tab='JSON'
 {"array":[1,2]}
@@ -97,7 +97,7 @@ final XML tree. If the original JSON payload is of type `object` , the special e
 </jsonObject>
 ```
 
-### Anonymous arrays
+### Anonymous arrays { #anonymous-arrays }
 
 ``` javascript tab='JSON'
 [1,2]
@@ -143,11 +143,11 @@ final XML tree. If the original JSON payload is of type `object` , the special e
 </jsonArray>
 ```
 
-## XML processing instructions (PIs)
+## XML processing instructions (PIs) { #xml-processing-instructions-pis }
 
 Note the addition of `xml-multiple` processing instructions to the XML payloads whose JSON representations contain arrays. `JsonBuilder` (via StAXON) adds these instructions to the XML payload that it builds during the JSON to XML conversion so that during the XML to JSON conversion, `JsonFormatter` can reconstruct the arrays that are present in the original JSON payload. `JsonFormatter` interprets the elements immediately following a processing instruction to construct an array.
 
-## Special characters
+## Special characters { #special-characters }
 
 When building XML elements, the EI handles the `$` character and digits in a special manner when they appear as the first character of a JSON key. Following are examples of two such occurrences. Note the addition of the `_JsonReader_PS_` and `_JsonReader_PD_` prefixes in place of the `$` and digit characters, respectively.
 
@@ -171,7 +171,7 @@ When building XML elements, the EI handles the `$` character and digits in a spe
 </jsonObject>
 ```
 
-## Converting spaces
+## Converting spaces { #converting-spaces }
 
 Although you can have spaces in JSON elements, [you cannot have them when converted to XML](https://www.w3.org/TR/REC-xml/#sec-common-syn). Therefore, you can handle spaces when converting JSON message payloads to XML, by adding the following property to the `MI_HOME/conf/deployment.toml` file in the `[mediation]` section:
 `synapse.build_valid_nc_name`

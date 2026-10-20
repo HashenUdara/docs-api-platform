@@ -109,7 +109,7 @@ deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/inter
     you define your own request body (say, based on a header value) to send to the backend.
     Even though you do not read the request body, you should include the above condition.
 
-## Response flow Interceptor
+## Response flow Interceptor { #response-flow-interceptor }
 
 You can use the extension `x-wso2-response-interceptor` to define the interceptor for the response flow.
 It is the same as the request flow, but additionally the following values are supported in the `includes` section of the extension.

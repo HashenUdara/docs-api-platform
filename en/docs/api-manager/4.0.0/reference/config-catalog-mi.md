@@ -1185,7 +1185,7 @@ connection_retry_delay = "120000"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to &lt;a href=&#39;{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate&#39;&gt;add certificates to the truststore&lt;/a&gt;.</p>
+                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to &lt;a href=&#39;https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate&#39;&gt;add certificates to the truststore&lt;/a&gt;.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

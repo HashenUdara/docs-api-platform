@@ -42,10 +42,10 @@ ex: use dashboarddb;
 :r <MI_DASHBOARD_HOME>/dbscripts/mssql/mssql.sql
 ```
 
-## Setting up the JDBC driver
+## Setting up the JDBC driver { #setting-up-the-jdbc-driver }
 [Download](https://msdn.microsoft.com/en-us/data/aa937724.aspx) and copy the `mssql-jdbc-10.2.1.jre8.jar` Microsoft SQL JDBC driver file to the `MI_DASHBOARD_HOME/lib/` directory. Use `com.microsoft.sqlserver.jdbc.SQLServerDriver` as the <driverClassName> in your datasource configuration as explained below.
 
-## Connecting the database to the server
+## Connecting the database to the server { #connecting-the-database-to-the-server }
 
 Open the `deployment.toml` file in the `<MI_DASHBOARD_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator (MI) Dashboard and the database.
 

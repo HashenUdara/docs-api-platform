@@ -35,7 +35,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
 
 !!! info
     
-    If you want to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file and secure it with [secure vault]({{base_path}}/administer/product-security/General/logins-and-passwords/admin-carbon-secure-vault-implementation).
+    If you want to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file and secure it with [secure vault](https://apim.docs.wso2.com/en/4.0.0/administer/product-security/General/logins-and-passwords/admin-carbon-secure-vault-implementation).
 
 !!! note
     
@@ -174,7 +174,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
 ```
 
-### Setting up CARBON\_HOME
+### Setting up CARBON\_HOME { #setting-up-carbon95home }
 
 Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location which is for example wso2am-2.1.0 here.
 

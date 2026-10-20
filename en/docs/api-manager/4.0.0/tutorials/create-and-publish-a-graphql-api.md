@@ -168,7 +168,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
                   </p>
                   </div>
                   
-                  Create a role named `FilmSubscriber` and assign it to the `admin` user for this example scenario. For more information, see [Adding Users]({{base_path}}/administer/product-administration/managing-users-and-roles/adding-users/) and [Adding User Roles]({{base_path}}/administer/product-administration/managing-users-and-roles/adding-user-roles/).
+                  Create a role named `FilmSubscriber` and assign it to the `admin` user for this example scenario. For more information, see [Adding Users](https://apim.docs.wso2.com/en/4.0.0/administer/product-administration/managing-users-and-roles/adding-users/) and [Adding User Roles](https://apim.docs.wso2.com/en/4.0.0/administer/product-administration/managing-users-and-roles/adding-user-roles/).
 
                   [![Create a scope](../assets/img/learn/create-scope.png)](../assets/img/learn/create-scope.png)
 

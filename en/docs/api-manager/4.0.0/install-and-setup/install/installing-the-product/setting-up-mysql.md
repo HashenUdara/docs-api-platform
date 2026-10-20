@@ -43,12 +43,12 @@ mysql> use dashboarddb;
 mysql> source <MI_DASHBOARD_HOME>/dbscripts/mysql/mysql.sql;
 ```
 
-## Setting up the JDBC driver
+## Setting up the JDBC driver { #setting-up-the-jdbc-driver }
 
 1. Download the [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/).
 2. Unzip the downloaded MySQL driver and copy the JAR (mysql-connector-java-x.x.xx.jar) to the `<MI_DASHBOARD_HOME>/lib/` directory of your Micro Integrator (MI) Dashboard.
 
-## Connecting the database to the server
+## Connecting the database to the server { #connecting-the-database-to-the-server }
 
 Open the `deployment.toml` file in the `<MI_DASHBOARD_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator (MI) Dashboard and the database.
 

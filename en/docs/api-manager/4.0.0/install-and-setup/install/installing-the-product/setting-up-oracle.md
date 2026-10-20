@@ -31,13 +31,13 @@ In SqlPlus terminal run following command to source the script
 @/home/oracle/oracle.sql
 ```
 
-## Setting up the JDBC driver
+## Setting up the JDBC driver { #setting-up-the-jdbc-driver }
 
 1. Download the [Oracle JDBC driver](https://download.oracle.com/otn-pub/otn_software/jdbc/1915/ojdbc8.jar).
 2. Add the downloaded Oracle driver and copy the JAR (ojdbc8.jar) to the 
    `<MI_DASHBOARD_HOME>/lib/` directory of your Micro Integrator (MI) Dashboard.
 
-## Connecting the database to the server
+## Connecting the database to the server { #connecting-the-database-to-the-server }
 
 Open the `deployment.toml` file in the `<MI_DASHBOARD_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator (MI) Dashboard and the database.
 

@@ -22,7 +22,7 @@ Follow the steps given below to set up the required MySQL databases for your Mic
 
 	-	<a href='../../deployment/deploying_wso2_ei.md#cluster-coordination'>cluster coordination</a>
     -	<a href='../../user_stores/setting_up_a_userstore.md'>using an RDBMS user store</a>
-    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
+    -	<a href='https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Setting up a MySQL server
 
@@ -89,12 +89,12 @@ mysql> source <MI_HOME>/dbscripts/mysql/mysql_transaction_count.sql;
 	-	For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look: `mysql> create database <DATABASE_NAME> character set latin1;`
 	-	For users of other operating systems, the standard database creation commands will suffice. For these operating systems, the following is how your database creation command should look: `mysql> create database <DATABASE_NAME>;`
 
-## Setting up the JDBC driver
+## Setting up the JDBC driver { #setting-up-the-jdbc-driver }
 
 1. Download the [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/).
 2. Unzip the downloaded MySQL driver and copy the JAR (mysql-connector-java-x.x.xx-bin.jar) to the `<MI_HOME>/lib/` directory of your Micro Integrator.
 
-## Connecting the database to the server
+## Connecting the database to the server { #connecting-the-database-to-the-server }
 
 Open the `deployment.toml` file in the `<MI_HOME>/conf` directory and add the following sections to create the connection between the Micro Integrator and the relevant database. Note that you need separate configurations corresponding to the separate databases (`clusterdb`, `userdb`, and `transactiondb`).
 
