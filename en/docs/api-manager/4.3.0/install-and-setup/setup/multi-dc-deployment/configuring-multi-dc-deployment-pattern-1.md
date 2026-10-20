@@ -50,7 +50,7 @@ You should consult your database administrator on replication related configurat
 
 ## Step 2: Configure the API Manager Nodes
 
-{!includes/deploy/steps-to-deploy-apim-in-a-distributed-setup-with-tm-separation.md!}
+--8<-- "api-manager/4.3.0/includes/deploy/steps-to-deploy-apim-in-a-distributed-setup-with-tm-separation.md"
 
 ## Step 3: Configure the Communication Between Control Plane Nodes Across Regions
 

@@ -22,7 +22,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 <p>For more information on GraphQL APIs, see <a href="../../design/create-api/create-a-graphql-api/">Create a GraphQL API</a>.</p>
 </div> 
 
-{!includes/design/create-graphql-api.md!}
+--8<-- "api-manager/4.3.0/includes/design/create-graphql-api.md"
 
 Now, you have created and configured the GraphQL API successfully. 
 
