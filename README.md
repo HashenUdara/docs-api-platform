@@ -16,9 +16,41 @@ across dozens of branches:
   cache-busting, redirects, `{BASE_URL}` resolution). Installed by every
   product+version branch via `pip install git+https://github.com/<fork>/docs-api-platform.git@<tag>`
   (see `requirements.txt` in any product branch) - never copied.
+- `scripts/build-search-index.py` - builds the single search index every
+  staging page requests from `/search/search_index.json`, and the breadcrumb
+  map `theme.js` loads for result labels (`AI Gateway › 1.2.0 › …`).
 
-This branch deploys as its own tiny nginx-only Choreo component (see
-`Dockerfile`) - no mkdocs/Python build stage, just static files.
+This branch deploys as its own Choreo component (see `Dockerfile`). Product
+pages are not built here.
+
+## Search
+
+Every product page asks for `docs-staging/search/search_index.json`. Staging
+sends that path to this deployment for every product, with no Referer split
+and no `/cloud/` suffix. The page rules for `/cloud/`, `/api-manager/`, and
+the other products stay as they are.
+
+On startup, and every 15 minutes (`SEARCH_INDEX_REFRESH_SECONDS`), the
+entrypoint runs `scripts/build-search-index.py`. The script reads
+`/app/root-index.json` (the copy baked into the image, not the mounted
+staging file) and fetches `{host}/search/search_index.json` and
+`{host}/assets/search-breadcrumbs.json` from each product host in that list.
+Platform-common is fetched once. Its pages and crumbs are kept whole. From
+each other host, only paths that start with that product's slug are kept
+(`cloud/`, `api-manager/4.7.0/`, and so on). Results are written to
+`/usr/share/nginx/html/search/search_index.json` and
+`/usr/share/nginx/html/assets/search-breadcrumbs.json` (an `assets/` folder
+created for this file; `theme.js` and `root-index.json` still live at the
+site root). `theme.js` loads the breadcrumb file from this deployment
+(`SHARED_BASE`), so a landing-page search can label hits from every product
+the same way `main` does.
+
+A doc change is deployed on that product branch as usual. The next refresh
+reads the new index and breadcrumbs from that product's host. No product
+branch is edited, and nothing is copied back. A new product is included by
+adding it to `assets/root-index.json` and redeploying this component. If a
+host cannot be fetched, that host's pages and crumbs from the previous files
+are left in place.
 
 ## Choreo config mount
 
@@ -33,11 +65,13 @@ browser), not baked into any build.
   see the current committed `assets/root-index.json` for the exact shape.
 
 No other file here, and no other branch in this whole project, needs a
-config mount. Everything else (the `theme.js` URL baked into each product's
-`extra_javascript`, the `docs-shared-hooks` git tag pin in each product's
-`requirements.txt`, this branch's own `SHARED_BASE` constant inside
-`theme.js`) is baked in at build time and requires an actual commit + rebuild
-to change - see each product branch's own `README.md` for that gotcha.
+config mount. The search builder does not read the mounted file. It reads
+`/app/root-index.json`, so it keeps calling each product's own host. Everything
+else (the `theme.js` URL baked into each product's `extra_javascript`, the
+`docs-shared-hooks` git tag pin in each product's `requirements.txt`, this
+branch's own `SHARED_BASE` constant inside `theme.js`) is baked in at build
+time and requires an actual commit + rebuild to change - see each product
+branch's own `README.md` for that gotcha.
 
 ## Tagging
 
