@@ -1098,9 +1098,10 @@ onEachPage(function () {
  * Guardrail", ...). Material's search results show only the title, so results
  * are ambiguous and (because every version is indexed) the same page appears
  * once per version. We:
- *   1. Load a URL -> breadcrumb map produced at build time
- *      (assets/search-breadcrumbs.json, see hooks.py) and inject the breadcrumb
- *      (e.g. "AI Gateway › 1.1.0 › LLM Proxy › Guardrails") under each result.
+ *   1. Load a URL -> breadcrumb map from docs-shared
+ *      (assets/search-breadcrumbs.json, merged like the global search index)
+ *      and inject the breadcrumb (e.g. "AI Gateway › 1.1.0 › LLM Proxy ›
+ *      Guardrails") under each result.
  *   2. Hide results from a NON-active version of a versioned product, so a user
  *      who selected 1.0.0 only sees 1.0.0 hits (plus non-versioned results such
  *      as Cloud / Guides). Active version is resolved exactly like the nav
@@ -1248,7 +1249,9 @@ onEachPage(function () {
     }
     if (pending) return;
     pending = true;
-    var url = new URL('assets/search-breadcrumbs.json', scope).href;
+    // Combined map on docs-shared so a landing-page (or any product) search
+    // can label hits from every other product the same way main does.
+    var url = new URL(SHARED_BASE + 'assets/search-breadcrumbs.json', scope).href;
     fetch(url)
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (data) { breadcrumbs = data; decorate(); })
