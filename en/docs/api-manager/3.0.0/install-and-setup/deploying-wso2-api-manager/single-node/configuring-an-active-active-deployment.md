@@ -124,7 +124,7 @@ in order to share all APIs and throttling policies between all the nodes.
 
     However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For 
     information on setting up a rsync based deployment synchronization, see [Configuring rsync for Deployment 
-    Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization).
+    Synchronization](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization).
 
     !!! warning
         **Shared file system** is the **first preference** that WSO2 recommends to synchronize the artifacts among the nodes, 
@@ -147,7 +147,7 @@ service_url = "https://localhost:${mgt.transport.https.port}/services/"
 ??? info "If you are using RSYNC for artifact synchronization"  
 
     The API artifacts will be synchronized in one direction. The synchronization will take place from manager to the worker as explained in the [Configuring rsync for Deployment 
-    Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization) section. Therefore, the API artifact should be only created on one node that acts as a manager node 
+    Synchronization](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization) section. Therefore, the API artifact should be only created on one node that acts as a manager node 
     for the purpose of artifact synchronization. Follow the instructions below to configure the manager node:
 
     Let's assume that `node-1` is the manager node for artifact synchronization.

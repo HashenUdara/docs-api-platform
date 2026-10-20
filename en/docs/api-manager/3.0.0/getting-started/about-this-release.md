@@ -70,7 +70,7 @@ The **WSO2 API Manager 3.0.0** is the **latest** **WSO2 API Manager release*
 
     The search function in the Publisher Portal has been improved so that API providers can search using tags.
 
-- **[A new configuration model]({{base_path}}/reference/ConfigCatalog/)**
+- **[A new configuration model](https://apim.docs.wso2.com/en/3.0.0/reference/ConfigCatalog/)**
 
     Until WSO2 API Manager 2.6.0, users had to update multiple configuration files to configure the product. This overhead is removed with the new configuration model because now users only have to update a single file (`deployment.toml`).
 

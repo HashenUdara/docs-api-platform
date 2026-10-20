@@ -5849,3 +5849,10 @@ redirect_maps:
   api-manager/4.7.0/troubleshooting/troubleshooting-jms.md: api-manager/4.7.0/reference/troubleshooting/troubleshooting-jms.md
   api-manager/4.7.0/troubleshooting/troubleshooting-websocket-api.md: api-manager/4.7.0/reference/troubleshooting/troubleshooting-websocket-api.md
   api-manager/4.7.0/troubleshooting/utilizing-runtime-diagnostic-tool.md: api-manager/4.7.0/reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
+  # URLs apim.docs.wso2.com serves (its redirects, or the same page with different case)
+  api-manager/3.0.0/GettingStarted/quick-start-guide.md: api-manager/3.0.0/getting-started/quick-start-guide.md
+  api-manager/3.0.0/Learn/DesignAPI/LifecycleManagement/api-lifecycle.md: api-manager/3.0.0/learn/design-api/lifecycle-management/api-lifecycle.md
+  api-manager/3.0.0/Learn/DesignAPI/LifecycleManagement/customize-api-life-cycle.md: api-manager/3.0.0/learn/design-api/lifecycle-management/customize-api-life-cycle.md
+  api-manager/3.0.0/Learn/DesignAPI/LifecycleManagement/extending-the-api-life-cycle.md: api-manager/3.0.0/learn/design-api/lifecycle-management/extending-the-api-life-cycle.md
+  api-manager/3.0.0/install-and-setup/ProductCompatibility.md: api-manager/3.0.0/install-and-setup/product-compatibility.md
+  api-manager/3.0.0/reference/ConfigCatalog.md: api-manager/3.0.0/reference/config-catalog.md

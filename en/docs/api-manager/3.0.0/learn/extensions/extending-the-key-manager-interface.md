@@ -23,7 +23,7 @@ For instance,
 
 -   After creating an application in Developer Portal, subscribers would click on the `Generate Keys` button to register an application. 
 
-    ![Generate Keys](../../assets/img/learn/extensions/key-manager-interface/generate-keys-button.png)
+    ![Generate Keys](https://apim.docs.wso2.com/en/3.0.0/assets/img/learn/extensions/KeyManagerInterface/generate-keys-button.png)
 
 -   At this point, the Developer Portal talks to the **KeyManager** to create an *OAuth client* and get the *Consumer Key/Secret* and the *Application Access token*.
 

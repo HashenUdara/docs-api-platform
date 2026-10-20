@@ -17,7 +17,7 @@ content_type: "how-to"
 
 If you select a collection, in its detailed view, you can see the Entries panel with details of child collections and resources it has. It provides a UI to view details, add new resources, collections and links as follows:
 
-![]({{base_path}}/assets/attachments/126562643/126562644.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562643/126562644.png)
 
 -   Add Resource
 -   Add Collection

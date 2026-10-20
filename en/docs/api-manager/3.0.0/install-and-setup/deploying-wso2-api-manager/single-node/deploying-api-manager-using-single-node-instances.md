@@ -39,7 +39,7 @@ You can deploy a single node API Manager instance in the following methods:
 
 In this setup, API traffic is served by one all-in-one instance of WSO2 API Manager.
 
-![]({{base_path}}/assets/attachments/103334465/103334466.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/103334465/103334466.png)
 
 | Pros                                                                                                               | Cons                                                                                             |
 |--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
@@ -59,7 +59,7 @@ Active/active deployment
 
 In this setup, API traffic is served by two single node (all-in-one) instances of WSO2 API Manager.
 
-![]({{base_path}}/assets/attachments/103334465/103334467.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/103334465/103334467.png)
 !!! info
 For more information on manually configuring the production servers from scratch, see \_Configuring an Active-Active Deployment .
 

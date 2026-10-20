@@ -19,7 +19,7 @@ content_type: "how-to"
 
     **Before you begin:**
 
-    -   See [our compatibility matrix]({{base_path}}/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on Linux or OS X.
+    -   See [our compatibility matrix](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on Linux or OS X.
 
 Follow the instructions below to install API Manager on Linux or Mac OS X.
 
@@ -33,7 +33,7 @@ Follow the instructions below to install API Manager on Linux or Mac OS X.
 1.  [Download WSO2 API Manager 3.0.0 distribution](https://wso2.com/api-management/previous-releases/).
 2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>`.
 
-### Setting up JAVA\_HOME
+### Setting up JAVA\_HOME { #setting-up-java95home }
 
 You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
 

@@ -18,7 +18,7 @@ content_type: "how-to"
 Please follow below steps to configure the prepackaged WSO2 Identity Server as the Key Manager of WSO2 API Manager deployment. 
 
 !!! warning
-    Before you begin check the product compatibility for [WSO2 IS as Key Manager]({{base_path}}/install-and-setup/ProductCompatibility/#compatible-wso2-identity-server-as-the-key-managers).
+    Before you begin check the product compatibility for [WSO2 IS as Key Manager](https://apim.docs.wso2.com/en/3.0.0/install-and-setup/ProductCompatibility/#compatible-wso2-identity-server-as-the-key-managers).
 
 -   [Step 1 - Download WSO2 IS as a Key Manager (WSO2 IS-KM)](#step-1-download-prepackaged-wso2-is-as-a-key-manager-wso2-is-km)
 -   [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2-optionally-configure-port-offset-for-wso2-is)
@@ -238,7 +238,7 @@ The steps to setup and configure the databases for WSO2 IS as the Key Manager no
         
 3.  If you want to configure [JSON Web Token (JWT)](http://openid.net/specs/draft-jones-json-web-token-07.html#anchor3) in order to pass the end user attributes to backend, open the `<IS_KM_HOME>/repository/conf/deployment.toml` file in the WSO2 IS as KM node and add relevant config changes given in [Passing Enduser Attributes to the Backend Using JWT](../../../learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt)
 
-4.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets and authorization codes) follow the steps given in [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth-keys/) and apply relevant configurations in `<IS_KM_HOME>/repository/conf/deployment.toml` file to enable the feature.
+4.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://apim.docs.wso2.com/en/3.0.0/learn/api-security/oauth2/encrypting-oauth-keys/) and apply relevant configurations in `<IS_KM_HOME>/repository/conf/deployment.toml` file to enable the feature.
 
 
 ### Step 5 - Configure WSO2 API-M with the WSO2 IS as Key Manager
@@ -313,7 +313,7 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
 
         The reason for this is that the default certificates that come with WSO2 Servers are created for localhost. Therefore, when WSO2 API Manager boots up, it makes an HTTP call to a webapp that is in the Key Manager (throttle data at `KM_URL/throttle/data/v1/keyTemplates` ). Thereafter, WSO2 API Manager decides the URL of the Key Manager base on the URL that is configured in the `deployment.toml`, which is localhost.
 
-        To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS host names. Then [import the public certs]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
+        To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS host names. Then [import the public certs](https://apim.docs.wso2.com/en/3.0.0/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
 
 ### Step 8 - Configure the other API-M components
 

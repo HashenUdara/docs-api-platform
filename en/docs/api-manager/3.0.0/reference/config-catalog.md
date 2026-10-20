@@ -44,7 +44,7 @@ pool_options.maxActiv=5
 
 
 
-## Super admin configurations
+## Super admin configurations { #super-admin-configurations }
 
 
 <div class="mb-config-catalog">

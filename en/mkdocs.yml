@@ -33,7 +33,6 @@ copyright: ©2025 WSO2 LLC.
 # Configuration
 watch:
   - theme/
-  - docs/assets/
 
 theme:
   name: material
@@ -9938,7 +9937,6 @@ markdown_extensions:
   - markdown.extensions.footnotes
   - markdown.extensions.toc:
       permalink: true
-      toc_depth: 3
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all

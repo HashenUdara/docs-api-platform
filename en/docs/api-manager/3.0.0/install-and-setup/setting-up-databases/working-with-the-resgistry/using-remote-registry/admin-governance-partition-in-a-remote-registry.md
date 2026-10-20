@@ -17,7 +17,7 @@ content_type: "how-to"
 
 In this deployment strategy, only the governance partition is shared among instances of a group/cluster. For example, a WSO2 Application Server instance and a WSO2 ESB instance that have been configured to operate in a clustered environment can have a single governance registry which is shared across each node of the cluster. A separate instance of the WSO2 Governance Registry (G-Reg) is used to provide the space used in common.
 
-![]({{base_path}}/assets/attachments/126562673/126562674.png)
+![](https://apim.docs.wso2.com/en/3.0.0/assets/attachments/126562673/126562674.png)
 Figure 3: Governance partition in the remote Governance Registry instance .
 
 Configuration steps are given in the following sections.
