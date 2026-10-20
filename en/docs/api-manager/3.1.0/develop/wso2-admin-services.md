@@ -239,4 +239,4 @@ public class AdminServiceClientManager {
 }
 ```
 
-The complete Maven project can be found at: [org.wso2.carbon.sample.admin.service.invoker.zip](../assets/attachments/develop/org.wso2.carbon.sample.admin.service.invoker.zip)
+The complete Maven project can be found at: [org.wso2.carbon.sample.admin.service.invoker.zip](https://apim.docs.wso2.com/en/3.1.0/assets/attachments/develop/org.wso2.carbon.sample.admin.service.invoker.zip)

@@ -49,7 +49,7 @@ curl -v http://localhost:9763/services/Version
 ``` java tab="Response"
 <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-2.6.0</return></ns:getVersionResponse>
 ```
-## APIM Analytics Profiles
+## APIM Analytics Profiles { #apim-analytics-profiles }
 
 Basic health checks can be performed on APIM analytics profiles by connecting to relevant ports. See the following table for the ports that can be used for health checks.
 

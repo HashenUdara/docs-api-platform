@@ -198,7 +198,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.1.1.jar](../../assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.1.1.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
+        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.1.1.jar](https://apim.docs.wso2.com/en/3.1.0/assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.1.1.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
