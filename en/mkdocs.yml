@@ -806,6 +806,7 @@ nav:
                 - Troubleshooting WebSocket APIs: api-manager/4.7.0/reference/troubleshooting/troubleshooting-websocket-api.md
             - FAQ: api-manager/4.7.0/reference/faq.md
     - "4.6.0":
+        -   Home: api-manager/4.6.0/index.md
         -   Get Started:
             -   Introduction: api-manager/4.6.0/get-started/overview.md
             -   Key Concepts: api-manager/4.6.0/get-started/key-concepts.md
