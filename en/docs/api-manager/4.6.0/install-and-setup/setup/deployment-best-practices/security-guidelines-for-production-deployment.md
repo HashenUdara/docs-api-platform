@@ -430,7 +430,7 @@ If you use any other mediators, or if you want to enable mediators that are not 
 <td><p>Override codepoint limit of SnakeYAML Dependency</p>
 <p><br />
 </p></td>
-<td>The default codepoint limit of SnakeYAML Dependency is 3,145,728 (~3MB), which is set to avoid exposing the system to DoS attacks via large malicious files. By default, API-M uses this default limit. However, the <a href="../../../reference/config-catalog.md#dependency-configurations">dependency configuration</a> of SnakeYAML Dependency can be overridden using the following configuration:
+<td>The default codepoint limit of SnakeYAML Dependency is 3,145,728 (~3MB), which is set to avoid exposing the system to DoS attacks via large malicious files. By default, API-M uses this default limit. However, the <a href="../../../reference/config-catalog/#dependency-configurations">dependency configuration</a> of SnakeYAML Dependency can be overridden using the following configuration:
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[dependency_properties]
 'snakeyaml.max_file_size_limit' = 10 # size in MB
 </code></pre>
