@@ -35,7 +35,7 @@ Follow the instructions below to create an AI API using the basic flow:
 
     <div class="admonition tip">
         <p class="admonition-title">Tip</p>
-        <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default vendors, you can add custom AI vendors by following the <a href='../../../../../ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md'>custom AI vendor integration</a> documentation.</p>
+        <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default vendors, you can add custom AI vendors by following the <a href='../../../../../ai-gateway/ai-vendor-management/custom-ai-vendors/overview/'>custom AI vendor integration</a> documentation.</p>
     </div>
 
     <div class="admonition note">
@@ -45,7 +45,7 @@ Follow the instructions below to create an AI API using the basic flow:
             <li><code>1.0.0</code>: Chat Completions API (<code>/chat/completions</code>)</li>
             <li><code>2.0.0</code>: Responses API (<code>/responses</code>)</li>
         </ul>
-        <p>For more information, see <a href='../../../../ai-gateway/ai-vendor-management/azure-openai.md#supported-versions'>Azure OpenAI supported versions</a>.</p>
+        <p>For more information, see <a href='../../../../ai-gateway/ai-vendor-management/azure-openai/#supported-versions'>Azure OpenAI supported versions</a>.</p>
     </div>
 
 4. Fill in the AI API details and click **Create**.

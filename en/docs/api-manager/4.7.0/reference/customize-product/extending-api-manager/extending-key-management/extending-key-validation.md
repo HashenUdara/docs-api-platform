@@ -98,7 +98,7 @@ A few examples are listed below.
 <td>When creating a key via the API Developer Portal, the subscriber can specify which domains are allowed to make calls using a token granted against a particular consumer key. If this validation does not add any value, these trivial steps can be ignored and skipped by extending the <code>KeyValidationHandler</code>.
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>For another example scenario, see <a href="../extending-scope-validation.md">Skipping Role Validation for Scopes</a>.</p>
+<p>For another example scenario, see <a href="../extending-scope-validation/">Skipping Role Validation for Scopes</a>.</p>
 </div>
 </td>
 </tr>

@@ -103,7 +103,7 @@ A common policy is a globally maintained policy and you can easily utilize this 
         'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
         'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
 
-        To further configure script mediation access control, please refer to the  <a href="../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+        To further configure script mediation access control, please refer to the  <a href="../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 5. The final section in the form is the **Policy Attributes** section. These attributes are derived from the policy file that you uploaded in the previous step. If you observe the policy content you should notice two dynamic values embedded into that policy, namely the headerName and headerValue. Those are the attributes that we should include when creating our policy (note that you can have a static policy with no attributes if the policy content is static). Let’s fill the **Policy Attributes** section using the following details.
 
@@ -230,4 +230,4 @@ If you would rather create a policy that is local to the API, you can follow the
         'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
         'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
 
-        To further configure script mediation access control, please refer to the  <a href="../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+        To further configure script mediation access control, please refer to the  <a href="../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
