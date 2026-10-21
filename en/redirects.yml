@@ -1,7 +1,4 @@
 redirect_maps:
-  # 4.6.0 has no root overview page (unlike 4.7.0's index.md) - redirect the
-  # bare version root to its real first page, so it isn't a dead 403.
-  api-manager/4.6.0/index.md: api-manager/4.6.0/get-started/overview.md
   # AI/API Gateway versioning restructuring (per-product Cloud/Self-Hosted variants)
   ai-gateway/ai-gateway-rest-api/authentication.md: ai-gateway/1.1.0/ai-gateway-rest-api/authentication.md
   ai-gateway/analytics/analytics-header-filter.md: ai-gateway/1.1.0/analytics/analytics-header-filter.md
