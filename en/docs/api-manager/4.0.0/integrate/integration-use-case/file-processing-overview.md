@@ -35,7 +35,7 @@ In many business domains, there are different use cases related to managing file
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/file-processing.md">file processing</a>
+					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/file-processing/">file processing</a>
 				</li>
 			</ul>
 		</td>
@@ -43,13 +43,13 @@ In many business domains, there are different use cases related to managing file
 			<b>Examples</b>
 			<ul>
 				<li>
-					<a href="../../examples/file-processing/vfs-transport-examples.md">VFS Transport
+					<a href="../../examples/file-processing/vfs-transport-examples/">VFS Transport
 				</li>
 				<li>
 					<a href="../../examples/file-processing/accessing_windows_share_using_vfs_transport/">Accessing a Windows Share using VFS</a>
 				</li>
 				<li>
-					<a href="../../examples/file-processing/mailto-transport-examples.md">Using the MailTo Transport</a>
+					<a href="../../examples/file-processing/mailto-transport-examples/">Using the MailTo Transport</a>
 				</li>
 			</ul>
 		</td>

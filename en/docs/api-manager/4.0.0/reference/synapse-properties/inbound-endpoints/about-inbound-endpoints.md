@@ -21,10 +21,10 @@ An inbound endpoint is a message entry point that can inject messages directly f
 
 A listening inbound endpoint listens on a given port for requests that are coming in. When a request is available, it is injected to a given sequence. Listening inbound endpoints support two-way operations and are synchronous.
 
--   <a href="../listening-inbound-endpoints/http-inbound-endpoint-properties.md">HTTP/HTTPS Inbound Protocol</a>
--   <a href="../listening-inbound-endpoints/hl7-inbound-endpoint-properties.md">HL7 Inbound Protocol</a>
--   <a href="../listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md">CXF WS-RM Inbound Protocol</a>
--   <a href="../listening-inbound-endpoints/websocket-inbound-endpoint-properties.md">WebSocket Inbound Protocol</a>
+-   <a href="../listening-inbound-endpoints/http-inbound-endpoint-properties/">HTTP/HTTPS Inbound Protocol</a>
+-   <a href="../listening-inbound-endpoints/hl7-inbound-endpoint-properties/">HL7 Inbound Protocol</a>
+-   <a href="../listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties/">CXF WS-RM Inbound Protocol</a>
+-   <a href="../listening-inbound-endpoints/websocket-inbound-endpoint-properties/">WebSocket Inbound Protocol</a>
 
 <!--
 
@@ -76,9 +76,9 @@ A listening inbound endpoint listens on a given port for requests that are comin
 
 A polling inbound endpoint polls periodically for data and, when data is available, the data is injected to a given sequence. For example, the JMS inbound endpoint checks the JMS queue periodically for messages and, when a message is available, that message is injected to a specified sequence. Polling inbound endpoints support one way operations and are asynchronous.
 
--   <a href="../polling-inbound-endpoints/file-inbound-endpoint-properties.md">File Inbound Protocol</a>
--   <a href="../polling-inbound-endpoints/jms-inbound-endpoint-properties.md">JMS Inbound Protocol</a>
--   <a href="../polling-inbound-endpoints/kafka-inbound-endpoint-properties.md">Kafka Inbound Protocol</a>
+-   <a href="../polling-inbound-endpoints/file-inbound-endpoint-properties/">File Inbound Protocol</a>
+-   <a href="../polling-inbound-endpoints/jms-inbound-endpoint-properties/">JMS Inbound Protocol</a>
+-   <a href="../polling-inbound-endpoints/kafka-inbound-endpoint-properties/">Kafka Inbound Protocol</a>
 
 <!--
 
@@ -112,8 +112,8 @@ A polling inbound endpoint polls periodically for data and, when data is availab
 
 An event-based inbound endpoint polls only once to establish a connection with the remote server and then consumes events.
 
--   <a href="../event-based-inbound-endpoints/mqtt-inbound-endpoint-properties.md">MQTT Inbound Protocol</a>
--   <a href="../event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md">RabbitMQ Inbound Protocol</a>
+-   <a href="../event-based-inbound-endpoints/mqtt-inbound-endpoint-properties/">MQTT Inbound Protocol</a>
+-   <a href="../event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties/">RabbitMQ Inbound Protocol</a>
 
 <!--
 

@@ -77,7 +77,7 @@ You can configure the following endpoint types.
   <tr>
     <td>HTTP Endpoint</td>
     <td>
-      Allows you to define REST endpoints using <b>URI templates</b> similar to the REST API. The URI templates allow a RESTful URI to contain variables that can be populated during mediation runtime using <a href="../../mediators/property-mediator.md">property</a> values with the <code>uri.var.</code> prefix. An HTTP endpoint can also define the particular HTTP method to use in the RESTful invocation.
+      Allows you to define REST endpoints using <b>URI templates</b> similar to the REST API. The URI templates allow a RESTful URI to contain variables that can be populated during mediation runtime using <a href="../../mediators/property-mediator/">property</a> values with the <code>uri.var.</code> prefix. An HTTP endpoint can also define the particular HTTP method to use in the RESTful invocation.
     </td>
   </tr>
   <tr>
@@ -261,7 +261,7 @@ Listed below are the basic properties that used to [define an endpoint artifact]
     <tr>
         <td>Trace Enabled</td>
         <td>
-            This enables tracing for the endpoint. You can <a href="../../../integrate/develop/endpoint-trace-logs.md">use trace logs to debug</a> mediation errors.
+            This enables tracing for the endpoint. You can <a href="../../../integrate/develop/endpoint-trace-logs/">use trace logs to debug</a> mediation errors.
         </td>
     </tr>
     <tr>

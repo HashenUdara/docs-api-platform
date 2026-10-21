@@ -77,21 +77,21 @@ See the descriptions of all [endpoint properties](../../../reference/synapse-pro
 
 <ul>
 	<li>
-		<a href="../../../examples/endpoint_examples/using-address-endpoints.md">Using Address Endpoints</a>
+		<a href="../../../examples/endpoint_examples/using-address-endpoints/">Using Address Endpoints</a>
 	</li>
 	<li>
-		<a href="../../../examples/endpoint_examples/using-failover-endpoints.md">Using Failover Endpoints</a>
+		<a href="../../../examples/endpoint_examples/using-failover-endpoints/">Using Failover Endpoints</a>
 	</li>
 	<li>
-		<a href="../../../examples/endpoint_examples/using-http-endpoints.md">Using HTTP Endpoints</a>
+		<a href="../../../examples/endpoint_examples/using-http-endpoints/">Using HTTP Endpoints</a>
 	</li>
 	<li>
-		<a href="../../../examples/endpoint_examples/using-websocket-endpoints.md">Using a Websocket Endpoint</a>
+		<a href="../../../examples/endpoint_examples/using-websocket-endpoints/">Using a Websocket Endpoint</a>
 	</li>
   <li>
-		<a href="../../../examples/endpoint_examples/using-wsdl-endpoints.md">Using WSDL Endpoints</a>
+		<a href="../../../examples/endpoint_examples/using-wsdl-endpoints/">Using WSDL Endpoints</a>
 	</li>
 	<li>
-		<a href="../../../examples/endpoint_examples/using-loadbalancing-endpoints.md">Using Load Balancing Endpoints</a>
+		<a href="../../../examples/endpoint_examples/using-loadbalancing-endpoints/">Using Load Balancing Endpoints</a>
 	</li>
 </ul>

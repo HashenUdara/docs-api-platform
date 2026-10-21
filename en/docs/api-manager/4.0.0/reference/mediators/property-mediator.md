@@ -46,7 +46,7 @@ The parameters available for configuring the Property mediator are as follows:
 <td><div class="content-wrapper">
 <p>A name for the property.</p>
 <p>You can provide a static value or a dynamic value for the property name. A dynamic property name can be retrieved
-by using an XPath function. You can use any of the <a href="../property-reference/accessing-properties-with-xpath.md">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
+by using an XPath function. You can use any of the <a href="../property-reference/accessing-properties-with-xpath/">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
 <p>Note that the XPath function should be contained within curly brackets (<code>{}</code>) as well as double quotations (<code>""</code>). See the examples given below.</p>
   <ul>
     <li>
@@ -137,14 +137,14 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 <li><strong>Synapse</strong>: This is the default scope. The properties set in this scope last as long as the transaction (request-response) exists.</li>
 <li><strong>Transport</strong>: The properties set in this scope will be considered transport headers. For example, if it is required to send an HTTP header named 'CustomHeader' with an outgoing request, you can use the property mediator configuration with this scope.</li>
 <li><strong>Axis2</strong>: Properties set in this scope have a shorter life span than those set in the <strong>Synapse</strong> scope. They are mainly used for passing parameters to the underlying Axis2 engine</li>
-<li><strong>axis2-client</strong>: This is similar to the <strong>Synapse</strong> scope. The difference between the two scopes is that the <strong>axis2-client</strong> scope can be accessed inside the <b>mediate()</b> method of a mediator via a custom mediator created using the <a href="../class-mediator.md">Class mediator</a>.</li>
+<li><strong>axis2-client</strong>: This is similar to the <strong>Synapse</strong> scope. The difference between the two scopes is that the <strong>axis2-client</strong> scope can be accessed inside the <b>mediate()</b> method of a mediator via a custom mediator created using the <a href="../class-mediator/">Class mediator</a>.</li>
 <li><strong>Operation</strong>: This scope is used to retrieve a property in the operation context level.</li>
 <li><strong>Registry</strong>: This scope is used to retrieve properties within the registry .</li>
 <li><strong>System</strong>: This scope is used to retrieve Java system properties.</li>
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables ('env').</li>
 <li><strong>File</strong>: This scope is used to retrieve properties defined in the `file.properties` configuration file ('file').</li>
 </ul>
-<p>For a detailed explanation of each scope, see <a href="../property-reference/accessing-properties-with-xpath.md">Accessing Properties with XPath</a>.</p></td>
+<p>For a detailed explanation of each scope, see <a href="../property-reference/accessing-properties-with-xpath/">Accessing Properties with XPath</a>.</p></td>
 </tr>
 </tbody>
 </table>

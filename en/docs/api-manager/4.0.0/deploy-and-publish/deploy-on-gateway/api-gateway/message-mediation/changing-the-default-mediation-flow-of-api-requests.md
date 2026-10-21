@@ -59,7 +59,7 @@ The following is a manually created sample custom mediation policy. This custom 
     'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
     'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
 
-    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 Follow the instructions below to upload the above sequence as a custom mediation policy in the **Request** message flow:
 
@@ -121,7 +121,7 @@ Follow the instructions below to **edit an already attached mediation policy**:
     'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
     'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
 
-    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 Follow the instructions below to **disengage any mediation policy that is already engaged**:
 
@@ -177,7 +177,7 @@ You can copy this content into an XML file (e.g., `twittersearch_ext.xml`) and s
     'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
     'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
 
-    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 The above sequence prints a log message in the `wso2carbon` logs whenever the `TwitterSearch` API is invoked.
 
@@ -211,7 +211,7 @@ This custom Sequence adds a trace log that gets printed when you invoke any of t
     'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
     'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
 
-    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+    To further configure script mediation access control, please refer to the  <a href="../../../../../install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 You can copy this content into an XML file (e.g., `global_ext.xml`) and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 

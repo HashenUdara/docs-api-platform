@@ -89,22 +89,22 @@ See [Creating a Proxy Service](../../../integrate/develop/creating-artifacts/cre
       <b>Note</b>: When automatic acknowledgment is disabled, you can manually configure ACK/NACK messages for HL7 in the mediation sequence by using the following mediation properties:
       <ul>
       	<li>
-      		<a href="../../../mediators/property-reference/axis2-properties.md#hl7_generate_ack">HL7_GENERATE_ACK</a>
+      		<a href="../../../mediators/property-reference/axis2-properties/#hl7_generate_ack">HL7_GENERATE_ACK</a>
       	</li>
       	<li>
-      		<a href="../../../mediators/property-reference/axis2-properties.md#hl7_result_mode">HL7_RESULT_MODE</a>
+      		<a href="../../../mediators/property-reference/axis2-properties/#hl7_result_mode">HL7_RESULT_MODE</a>
       	</li>
       	<li>
-      		<a href="../../../mediators/property-reference/axis2-properties.md#hl7_nack_message">HL7_NACK_MESSAGE</a>
+      		<a href="../../../mediators/property-reference/axis2-properties/#hl7_nack_message">HL7_NACK_MESSAGE</a>
       	</li>
       	<li>
-      		<a href="../../../mediators/property-reference/axis2-properties.md#hl7_application_ack">HL7_APPLICATION_ACK</a>
+      		<a href="../../../mediators/property-reference/axis2-properties/#hl7_application_ack">HL7_APPLICATION_ACK</a>
       	</li>
       	<li>
-      		<a href="../../../mediators/property-reference/axis2-properties.md#hl7_raw_message">HL7_RAW_MESSAGE</a>
+      		<a href="../../../mediators/property-reference/axis2-properties/#hl7_raw_message">HL7_RAW_MESSAGE</a>
       	</li>
       </ul> 
-      See <a href="../../../../integrate/examples/hl7-examples/acknowledge_hl7_messages.md">Message Acknowledgement for HL7 Messages</a> for details.
+      See <a href="../../../../integrate/examples/hl7-examples/acknowledge_hl7_messages/">Message Acknowledgement for HL7 Messages</a> for details.
     </td>
   </tr>
 </table>

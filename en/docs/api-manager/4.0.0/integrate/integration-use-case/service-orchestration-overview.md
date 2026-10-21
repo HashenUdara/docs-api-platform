@@ -41,7 +41,7 @@ Multiple services are invoked simultaneously without any blocking until a respon
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md">service orchestration</a>
+					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/exposing-several-services-as-a-single-service/">service orchestration</a>
 				</li>
 			</ul>
 		</td>

@@ -166,7 +166,7 @@ Expand the **Docker Exporter** in the project explorer. See that the following f
             deployment.toml
         </td>
         <td>
-            The <a href="../../../reference/config-catalog.md">product configuration file</a>.
+            The <a href="../../../reference/config-catalog/">product configuration file</a>.
         </td>
     </tr>
     <tr>

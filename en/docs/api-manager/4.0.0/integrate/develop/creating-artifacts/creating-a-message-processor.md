@@ -64,16 +64,16 @@ See the links given below for descriptions of properties for each processor type
 
 <ul>
 	<li>
-		<a href="../../../examples/message_store_processor_examples/using-message-forwarding-processor.md">Using the Message Forwarding Processor</a>
+		<a href="../../../examples/message_store_processor_examples/using-message-forwarding-processor/">Using the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="../../../examples/message_store_processor_examples/using-message-sampling-processor.md">Using the Message Sampling Processor</a>
+		<a href="../../../examples/message_store_processor_examples/using-message-sampling-processor/">Using the Message Sampling Processor</a>
 	</li>
 	<li>
-		<a href="../../../examples/message_store_processor_examples/securing-message-processor.md">Securing the Message Forwarding Processor</a>
+		<a href="../../../examples/message_store_processor_examples/securing-message-processor/">Securing the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="../../../examples/message_store_processor_examples/loadbalancing-with-message-processor.md">Load Balancing with Message Forwarding Processor</a>
+		<a href="../../../examples/message_store_processor_examples/loadbalancing-with-message-processor/">Load Balancing with Message Forwarding Processor</a>
 	</li>
 </ul>
 

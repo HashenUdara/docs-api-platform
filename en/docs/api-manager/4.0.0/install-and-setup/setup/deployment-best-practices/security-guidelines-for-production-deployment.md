@@ -63,26 +63,26 @@ latest product version to receive all the security issues resolved until that pa
 <li><p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p></li>
 </ul>
 <p>For more information on recommendations for using keystores in WSO2 
-products, see <a href="../../security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md">About Asymmetric Cryptography</a>.<br />
-For information on how to create and configure your own keys and keystores, see <a href="../../security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md">Creating New Keystores</a>.</p></td>
+products, see <a href="../../security/configuring-keystores/keystore-basics/about-asymetric-cryptography/">About Asymmetric Cryptography</a>.<br />
+For information on how to create and configure your own keys and keystores, see <a href="../../security/configuring-keystores/configuring-keystores-in-wso2-api-manager/">Creating New Keystores</a>.</p></td>
 </tr>
 <tr class="odd">
 <td>Encrypt passwords in configuration files</td>
 <td><p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
-<p>See <a href="../../security/logins-and-passwords/working-with-encrypted-passwords.md">Encrypting Passwords in Configuration Files</a> for instructions.</p></td>
+<p>See <a href="../../security/logins-and-passwords/working-with-encrypted-passwords/">Encrypting Passwords in Configuration Files</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Change default ports</p>
 <p><br />
 </p></td>
-<td><p>For information on all the default ports used by WSO2 API Manager, see <a href="../../reference/default-product-ports.md">Default Product Ports</a>. For example, the default HTTPS port is 9443 and the HTTP port is 9763. In addition, Axis2 services are exposed over the following ports: 8243 and 8280.</p>
-<p>For information on changing a default port, see <a href="../changing-the-default-ports-with-offset.md">Changing the Default Ports with Offset</a>.</p></td>
+<td><p>For information on all the default ports used by WSO2 API Manager, see <a href="../../reference/default-product-ports/">Default Product Ports</a>. For example, the default HTTPS port is 9443 and the HTTP port is 9763. In addition, Axis2 services are exposed over the following ports: 8243 and 8280.</p>
+<p>For information on changing a default port, see <a href="../changing-the-default-ports-with-offset/">Changing the Default Ports with Offset</a>.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Enable <strong>read-only access</strong> to external user stores (LDAPs etc.)</p></td>
 <td><p>If your product runtimes are connecting to an external user store, such as Microsoft Active Directory for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
 <p>
-See <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md">Configuring a Read-Only LDAP User Store</a> for the API-M runtime.
+See <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store/">Configuring a Read-Only LDAP User Store</a> for the API-M runtime.
 </p>
 </td>
 </tr>
@@ -104,8 +104,8 @@ versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>s
 <code>ThriftAuthenticationService</code>, Tomcat transport, and PassThrough transport in the <code>deployment.toml</code> file. See the
  following links for instructions:</p>
 <ul>
-  <li><a href="../../security/configuring-transport-level-security.md">Configuring Transport Level Security</a></li>
-  <li><a href="../../reference/supported-cipher-suites.md">Supported Cipher Suites</a></li>
+  <li><a href="../../security/configuring-transport-level-security/">Configuring Transport Level Security</a></li>
+  <li><a href="../../reference/supported-cipher-suites/">Supported Cipher Suites</a></li>
 </ul>    
 <div style="background-color:#ffffff; padding: 10px;">
 <strong>Note :</strong>
@@ -130,7 +130,7 @@ versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>s
 <td>
 <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections 
 using those weak ciphers. For this, <code>PreferredCiphers</code> should be configured for the PassThrough transport in the <code>deployment.toml</code> file (stored in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/</code> directory).
-<p>For more information, see <a href="../../security/configuring-transport-level-security.md">Configuring 
+<p>For more information, see <a href="../../security/configuring-transport-level-security/">Configuring 
 Transport Level Security</a>.</p>
 </tr>
 <tr class="even">
@@ -139,7 +139,7 @@ Transport Level Security</a>.</p>
 sending HTTP responses. This means that information about the WSO2 product stack is exposed through HTTP 
 responses. It is recommended to change this by configuring the server name for relevant connectors via 
 <code>deployment.toml</code>.
-<p>For more information, see <a href="../../security/configuring-transport-level-security.md">Configuring 
+<p>For more information, see <a href="../../security/configuring-transport-level-security/">Configuring 
 Transport Level Security</a>.</p>
 </tr>
 <tr class="odd">
@@ -147,7 +147,7 @@ Transport Level Security</a>.</p>
 <td><p>Be sure that HTTP Strict Transport Security (HSTS) is enabled for all the applications deployed in your server. This includes the management console, and any other web applications and/or Jaggery applications.</p>
 <p>Note that (for WSO2 products based on Carbon 4.4.11 or later versions, which implies API-M 2.1.0 and newer) HSTS is disabled for the applications with which the product is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.</p>
 
-<p>To enable HSTS please follow the instructions <a href="../security-guidelines-for-production-deployment.md#enable-http-strict-transport-security-hsts-headers">Enable HTTP Strict Transport Security (HSTS) Headers</a>.</p>
+<p>To enable HSTS please follow the instructions <a href="../security-guidelines-for-production-deployment/#enable-http-strict-transport-security-hsts-headers">Enable HTTP Strict Transport Security (HSTS) Headers</a>.</p>
 
 </tr>
 <tr class="even">
@@ -192,7 +192,7 @@ sure that hostname verification is enabled in the product startup script (<code
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>-Dorg.wso2.ignoreHostnameVerification=false \</code></pre>
 </div>
 </div>
-<p>For instructions, see <a href="../../security/enabling-hostname-verification.md">Enabling HostName Verification</a>.</p></td>
+<p>For instructions, see <a href="../../security/enabling-hostname-verification/">Enabling HostName Verification</a>.</p></td>
 </tr>
 <tr class="even">
 <td><p>Increase JSESSIONID length</p></td>
@@ -210,7 +210,7 @@ sure that hostname verification is enabled in the product startup script (<code
 <p><br />
 </p></td>
 <td><p>The Administrator account is configured by default. The default user name and password of the administrator account is &quot;admin&quot;. To change the administrator credentials, you need to first sign in to the management console of the API-M server as &quot;admin&quot;, and then use the <strong>Change Password</strong> option under <strong>Home-&gt;Configure-&gt;User Management-&gt;Users</strong> in the navigator.</p>
-<p>For more information on how to change the password of the administrator in the API-M server, see <a href="../../security/logins-and-passwords/maintaining-logins-and-passwords.md#change-the-super-admin-credentials">Changing the super admin credentials</a>.</p></td>
+<p>For more information on how to change the password of the administrator in the API-M server, see <a href="../../security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials">Changing the super admin credentials</a>.</p></td>
 </tr>
 <tr class="even">
 <td><p>Restrict access to the management console</p>
@@ -219,7 +219,7 @@ sure that hostname verification is enabled in the product startup script (<code
 <td><p>Make sure that the permission for signing into the management console is granted only to the users that need to use the management console. For example, the majority of users only need to login to the connected service providers via the WSO2 product. Therefore, such users should not have permission to log into the management console.</p>
 <p>You need to make sure that only administrative users have access to the product's management console. Further, 
 instead of granting all permission to one administrator, you can distribute the responsibilities among administrators by assigning different permissions for conducting various tasks.</p>
-<p>For instructions, see <a href="../../../../administer/managing-users-and-roles/managing-user-roles.md">Managing User Roles</a>.</p></td>
+<p>For instructions, see <a href="../../../../administer/managing-users-and-roles/managing-user-roles/">Managing User Roles</a>.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Enable log rotation and monitoring</p>
@@ -229,7 +229,7 @@ instead of granting all permission to one administrator, you can distribute the 
 configured in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/log4j2.properties</code> file. Rollover based on a time period can be configured by changing the below configuration (Default value is 1 day).</p>
 <code>appender.CARBON_LOGFILE.policies.time.interval = 1</code>
 <p>You can also configure rollover based on log file size, and also it is possible to limit the number of backup 
-files. For details on how to configure log rotation and manage log growth details in the API-M runtime, see <a href="../../../../administer/logging-and-monitoring/logging/managing-log-growth.md">Managing log growth</a>.</p></td>
+files. For details on how to configure log rotation and manage log growth details in the API-M runtime, see <a href="../../../../administer/logging-and-monitoring/logging/managing-log-growth/">Managing log growth</a>.</p></td>
 </tr>
 <tr class="even">
 <td><p>Prevent log forging</p></td>
@@ -237,7 +237,7 @@ files. For details on how to configure log rotation and manage log growth detail
 used in the pattern layout to log a UUID. For example, the log pattern can be set as following for <code>AUDIT</code> 
 logs so that the UUID is printed at the beginning of each log record.</p>
 <code>appender.AUDIT_LOGFILE.layout.pattern = [%u] TID: [%tenantId] [%d] %5p {&#37;c} - %m%ex%n </code>
-<p>For more information on configuring logging, see <a href="../../../../administer/logging-and-monitoring/logging/configuring-logging.md">Setting up 
+<p>For more information on configuring logging, see <a href="../../../../administer/logging-and-monitoring/logging/configuring-logging/">Setting up 
 logging in API Manage</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -245,7 +245,7 @@ logging in API Manage</a>.</p></td>
 <p><br />
 </p></td>
 <td><p>The recommended JDK version is JDK 8 or 11. For more information, see <a 
-href="../../reference/product-compatibility.md#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a>.</p>
+href="../../reference/product-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a>.</p>
 <p>You do not need to set the Heap and Permgen values for the JVM from JDK 1.8 onwards as the <code>MaxPermSize</code> value has 
 been removed from Hotspot JVM.</p>
 </td>
@@ -255,7 +255,7 @@ been removed from Hotspot JVM.</p>
 <p><br />
 </p></td>
 <td><p>In an API-M deployment, it is recommended to restrict outbound connections of the Control Plane node (which contains the Publisher) and only allow access to the internal nodes (only to the nodes that the Publisher portal is intended to communicate with) of the deployment. Therefore, even if a situation arises where privileged user credentials are exposed to a user with malicious intent, such users will not be able to exploit and perform any unintended network interactions.</p>
-    <p>See the <a href="../../deployment-overview.md">API-M deployment</a> documentation for details.</p>
+    <p>See the <a href="../../deployment-overview/">API-M deployment</a> documentation for details.</p>
 </td>
 </tr>
 <tr class="odd">
@@ -263,7 +263,7 @@ been removed from Hotspot JVM.</p>
 <p><br />
 </p></td>
 <td><p>WSO2 recommends that you use two separate admin user accounts in production - one account for logging into the system and the other one as the system user doing configurations (for internal service communications).</p>
-<p>For more information regarding admin user accounts, see <a href="../../../../reference/config-catalog.md#super-admin-configurations">super admin configurations</a>.</p>
+<p>For more information regarding admin user accounts, see <a href="../../../../reference/config-catalog/#super-admin-configurations">super admin configurations</a>.</p>
 </td>
 </tr>
 <tr class="even">
@@ -278,7 +278,7 @@ been removed from Hotspot JVM.</p>
 <td><p>Configure client authentication</p>
 <p><br />
 </p></td>
-<td><p>Client authentication is used to identify the application or client making a request to the WSO2 API Manager  REST APIs. By default, web applications provided with WSO2 API Manager use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="../security-guidelines-for-production-deployment.md#configure-client-authentication">Configure client authentication</a></p>
+<td><p>Client authentication is used to identify the application or client making a request to the WSO2 API Manager  REST APIs. By default, web applications provided with WSO2 API Manager use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="../security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
 </td>
 </tr>
 <tr class="even">
@@ -487,7 +487,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
                   <p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p>
                </li>
             </ul>
-            See <a href="../../mi-setup/security/creating_keystores.md">Creating New Keystores</a> for information on how to create and configure your own keys.
+            See <a href="../../mi-setup/security/creating_keystores/">Creating New Keystores</a> for information on how to create and configure your own keys.
             </p>
          </td>
       </tr>
@@ -495,7 +495,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          <td>Encrypt passwords in configuration files</td>
          <td>
             <p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
-            <p>See <a href="../../mi-setup/security/encrypting_plain_text.md">Securing Passwords in Configuration Files</a> for instructions.</p>
+            <p>See <a href="../../mi-setup/security/encrypting_plain_text/">Securing Passwords in Configuration Files</a> for instructions.</p>
          </td>
       </tr>
       <tr class="even">
@@ -504,8 +504,8 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>For information on all the default ports used by WSO2 API Manager, see <a href="../../reference/default-product-ports.md">Default Product Ports</a>.</p>
-            <p>For information on changing a default port, see <a href="../changing-the-default-ports-with-offset.md">Changing the Default Ports with Offset</a>.</p>
+            <p>For information on all the default ports used by WSO2 API Manager, see <a href="../../reference/default-product-ports/">Default Product Ports</a>.</p>
+            <p>For information on changing a default port, see <a href="../changing-the-default-ports-with-offset/">Changing the Default Ports with Offset</a>.</p>
         </td>
       </tr>
       <tr>
@@ -514,7 +514,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
         </td>
         <td>
             <p>If your product runtimes are connecting to an external user store for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
-            <p>See <a href="../../mi-setup/user_stores/setting_up_a_userstore.md">Configuring a User Store</a> for the Micro Integrator runtime.</p>
+            <p>See <a href="../../mi-setup/user_stores/setting_up_a_userstore/">Configuring a User Store</a> for the Micro Integrator runtime.</p>
         </td>
       </tr>
       <tr class="even">
@@ -539,7 +539,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>To have strong transport-level security, use TLS 1.2 and disable SSL, TLS 1.0 and 1.1. The TLS protocol and strong ciphers are configured for the passthrough transport in the <code>deployment.toml</code> file. See the following links for instructions:</p>
-            <p><a href="../../mi-setup/transport_configurations/configuring-transports.md#configuring-transport-level-security">Configuring Transport-Level Security</a></p>
+            <p><a href="../../mi-setup/transport_configurations/configuring-transports/#configuring-transport-level-security">Configuring Transport-Level Security</a></p>
             <p>Note the following:</p>
             <ul>
                <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
@@ -564,7 +564,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>deployement.toml</code> file.
-            <p>See <a href="../../mi-setup/transport_configurations/configuring-transports.md#disabling-weak-ciphers">Disabling Weak Ciphers</a> for instructions.</p>
+            <p>See <a href="../../mi-setup/transport_configurations/configuring-transports/#disabling-weak-ciphers">Disabling Weak Ciphers</a> for instructions.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -635,8 +635,8 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p> Note that you can easily use the management API to <b>add, update, and delete</b> admins and regular users in the user store. However, the super admin users created from the <code>deployment.toml</code> file should be managed manually.</p>
             <p>See the following topics for instructions to correctly create your administrators and other users in the Micro Integrator.</p>       
             <ul>
-               <li><a href="../../mi-setup/user_stores/setting_up_a_userstore.md">Configuring a User Store</a> for the Micro Integrator.</li>
-               <li><a href="../../mi-setup/user_stores/managing_users.md">Managing Users</a> for the Micro Integrator.</li>
+               <li><a href="../../mi-setup/user_stores/setting_up_a_userstore/">Configuring a User Store</a> for the Micro Integrator.</li>
+               <li><a href="../../mi-setup/user_stores/managing_users/">Managing Users</a> for the Micro Integrator.</li>
             </ul>                   
          </td>
       </tr>
@@ -646,8 +646,8 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="../../../../administer/logging-and-monitoring/logging/managing-log-growth.md">this</a> guide can be used.</p>
-            <p>See <a href="../../../../observe/micro-integrator/classic-observability-logs/monitoring-logs.md">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
+            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="../../../../administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
+            <p>See <a href="../../../../observe/micro-integrator/classic-observability-logs/monitoring-logs/">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -656,7 +656,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Log forging can be prevented by appending a UUID to the log message.</p>
-            <p>Read about <a href="../../../../observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties.md">configuring logs</a> in the Micro Integrator.</p>
+            <p>Read about <a href="../../../../observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/">configuring logs</a> in the Micro Integrator.</p>
          </td>
       </tr>
       <tr class="even">
@@ -665,7 +665,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>The recommended JDK version is JDK 11. See the <a href="../../../install/installation-prerequisites.md">installation pre-requisites</a> for more information.</p>
+            <p>The recommended JDK version is JDK 11. See the <a href="../../../install/installation-prerequisites/">installation pre-requisites</a> for more information.</p>
             <p><strong>Tip</strong>: To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
          </td>
       </tr>
@@ -691,7 +691,7 @@ This section provides the list of OS-level security guidelines for your producti
 <tr class="even">
 <td><p>Minimize software to avoid vulnerability</p></td>
 <td><p>Make sure that you only install the software/packages that are relevant to your WSO2 product's deployment. Also, continuously monitor the software that you install.</p>
-<p>For information on the minimum software that your WSO2 product will need, see <a href="../../../install/installation-prerequisites.md#system-requirements">Installation Prerequisites</a>.</p></td>
+<p>For information on the minimum software that your WSO2 product will need, see <a href="../../../install/installation-prerequisites/#system-requirements">Installation Prerequisites</a>.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Enable the Firewall</p></td>
@@ -740,7 +740,7 @@ documentation.</p></div></td>
 <tr class="odd">
 <td><p>Make regular backups</p></td>
 <td><p>Make sure to back up important files and archive them continuously. For more information, see <a 
-href="../backup-recovery.md">Backup and Recovery Recommendations</a>.</p></td>
+href="../backup-recovery/">Backup and Recovery Recommendations</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -772,7 +772,7 @@ This section provides a list of security guidelines for configuring the network
 <tr class="odd">
 <td><p>Check open ports and services</p></td>
 <td><p>Periodically check for open ports using port scanning tools and make sure that only the necessary ports are open to both internal and external networks. Be sure that only the ports relevant to your WSO2 products are open for communication. If there are other ports started, be sure to monitor them.</p>
-<p>For the full list of ports in all WSO2 products, see <a href="../../reference/default-product-ports.md">Default Product Ports</a>.</p></td>
+<p>For the full list of ports in all WSO2 products, see <a href="../../reference/default-product-ports/">Default Product Ports</a>.</p></td>
 </tr>
 <tr class="even">
 <td><p>Configure device-level security</p></td>

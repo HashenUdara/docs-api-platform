@@ -363,7 +363,7 @@ You can use JSON path expressions with following mediators:
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="../../../../reference/mediators/log-mediator.md">Log</a></td>
+<td><a href="../../../../reference/mediators/log-mediator/">Log</a></td>
 <td><div class="content-wrapper">
 <p>As a log property:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -377,7 +377,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="even">
-<td><a href="../../../../reference/mediators/property-mediator.md">Property</a></td>
+<td><a href="../../../../reference/mediators/property-mediator/">Property</a></td>
 <td><div class="content-wrapper">
 <p>As a standalone property:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -389,7 +389,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="../../../../reference/mediators/payloadfactory-mediator.md">PayloadFactory</a></td>
+<td><a href="../../../../reference/mediators/payloadfactory-mediator/">PayloadFactory</a></td>
 <td><div class="content-wrapper">
 <p>As the payload arguments:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -406,7 +406,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="even">
-<td><a href="../../../../reference/mediators/switch-mediator.md">Switch</a></td>
+<td><a href="../../../../reference/mediators/switch-mediator/">Switch</a></td>
 <td><div class="content-wrapper">
 <p>As the switch source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -417,7 +417,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="../../../../reference/mediators/filter-mediator.md">Filter</a></td>
+<td><a href="../../../../reference/mediators/filter-mediator/">Filter</a></td>
 <td><div class="content-wrapper">
 <p>As the filter source:</p>
 <div class="code panel pdl" style="border-width: 1px;">

@@ -148,24 +148,24 @@ The Micro Integrator and Streaming Integrator containers that were created when 
     <tr>
         <td>
             <ul>
-                <li><a href="../scenario1-create-rest-api.md">Scenario 1: Create a REST API from an OpenAPI Definition<a></li>
-                <li><a href="../scenario2-access-control.md">Scenario 2: Engage Access Control to the API<a></li>
-                <li><a href="../scenario3-implementing-an-api.md">Scenario 3: Implementing an API<a></li>
-                <li><a href="../scenario4-user-signup-approval-flow.md">Scenario 4: Signing up a New User<a></li>
-                <li><a href="../scenario5-developer-community-feature.md">Scenario 5: Getting the Developer Community Involved<a></li>
-                <li><a href="../scenario6-integrating-with-data-sources.md">Scenario 6: Integrating with Data Sources<a></li>
-                <li><a href="../scenario7-analytics.md">Scenario 7: Analytics<a></li>
+                <li><a href="../scenario1-create-rest-api/">Scenario 1: Create a REST API from an OpenAPI Definition<a></li>
+                <li><a href="../scenario2-access-control/">Scenario 2: Engage Access Control to the API<a></li>
+                <li><a href="../scenario3-implementing-an-api/">Scenario 3: Implementing an API<a></li>
+                <li><a href="../scenario4-user-signup-approval-flow/">Scenario 4: Signing up a New User<a></li>
+                <li><a href="../scenario5-developer-community-feature/">Scenario 5: Getting the Developer Community Involved<a></li>
+                <li><a href="../scenario6-integrating-with-data-sources/">Scenario 6: Integrating with Data Sources<a></li>
+                <li><a href="../scenario7-analytics/">Scenario 7: Analytics<a></li>
             </ul>
         </td>
         <td>
             <ul>
-                <li><a href="../scenario8-rate-limiting.md">Scenario 8: Rate Limiting<a></li>
-                <li><a href="../scenario9-realtime-data.md">Scenario 9: Realtime Data with WebSocket API<a></li>
-                <li><a href="../scenario10-notifications-webhooks.md">Scenario 10: Notifications Using Webhooks<a></li>
-                <li><a href="../scenario11-graphql.md">Scenario 11: GraphQL Support<a></li>
-                <li><a href="../scenario12-message-delivery.md">Scenario 12: Gauranteed Message Delivery<a></li>
-                <li><a href="../scenario13-integrate-with-connectors.md">Scenario 13: Integrate with Services via Connectors<a></li>
-                <li><a href="../scenario14-external-key-manager.md">Scenario 14: External Key Manager Support<a></li>
+                <li><a href="../scenario8-rate-limiting/">Scenario 8: Rate Limiting<a></li>
+                <li><a href="../scenario9-realtime-data/">Scenario 9: Realtime Data with WebSocket API<a></li>
+                <li><a href="../scenario10-notifications-webhooks/">Scenario 10: Notifications Using Webhooks<a></li>
+                <li><a href="../scenario11-graphql/">Scenario 11: GraphQL Support<a></li>
+                <li><a href="../scenario12-message-delivery/">Scenario 12: Gauranteed Message Delivery<a></li>
+                <li><a href="../scenario13-integrate-with-connectors/">Scenario 13: Integrate with Services via Connectors<a></li>
+                <li><a href="../scenario14-external-key-manager/">Scenario 14: External Key Manager Support<a></li>
             </ul>
         </td>
     </tr>

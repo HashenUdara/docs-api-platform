@@ -77,7 +77,7 @@ These solutions are suitable for the following combination of operations.
             </ul>
         </li>
         <li>
-        For more information, see the <a href="../setting-up-cloud-native-observability-in-kubernetes.md">Kubernetes Deployment Getting Started Guide</a>.
+        For more information, see the <a href="../setting-up-cloud-native-observability-in-kubernetes/">Kubernetes Deployment Getting Started Guide</a>.
         </li>
         </ul>
         </td>
@@ -101,7 +101,7 @@ These solutions are suitable for the following combination of operations.
             This solution is ideal if you want a complete cloud native solution for observability, but you need to set this up on a VM. Ideally, you would already have Prometheus, Grafana, and Jaeger as your in-house monitoring and observability tools.
             </li>
             <li>
-            For more information, see the <a href="../setting-up-cloud-native-observability-on-a-vm.md">VM Deployment Getting Started Guide</a>.
+            For more information, see the <a href="../setting-up-cloud-native-observability-on-a-vm/">VM Deployment Getting Started Guide</a>.
             </li>
         </ul>
         </td>
@@ -121,5 +121,5 @@ The cloud native observability solution is based on proven projects from the **C
 
 ## What's Next?
 
--	Set up <a href="../setting-up-cloud-native-observability-on-a-vm.md">cloud-native observability on a VM</a>.
--	Set up <a href="../setting-up-cloud-native-observability-in-kubernetes.md">cloud-native observability on Kubernetes</a>.
+-	Set up <a href="../setting-up-cloud-native-observability-on-a-vm/">cloud-native observability on a VM</a>.
+-	Set up <a href="../setting-up-cloud-native-observability-in-kubernetes/">cloud-native observability on Kubernetes</a>.

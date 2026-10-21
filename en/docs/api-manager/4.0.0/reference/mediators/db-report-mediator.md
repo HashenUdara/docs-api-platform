@@ -139,7 +139,7 @@ Specifying the value as -1 allows unlimited transactions. Change the value accor
 <li>The DBReport mediator configuration must be preceded by a Transaction Mediator configuration with <code>                   new                  </code> as the transaction action.</li>
 <li>The DBReport mediator configuration must be followed by a Transaction Mediator configuration with <code>commit</code> as the transaction action.</li>
 </ul>
-<p>For detailed information about configuring Transaction mediators, see <a href="../transaction-mediator.md">Transaction Mediator</a> .</p>
+<p>For detailed information about configuring Transaction mediators, see <a href="../transaction-mediator/">Transaction Mediator</a> .</p>
 </div></td>
 </tr>
 <tr class="even">

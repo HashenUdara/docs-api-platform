@@ -34,7 +34,7 @@ The API-M cluster consists of two <b>All-in-One</b> API-M nodes. See the followi
 
 <ul>
     <li>
-        <a href="../single-node/configuring-an-active-active-deployment.md">API-M Cluster with Minimum High Availability</a>
+        <a href="../single-node/configuring-an-active-active-deployment/">API-M Cluster with Minimum High Availability</a>
     </li>
 </ul>
 
@@ -44,10 +44,10 @@ The integration cluster may be a Micro Integrator cluster or a Streaming Integra
 
 <ul>
     <li>
-        <a href="../mi-setup/deployment/deploying_wso2_ei.md">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="../mi-setup/deployment/deploying_wso2_ei/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
-        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster.md">Streaming Integrator Cluster with Minimum High Availability</a>
+        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster/">Streaming Integrator Cluster with Minimum High Availability</a>
     </li>
 </ul>
 
@@ -68,7 +68,7 @@ The API-M cluster consists of two <b>All-in-One</b> API-M nodes. See the followi
 
 <ul>
     <li>
-        <a href="../single-node/configuring-an-active-active-deployment.md">API-M Cluster with Minimum High Availability</a>
+        <a href="../single-node/configuring-an-active-active-deployment/">API-M Cluster with Minimum High Availability</a>
     </li>
 </ul>
 
@@ -78,10 +78,10 @@ The integration cluster consists of two nodes of the integration runtime for eac
 
 <ul>
     <li>
-        <a href="../mi-setup/deployment/deploying_wso2_ei.md">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="../mi-setup/deployment/deploying_wso2_ei/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
-        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster.md">Streaming Integrator Cluster with Minimum High Availability</a>
+        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster/">Streaming Integrator Cluster with Minimum High Availability</a>
     </li>
 </ul>
 
@@ -119,7 +119,7 @@ The API-M layer of this deployment consists of two clusters of API-M components 
     </tr>
 </table>
 
-To set up this cluster, see the instructions on <a href="../distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md">Setting up a Distributed API-M deployment</a>.
+To set up this cluster, see the instructions on <a href="../distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/">Setting up a Distributed API-M deployment</a>.
 
 ### Integration cluster
 
@@ -127,10 +127,10 @@ The integration cluster consist of a minimum of two nodes of the integration run
 
 <ul>
     <li>
-        <a href="../mi-setup/deployment/deploying_wso2_ei.md">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="../mi-setup/deployment/deploying_wso2_ei/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
-        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster.md">Streaming Integrator Cluster with Minimum High Availability</a>
+        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster/">Streaming Integrator Cluster with Minimum High Availability</a>
     </li>
 </ul>
 
@@ -177,7 +177,7 @@ The API-M layer of this deployment consists of two clusters of API-M components 
     </tr>
 </table>
 
-To set up this cluster, see the instructions on <a href="../distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md">Setting up a Distributed API-M deployment</a>.
+To set up this cluster, see the instructions on <a href="../distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated/">Setting up a Distributed API-M deployment</a>.
 
 ### Integration cluster
 
@@ -185,9 +185,9 @@ The integration cluster consist of a minimum of two nodes of the integration run
 
 <ul>
     <li>
-        <a href="../mi-setup/deployment/deploying_wso2_ei.md">Micro Integrator Cluster with Minimum High Availability</a>
+        <a href="../mi-setup/deployment/deploying_wso2_ei/">Micro Integrator Cluster with Minimum High Availability</a>
     </li>
     <li>
-        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster.md">Streaming Integrator Cluster with Minimum High Availability</a>
+        <a href="../si-deployment/deploying-si-as-minimum-ha-cluster/">Streaming Integrator Cluster with Minimum High Availability</a>
     </li>
 </ul>

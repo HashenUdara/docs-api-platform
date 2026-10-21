@@ -74,7 +74,7 @@ The following properties are optional properties you can configure when [creatin
           </td>
           <td>
               The path to a custom Swagger definition (YAML/JSON file) that is stored in a registry project in your workspace.</br></br>
-              Once this API is created and deployed in the Micro Integrator, users will be able to access this custom Swagger definition and not the default Swagger definition of the API. See the instructions on <a href="../../../integrate/develop/advanced-development/using-swagger-for-apis.md">using Swagger documents</a> for more information.
+              Once this API is created and deployed in the Micro Integrator, users will be able to access this custom Swagger definition and not the default Swagger definition of the API. See the instructions on <a href="../../../integrate/develop/advanced-development/using-swagger-for-apis/">using Swagger documents</a> for more information.
           </td>
       </tr>
 </table>

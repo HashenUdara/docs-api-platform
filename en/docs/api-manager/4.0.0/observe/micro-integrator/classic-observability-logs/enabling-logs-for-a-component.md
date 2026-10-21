@@ -57,7 +57,7 @@ There are two ways to enable logs for a component: using the Micro Integrator [d
                 Log Level
             </th>
             <td>
-                Specify the <a href="../configuring-log4j2-properties.md#updating-the-log4j2-log-level">log level</a>.
+                Specify the <a href="../configuring-log4j2-properties/#updating-the-log4j2-log-level">log level</a>.
             </td>
         </tr>
     </table>

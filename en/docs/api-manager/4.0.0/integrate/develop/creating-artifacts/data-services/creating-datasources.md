@@ -55,4 +55,4 @@ Shown below is the sample configuration that is created. You can now update the 
 
 ## Examples
 
--	<a href="../../../../examples/data_integration/carbon-data-service.md">Exposing a Carbon Datasource</a>
+-	<a href="../../../../examples/data_integration/carbon-data-service/">Exposing a Carbon Datasource</a>

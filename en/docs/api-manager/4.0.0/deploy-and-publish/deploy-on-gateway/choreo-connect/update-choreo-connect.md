@@ -34,7 +34,7 @@ The Docker images related to Choreo Connect updates reside in [WSO2 private Dock
     <tbody>
         <tr>
             <td>
-                <a href="../getting-started/choreo-connect-overview.md#router">Router</a>
+                <a href="../getting-started/choreo-connect-overview/#router">Router</a>
             </td>
             <td>
                 <code>choreo-connect-router:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
@@ -45,7 +45,7 @@ The Docker images related to Choreo Connect updates reside in [WSO2 private Dock
         </tr>
         <tr>
             <td>
-                <a href="../getting-started/choreo-connect-overview.md#enforcer">Enforcer</a>
+                <a href="../getting-started/choreo-connect-overview/#enforcer">Enforcer</a>
             </td>
             <td>
                 <code>choreo-connect-enforcer:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
@@ -56,7 +56,7 @@ The Docker images related to Choreo Connect updates reside in [WSO2 private Dock
         </tr>
         <tr>
             <td>
-                <a href="../getting-started/choreo-connect-overview.md#adapter">Adapter</a>
+                <a href="../getting-started/choreo-connect-overview/#adapter">Adapter</a>
             </td>
             <td>
                 <code>choreo-connect-enforcer:{WSO2_PRODUCT_VERSION}.{UPDATE_LEVEL}</code>
