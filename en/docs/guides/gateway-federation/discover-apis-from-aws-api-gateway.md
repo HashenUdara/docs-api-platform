@@ -292,3 +292,4 @@ Publishing the API makes it discoverable in the Developer Portal so developers c
 - [Gateway federation overview](../../../cloud/federation/overview/) — learn about the full lifecycle of gateway federation in API Platform, including governance and compliance monitoring.
 - [Manage the API lifecycle](../../../cloud/develop-api-proxy/lifecycle-management/) — move an API discovered from an external gateway through the lifecycle states to publish it to the Developer Portal.
 - [Discover APIs in the Developer Portal](../../../cloud/devportal/discover-apis/api-search/) — understand how consumers find and subscribe to APIs you've published, including those from external gateways.
+- [AWS guides](../vendors/aws.md) — find more ways to use WSO2 API Platform with AWS, including Amazon Bedrock, workload identity on Amazon EKS, and Amazon CloudWatch.
