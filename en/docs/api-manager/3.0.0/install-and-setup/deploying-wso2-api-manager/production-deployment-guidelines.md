@@ -343,10 +343,10 @@ hostname = "test.wso2.com"
 <li>See the topics on changing hostnames shown below:
 <ul>
 <li>
-<a href="../changing-the-default-ports-with-offset.md">Setting up hostnames and ports</a>
+<a href="../changing-the-default-ports-with-offset/">Setting up hostnames and ports</a>
 </li>
 <li>
-<a href="../changing-the-hostname.md">Changing the hostname</li>
+<a href="../changing-the-hostname/">Changing the hostname</li>
 </ul></li>
 <li>See <a href="https://docs.wso2.com/display/ADMIN44x/Working+with+Transports">Working with Transports</a> for information on transports in WSO2 products.</li>
 </ul>
@@ -412,7 +412,7 @@ by adding the JMX port parameter in the <code> &lt;PRODUCT_HOME&gt;/repository/c
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<p>Please refer <a href="../../../administer/product-administration/monitoring/jmx-based-monitoring.md#configuring-jmx-in-a-wso2-product">JMX-Based Monitoring</a> for 
+<p>Please refer <a href="../../../administer/product-administration/monitoring/jmx-based-monitoring/#configuring-jmx-in-a-wso2-product">JMX-Based Monitoring</a> for 
 information on monitoring WSO2 products using JMX.</p>
 </div>
 </div>
@@ -429,7 +429,7 @@ information on monitoring WSO2 products using JMX.</p>
 <div class="panelContent">
 <div>
 <ul>
-<li>See <a href="../../performance-tuning-and-test-results/tuning-performance.md">Performance 
+<li>See <a href="../../performance-tuning-and-test-results/tuning-performance/">Performance 
 Tuning</a> for the WSO2 API Manager related guidelines.</li>
 <li>For performance tuning guidelines that are specific to each product, go to the product documentation for each 
 product listed below and search for performance tuning guidelines.<br />
@@ -488,7 +488,7 @@ are reflected in the below mentioned config files, according to the new configur
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<p>See <a href="../../../administer/product-configurations/default-product-ports.md">Default Product Ports</a> for
+<p>See <a href="../../../administer/product-configurations/default-product-ports/">Default Product Ports</a> for
  a list of common and product-specific ports used by WSO2 products.</p>
 </div>
 </div>
@@ -517,7 +517,7 @@ Manager (WSO2 APIM) by default, because you can successfully deploy WSO2 API Man
 </div>
 <div class="panelContent">
 <ul>
-<li>See <a href="../distributed-deployment/working-with-hazelcast-clustering.md">Working with Hazelcast Clustering</a> for more details on clustering, what it is, how it helps and other related information.</li>
+<li>See <a href="../distributed-deployment/working-with-hazelcast-clustering/">Working with Hazelcast Clustering</a> for more details on clustering, what it is, how it helps and other related information.</li>
 <li>See <a href="https://docs.wso2.com/display/ADMIN44x/Separating+the+Worker+and+Manager+Nodes">Separating the Worker and Manager Nodes</a> for information on clustering WSO2 products by separating worker and manager concerns between the nodes.</li>
 </ul>
 </div>
