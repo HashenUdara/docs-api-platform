@@ -31,7 +31,7 @@ Databases</p>
 <td>
 <ul>
 <li>
-<p>Install a JDK version that is <a href="../setup/reference/product-compatibility.md#tested-operating-systems-and-jdks">compatible with this product version</a>.</p>
+<p>Install a JDK version that is <a href="../setup/reference/product-compatibility/#tested-operating-systems-and-jdks">compatible with this product version</a>.</p>
 </li>
 <li><p>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. For most enterprise production environments. However, WSO2 recommends that you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../setup/setting-up-databases/overview/">Working with Databases</a>. Additionally, WSO2 does not recommend the H2 database as a user store.</p>
 </li>

@@ -31,7 +31,7 @@ Blocking can be done at two levels:
   <html>
   <div class="admonition warning">
   <p class="admonition-title">Warning</p>
-  <p>When <a href="../../../get-started/apim-architecture.md#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
+  <p>When <a href="../../../get-started/apim-architecture/#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
   </div> 
   
   <div class="admonition note">

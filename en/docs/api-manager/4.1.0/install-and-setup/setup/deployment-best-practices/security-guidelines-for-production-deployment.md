@@ -256,7 +256,7 @@ logging in API Manage</a>.</p></td>
 <p><br />
 </p></td>
 <td><p>The recommended JDK version is JDK 8 or 11. For more information, see <a 
-href="../reference/product-compatibility.md#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a>.</p>
+href="../reference/product-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a>.</p>
 <p>You do not need to set the Heap and Permgen values for the JVM from JDK 1.8 onwards as the <code>MaxPermSize</code> value has 
 been removed from Hotspot JVM.</p>
 </td>

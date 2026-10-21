@@ -9,6 +9,9 @@ tags:
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-08-19
 content_type: "concept"
+# Keep the left product nav; hide TOC so the landing cards have room.
+hide:
+  - toc
 ---
 
 <style>
@@ -34,6 +37,135 @@ content_type: "concept"
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
     }
+
+    /* Landing page — sized for content column beside the primary nav */
+    .homePage {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .homePage .section01 {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        margin: 0 0 1.5rem;
+    }
+
+    .homePage .leftContent {
+        min-width: 0;
+        text-align: left;
+        max-height: none;
+    }
+
+    .homePage .leftContent img {
+        max-width: 220px;
+        width: 100%;
+        height: auto;
+    }
+
+    .homePage .description-media {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        float: none;
+        min-width: 0;
+    }
+
+    .homePage .description-media iframe {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: 180px;
+        border: 0;
+        border-radius: 6px;
+    }
+
+    .homePage .section02 {
+        display: block;
+        margin: 0;
+        padding: 0 0 1.25rem;
+    }
+
+    .homePage .section03 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+        margin: 0 0 1.25rem;
+        padding: 1.5rem 1.25rem;
+        background: #EBEBEB;
+        border-radius: 6px;
+        flex-direction: unset;
+    }
+
+    .homePage .section03 h3 {
+        margin-top: 0;
+    }
+
+    .homePage .section04 {
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    .homePage .section05 {
+        margin: 0;
+        padding: 1.5rem 1.25rem;
+        background: #EBEBEB;
+        border-radius: 6px;
+    }
+
+    .homePage .linkWrapper {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+        flex-direction: unset;
+    }
+
+    .homePage .linkSet2,
+    .homePage .linkSet2.middle,
+    .homePage .linkSet2.last {
+        margin: 0;
+        min-width: 0;
+    }
+
+    .homePage .linkSet2 img {
+        max-width: 72px;
+        width: auto;
+        height: auto;
+    }
+
+    .homePage h3 {
+        color: #333;
+    }
+
+    [data-md-color-scheme="slate"] .homePage .section03,
+    [data-md-color-scheme="slate"] .homePage .section05 {
+        background: #232327;
+    }
+
+    [data-md-color-scheme="slate"] .homePage h3 {
+        color: #d5ac8d;
+    }
+
+    @media (max-width: 1220px) {
+        .homePage .section01 {
+            grid-template-columns: 1fr;
+        }
+
+        .homePage .section03,
+        .homePage .linkWrapper {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 760px) {
+        .homePage .section03,
+        .homePage .linkWrapper {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 
 <div class="homePage">
@@ -53,8 +185,8 @@ content_type: "concept"
                 <img src="assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/>
             </a>
         </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
-        <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="description-media">
+            <iframe src="https://www.youtube.com/embed/nr1cFyxVdDw" title="WSO2 API Manager overview" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
     <!--<div class="leftContent">
@@ -64,8 +196,6 @@ content_type: "concept"
         </a>
     </div>
     </br>-->
-    </br>
-    </br>
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
@@ -107,12 +237,12 @@ content_type: "concept"
             </p>
             <a href='get-started/key-concepts'><h4>Understand the Concepts</h4></a>
         </div>
-        <div class="linkSet2 last" onclick="location.href='get-started/apim-architecture.md';">
+        <div class="linkSet2 last" onclick="location.href='get-started/apim-architecture/';">
             <h3>Architecture</h3>
             <p>
                 The WSO2 API Manager consists of a management plane, a data plane, and a control plane, along with multiple developer-friendly tools to help you work with the various components.
             </p>
-            <a href='get-started/apim-architecture.md'><h4>View Architecture</h4></a>
+            <a href='get-started/apim-architecture/'><h4>View Architecture</h4></a>
         </div>
     </div>
     <div class="section04">
