@@ -61,7 +61,7 @@ latest product version to receive all the security issues resolved until the par
 </ul>
 <p>See the recommendations for <a href="https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption#UsingAsymmetricEncryption-recommendations">Using keystores in WSO2 
 products</a> for more information.<br />
-See <a href="../../security/configuring-keystores/keystore-basics/creating-new-keystores.md">Creating New Keystores</a> for information on how to create and configure your own keys and keystores.</p></td>
+See <a href="../../security/configuring-keystores/keystore-basics/creating-new-keystores/">Creating New Keystores</a> for information on how to create and configure your own keys and keystores.</p></td>
 </tr>
 <tr class="odd">
 <td>Encrypt passwords in configuration files</td>
@@ -79,7 +79,7 @@ explained in <a href="../changing-the-default-ports-with-offset/">Changing the D
 <tr class="odd">
 <td><p>Enable <strong>read-only access</strong> to external user stores (LDAPs etc.)</p></td>
 <td><p>If your WSO2 product is connecting to an external user store, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
-<p>For more information, please refer <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md">Configuring a Read-Only LDAP User Store</a>.
+<p>For more information, please refer <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store/">Configuring a Read-Only LDAP User Store</a>.
 </tr>
 <tr class="even">
 <td><p>Always communicate (with external user stores) over TLS</p></td>
@@ -405,7 +405,7 @@ documentation.</p></div></td>
 </tr>
 <tr class="odd">
 <td><p>Make regular backups</p></td>
-<td><p>Make sure to backup important files and archive them continuously. See <a href="../production-deployment-guidelines.md#backup-and-recovery-recommendations">Backup and Recovery Recommendations</a> for more information.</p></td>
+<td><p>Make sure to backup important files and archive them continuously. See <a href="../production-deployment-guidelines/#backup-and-recovery-recommendations">Backup and Recovery Recommendations</a> for more information.</p></td>
 </tr>
 </tbody>
 </table>
