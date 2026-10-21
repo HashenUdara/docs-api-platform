@@ -10,6 +10,9 @@ tags:
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-08-20
 content_type: "concept"
+# Keep the left product nav; hide TOC so the landing cards have room.
+hide:
+  - toc
 ---
 
 <style>
@@ -36,259 +39,269 @@ content_type: "concept"
     -webkit-font-smoothing: antialiased;
     }
 
-    .content {
+    /* Landing page — sized for content column beside the primary nav */
+    .homePage {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .homePage .content {
         width: 100%;
         margin: 0 auto;
         display: flex;
-        justify-content: left;
-        align-items: left;
+        justify-content: flex-start;
+        align-items: stretch;
         flex-wrap: wrap;
+        gap: 1rem;
     }
 
-    .card {
-        height: 275px;
+    .homePage .card {
+        min-height: 220px;
+        height: auto;
         color: #404040;
         background: #f8f8f8;
-        padding-left: 1.2rem;
-        padding-bottom: 0.7rem;
-        -webkit-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
-        -moz-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        padding: 1rem 1.2rem 0.7rem;
         box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
         border-radius: 10px;
         font-size: 16px;
-        transition: all 0.6s ease;
-        position: relative;
-        justify-content: left;
-        align-items: left;
-        flex-direction: row;
         transition: all 0.3s ease;
         width: 100%;
+        box-sizing: border-box;
     }
 
-    .card-wrapper {
+    .homePage .card-wrapper {
         width: 100%;
         display: flex;
-        max-width: 400px;
+        max-width: 100%;
+        flex: 1 1 240px;
     }
 
-    .component-wrapper {
-        width: 100%;
+    .homePage .card-content {
+        justify-content: flex-start;
         display: flex;
-        justify-content: space-between;
-    }
-
-    .card-content {
-        justify-content: left;
-        display: flex;
-        align-items: left;
+        align-items: flex-start;
         text-align: left;
         flex-direction: column;
+        width: 100%;
     }
 
-    .card .title {
+    .homePage .card .title {
         font-family: Montserrat, sans-serif;
         font-style: normal;
-        font-size: 18px;
-        margin: 2;
+        font-size: 1rem;
+        margin: 0;
         text-align: left;
         font-weight: 600;
-        white-space: nowrap;
+        white-space: normal;
         text-transform: none;
         display: flex;
     }
 
-    .card-icon {
+    .homePage .card-icon {
         height: 30px;
         max-width: 80px;
-        border-radius: 0%;
         display: flex;
         align-items: center;
         color: #ff5003;
-        transition: all 0.8s ease;
     }
 
-    .removeTopMargin {
+    .homePage .removeTopMargin {
         margin-top: 0;
     }
 
-    .rowAlignment {
+    .homePage .rowAlignment {
         justify-content: space-between;
         display: flex;
         flex-direction: row;
+        width: 100%;
     }
 
-    .rowAlignmentProductNameIcon {
-        justify-content: left;
-        align-items: left;
+    .homePage .rowAlignmentProductNameIcon {
+        justify-content: flex-start;
+        align-items: center;
         display: flex;
         gap: 10px;
         flex-direction: row;
         margin-bottom: 0;
     }
 
-    .description-section {
-        display: flex;
-        justify-content: space-between;
+    .homePage .description-section {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 1.5rem;
         align-items: center;
-        margin-bottom: 30px;
-        margin-left: 100px;
+        margin: 0 0 1.5rem;
     }
 
-    .component-section {
+    .homePage .description-media {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        float: none;
+    }
+
+    .homePage .description-media iframe {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: 180px;
+        border: 0;
+        border-radius: 6px;
+    }
+
+    .homePage .component-section {
         display: grid;
-        justify-content: space-between;
-        flex-direction: row;
-        grid-template-columns: 400px 4fr;
-        gap: 50px;
-    }
-    .tiles-container {
-        display: flex;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        gap: 1.5rem;
         align-items: start;
-        /* flex-wrap: wrap; */
-        justify-content: space-between;
     }
-    .tile {
-        display: inline-block;
-        vertical-align: top;
+
+    .homePage .tiles-container {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .homePage .tiles-column {
+        flex: 1 1 220px;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .homePage .tile {
         background-color: rgba(255, 255, 255, 0.03);
-        padding: 50px;
+        padding: 1.25rem 1.5rem;
         border-radius: 5px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease-in-out;
-        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        margin: 0 0 25px 25px;
+        margin: 0 0 1rem;
+        box-sizing: border-box;
+        width: 100%;
     }
-    .tile:hover {
+
+    .homePage .tile:hover {
         transform: scale(1.01);
     }
-    .tile-header {
+
+    .homePage .tile-header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         border-bottom: 1px solid rgb(215, 215, 215);
+        gap: 0.5rem;
     }
-    .tile h3 {
-        font-size: 0.9rem;
-        margin-top: 0px;
+
+    .homePage .tile h3 {
+        font-size: 0.95rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
     }
-    .tile-icon {
-        margin-left: 30px;
+
+    .homePage .tile-icon {
+        margin-left: 0.5rem;
         font-size: 1rem;
+        flex-shrink: 0;
     }
-    .links-list li {
+
+    .homePage .links-list {
+        padding-left: 0;
+        margin: 0.75rem 0 0;
+    }
+
+    .homePage .links-list li {
         list-style-type: none;
+        margin: 0.35rem 0;
     }
-    .link {
+
+    .homePage .link {
         display: inline-block;
-        margin-left: -30px;
-        color: var(--text-color) !important;
+        margin-left: 0;
+        color: var(--md-typeset-color) !important;
         text-decoration: none;
     }
-    .link:hover {
+
+    .homePage .link:hover {
         color: rgb(255, 112, 67) !important;
         text-decoration: none;
     }
-    .link:before {
+
+    .homePage .link:before {
         content: '→';
         font-weight: bold;
         margin-right: 5px;
     }
-    .button-container {
+
+    .homePage .button-container {
         text-align: right;
+        margin-top: 0.5rem;
     }
-    .view-all-button {
+
+    .homePage .view-all-button {
         display: inline-block;
-        background-color: none;
-        color: var(--text-color) !important;
+        color: var(--md-typeset-color) !important;
         text-decoration: none;
         border-radius: 5px;
     }
-    .view-all-button:hover {
+
+    .homePage .view-all-button:hover {
         color: rgb(255, 112, 67) !important;
     }
 
-    .section05 {
+    .homePage .section05 {
         display: flex;
-        justify-content: center;
-        margin-top: 50px;
+        justify-content: flex-start;
+        margin-top: 1.5rem;
+        width: 100%;
     }
 
-    .leftContent {
-        margin-right: 50px;
+    .homePage .leftContent {
+        margin-right: 0;
+        min-width: 0;
     }
 
-    @media (max-width: 1386px) {
-        .md-main .md-sidebar.md-sidebar--primary {
-            width: 0;
-        }
-    }
-
-    @media (max-width: 1219px) {
-        .md-content, .md-nav {
-            margin-top: 0;
-        }
-        .md-container {
-            margin-top: 2.4rem;
-        }
-        .md-main__inner {
-            padding-top: 1.5rem;
-        }
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-        .description-section {
-            flex-direction: column;
-            margin-left: 0;
-            text-align: center;
-        }
-
-        .md-main .md-content {
-            width: 100%;
-            float: none;
-            margin-left: 0;
-            margin-top: 10px;
-        }
-
-        .component-section {
+    /* Content column beside the primary nav is narrower than a full-bleed landing */
+    @media (max-width: 1220px) {
+        .homePage .description-section {
             grid-template-columns: 1fr;
-            gap: 20px;
         }
 
-        .tile-header h3 {
-            font-size: 1rem;
+        .homePage .description-media iframe {
+            min-height: 220px;
         }
 
-        .card-wrapper {
-            width: 100%;
+        .homePage .tiles-column {
+            flex: 1 1 calc(50% - 0.5rem);
+        }
+    }
+
+    @media (max-width: 960px) {
+        .homePage .component-section {
+            grid-template-columns: 1fr;
         }
 
-        .card {
-            height: auto;
+        .homePage .tiles-column {
+            flex: 1 1 100%;
         }
 
-        .button-container {
-            text-align: center;
+        .homePage .button-container {
+            text-align: left;
         }
     }
 
     @media (max-width: 480px) {
-        .card {
-            height: auto;
+        .homePage .card {
             padding: 15px;
         }
 
-        .description-section {
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        .view-all-button {
-            width: 100%;
-            padding: 10px 0;
-            text-align: center;
+        .homePage .tile {
+            padding: 1rem;
         }
     }
 </style>
@@ -364,7 +377,6 @@ content_type: "concept"
 <div class="homePage">
     <div class="description-section">
         <div class="leftContent">
-            </br>
             <p>
                 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premises, and hybrid architectures to drive your digital transformation strategy. 
             </p>
@@ -373,8 +385,8 @@ content_type: "concept"
                 managers to create API products from one or more APIs.
             </p>
         </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
-        <iframe width="800" height="250" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="description-media">
+            <iframe src="https://www.youtube.com/embed/nr1cFyxVdDw" title="WSO2 API Manager overview" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
     <div class="section05">
