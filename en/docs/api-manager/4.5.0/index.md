@@ -424,7 +424,7 @@ hide:
     <div>
         <h3>Components</h3>
         <hr/>
-        <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="get-started/apim-architecture.md">Architecture.</a></p>
+        <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="get-started/apim-architecture/">Architecture.</a></p>
         </br>
         </br>
         <div class="component-section">
@@ -450,7 +450,7 @@ hide:
                                 <p class="removeTopMargin">A Unified control plane which centrally manages and governs APIs across multiple Gateways</p>
                                 <div>
                                     <ul>
-                                        <li><a href="get-started/apim-architecture.md#api-control-plane">WSO2 API Control Plane Overview</a></li>
+                                        <li><a href="get-started/apim-architecture/#api-control-plane">WSO2 API Control Plane Overview</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -481,7 +481,7 @@ hide:
                                 <p class="removeTopMargin">Secure and proxy API traffic with enterprise-grade features</p>
                                 <div>
                                     <ul>
-                                        <li><a href="get-started/apim-architecture.md#universal-gateway">WSO2 Universal Gateway Overview</a></li>
+                                        <li><a href="get-started/apim-architecture/#universal-gateway">WSO2 Universal Gateway Overview</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -504,7 +504,7 @@ hide:
                                 <p class="removeTopMargin">Designed to build, deploy, and manage APIs in a cloud environment</p>
                                 <div>
                                     <ul>
-                                        <li><a href="get-started/apim-architecture.md#kubernetes-gateway">WSO2 Kubernetes Gateway Overview</a></li>
+                                        <li><a href="get-started/apim-architecture/#kubernetes-gateway">WSO2 Kubernetes Gateway Overview</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -527,7 +527,7 @@ hide:
                                 <p class="removeTopMargin">An API Gateway for micro services, which is cloud-native, decentralized and developer centric</p>
                                 <div>
                                     <ul>
-                                        <li><a href="get-started/apim-architecture.md#immutable-gateway">WSO2 Immutable Gateway Overview</a></li>
+                                        <li><a href="get-started/apim-architecture/#immutable-gateway">WSO2 Immutable Gateway Overview</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -550,8 +550,8 @@ hide:
                                 <p class="removeTopMargin">Manage APIs spanning multiple cloud platforms, on-premises systems, or regions</p>
                                 <div>
                                     <ul>
-                                        <li><a href="manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway.md">AWS API Gateway</a></li>
-                                        <li><a href="tutorials/integrating-with-solace.md">Solace Broker</a></li>
+                                        <li><a href="manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
+                                        <li><a href="tutorials/integrating-with-solace/">Solace Broker</a></li>
                                     </ul>
                                 </div>
                             </div>

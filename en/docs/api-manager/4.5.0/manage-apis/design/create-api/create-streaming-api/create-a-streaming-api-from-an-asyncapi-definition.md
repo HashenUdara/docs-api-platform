@@ -103,9 +103,9 @@ Next, publish the API, for more information, see [Publish an API](../../../../ma
 <p class="admonition-title">What's Next?</p>
 <p>Learn how to create Streaming APIs from scratch by trying out the following tutorials: 
 <ul>
-<li><a href="../../../../../tutorials/streaming-api/create-and-publish-websocket-api.md">Create and Publish a WebSocket API</a></li>
-<li><a href="../../../../../tutorials/streaming-api/create-and-publish-websub-api.md">Create and Publish a WebSub API</a></li>
-<li><a href="../../../../../tutorials/streaming-api/create-and-publish-sse-api.md">Create and Publish a Server Sent Events API</a></li>
+<li><a href="../../../../../tutorials/streaming-api/create-and-publish-websocket-api/">Create and Publish a WebSocket API</a></li>
+<li><a href="../../../../../tutorials/streaming-api/create-and-publish-websub-api/">Create and Publish a WebSub API</a></li>
+<li><a href="../../../../../tutorials/streaming-api/create-and-publish-sse-api/">Create and Publish a Server Sent Events API</a></li>
 </ul>
 </p>
 </div>

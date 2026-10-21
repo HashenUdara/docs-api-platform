@@ -19,7 +19,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on GraphQL APIs, see <a href="../../manage-apis/design/create-api/create-graphql-api/create-a-graphql-api.md">Create a GraphQL API</a>.</p>
+<p>For more information on GraphQL APIs, see <a href="../../manage-apis/design/create-api/create-graphql-api/create-a-graphql-api/">Create a GraphQL API</a>.</p>
 </div> 
 
 --8<-- "api-manager/4.5.0/includes/design/create-graphql-api.md"

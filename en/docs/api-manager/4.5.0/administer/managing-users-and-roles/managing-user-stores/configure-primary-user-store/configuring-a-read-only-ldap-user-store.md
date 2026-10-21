@@ -73,7 +73,7 @@ Following are the minimum userstore properties that are required to configure th
 <br />
 If you are connecting over ldaps (secured LDAP).<br />
 you need to import the certificate of the userstore to <code><&ZeroWidthSpace;APIM_HOME>/repository/resources/security/client-truststore.jks</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see <br />
-<a href="../../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md">Using asymmetric encryption</a><br />
+<a href="../../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.</br>
 </p></td>
@@ -172,7 +172,7 @@ read_groups = true
 <td><p>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
- Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../../../../install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md#setup-an-e-mail-login">Using email address as the username</a></p></td>
+ Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../../../../install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#setup-an-e-mail-login">Using email address as the username</a></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>

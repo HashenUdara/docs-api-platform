@@ -35,7 +35,7 @@ AI Gateway gives you the ability to create AI APIs, which serve as a bridge betw
 
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default vendors, you can add custom AI vendors by following the <a href='../ai-vendor-management/custom-ai-vendors/overview.md'>custom AI vendor integration</a> documentation.</p>
+    <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default vendors, you can add custom AI vendors by following the <a href='../ai-vendor-management/custom-ai-vendors/overview/'>custom AI vendor integration</a> documentation.</p>
     </div>
 
 4. Fill in the AI API details and click **Create**.

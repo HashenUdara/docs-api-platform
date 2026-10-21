@@ -145,7 +145,7 @@ Upload the **OpenAPI specification** file provided by the custom AI vendor. This
  <html><div class="admonition note">
  <p class="admonition-title">Note</p>
  <p>The <a href='https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/DefaultLLMProviderService.java'>`default`</a> connector type is a built in connector to extract AI model name, prompt token count, completion token count, total token count from the response.
- To write your own connector follow <a href='../custom-connector.md'> 
+ To write your own connector follow <a href='../custom-connector/'> 
  Write a connector for a Custom AI Vendor.</a></p>
  <p>
  </div>

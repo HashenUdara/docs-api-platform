@@ -116,7 +116,7 @@ To design a GraphQL API, see [Create a GraphQL API](../../../../manage-apis/desi
 <p class="admonition-title">Note</p>
 <p>
 Instead of giving Business Plans of GraphQL API related details in 
-<a href="../../../create-api/create-graphql-api/create-a-graphql-api.md">Create a GraphQL API</a>, 
+<a href="../../../create-api/create-graphql-api/create-a-graphql-api/">Create a GraphQL API</a>, 
 Use Business Plans that you create in the previous steps.
 </p>
 </div> 

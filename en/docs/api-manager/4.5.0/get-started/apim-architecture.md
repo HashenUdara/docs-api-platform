@@ -20,6 +20,7 @@ The diagram below is a high-level snapshot of WSO2 API Manager and the various c
 
 <!--The above diagram consists of an API management layer and an integration layer where the above components all fit into and mesh together to address the various use cases of the product. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes. For details on deployment patterns, see [Deployment Overview](../install-and-setup/setup/deployment-overview.md). The pattern you use would depend on the workload of each component and the traffic that is expected for each of the components and runtimes.-->
 
+<a name="api-control-plane"></a>
 ## API Control Plane
 
 The API Control Plane is where API creation and API management takes place. It consists of portals (Publisher, Developer Portal and Service Catalog) for users to create and manage APIs, implement rate limiting policies, monitor, and monetize etc. The API Control Plane consists of a Key manager component for API security validation and API key generation. It also provides a set of APIs to interact with external tools like API Controller. The API Control Plane includes API Analytics dashboards, displaying various business insights.
