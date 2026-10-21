@@ -526,7 +526,7 @@
     }
 }
 
-/* Guides overview: "By use case" / "By vendor" switch (behaviour in docs/assets/js/theme.js) */
+/* Guides overview: "By use case" / "By vendor" switch (behaviour in theme.js) */
 .md-typeset .guides-switch {
     display: inline-flex;
     margin: 0.4rem 0 0.6rem;
@@ -714,7 +714,8 @@
 .md-typeset .vendor-links[data-deployments="cloud hybrid"]::before { content: "Cloud and Hybrid"; }
 .md-typeset .vendor-links[data-deployments="hybrid self-hosted"]::before { content: "Hybrid and Self-hosted"; }
 
-.md-typeset .vendor-deployments-on .vendor-links[data-deployments]::before {
+/* theme.js adds the class to the article, which is the .md-typeset element */
+.md-typeset.vendor-deployments-on .vendor-links[data-deployments]::before {
     display: none;
 }
 
@@ -776,7 +777,7 @@
 
 .md-typeset .vendor-cap[hidden],
 .md-typeset .admonition[hidden],
-.md-nav__item[hidden] {
+.md-sidebar--secondary .md-nav__item[hidden] {
     display: none !important;
 }
 
