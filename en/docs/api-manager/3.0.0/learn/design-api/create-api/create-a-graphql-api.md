@@ -251,5 +251,5 @@ Rate limiting is set to unlimited, and thereby disabled by default.
 <div class="admonition note">
 <p class="admonition-title">What's Next?</p>
 
-<p>Learn more by trying out the tutorial on <a href="../../../tutorials/create-and-publish-a-graphql-api.md">Creating and Publishing a GrapQL API</a>.</p>
+<p>Learn more by trying out the tutorial on <a href="../../../tutorials/create-and-publish-a-graphql-api/">Creating and Publishing a GrapQL API</a>.</p>
 </div> 

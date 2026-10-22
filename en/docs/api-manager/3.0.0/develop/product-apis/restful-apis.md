@@ -21,25 +21,25 @@ The following are the REST API versions that are available.
 <br>
 <table>
   <tr>
-    <td nowrap="true"><a href="../publisher-apis/publisher-v1/publisher-v1.md">WSO2 Publisher v1</a></td>
+    <td nowrap="true"><a href="../publisher-apis/publisher-v1/publisher-v1/">WSO2 Publisher v1</a></td>
     <td rowspan="2"><b>WSO2 recommends that you use the v1 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 3.0.0 features with regard to the Publisher and the Developer Portal.
     </td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="../devportal-apis/devportal-v1/devportal-v1.md">WSO2 Developer Portal v1</a></td>
+    <td nowrap="true"><a href="../devportal-apis/devportal-v1/devportal-v1/">WSO2 Developer Portal v1</a></td>
   </tr>
   
 
   <tr>
-    <td nowrap="true"><a href="../publisher-apis/publisher-v0.15/publisher-v0.15.md">WSO2 Publisher v0.15</a></td>
+    <td nowrap="true"><a href="../publisher-apis/publisher-v0.15/publisher-v0.15/">WSO2 Publisher v0.15</a></td>
     <td rowspan="2">The <b>v0.15 REST APIs</b> will be deprecated in the next WSO2 API Manager release.</b></td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="../devportal-apis/devportal-v0.15/devportal-v0.15.md">WSO2 Developer Portal v0.15</a></td>
+    <td nowrap="true"><a href="../devportal-apis/devportal-v0.15/devportal-v0.15/">WSO2 Developer Portal v0.15</a></td>
   </tr>
 
   <tr>
-    <td nowrap="true"><a href="../admin-apis/admin-v0.15/admin-v0.15.md">WSO2 Admin API v0.15</a></td>
+    <td nowrap="true"><a href="../admin-apis/admin-v0.15/admin-v0.15/">WSO2 Admin API v0.15</a></td>
     <td> <b>WSO2 recommends that you use the Admin v0.15 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 3.0.0 features with regard to the Admin Portal.</td>
   </tr>
 

@@ -324,7 +324,7 @@ Following are the minimum user store properties that are needed to be provided t
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="../../../../../product-security/configuring-keystores/keystore-basics/creating-new-keystores.md">Using asymmetric encryption</a><br />
+<a href="../../../../../product-security/configuring-keystores/keystore-basics/creating-new-keystores/">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
 </p></td>
@@ -371,7 +371,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <td>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.
  <p>Default: uid<br />
  <br />
- Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../../../../product-security/logins-and-passwords/maintaining-logins-and-passwords.md#setting-up-an-e-mail-login">Using email address as the username</a></p></td>
+ Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../../../../product-security/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login">Using email address as the username</a></p></td>
  </tr>
  <tr class="even">
  <td>UserNameSearchFilter</td>
