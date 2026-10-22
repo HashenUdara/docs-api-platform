@@ -48,7 +48,7 @@ Let's get started with the integration capabilities and concepts of the Micro In
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card img" onclick="location.href='../get-started/integration-quick-start-guide.md';">
+        <div class="card img" onclick="location.href='../get-started/integration-quick-start-guide/';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='../../assets/img/integrate/quick-start.png' alt="integration quick start" />
@@ -60,7 +60,7 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card img" onclick="location.href='develop/integration-development-kickstart.md';">
+        <div class="card img" onclick="location.href='develop/integration-development-kickstart/';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='../../assets/img/integrate/first-service.png' alt="develop first integration" />
@@ -72,7 +72,7 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card img" onclick="location.href='integration-key-concepts.md';">
+        <div class="card img" onclick="location.href='integration-key-concepts/';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='../../assets/img/integrate/key-concepts.png' alt="integration key concepts" />
@@ -121,7 +121,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/message-routing-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/message-routing-overview/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Message Routing</p>
@@ -130,7 +130,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/message-routing-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/message-routing-overview/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Message Transformation</p>
@@ -139,7 +139,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/data-integration-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/data-integration-overview/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Data Integration</p>
@@ -150,7 +150,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
     </div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/file-processing-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/file-processing-overview/';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">File Processing</p>
@@ -159,7 +159,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/connectors.md';">
+        <div class="card" onclick="location.href='integration-use-case/connectors/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">SaaS and B2B Connectivity</p>
@@ -168,7 +168,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/service-orchestration-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/service-orchestration-overview/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Service Orchestration</p>
@@ -179,7 +179,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
     </div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/asynchronous-message-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/asynchronous-message-overview/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Enterprise Messaging</p>
@@ -188,7 +188,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/scheduled-task-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/scheduled-task-overview/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Scheduled Integration Processes</p>
@@ -197,7 +197,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='integration-use-case/protocol-switching-overview.md';">
+        <div class="card" onclick="location.href='integration-use-case/protocol-switching-overview/';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Protocol Switching</p>
@@ -215,7 +215,7 @@ Learn how to set up the development environment and build integration solutions.
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='develop/wso2-integration-studio.md';">
+        <div class="card" onclick="location.href='develop/wso2-integration-studio/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Quick Tour - WSO2 Integration Studio</p>
@@ -224,7 +224,7 @@ Learn how to set up the development environment and build integration solutions.
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='develop/installing-wso2-integration-studio.md';">
+        <div class="card" onclick="location.href='develop/installing-wso2-integration-studio/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Install WSO2 Integration Studio</p>
@@ -233,7 +233,7 @@ Learn how to set up the development environment and build integration solutions.
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='develop/intro-integration-development.md';">
+        <div class="card" onclick="location.href='develop/intro-integration-development/';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Development Workflow</p>
@@ -253,7 +253,7 @@ Learn about the dashboards, tools, and solutions that are available for managing
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='../observe/mi-observe/working-with-monitoring-dashboard.md';">
+        <div class="card" onclick="location.href='../observe/mi-observe/working-with-monitoring-dashboard/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Micro Integrator Dashboard</p>
@@ -271,7 +271,7 @@ Learn about the dashboards, tools, and solutions that are available for managing
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='../observe/micro-integrator/cloud-native-observability-overview.md';">
+        <div class="card" onclick="location.href='../observe/micro-integrator/cloud-native-observability-overview/';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Observability for Integrations</p>
@@ -289,7 +289,7 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='../install-and-setup/install-and-setup-overview.md#installing_1';">
+        <div class="card" onclick="location.href='../install-and-setup/install-and-setup-overview/#installing_1';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Installation</p>
@@ -307,7 +307,7 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='../install-and-setup/install-and-setup-overview.md#upgrading_1';">
+        <div class="card" onclick="location.href='../install-and-setup/install-and-setup-overview/#upgrading_1';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Upgrade</p>
@@ -318,7 +318,7 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
     </div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='../install-and-setup/install-and-setup-overview.md#setting-up_1';">
+        <div class="card" onclick="location.href='../install-and-setup/install-and-setup-overview/#setting-up_1';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Configuration and Set up</p>
@@ -327,7 +327,7 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='../install-and-setup/setup/mi-setup/user_stores/managing_users.md';">
+        <div class="card" onclick="location.href='../install-and-setup/setup/mi-setup/user_stores/managing_users/';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">User Management</p>

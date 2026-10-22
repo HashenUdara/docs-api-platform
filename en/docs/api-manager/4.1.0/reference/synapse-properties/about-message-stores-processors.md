@@ -131,7 +131,7 @@ Multiple message processors can use the same message store. For example, in a cl
       Message Sampling Processor
     </td>
     <td>
-      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="sequence-properties.md">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
+      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="sequence-properties/">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
     </td>
   </tr>
   <tr>
@@ -144,7 +144,7 @@ Multiple message processors can use the same message store. For example, in a cl
   <tr>
     <td>Scheduled Message Forwarding Processor</td>
     <td>
-      The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="endpoint-properties.md">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
+      The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="endpoint-properties/">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
     </td>
   </tr>
   <tr>

@@ -48,7 +48,7 @@ Let's get started with the streaming capabilities and concepts of the Streaming 
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card img" onclick="location.href='../get-started/streaming-quick-start-guide.md';">
+        <div class="card img" onclick="location.href='../get-started/streaming-quick-start-guide/';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='../../assets/img/integrate/quick-start.png' alt="streming quick start" />
@@ -60,7 +60,7 @@ Let's get started with the streaming capabilities and concepts of the Streaming 
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card img" onclick="location.href='getting-started/getting-started-guide-overview.md';">
+        <div class="card img" onclick="location.href='getting-started/getting-started-guide-overview/';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='../../assets/img/integrate/first-service.png' alt="develop first streaming solution" />
@@ -72,7 +72,7 @@ Let's get started with the streaming capabilities and concepts of the Streaming 
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card img" onclick="location.href='streaming-key-concepts.md';">
+        <div class="card img" onclick="location.href='streaming-key-concepts/';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='../../assets/img/integrate/key-concepts.png' alt="streaming key concepts" />

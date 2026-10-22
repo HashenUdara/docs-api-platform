@@ -349,7 +349,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
     </tr>
     <tr>
         <td>
-            <b><a href="../integration-overview.md#tutorials">Tutorials</a></b>
+            <b><a href="../integration-overview/#tutorials">Tutorials</a></b>
         </td>
         <td>
             Develop and try out each integration use case end-to-end.
@@ -357,7 +357,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
     </tr>
     <tr>
         <td>
-            <b><a href="../integration-overview.md#examples">Examples</a></b>
+            <b><a href="../integration-overview/#examples">Examples</a></b>
         </td>
         <td>
             Try out specific integration scenarios by running the samples.
