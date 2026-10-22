@@ -15,7 +15,7 @@ content_type: "reference"
 
 # Message Sampling Processor Properties
 ## Introduction
-The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="../../sequence-properties.md">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
+The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="../../sequence-properties/">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
 
 ## Properties
 

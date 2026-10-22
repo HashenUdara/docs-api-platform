@@ -78,12 +78,12 @@ Try out the following Choreo Connect deployment guides based on your Choreo Conn
             <ul>
                 <li>
                     <a
-                        href="../cc-on-docker-with-apim-as-control-plane.md">
+                        href="../cc-on-docker-with-apim-as-control-plane/">
                         Choreo Connect on Docker Compose With WSO2 API Manager as a Control Plane</a>
                 </li>
                 <li>
                     <a
-                        href="../cc-as-a-standalone-gateway-on-docker.md">WSO2
+                        href="../cc-as-a-standalone-gateway-on-docker/">WSO2
                         Choreo Connect as a standalone gateway deployed on Docker Compose</a>
                 </li>
             </ul>
@@ -98,12 +98,12 @@ Try out the following Choreo Connect deployment guides based on your Choreo Conn
             <ul>
                 <li>
                     <a
-                        href="../cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts.md">
+                        href="../cc-on-kubernetes-with-apim-as-control-plane-helm-artifacts/">
                         Choreo Connect on Kubernetes with WSO2 API Manager as a Control Plane</a>
                 </li>
                 <li>
                     <a
-                        href="../cc-as-a-standalone-gateway-on-kubernetes-helm-artifacts.md">
+                        href="../cc-as-a-standalone-gateway-on-kubernetes-helm-artifacts/">
                         Choreo Connect as a standalone gateway deployed on Kubernetes</a>
                 </li>
             </ul>
@@ -118,12 +118,12 @@ Try out the following Choreo Connect deployment guides based on your Choreo Conn
             <ul>
                 <li>
                     <a
-                        href="../cc-on-kubernetes-with-apim-as-control-plane.md">
+                        href="../cc-on-kubernetes-with-apim-as-control-plane/">
                         Choreo Connect on Kubernetes with WSO2 API Manager as a Control Plane</a>
                 </li>
                 <li>
                     <a
-                        href="../cc-as-a-standalone-gateway-on-kubernetes.md">
+                        href="../cc-as-a-standalone-gateway-on-kubernetes/">
                         Choreo Connect as a standalone gateway deployed on Kubernetes</a>
                 </li>
             </ul>

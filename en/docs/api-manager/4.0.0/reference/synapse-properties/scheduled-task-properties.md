@@ -57,7 +57,7 @@ The following properties are required when [creating a scheduled task](../../int
       <tr class="odd">
          <td>Task Implementation</td>
          <td>The default task implementation class ( <code>                 org.apache.synapse.startup.tasks.MessageInjector                </code> ) of the Micro Integrator will be selected by default. This class simply injects a specified message into the Synapse environment when the server starts.<br />
-            If you are want to use a custom task implementation, see the instructions on <a href="../../../integrate/develop/customizations/creating-custom-task-scheduling.md">writing tasks</a> .
+            If you are want to use a custom task implementation, see the instructions on <a href="../../../integrate/develop/customizations/creating-custom-task-scheduling/">writing tasks</a> .
          </td>
       </tr>
       <tr class="even">

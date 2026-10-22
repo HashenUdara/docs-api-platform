@@ -33,7 +33,7 @@ The following image depicts a form of message routing where a message is routed 
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/routing-requests-based-on-message-content.md">message routing</a>
+					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/routing-requests-based-on-message-content/">message routing</a>
 				</li>
 			</ul>
 		</td>
@@ -42,13 +42,13 @@ The following image depicts a form of message routing where a message is routed 
 			<b>Examples</b>
 			<ul>
 				<li>
-					<a href="../examples/routing_examples/routing_based_on_headers.md">Routing based on message header</a>
+					<a href="../examples/routing_examples/routing_based_on_headers/">Routing based on message header</a>
 				</li>
 				<li>
-					<a href="../examples/routing_examples/routing_based_on_payloads.md">Routing based on message payload</a>
+					<a href="../examples/routing_examples/routing_based_on_payloads/">Routing based on message payload</a>
 				</li>
 				<li>
-					<a href="../examples/routing_examples/splitting_aggregating_messages.md">Splitting and aggregating response messages</a>
+					<a href="../examples/routing_examples/splitting_aggregating_messages/">Splitting and aggregating response messages</a>
 				</li>
 			</ul>
 		</td>
@@ -73,7 +73,7 @@ The following image depicts a typical message transformation scenario using the 
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/transforming-message-content.md">message transformation</a>
+					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/transforming-message-content/">message transformation</a>
 				</li>
 			</ul>
 		</td>
@@ -85,10 +85,10 @@ The following image depicts a typical message transformation scenario using the 
 					<a href="https://apim.docs.wso2.com/en/4.0.0/integrate/examples/message-transformations/soap-to-json-conversion">Converting SOAP Messages to JSON</a>
 				</li>
 				<li>
-					<a href="../examples/message_transformation_examples/pox-to-json-conversion.md">Converting POX Messages to JSON</a>
+					<a href="../examples/message_transformation_examples/pox-to-json-conversion/">Converting POX Messages to JSON</a>
 				</li>
 				<li>
-					<a href="../examples/message_transformation_examples/json-to-soap-conversion.md">Converting JSON Messages to SOAP</a>
+					<a href="../examples/message_transformation_examples/json-to-soap-conversion/">Converting JSON Messages to SOAP</a>
 				</li>
 				<li>
 					<a href="https://apim.docs.wso2.com/en/4.0.0/integrate/examples/message-transformations/csv-to-other-formats-conversion">Converting CSV Messages to Other Formats</a>

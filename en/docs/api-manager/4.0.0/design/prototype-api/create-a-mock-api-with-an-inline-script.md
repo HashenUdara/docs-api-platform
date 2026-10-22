@@ -199,15 +199,15 @@ For more information, see the [Deploy and Test Prototype APIs](deploy-and-test-m
     <ul>
     <li>Create and Publish an API
 <ul>
-          <li> <a href="../../../deploy-and-publish/publish-on-dev-portal/publish-an-api.md">Create and Publish an API</a></li>
+          <li> <a href="../../../deploy-and-publish/publish-on-dev-portal/publish-an-api/">Create and Publish an API</a></li>
 
-          <li> <a href="../../create-api/create-rest-api/create-a-rest-api.md">Create and Publish an API</a> </li>
+          <li> <a href="../../create-api/create-rest-api/create-a-rest-api/">Create and Publish an API</a> </li>
     </ul>
     <li>
-    <a href="../../create-api/create-a-websocket-api.md">Create a WebSocket API </a>
+    <a href="../../create-api/create-a-websocket-api/">Create a WebSocket API </a>
 </li>
 <li>
-    <a href="../../create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md">Create an API from an OpenAPI definition</a></li>
+    <a href="../../create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/">Create an API from an OpenAPI definition</a></li>
   </p>
   </div>
 

@@ -263,4 +263,4 @@ Learn more on the concepts that you need to know when creating a GraphQL API:
 -   [API Documentation](../api-documentation/add-api-documentation.md)
 -   [Custom Properties](adding-custom-properties-to-apis.md)
 
-- Try out the tutorial on <a href="../../../tutorials/create-and-publish-a-graphql-api.md">Creating and Publishing a GraphQL API</a>.
+- Try out the tutorial on <a href="../../../tutorials/create-and-publish-a-graphql-api/">Creating and Publishing a GraphQL API</a>.

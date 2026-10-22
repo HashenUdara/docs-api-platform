@@ -20,8 +20,8 @@ Follow the steps given below to set up the required Oracle databases for your Mi
 !!! Tip
     WSO2 Micro Integrator requires databases for the following scenarios:
 
-    -	<a href='../../deployment/deploying_wso2_ei.md#cluster-coordination'>cluster coordination</a>
-    -	<a href='../../user_stores/setting_up_a_userstore.md'>using an RDBMS user store</a>
+    -	<a href='../../deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
+    -	<a href='../../user_stores/setting_up_a_userstore/'>using an RDBMS user store</a>
     -	<a href='https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Setting up the database and users
@@ -37,12 +37,12 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>oracle_cluster.sql</td>
-		<td>This script creates the database tables that are required for <a href='../../deployment/deploying_wso2_ei.md#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment). This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
+		<td>This script creates the database tables that are required for <a href='../../deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment). This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
         </td>
 	</tr>
 	<tr>
 		<td>oracle_user.sql</td>
-		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='../../user_stores/setting_up_a_userstore.md'>RDBMS user store</a>.</td>
+		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='../../user_stores/setting_up_a_userstore/'>RDBMS user store</a>.</td>
 	</tr>
 	<tr>
 		<td>oracle_transaction_count.sql</td>

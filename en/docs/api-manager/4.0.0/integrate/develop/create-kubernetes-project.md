@@ -208,7 +208,7 @@ Expand the **Kubernetes Exporter** in the project explorer. See that the followi
             deployment.toml
         </td>
         <td>
-            The <a href="../../../reference/config-catalog.md">product configuration file</a>.
+            The <a href="../../../reference/config-catalog/">product configuration file</a>.
         </td>
     </tr>
     <tr>

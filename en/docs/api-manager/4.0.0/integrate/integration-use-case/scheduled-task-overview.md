@@ -27,10 +27,10 @@ Furthermore, you can use cron expressions for more advanced executing time confi
 			<b>Examples</b></br>
 			<ul>
 				<li>
-					<a href="../../examples/scheduled-tasks/task-scheduling-simple-trigger.md">Task Scheduling using a Simple Trigger</a>
+					<a href="../../examples/scheduled-tasks/task-scheduling-simple-trigger/">Task Scheduling using a Simple Trigger</a>
 				</li>
 				<li>
-					<a href="../../examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md">Injecting Message to a RESTful Endpoint</a>
+					<a href="../../examples/scheduled-tasks/injecting-messages-to-rest-endpoint/">Injecting Message to a RESTful Endpoint</a>
 				</li>
 			</ul>
 		</td>

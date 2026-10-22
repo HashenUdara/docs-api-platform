@@ -81,7 +81,7 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 				<code>connection_url</code>
 			</td>
 			<td>
-				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href="../../security/importing_ssl_certificate.md">add certificates to the truststore</a>.
+				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href="../../security/importing_ssl_certificate/">add certificates to the truststore</a>.
 			</td>
 		</tr>
 		<tr>

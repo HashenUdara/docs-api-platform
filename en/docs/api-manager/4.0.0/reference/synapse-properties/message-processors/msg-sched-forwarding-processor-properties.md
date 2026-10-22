@@ -15,7 +15,7 @@ content_type: "reference"
 
 # Scheduled Message Forwarding Processor 
 ## Introduction
-The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="../../endpoint-properties.md">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
+The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="../../endpoint-properties/">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
 
 ## Properties
 

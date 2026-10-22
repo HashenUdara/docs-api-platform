@@ -76,7 +76,7 @@ To configure periodic data persistence, update the
 </tr>
 <tr class="odd">
 <td><code>config &gt; datasource</code></td>
-<td>The datasource to be used in persisting the state. The provided datasource should be properly defined in the deployment.yaml. For detailed instructions of how to configure a datasource, see <a href="../configuring-data-sources.md">Configuring Datasources</a> .</td>
+<td>The datasource to be used in persisting the state. The provided datasource should be properly defined in the deployment.yaml. For detailed instructions of how to configure a datasource, see <a href="../configuring-data-sources/">Configuring Datasources</a> .</td>
 <td><pre><code>WSO2_PERSISTENCE_DB (Datasource with this name should be defined in wso2.datasources)</code></pre></td>
 </tr>
 <tr class="even">

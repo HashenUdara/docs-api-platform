@@ -179,7 +179,7 @@ Once you have [started the dashboard server](#starting-the-dashboard-server):
             <td>
                 The user name to sign in.</br></br>
                 <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
-                See <a href="../../../setup/mi-setup/user_stores/setting_up_a_userstore.md">configuring user stores</a> for information.
+                See <a href="../../../setup/mi-setup/user_stores/setting_up_a_userstore/">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>

@@ -833,7 +833,7 @@ The following generic properties can be used in the [Property mediator](../prope
 			Description
 		</td>
 		<td>
-			When a message is read from a RabbitMQ message queue, it will be sent to a service running in the backend. If a failure occurs, the Micro Integrator will do a <b>basicReject</b> with the <b>requeue</b> flag set to 'false'. In that case, the user must <a href="../../../../integrate/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md">configure a Dead Letter Exchange</a> to avoid losing messages. The same concept could be used to <a href="../../../../integrate/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md">control the number of retries and to delay messages</a>.</br></br>
+			When a message is read from a RabbitMQ message queue, it will be sent to a service running in the backend. If a failure occurs, the Micro Integrator will do a <b>basicReject</b> with the <b>requeue</b> flag set to 'false'. In that case, the user must <a href="../../../../integrate/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq/">configure a Dead Letter Exchange</a> to avoid losing messages. The same concept could be used to <a href="../../../../integrate/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq/">control the number of retries and to delay messages</a>.</br></br>
 			Note that you need to set the SET_ROLLBACK_ONLY property in the fault handler (e.g., the fault sequence). 
 		</td>
 	</tr>

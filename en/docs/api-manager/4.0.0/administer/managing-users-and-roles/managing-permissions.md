@@ -136,14 +136,14 @@ The following table describes the permissions at **Tenant** level. These are als
 <td>Admin</td>
 <td>When the <strong>Admin</strong> permission node is selected, features including the following menus are enabled in the management console:
 <ul><li>
-<strong>Identity/User Stores:</strong> This permission allows users to add new user stores and manage them with the management console. Note that only secondary user stores can be added using this option. See the topic on <a href="../managing-user-stores/configuring-secondary-user-stores.md">Configuring Secondary User Stores</a> for more details.<br />
+<strong>Identity/User Stores:</strong> This permission allows users to add new user stores and manage them with the management console. Note that only secondary user stores can be added using this option. See the topic on <a href="../managing-user-stores/configuring-secondary-user-stores/">Configuring Secondary User Stores</a> for more details.<br />
 </li><li><strong>Identity/Identity Providers:</strong> For more information, see <a href="https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-an-identity-provider"> working with identity providers</a>.
 </li><li>
 <p>Additionally, all permissions listed under <strong>Admin</strong> in the permissions navigator are selected automatically.</p></li></ul></td>
 </tr>
 <tr class="even">
 <td>Admin/Manage/Identity/User Store Management</td>
-<td>This permission enables the <strong>Identity/User Stores</strong> option in the <strong>Main</strong> menu. This option allows users to add new user stores. For more details on User Store Management, see <a href="../managing-user-stores/configuring-secondary-user-stores.md">Configuring Secondary User Stores</a></td>
+<td>This permission enables the <strong>Identity/User Stores</strong> option in the <strong>Main</strong> menu. This option allows users to add new user stores. For more details on User Store Management, see <a href="../managing-user-stores/configuring-secondary-user-stores/">Configuring Secondary User Stores</a></td>
 </tr>
 <tr class="odd">
 <td>Admin/Manage/Identity/Claim</td>

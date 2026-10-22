@@ -90,7 +90,7 @@ bypass_hosts = [""]
     When you define a profile, it is mandatory to specify the `target_hosts`, `proxy_host` and `proxy_port` parameters for each profile. 
 
 !!! note
-    Secured HTTP proxy profiles can be configured by following <a href="../../../../reference/config-catalog-mi.md#http-secured-proxy-profile">this documentation</a>.
+    Secured HTTP proxy profiles can be configured by following <a href="../../../../reference/config-catalog-mi/#http-secured-proxy-profile">this documentation</a>.
 
 When you configure a proxy profile, following are details of the parameters that you need to define in a `<profile>` :
 

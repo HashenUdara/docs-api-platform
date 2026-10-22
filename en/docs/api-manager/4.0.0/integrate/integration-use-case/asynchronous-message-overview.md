@@ -35,25 +35,25 @@ Disadvantages of asynchronous messaging includes the additional component of a m
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/storing-and-forwarding-messages.md">asynchronous messaging</a>
+					Try the end-to-end use case on <a href="../../../tutorials/integration-tutorials/storing-and-forwarding-messages/">asynchronous messaging</a>
 				</li>
 			</ul>
 		</td>
 		<td>
 			<b>RabbitMQ Examples</b>
             <ul>
-                <li><a href="../../examples/rabbitmq_examples/point-to-point-rabbitmq.md">Point to Point</a></li>
-                <li><a href="../../examples/rabbitmq_examples/pub-sub-rabbitmq.md">Publish/Subscribe</a></li>
+                <li><a href="../../examples/rabbitmq_examples/point-to-point-rabbitmq/">Point to Point</a></li>
+                <li><a href="../../examples/rabbitmq_examples/pub-sub-rabbitmq/">Publish/Subscribe</a></li>
                 <li>Guaranteed Delivery 
                     <ul>
-                        <li><a href="../../examples/rabbitmq_examples/store-forward-rabbitmq.md">Message Store and Message Processor</a></li>
-                        <li><a href="../../examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md">Retry failed messages with a delay</a></li>
-                        <li><a href="../../examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq.md">Requeue a message preserving the order</a></li>
-                        <li><a href="../../examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md">Publish messages to DLX</a></li>
+                        <li><a href="../../examples/rabbitmq_examples/store-forward-rabbitmq/">Message Store and Message Processor</a></li>
+                        <li><a href="../../examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq/">Retry failed messages with a delay</a></li>
+                        <li><a href="../../examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq/">Requeue a message preserving the order</a></li>
+                        <li><a href="../../examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq/">Publish messages to DLX</a></li>
                     </ul>
                 </li>
                 <li>
-                	<a href="../../examples/rabbitmq_examples/request-response-rabbitmq.md">Dual Channel</a>
+                	<a href="../../examples/rabbitmq_examples/request-response-rabbitmq/">Dual Channel</a>
                 </li>
             </ul>
 		</td>
@@ -61,34 +61,34 @@ Disadvantages of asynchronous messaging includes the additional component of a m
 			<b>JMS Examples</b>
 			<ul>
 				<li>
-					<a href="../../examples/jms_examples/consuming-jms.md">Consuming JMS Messages</a>
+					<a href="../../examples/jms_examples/consuming-jms/">Consuming JMS Messages</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/producing-jms.md">Producing JMS Messages</a>
+					<a href="../../examples/jms_examples/producing-jms/">Producing JMS Messages</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/consume-produce-jms.md">Consumining and Producing JMS Messages</a>
+					<a href="../../examples/jms_examples/consume-produce-jms/">Consumining and Producing JMS Messages</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/dual-channel-http-to-jms.md">Dual Channel HTTP to JMS</a>
+					<a href="../../examples/jms_examples/dual-channel-http-to-jms/">Dual Channel HTTP to JMS</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/quad-channel-jms-to-jms.md">Quad Channel JMS to JMS</a>
+					<a href="../../examples/jms_examples/quad-channel-jms-to-jms/">Quad Channel JMS to JMS</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/guaranteed-delivery-with-failover.md">Guaranteed Delivery with Failover</a>
+					<a href="../../examples/jms_examples/guaranteed-delivery-with-failover/">Guaranteed Delivery with Failover</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/publish-subscribe-with-jms.md">Publish and Subscribe with JMS</a>
+					<a href="../../examples/jms_examples/publish-subscribe-with-jms/">Publish and Subscribe with JMS</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/shared-topic-subscription.md">Shared Topic Subscriptions</a>
+					<a href="../../examples/jms_examples/shared-topic-subscription/">Shared Topic Subscriptions</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/detecting-repeatedly-redelivered-messages.md">Detecting Repeatedly Redilivered Messages</a>
+					<a href="../../examples/jms_examples/detecting-repeatedly-redelivered-messages/">Detecting Repeatedly Redilivered Messages</a>
 				</li>
 				<li>
-					<a href="../../examples/jms_examples/specifying-a-delivery-delay-on-messages.md">Delivery Delay on Messages</a>
+					<a href="../../examples/jms_examples/specifying-a-delivery-delay-on-messages/">Delivery Delay on Messages</a>
 				</li>
 			</ul>
 		</td>

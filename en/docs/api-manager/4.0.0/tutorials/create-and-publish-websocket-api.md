@@ -21,7 +21,7 @@ invoke it using the **wscat** WebSocket client.
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSocket APIs, see <a href="../../design/create-api/create-a-websocket-api.md">Create a WebSocket API</a>.</p>
+<p>For more information on WebSocket APIs, see <a href="../../design/create-api/create-a-websocket-api/">Create a WebSocket API</a>.</p>
 </div> 
 </html>
 

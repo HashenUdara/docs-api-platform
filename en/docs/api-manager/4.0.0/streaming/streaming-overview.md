@@ -93,7 +93,7 @@ The Streaming Integrator component consumes APIs via transports such as WebSocke
 <table>
     <tr>
         <td>
-            <a href="../../use-cases/streaming-usecase/create-streaming-api/streaming-api-overview.md">WebSocket, SSE, and WebSub/WebHook APIs</a>
+            <a href="../../use-cases/streaming-usecase/create-streaming-api/streaming-api-overview/">WebSocket, SSE, and WebSub/WebHook APIs</a>
         </td>
     </tr>
 </table>
@@ -107,27 +107,27 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="../../use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time.md">Extracting Data from Static Sources in Real Time</a>
+            <a href="../../use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time/">Extracting Data from Static Sources in Real Time</a>
         </td>
         <td>
-            <a href="../../use-cases/streaming-usecase/receiving-data-in-transit.md">Receiving Data in Transit</a>
+            <a href="../../use-cases/streaming-usecase/receiving-data-in-transit/">Receiving Data in Transit</a>
         </td>
         <td>
-            <a href="../../use-cases/streaming-usecase/loading-and-writing-date.md">Loading and Writing Data</a>
+            <a href="../../use-cases/streaming-usecase/loading-and-writing-date/">Loading and Writing Data</a>
         </td>
         <td>
-            <a href="../../use-cases/streaming-usecase/publishing-data-to-event-stream-consumers.md">Publishing Data</a>
+            <a href="../../use-cases/streaming-usecase/publishing-data-to-event-stream-consumers/">Publishing Data</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="../../use-cases/streaming-usecase/processing-data.md">Stream Processing</a>
+            <a href="../../use-cases/streaming-usecase/processing-data/">Stream Processing</a>
         </td>
         <td>
-            <a href="../../use-cases/streaming-usecase/handling-errors.md">Handling Errors</a>
+            <a href="../../use-cases/streaming-usecase/handling-errors/">Handling Errors</a>
         </td>
         <td>
-            <a href="../../use-cases/streaming-usecase/performing-etl-tasks.md">Performing ETL Operations</a>
+            <a href="../../use-cases/streaming-usecase/performing-etl-tasks/">Performing ETL Operations</a>
         </td>
     </tr>
 </table>
@@ -137,7 +137,7 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="../../observe/streaming-integrator/setting-up-si-statistics-dashboards.md">Monitoring Streaming Integrator</a>
+            <a href="../../observe/streaming-integrator/setting-up-si-statistics-dashboards/">Monitoring Streaming Integrator</a>
         </td>
     </tr>
 </table>
@@ -147,10 +147,10 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="../../install-and-setup/install/installing-the-product/installing-si.md">Streaming Integrator Installation</a>
+            <a href="../../install-and-setup/install/installing-the-product/installing-si/">Streaming Integrator Installation</a>
         </td>
         <td>
-            <a href="../../install-and-setup/setup/si-deployment/deployment-guide.md">Streaming Integrator Deployment</a>
+            <a href="../../install-and-setup/setup/si-deployment/deployment-guide/">Streaming Integrator Deployment</a>
         </td>
     </tr>
 </table>
@@ -163,20 +163,20 @@ The streaming tutorials walk you through the main capabilities and features of W
     <tr>
         <td>
             <ul>
-                <li><a href="../../use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md">Performing Real-time Change Data Capture with MySQL</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/performing-real-time-etl-with-files.md">Performing Real-time ETL with Files</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/creating-etl-application-via-tooling.md">Creating an ETL Application via SI Tooling</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/working-with-kafka.md">Working with Kafka</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/creating-business-rules-templates.md">Working with Business Rules</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/performing-real-time-etl-with-mysql/">Performing Real-time Change Data Capture with MySQL</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/performing-real-time-etl-with-files/">Performing Real-time ETL with Files</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/creating-etl-application-via-tooling/">Creating an ETL Application via SI Tooling</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/working-with-kafka/">Working with Kafka</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/creating-business-rules-templates/">Working with Business Rules</a></li>
             </ul>
         </td>
         <td>
             <ul>
-                <li><a href="../../use-cases/streaming-tutorials/integrating-stores.md">Integrating Stores</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/exposing-processed-data-as-api.md">Exposing Processed Data as API</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/handling-requests-with-errors.md">Error Handling with Data Streams</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator.md">Triggering Integration Flows</a></li>
-                <li><a href="../../use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes.md">Running the Streaming Integrator in Containerized Environments</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/integrating-stores/">Integrating Stores</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/exposing-processed-data-as-api/">Exposing Processed Data as API</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/handling-requests-with-errors/">Error Handling with Data Streams</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator/">Triggering Integration Flows</a></li>
+                <li><a href="../../use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes/">Running the Streaming Integrator in Containerized Environments</a></li>
             </ul>
         </td>
     </tr>

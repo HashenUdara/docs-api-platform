@@ -241,7 +241,7 @@ The following table explains the availability of the most critical features in t
 			XML-based configurations
 		</td>
 		<td>
-			<a href="../../reference/config-catalog-mi.md">TOML-based configurations</a>
+			<a href="../../reference/config-catalog-mi/">TOML-based configurations</a>
 		</td>
 	</tr>
 	<tr>
@@ -282,10 +282,10 @@ The following table explains the availability of the most critical features in t
 			Tooling
 		</td>
 		<td>
-			<a href="../../integrate/develop/wso2-integration-studio.md">WSO2 Integration Studio</a>
+			<a href="../../integrate/develop/wso2-integration-studio/">WSO2 Integration Studio</a>
 		</td>
 		<td>
-			<a href="../../integrate/develop/wso2-integration-studio.md">WSO2 Integration Studio</a>
+			<a href="../../integrate/develop/wso2-integration-studio/">WSO2 Integration Studio</a>
 		</td>
 	</tr>
 	<tr>
@@ -296,8 +296,8 @@ The following table explains the availability of the most critical features in t
 			Management Console
 		</td>
 		<td>
-			<a href="../../observe/mi-observe/working-with-monitoring-dashboard.md">Micro Integrator Dashboard</a></br>
-			<a href="../../install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md">API Controller (CLI)</a>
+			<a href="../../observe/mi-observe/working-with-monitoring-dashboard/">Micro Integrator Dashboard</a></br>
+			<a href="../../install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/">API Controller (CLI)</a>
 		</td>
 	</tr>
 	<tr>
@@ -319,7 +319,7 @@ The following table explains the availability of the most critical features in t
 			RDBMS-based Registry
 		</td>
 		<td>
-			<a href="../../install-and-setup/setup/mi-setup/deployment/file_based_registry.md">File system based Registry</a>
+			<a href="../../install-and-setup/setup/mi-setup/deployment/file_based_registry/">File system based Registry</a>
 		</td>
 	</tr>
 	<tr>
@@ -356,10 +356,10 @@ The following features, which are available in ESB runtimes, are removed from th
 			Management Console
 		</td>
 		<td>
-			<a href="../../integrate/develop/wso2-integration-studio.md">WSO2 Integration Studio</a> is the recommended tool for developing integration solutions. The monitoring capabilities available in the management console (of the ESB profile) are available through the new <a href="../../observe/mi-observe/working-with-monitoring-dashboard.md">Micro Integrator dashboard</a>.
+			<a href="../../integrate/develop/wso2-integration-studio/">WSO2 Integration Studio</a> is the recommended tool for developing integration solutions. The monitoring capabilities available in the management console (of the ESB profile) are available through the new <a href="../../observe/mi-observe/working-with-monitoring-dashboard/">Micro Integrator dashboard</a>.
 		</td>
 		<td>
-			<a href="../../observe/mi-observe/working-with-monitoring-dashboard.md">Micro Integrator Dashboard</a>
+			<a href="../../observe/mi-observe/working-with-monitoring-dashboard/">Micro Integrator Dashboard</a>
 		</td>
 	</tr>
 	<tr>
@@ -392,7 +392,7 @@ The following features, which are available in ESB runtimes, are removed from th
 			-
 		</td>
 		<td>
-			<a href="../../install-and-setup/setup/mi-setup/deployment/file_based_registry.md">File system based Registry</a>
+			<a href="../../install-and-setup/setup/mi-setup/deployment/file_based_registry/">File system based Registry</a>
 		</td>
 	</tr>
 	<tr>

@@ -29,7 +29,7 @@ Templates help minimize this redundancy by creating prototypes that users can us
         <td>Endpoint Template</td>
         <td>
             Endpoint template is a generalized form of endpoint configurations. It parameterizes a list of endpoint configurations. This allows a mediation flow to use the template parameters to select specific endpoint configurations (defined in the template) and apply them to the mediation flow.</br></br>
-            Unlike <a href="../template-properties.md#sequence_template">sequence templates</a>, endpoint templates are always parametrized using <code>$</code> prefixed values (not XPath expressions). Once an endpoint template is created, it can be referred in a mediation flow through a Template Endpoint. Therefore, the template endpoint is the artifact that translates this template into a concrete endpoint. This is semantically similar to the relationship between a <a href="#sequence_template">sequence template</a> and the Call Template Mediator.
+            Unlike <a href="../template-properties/#sequence_template">sequence templates</a>, endpoint templates are always parametrized using <code>$</code> prefixed values (not XPath expressions). Once an endpoint template is created, it can be referred in a mediation flow through a Template Endpoint. Therefore, the template endpoint is the artifact that translates this template into a concrete endpoint. This is semantically similar to the relationship between a <a href="#sequence_template">sequence template</a> and the Call Template Mediator.
         </td>
     </tr>
     <tr>
@@ -101,9 +101,9 @@ The parameters available to [configure the Sequence Template](../../integrate/de
         </td>
         <td>
             Set this parameter to 'true' if a value is required to be passed for the configuration.</br></br>
-            When this parameter is 'true', if a value is not passed from a Call Template mediator as shown below, the Micro Integrator will first check for a <a href="#defaultValue">defaultvalue</a>. If a <a href="#defaultValue">defaultValue</a> does not exist, the 'onError' sequence of the <a href="../../mediators/call-template-mediator.md">Call Template mediator</a> will be called.</br></br>
+            When this parameter is 'true', if a value is not passed from a Call Template mediator as shown below, the Micro Integrator will first check for a <a href="#defaultValue">defaultvalue</a>. If a <a href="#defaultValue">defaultValue</a> does not exist, the 'onError' sequence of the <a href="../../mediators/call-template-mediator/">Call Template mediator</a> will be called.</br></br>
             If an empty value is passed in the Call Template mediator, the empty value will be used instead of using the default value.</br></br>
-            See the <a href="../../../integrate/examples/template_examples/using-sequence-templates.md">example use cases</a> for details.
+            See the <a href="../../../integrate/examples/template_examples/using-sequence-templates/">example use cases</a> for details.
         </td>
     </tr>
     <tr id="defaultValue">
@@ -111,7 +111,7 @@ The parameters available to [configure the Sequence Template](../../integrate/de
             defaultValue
         </td>
         <td>
-            Specifies a default value that should apply when a value is not passed when calling the template. See the <a href="../../../integrate/examples/template_examples/using-sequence-templates.md">example use cases</a> for details.
+            Specifies a default value that should apply when a value is not passed when calling the template. See the <a href="../../../integrate/examples/template_examples/using-sequence-templates/">example use cases</a> for details.
         </td>
     </tr>
 </table>

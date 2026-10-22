@@ -131,7 +131,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 node_id
             </th>
             <td>
-                <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="../../../install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
+                <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="../../../install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
             </td>
         </tr>
         <tr>
@@ -227,7 +227,7 @@ Once you have [set up and started the dashboard](#using-the-mi-dashboard), you c
             <td>
                 The user name to sign in.</br></br>
                 <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
-                See <a href="../../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md">configuring user stores</a> for information.
+                See <a href="../../../install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>

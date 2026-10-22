@@ -26,13 +26,13 @@ Multiple message processors can use the same message store. For example, in a cl
 
 ## List of Message Stores
 
-- <a href="../message-stores/jms-msg-store-properties.md">JMS Message Store</a>
-- <a href="../message-stores/jdbc-msg-store-properties.md">JDBC Message Store</a>
-- <a href="../message-stores/rabbitmq-msg-store-properties.md">RabbitMQ Message Store</a>
-- <a href="../message-stores/resequence-msg-store-properties.md">Resequence Message Store</a>
-- <a href="../message-stores/wso2mb-msg-store-properties.md">WSO2 MB Message Store</a>
-- <a href="../message-stores/in-memory-msg-store-properties.md">In-Memory Message Store</a>
-- <a href="../message-stores/custom-msg-store-properties.md">Custom Message Store</a>
+- <a href="../message-stores/jms-msg-store-properties/">JMS Message Store</a>
+- <a href="../message-stores/jdbc-msg-store-properties/">JDBC Message Store</a>
+- <a href="../message-stores/rabbitmq-msg-store-properties/">RabbitMQ Message Store</a>
+- <a href="../message-stores/resequence-msg-store-properties/">Resequence Message Store</a>
+- <a href="../message-stores/wso2mb-msg-store-properties/">WSO2 MB Message Store</a>
+- <a href="../message-stores/in-memory-msg-store-properties/">In-Memory Message Store</a>
+- <a href="../message-stores/custom-msg-store-properties/">Custom Message Store</a>
 
 <!--
 
@@ -114,9 +114,9 @@ Multiple message processors can use the same message store. For example, in a cl
 
 ## List of Message Processors
 
-- <a href="../message-processors/msg-sampling-processor-properties.md">Message Sampling Processor</a>
-- <a href="../message-processors/msg-sched-forwarding-processor-properties.md">Scheduled Message Forwarding Processor</a>
-- <a href="../message-processors/msg-sched-failover-forwarding-processor-properties.md">Scheduled Failover Message Forwarding Processor</a>
+- <a href="../message-processors/msg-sampling-processor-properties/">Message Sampling Processor</a>
+- <a href="../message-processors/msg-sched-forwarding-processor-properties/">Scheduled Message Forwarding Processor</a>
+- <a href="../message-processors/msg-sched-failover-forwarding-processor-properties/">Scheduled Failover Message Forwarding Processor</a>
 
 <!--
 <table>
@@ -131,7 +131,7 @@ Multiple message processors can use the same message store. For example, in a cl
       Message Sampling Processor
     </td>
     <td>
-      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="sequence-properties.md">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
+      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="sequence-properties/">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
     </td>
   </tr>
   <tr>
@@ -144,7 +144,7 @@ Multiple message processors can use the same message store. For example, in a cl
   <tr>
     <td>Scheduled Message Forwarding Processor</td>
     <td>
-      The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="endpoint-properties.md">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
+      The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="endpoint-properties/">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
     </td>
   </tr>
   <tr>

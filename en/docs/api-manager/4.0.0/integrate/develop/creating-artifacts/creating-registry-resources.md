@@ -105,7 +105,7 @@ Specify the location to save the registry resource and click **Finish**.
   </tr>
   <tr>
     <th>Save Resource in</th>
-    <td>Select an existing <a href="../../create-integration-project.md#sub-projects">registry resource project</a> to save the resource. Alternatively, you can create a new registry resource project.</td>
+    <td>Select an existing <a href="../../create-integration-project/#sub-projects">registry resource project</a> to save the resource. Alternatively, you can create a new registry resource project.</td>
   </tr>
 </table>
 

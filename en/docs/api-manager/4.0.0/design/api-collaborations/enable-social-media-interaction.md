@@ -38,7 +38,7 @@ Follow the instructions below to enable API Consumers to be able to share the AP
     The default configuration comes with an empty configuration object declaration. You can override the default configuration in the <code>userTheme.js</code> file.
     </li>
     <li>
-    <p>For more information on the content that is in the default configuration, see <a href="../../../reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md#content-of-defaultthemejs">Overriding the Developer Portal theme</a>.</p>
+    <p>For more information on the content that is in the default configuration, see <a href="../../../reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#content-of-defaultthemejs">Overriding the Developer Portal theme</a>.</p>
     </li>
     </ul>
     </div> 
