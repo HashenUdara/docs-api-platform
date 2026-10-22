@@ -329,8 +329,12 @@ onEachPage(function () {
  * first section that has such content and show only the content for the
  * selected type. A capability row or an h2 section whose deployment-specific
  * content is all hidden is hidden too. Content without the attribute (end-to-end
- * guides, architecture, learn more) is always shown. Cloud is the initial
- * selection on every page load, or the first type the page has without Cloud.
+ * guides, architecture, learn more) is always shown.
+ *
+ * The selection is kept in the URL as ?deployment=cloud|hybrid|self-hosted, so
+ * a link can open a vendor page on a given deployment type (with or without a
+ * #section). Without the parameter, or with a type the page doesn't have, the
+ * page opens on Cloud, or on its first type when it has no Cloud content.
  */
 var vendorDeploymentHashHandler = null;
 var vendorDeploymentReveal = null;
@@ -354,6 +358,7 @@ onEachPage(function () {
 
   var order = ['cloud', 'hybrid', 'self-hosted'];
   var labels = { cloud: 'Cloud', hybrid: 'Hybrid', 'self-hosted': 'Self-hosted' };
+  var urlParam = 'deployment';
   var descriptions = {
     cloud: 'WSO2 hosts the control plane and the gateways.',
     hybrid: 'WSO2 hosts the control plane, and you run the gateways.',
@@ -408,7 +413,7 @@ onEachPage(function () {
     button.type = 'button';
     button.textContent = labels[type];
     button.setAttribute('aria-pressed', 'false');
-    button.addEventListener('click', function () { select(type); });
+    button.addEventListener('click', function () { select(type); keepInUrl(type); });
     options.appendChild(button);
     return button;
   });
@@ -461,6 +466,14 @@ onEachPage(function () {
     }
   }
 
+  // Replace the current history entry, so switching types doesn't add Back steps.
+  function keepInUrl(type) {
+    var url = new URL(location.href);
+    if (url.searchParams.get(urlParam) === type) return;
+    url.searchParams.set(urlParam, type);
+    history.replaceState(history.state, '', url.href);
+  }
+
   function current() {
     var pressed = buttons.filter(function (button) {
       return button.getAttribute('aria-pressed') === 'true';
@@ -478,6 +491,10 @@ onEachPage(function () {
     for (var i = 0; i < candidates.length; i++) {
       select(candidates[i]);
       if (!isHidden(target)) {
+        var shown = candidates[i];
+        keepInUrl(shown);
+        // A clicked link then sets its own URL, so add the type again after that.
+        setTimeout(function () { keepInUrl(shown); }, 0);
         if (scroll) target.scrollIntoView();
         return;
       }
@@ -496,7 +513,8 @@ onEachPage(function () {
   vendorDeploymentReveal = reveal;
   window.addEventListener('hashchange', vendorDeploymentHashHandler);
 
-  select(types[0]);
+  var requested = new URL(location.href).searchParams.get(urlParam);
+  select(types.indexOf(requested) >= 0 ? requested : types[0]);
   openHashTarget();
 });
 
