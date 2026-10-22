@@ -386,8 +386,8 @@ hostname = "test.wso2.com"
 </div>
 <div class="panelContent">
 
-<p>See <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md">Configuring Primary User 
-Store</a> and <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md">Configuring Secondary User Stores</a> for more information on user stores, how 
+<p>See <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/">Configuring Primary User 
+Store</a> and <a href="../../../../administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/">Configuring Secondary User Stores</a> for more information on user stores, how 
 they work, and how to configure them.</p>
 </div>
 </div>
