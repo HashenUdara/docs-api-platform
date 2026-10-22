@@ -117,6 +117,6 @@ Now, you have successfully created and configured a WebSocket API. Next, let's [
 <div class="admonition note">
 <p class="admonition-title">What's Next?</p>
 
-<p>Learn more by trying out the tutorial on <a href="../../../../tutorials/create-and-publish-websocket-api.md">Creating and Publishing a WebSocket API</a>.</p>
+<p>Learn more by trying out the tutorial on <a href="../../../../tutorials/create-and-publish-websocket-api/">Creating and Publishing a WebSocket API</a>.</p>
 </div>
 
