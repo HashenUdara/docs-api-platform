@@ -142,19 +142,21 @@
     fill: var(--md-primary-fg-color);
 }
 
-.md-search__icon[for=__search] {
+/* Scope home-page search sizing under .md-home-search-container so the
+   top-nav search keeps Material's default width (matches other products). */
+.md-home-search-container .md-search__icon[for=__search] {
     top: 0.8rem;
 }
 
-[dir=ltr] .md-search__icon[for=__search] {
+.md-home-search-container [dir=ltr] .md-search__icon[for=__search] {
     left: 0.8rem;
 }
 
-.md-search-result__icon {
+.md-home-search-container .md-search-result__icon {
     margin: 0.5rem 0.9rem;
 }
 
-[dir=ltr] .md-search__inner {
+.md-home-search-container [dir=ltr] .md-search__inner {
     float: none;
     width: 600px;
     height: auto;
@@ -164,24 +166,24 @@
     max-width: 100%;
 }
 
-[dir=ltr] .md-search__input {
+.md-home-search-container [dir=ltr] .md-search__input {
     padding-left: 2.8rem;
     height: 100%;
 }
 
-.md-search__output {
+.md-home-search-container .md-search__output {
     top: 2.9rem;
 }
 
-.md-search__form {
+.md-home-search-container .md-search__form {
     height: 2.8rem;
 }
 
-.md-search__icon[for=__search] svg:first-child {
+.md-home-search-container .md-search__icon[for=__search] svg:first-child {
     display: block;
 }
 
-.md-search__icon[for=__search] svg:last-child {
+.md-home-search-container .md-search__icon[for=__search] svg:last-child {
     display: none;
 }
 
@@ -228,24 +230,24 @@
     pointer-events: auto;
 }
 
-[dir=ltr] .md-search-result__meta {
+.md-home-search-container [dir=ltr] .md-search-result__meta {
     padding-left: 2.8rem;
 }
 
-[dir=ltr] .md-search-result__article {
+.md-home-search-container [dir=ltr] .md-search-result__article {
     padding-left: 2.9rem;
 }
 
-[dir=ltr] .md-search-result__more>summary>div {
+.md-home-search-container [dir=ltr] .md-search-result__more>summary>div {
     padding-left: 1.5rem;
 }
 
-[dir=ltr] .md-search-result__more>summary:before {
+.md-home-search-container [dir=ltr] .md-search-result__more>summary:before {
     left: 1.3rem;
     top: 0.8rem;
 }
 
-.md-search__scrollwrap {
+.md-home-search-container .md-search__scrollwrap {
     width: 100% !important;
 }
 

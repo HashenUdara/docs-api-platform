@@ -70,7 +70,7 @@ Following are the minimum userstore properties that are needed to be provided to
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of userstore to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see<br />
-<a href="../../../security/configuring-keystores/keystore-basics/creating-new-keystores.md">Creating New Keystores</a><br />
+<a href="../../../security/configuring-keystores/keystore-basics/creating-new-keystores/">Creating New Keystores</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
 <a href="{{base_path}}/deploy/performance/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
@@ -152,7 +152,7 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
- Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../../security/logins-and-passwords/maintaining-logins-and-passwords.md#setup-an-e-mail-login">Using email address as the username</a></p></td>
+ Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../../security/logins-and-passwords/maintaining-logins-and-passwords/#setup-an-e-mail-login">Using email address as the username</a></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>

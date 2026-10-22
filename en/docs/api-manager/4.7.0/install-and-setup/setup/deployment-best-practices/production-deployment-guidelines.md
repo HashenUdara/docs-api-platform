@@ -42,7 +42,7 @@ Given below is a checklist that will guide you to set up your production environ
                      <strong>Related links</strong>
                   </div>
                   <div class="panelContent">
-                     <p><a href="../security-guidelines-for-production-deployment.md">Security Guidelines for a Production Deployment</a></p>
+                     <p><a href="../security-guidelines-for-production-deployment/">Security Guidelines for a Production Deployment</a></p>
                   </div>
                </div>
             </div>
@@ -65,7 +65,7 @@ Given below is a checklist that will guide you to set up your production environ
                      <strong>Related links</strong>
                   </div>
                   <div class="panelContent">
-                     <p><a href="../changing-the-hostname.md">Changing the hostname</a></p>
+                     <p><a href="../changing-the-hostname/">Changing the hostname</a></p>
                   </div>
                </div>
             </div>
@@ -79,7 +79,7 @@ Given below is a checklist that will guide you to set up your production environ
                <p>Note that the default setup does not include database backup procedures. The production setup should obviously need to have regular database backup procedures configured.</p>
                <ul>
                   <li>
-                     <a href="../../setting-up-databases/overview.md">Database registry</a> for the API-M runtime.
+                     <a href="../../setting-up-databases/overview/">Database registry</a> for the API-M runtime.
                   </li>
                </ul>
             </div>
@@ -128,7 +128,7 @@ Given below is a checklist that will guide you to set up your production environ
          <td>
             If the runtime is hosted behind a proxy such as ApacheHTTPD, you can configure the runtime  to use the proxy server. See the following topics for instructions:
             <ul>
-               <li>Configuring a <a href="../../setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md">proxy server for the API-M runtime</a>.</li>
+               <li>Configuring a <a href="../../setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/">proxy server for the API-M runtime</a>.</li>
                <li>Configuring a <a href="https://mi.docs.wso2.com/en/latest/install-and-setup/setup/configuring-proxy-servers/">proxy server for the Micro Integrator runtime</a>.</li>
             </ul>
          </td>
@@ -142,19 +142,19 @@ Given below is a checklist that will guide you to set up your production environ
       </tr>
       <tr class="even">
          <td>Data backup and archiving</td>
-         <td>Implement a <a href="../backup-recovery.md">backup and recovery strategy</a> for your system.</td>
+         <td>Implement a <a href="../backup-recovery/">backup and recovery strategy</a> for your system.</td>
       </tr>
       <tr class="odd">
          <td>Encryption Key</td>
          <td>
-            <p>Generate a symmetric encryption key and add it to the <code>deployment.toml</code> file. See <a href="../../security/encryption/symmetric-encryption.md#generate-a-secret-key">Configuring Encryption Key</a> for instructions.</p>
+            <p>Generate a symmetric encryption key and add it to the <code>deployment.toml</code> file. See <a href="../../security/encryption/symmetric-encryption/#generate-a-secret-key">Configuring Encryption Key</a> for instructions.</p>
             <p><strong>Note:</strong> In distributed or high-availability deployments, <strong>all API-M instances must use the same symmetric encryption key</strong>. Ensure the identical key value is added to the <code>deployment.toml</code> of every node in the cluster to maintain the ability to decrypt registry resources across instances.</p>
          </td>
       </tr>
       <tr class="odd">
          <td>WSDL URL generation in Developer Portal</td>
          <td>
-            <p>Generate a random string and add it to the <code>deployment.toml</code> file. See <a href="../security-guidelines-for-production-deployment.md#wsdl-url-generation">Configure WSDL URL generation secret</a>
+            <p>Generate a random string and add it to the <code>deployment.toml</code> file. See <a href="../security-guidelines-for-production-deployment/#wsdl-url-generation">Configure WSDL URL generation secret</a>
             for instructions.</p>
             <p><strong>Note:</strong> In distributed or high-availability deployments, <strong>all API-M instances must use the same secret key</strong>. Ensure the identical key value is added to the <code>deployment.toml</code> of every node in the cluster to maintain the ability to validate generated WSDL URLs across instances.</p>
          </td>

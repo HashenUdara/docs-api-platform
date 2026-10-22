@@ -118,7 +118,7 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
    ```
 
 <ol start="3">
-<li><a href="../../../install-and-setup/install/installing-the-product/running-the-api-m.md#starting-the-api-m-server">Start WSO2 API Manager</a>.</li>
+<li><a href="../../../install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-api-m-server">Start WSO2 API Manager</a>.</li>
 </ol>
 
 This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
