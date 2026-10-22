@@ -493,8 +493,11 @@ onEachPage(function () {
       if (!isHidden(target)) {
         var shown = candidates[i];
         keepInUrl(shown);
-        // A clicked link then sets its own URL, so add the type again after that.
-        setTimeout(function () { keepInUrl(shown); }, 0);
+        // A clicked link then sets its own URL, so add the type again after that,
+        // unless the page or the selection changed in the meantime.
+        setTimeout(function () {
+          if (article.isConnected && current() === shown) keepInUrl(shown);
+        }, 0);
         if (scroll) target.scrollIntoView();
         return;
       }
