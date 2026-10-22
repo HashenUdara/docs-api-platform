@@ -25,10 +25,12 @@ pages are not built here.
 
 ## Search
 
-Every product page asks for `docs-staging/search/search_index.json`. Staging
-sends that path to this deployment for every product, with no Referer split
-and no `/cloud/` suffix. The page rules for `/cloud/`, `/api-manager/`, and
-the other products stay as they are.
+Material would resolve `search/search_index.json` against the staging site
+root (`docs-staging/search/search_index.json`). `theme.js` rewrites that
+fetch to this deployment's absolute URL (`SHARED_BASE` +
+`search/search_index.json`), same pattern as breadcrumbs, so search does not
+depend on the staging gateway's `/search/` rewrite. The page rules for
+`/cloud/`, `/api-manager/`, and the other products stay as they are.
 
 On startup, and every 15 minutes (`SEARCH_INDEX_REFRESH_SECONDS`), the
 entrypoint runs `scripts/build-search-index.py`. The script reads
