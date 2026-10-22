@@ -967,60 +967,6 @@ onEachPage(function () {
 // each product's manifest stays in that product's own deployment.
 var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure.choreoapps.dev/';
 
-/*
- * Combined search index
- * -------------------------------------------------------------------------
- * Material resolves search/search_index.json against __md_scope (the staging
- * site root), so the browser asks for docs-staging/search/search_index.json.
- * That path depends on an infra rewrite to this deployment; while that is
- * unreliable, fetch the index from SHARED_BASE the same way breadcrumbs do.
- * Docs-shared already allows CORS (*). Only rewrite search_index.json — leave
- * every other fetch (assets, manifests, …) alone.
- */
-(function () {
-  var nativeFetch = window.fetch;
-  if (typeof nativeFetch !== 'function' || nativeFetch.__docsSharedSearchPatched) {
-    return;
-  }
-
-  function sharedSearchIndexUrl(input) {
-    try {
-      var href;
-      if (typeof input === 'string') {
-        href = input;
-      } else if (input && typeof input.url === 'string') {
-        href = input.url;
-      } else if (typeof URL !== 'undefined' && input instanceof URL) {
-        href = input.href;
-      } else {
-        return null;
-      }
-      var url = new URL(href, location.href);
-      if (!/\/search\/search_index\.json$/i.test(url.pathname)) {
-        return null;
-      }
-      // Already hitting docs-shared — do not loop.
-      if (url.href.indexOf(SHARED_BASE) === 0) {
-        return null;
-      }
-      return new URL('search/search_index.json', SHARED_BASE).href;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function patchedFetch(input, init) {
-    var rewritten = sharedSearchIndexUrl(input);
-    if (rewritten) {
-      return nativeFetch.call(this, rewritten, init);
-    }
-    return nativeFetch.call(this, input, init);
-  }
-
-  patchedFetch.__docsSharedSearchPatched = true;
-  window.fetch = patchedFetch;
-})();
-
 onEachPage(function () {
   var primaryList = document.querySelector('.md-nav--primary > .md-nav__list');
   if (!primaryList) return;
