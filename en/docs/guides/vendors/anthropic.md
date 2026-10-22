@@ -49,6 +49,12 @@ Step-by-step guides for Claude Code and Claude Desktop. Guides are part of this 
 
     Guide · Claude Desktop · Cloud
 
+- [Find and connect to an enterprise MCP server from the MCP Hub](../ai-and-mcp/find-and-connect-to-an-enterprise-mcp-server-from-the-mcp-hub.md)
+
+    Find an approved MCP server, generate client configuration, and connect Claude Desktop or Claude Code to it.
+
+    Guide · Claude Desktop and Claude Code · Cloud
+
 - [Control Claude Code costs across a large engineering team](https://wso2.com/api-platform/learn/control-claude-code-ai-cost-with-ai-gateway/)
 
     Add token limits, cost caps, semantic caching, prompt compression, and per-developer spend visibility to a shared Claude Code setup.
@@ -124,7 +130,7 @@ Put an MCP proxy in front of an MCP server, and control which tools Claude can c
 
 - [Get started with MCP](../../../cloud/mcp-servers/get-started-with-mcp/) <span class="vendor-meta">Cloud console</span>
 - [Proxy remote MCP servers](../../../cloud/mcp-servers/proxy-remote-servers/) <span class="vendor-meta">Cloud console</span>
-- [Find and connect to an enterprise MCP server from the MCP Hub](../ai-and-mcp/find-and-connect-to-an-enterprise-mcp-server-from-the-mcp-hub.md) <span class="vendor-meta">Guide</span>
+- [Find and connect to an enterprise MCP server from the MCP Hub](../ai-and-mcp/find-and-connect-to-an-enterprise-mcp-server-from-the-mcp-hub.md) <span class="vendor-meta">End-to-end guide</span>
 
 </div>
 

@@ -152,7 +152,7 @@ Import APIs that already run on Amazon API Gateway and check their compliance.
 
 <div class="vendor-links" data-deployments="cloud hybrid" markdown="1">
 
-- [Discover and govern APIs from Amazon API Gateway](../gateway-federation/discover-apis-from-aws-api-gateway.md) <span class="vendor-meta">Guide</span>
+- [Discover and govern APIs from Amazon API Gateway](../gateway-federation/discover-apis-from-aws-api-gateway.md) <span class="vendor-meta">End-to-end guide</span>
 - [Discover APIs from Amazon API Gateway](../../../cloud/federation/api-discovery-aws/) <span class="vendor-meta">Cloud console</span>
 - [Gateway federation overview](../../../cloud/federation/overview/) <span class="vendor-meta">Cloud console</span>
 

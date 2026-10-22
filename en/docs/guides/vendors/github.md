@@ -44,7 +44,7 @@ The Copilot guide uses an OpenAI provider.
 
 <div class="vendor-links" data-deployments="hybrid" markdown="1">
 
-- [Configure GitHub Copilot with AI Gateway](../ai-and-mcp/ai-coding-assistants/github-copilot-configuration-with-ai-gateway.md) <span class="vendor-meta">Guide</span>
+- [Configure GitHub Copilot with AI Gateway](../ai-and-mcp/ai-coding-assistants/github-copilot-configuration-with-ai-gateway.md) <span class="vendor-meta">End-to-end guide</span>
 - [Configure an LLM provider](../../../cloud/ai-workspace/llm-providers/configure-provider/#authentication) <span class="vendor-meta">AI Workspace</span>
 
 </div>
