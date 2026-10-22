@@ -41,7 +41,11 @@ each other host, only paths that start with that product's slug are kept
 `/tmp/docs-search/` (Choreo's container root filesystem is read-only, so
 writing under `/usr/share/nginx/html` fails with `Errno 30`). nginx serves
 them at `/search/search_index.json` and `/assets/search-breadcrumbs.json`
-via `alias`. `theme.js` and `root-index.json` still live at the site root.
+via `alias`, and also at the full public staging paths
+(`/api-platform/docs-staging/search/search_index.json` and
+`/api-platform/docs-staging/assets/search-breadcrumbs.json`) so a gateway
+that forwards the URI without stripping the prefix still works.
+`theme.js` and `root-index.json` still live at the site root.
 `theme.js` loads the breadcrumb file from this deployment (`SHARED_BASE`),
 so a landing-page search can label hits from every product the same way
 `main` does.
