@@ -11,7 +11,7 @@ tags:
   - vendor-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
-content_type: "overview"
+content_type: "reference"
 ---
 
 # Govern GitHub Copilot and build APIs from GitHub
@@ -34,7 +34,7 @@ A step-by-step guide for GitHub Copilot.
 
 ## AI Gateway with GitHub Copilot
 
-With bring your own key (BYOK), GitHub Copilot sends requests for your model to an LLM proxy on WSO2 AI Gateway. Requests for GitHub-hosted models still go directly to GitHub.
+With the bring-your-own-key (BYOK) option, GitHub Copilot sends requests for your model to an LLM proxy on WSO2 AI Gateway. Requests for GitHub-hosted models still go directly to GitHub.
 
 <div class="vendor-cap" markdown="1">
 
