@@ -90,7 +90,7 @@ nav:
     - Overview: policy-hub/overview.md
   - Guides:
     - Overview: guides/overview.md
-    - By use case:
+    - By Use Case:
         - Govern LLM Traffic:
             - Set up a Governed Multi-Model LLM Proxy with Cost Controls and Failover: guides/ai-and-mcp/set-up-a-governed-multi-model-llm-proxy-with-cost-controls-and-failover.md
             - Enforce Token-Based Rate Limiting on an LLM Proxy: guides/ai-and-mcp/enforce-token-based-rate-limiting-on-an-llm-proxy.md
@@ -124,7 +124,7 @@ nav:
         - Expose Real-Time APIs:
             - Build a WebSocket-Based Real-Time Notification System: guides/websocket/build-a-websocket-notification-system.md
             - Build an AI Agent that Reacts to WebSocket Notifications: guides/websocket/build-an-ai-agent-for-websocket-notifications.md
-    - By vendor:
+    - By Vendor:
         - AWS: guides/vendors/aws.md
         - Azure: guides/vendors/azure.md
         - Anthropic: guides/vendors/anthropic.md

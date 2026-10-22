@@ -9,7 +9,7 @@ tags:
   - vendor-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
-content_type: "overview"
+content_type: "reference"
 ---
 
 # Govern Mistral AI models
