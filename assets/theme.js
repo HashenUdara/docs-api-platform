@@ -1689,14 +1689,21 @@ onEachPage(function () {
   // Material exposes the site root as an absolute URL in `window.__md_scope`
   // (set on every page, e.g. https://host/bijira/docs/). Use it to build the
   // fetch URL and to turn a result's pathname into a build-time breadcrumb key.
-  // Fall back to a <base> tag, then the server root.
-  var scope = window.__md_scope ||
-    (document.querySelector('base') ? new URL(document.querySelector('base').href) : new URL('/', location));
-  var basePath = scope.pathname;
-  if (basePath.charAt(basePath.length - 1) !== '/') basePath += '/';
-
+  // Fall back to a <base> tag, then the server root. Re-read on each page —
+  // product branches pin scope to /<slug>/<version>/ for scoped search.
+  var scope = null;
+  var basePath = '/';
   var breadcrumbs = null;
+  var breadcrumbsUrl = null;
   var pending = false;
+
+  function refreshScope() {
+    scope = window.__md_scope ||
+      (document.querySelector('base') ? new URL(document.querySelector('base').href) : new URL('/', location));
+    basePath = scope.pathname;
+    if (basePath.charAt(basePath.length - 1) !== '/') basePath += '/';
+  }
+  refreshScope();
 
   // Resolve, per versioned product (slug), which version is "active" for this
   // page. Reads the global versioned-nav DOM, mirroring the nav selector logic.
@@ -1840,20 +1847,41 @@ onEachPage(function () {
     }
   }
 
+  // Landing / combined search: docs-shared map (latest-only per product).
+  // Version-scoped pages (…/<slug>/<ver>/): that version's own map via
+  // /<slug>/<ver>/assets/search-breadcrumbs.json (router path-proxies to
+  // /assets/). docs-shared only indexes the default host, so older versions
+  // are missing from the combined file.
+  function resolveBreadcrumbsUrl() {
+    refreshScope();
+    var versionScoped = /\/docs-staging\/[^/]+\/(?:next|\d[\w.-]*)\/$/i.test(basePath);
+    if (versionScoped) {
+      return new URL('assets/search-breadcrumbs.json', scope).href;
+    }
+    return new URL(SHARED_BASE + 'assets/search-breadcrumbs.json', scope).href;
+  }
+
   function ensureLoadedThenDecorate() {
-    if (breadcrumbs) {
+    var url = resolveBreadcrumbsUrl();
+    if (breadcrumbs && breadcrumbsUrl === url) {
       decorate();
       return;
     }
-    if (pending) return;
+    if (pending && breadcrumbsUrl === url) return;
     pending = true;
-    // Combined map on docs-shared so a landing-page (or any product) search
-    // can label hits from every other product the same way main does.
-    var url = new URL(SHARED_BASE + 'assets/search-breadcrumbs.json', scope).href;
+    breadcrumbsUrl = url;
+    breadcrumbs = null;
     fetch(url)
       .then(function (r) { return r.ok ? r.json() : {}; })
-      .then(function (data) { breadcrumbs = data; decorate(); })
-      .catch(function () { breadcrumbs = {}; });
+      .then(function (data) {
+        breadcrumbs = data;
+        pending = false;
+        decorate();
+      })
+      .catch(function () {
+        breadcrumbs = {};
+        pending = false;
+      });
   }
 
   // Results are rendered asynchronously and re-rendered on each keystroke, so
@@ -1871,6 +1899,11 @@ onEachPage(function () {
   onEachPage(function () {
     activeVersions = null;
     scopedVersions = null;
+    refreshScope();
+    // Switching product/version changes which breadcrumb map applies.
+    breadcrumbs = null;
+    breadcrumbsUrl = null;
+    pending = false;
     // Results rendered for a search made on the previous page carry that page's
     // version scoping, and Material only re-renders them when the query
     // changes, so decorate what is already on screen again.
