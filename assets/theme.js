@@ -1848,14 +1848,17 @@ onEachPage(function () {
   }
 
   // Landing / combined search: docs-shared map (latest-only per product).
-  // Version-scoped pages (…/<slug>/<ver>/): that version's own map via
-  // /<slug>/<ver>/assets/search-breadcrumbs.json (router path-proxies to
-  // /assets/). docs-shared only indexes the default host, so older versions
-  // are missing from the combined file.
+  // Product-scoped pages (…/<slug>/, e.g. Cloud) and version-scoped pages
+  // (…/<slug>/<ver>/): that deployment's own map via
+  // …/assets/search-breadcrumbs.json (Cloud nginx aliases /cloud/assets/;
+  // versioned products' routers path-proxy /<slug>/<ver>/assets/ → /assets/).
+  // docs-shared only indexes the default host, so older versions are missing
+  // from the combined file.
   function resolveBreadcrumbsUrl() {
     refreshScope();
+    var productScoped = /\/docs-staging\/[^/]+\/$/i.test(basePath);
     var versionScoped = /\/docs-staging\/[^/]+\/(?:next|\d[\w.-]*)\/$/i.test(basePath);
-    if (versionScoped) {
+    if (productScoped || versionScoped) {
       return new URL('assets/search-breadcrumbs.json', scope).href;
     }
     return new URL(SHARED_BASE + 'assets/search-breadcrumbs.json', scope).href;
