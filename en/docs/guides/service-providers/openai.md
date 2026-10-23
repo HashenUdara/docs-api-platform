@@ -1,13 +1,13 @@
 ---
 title: "OpenAI guides"
 description: "Use WSO2 API Platform to route OpenAI Codex CLI through AI Gateway and govern traffic to OpenAI models with routing, token limits, and caching."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/openai/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/openai.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/openai/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/openai.md
 tags:
   - guides
   - openai
   - codex
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"

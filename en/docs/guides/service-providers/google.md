@@ -1,14 +1,14 @@
 ---
 title: "Google guides"
 description: "Use WSO2 API Platform to route Google Gemini CLI through AI Gateway, govern Gemini model traffic, and send gateway telemetry to Google Cloud."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/google/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/google.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/google/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/google.md
 tags:
   - guides
   - google
   - gemini
   - gemini-cli
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"

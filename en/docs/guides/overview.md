@@ -1,6 +1,6 @@
 ---
 title: "Guides overview"
-description: "Step-by-step guides for WSO2 API Platform, grouped by goal and by vendor, such as AWS, Azure, Anthropic, OpenAI, Google, and GitHub."
+description: "Step-by-step guides for WSO2 API Platform, grouped by goal and by service provider, such as AWS, Azure, Anthropic, OpenAI, Google, and GitHub."
 canonical_url: https://wso2.com/api-platform/docs/guides/overview/
 md_url: https://wso2.com/api-platform/docs/guides/overview.md
 tags:
@@ -26,11 +26,11 @@ Use guides to see how components such as AI Gateway, AI Workspace, Developer Por
 
 ## Explore what you can build
 
-Browse by what you want to achieve, or by the vendor you already work with.
+Browse by what you want to achieve, or by the service provider you already work with.
 
 <div class="guides-switch" role="tablist" aria-label="Browse guides" hidden>
 <button type="button" role="tab" id="guides-tab-use-case" aria-controls="guides-view-use-case" data-view-heading="browse-by-use-case" aria-selected="true">By use case</button>
-<button type="button" role="tab" id="guides-tab-vendor" aria-controls="guides-view-vendor" data-view-heading="browse-by-vendor" aria-selected="false" tabindex="-1">By vendor</button>
+<button type="button" role="tab" id="guides-tab-vendor" aria-controls="guides-view-vendor" data-view-heading="browse-by-service-provider" aria-selected="false" tabindex="-1">By service provider</button>
 </div>
 
 ## Browse by use case
@@ -213,9 +213,9 @@ Put an API proxy in front of WebSocket backends and push live updates to every c
 
 </div>
 
-## Browse by vendor
+## Browse by service provider
 
-The resources below are grouped by vendor. Whether you use Amazon Bedrock, Azure OpenAI, Claude, OpenAI, Gemini, Mistral, GitHub Copilot, or Stripe, find the relevant guides, tutorials, and setup references for your deployment.
+The resources below are grouped by service provider. Whether you use Amazon Bedrock, Azure OpenAI, Claude, OpenAI, Gemini, Mistral, GitHub Copilot, or Stripe, find the relevant guides, tutorials, and setup references for your deployment.
 
 <p class="guides-group-label">AI and cloud providers</p>
 
@@ -229,7 +229,7 @@ The resources below are grouped by vendor. Whether you use Amazon Bedrock, Azure
 
 Govern AI traffic to Amazon Bedrock with guardrails and workload identity, discover and govern APIs on Amazon API Gateway, and integrate with AWS observability services.
 
-[Explore AWS resources &rarr;](vendors/aws.md)
+[Explore AWS resources &rarr;](service-providers/aws.md)
 
 </div>
 
@@ -241,7 +241,7 @@ Govern AI traffic to Amazon Bedrock with guardrails and workload identity, disco
 
 Govern Azure OpenAI and Azure AI Foundry traffic, moderate content with Azure AI Content Safety, and secure APIs with Microsoft Entra ID.
 
-[Explore Azure resources &rarr;](vendors/azure.md)
+[Explore Azure resources &rarr;](service-providers/azure.md)
 
 </div>
 
@@ -253,7 +253,7 @@ Govern Azure OpenAI and Azure AI Foundry traffic, moderate content with Azure AI
 
 Route Claude Code through AI Gateway, connect Claude Code and Claude Desktop to governed APIs and MCP servers, and govern traffic to Claude models.
 
-[Explore Anthropic resources &rarr;](vendors/anthropic.md)
+[Explore Anthropic resources &rarr;](service-providers/anthropic.md)
 
 </div>
 
@@ -265,7 +265,7 @@ Route Claude Code through AI Gateway, connect Claude Code and Claude Desktop to 
 
 Route OpenAI Codex CLI through AI Gateway, govern traffic to OpenAI models, and use OpenAI embeddings for semantic caching and guardrails.
 
-[Explore OpenAI resources &rarr;](vendors/openai.md)
+[Explore OpenAI resources &rarr;](service-providers/openai.md)
 
 </div>
 
@@ -277,7 +277,7 @@ Route OpenAI Codex CLI through AI Gateway, govern traffic to OpenAI models, and 
 
 Route Google Gemini CLI through AI Gateway, govern Gemini model traffic, and send gateway telemetry to Google Cloud.
 
-[Explore Google resources &rarr;](vendors/google.md)
+[Explore Google resources &rarr;](service-providers/google.md)
 
 </div>
 
@@ -289,7 +289,7 @@ Route Google Gemini CLI through AI Gateway, govern Gemini model traffic, and sen
 
 Govern traffic to Mistral AI models, and use Mistral embeddings for semantic caching and semantic guardrails.
 
-[Explore Mistral resources &rarr;](vendors/mistral.md)
+[Explore Mistral resources &rarr;](service-providers/mistral.md)
 
 </div>
 
@@ -307,7 +307,7 @@ Govern traffic to Mistral AI models, and use Mistral embeddings for semantic cac
 
 Route GitHub Copilot through AI Gateway, create API proxies from GitHub repositories, and design APIs with Copilot in VS Code.
 
-[Explore GitHub resources &rarr;](vendors/github.md)
+[Explore GitHub resources &rarr;](service-providers/github.md)
 
 </div>
 
@@ -325,7 +325,7 @@ Route GitHub Copilot through AI Gateway, create API proxies from GitHub reposito
 
 Sell paid subscription plans for your APIs, and bill consumers for their usage through Stripe.
 
-[Explore Stripe resources &rarr;](vendors/stripe.md)
+[Explore Stripe resources &rarr;](service-providers/stripe.md)
 
 </div>
 

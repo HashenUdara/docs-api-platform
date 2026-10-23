@@ -1,14 +1,14 @@
 ---
 title: "GitHub guides"
 description: "Use WSO2 API Platform to route GitHub Copilot through AI Gateway, create API proxies from GitHub repositories, and design APIs with Copilot in VS Code."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/github/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/github.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/github/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/github.md
 tags:
   - guides
   - github
   - github-copilot
   - vs-code
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"

@@ -185,3 +185,13 @@ redirect_maps:
   workflows/configure-workflow-approvals.md: https://wso2.com/api-platform/docs/cloud/workflows/configure-workflow-approvals/
   workflows/review-workflows-requests.md: https://wso2.com/api-platform/docs/cloud/workflows/review-workflows-requests/
   workflows/submit-workflow-requests.md: https://wso2.com/api-platform/docs/cloud/workflows/submit-workflow-requests/
+
+  # Vendor guide pages moved from guides/vendors/ to guides/service-providers/
+  guides/vendors/aws.md: guides/service-providers/aws.md
+  guides/vendors/azure.md: guides/service-providers/azure.md
+  guides/vendors/anthropic.md: guides/service-providers/anthropic.md
+  guides/vendors/openai.md: guides/service-providers/openai.md
+  guides/vendors/google.md: guides/service-providers/google.md
+  guides/vendors/mistral.md: guides/service-providers/mistral.md
+  guides/vendors/github.md: guides/service-providers/github.md
+  guides/vendors/stripe.md: guides/service-providers/stripe.md
