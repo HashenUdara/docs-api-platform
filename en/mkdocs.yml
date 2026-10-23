@@ -290,6 +290,7 @@ markdown_extensions:
   - attr_list
 hooks:
   - hooks.py
+  - api-portal-asset-path-hooks.py
 
 plugins:
   - search
