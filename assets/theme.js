@@ -984,6 +984,19 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     return;
   }
 
+  // Version segment in /docs-staging/<product>/<version>/… (1.2.0, next, 2026.09.24).
+  var VERSION_SEG = /^(next|\d[\w.-]*)$/i;
+
+  function pageProductVersion() {
+    var parts = location.pathname.split('/').filter(Boolean);
+    var staging = parts.indexOf('docs-staging');
+    if (staging === -1 || staging + 2 >= parts.length) return null;
+    var slug = parts[staging + 1];
+    var ver = parts[staging + 2];
+    if (!slug || !VERSION_SEG.test(ver)) return null;
+    return { slug: slug, version: ver };
+  }
+
   function sharedSearchIndexUrl(input) {
     try {
       var href;
@@ -1005,8 +1018,24 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
       if (url.href.indexOf(SHARED_BASE) === 0) {
         return null;
       }
-      // Only rewrite the staging-root combined index. Leave product-scoped
-      // (…/<slug>/search/…) and version-scoped (…/<slug>/<ver>/search/…) alone.
+
+      // Product-level search without a version (…/<slug>/search/…) on a
+      // versioned page → pin to …/<slug>/<ver>/search/…. URL-driven for any
+      // product; routers must expose /<slug>/<ver>/search/. Avoids Referer
+      // routing (search worker Referer is /<slug>/assets/… → always default).
+      var productSearch = path.match(
+        /^(.*\/docs-staging\/)([^/]+)\/search\/search_index\.json$/i
+      );
+      if (productSearch) {
+        var pv = pageProductVersion();
+        if (pv && pv.slug === productSearch[2]) {
+          return productSearch[1] + pv.slug + '/' + pv.version +
+            '/search/search_index.json';
+        }
+        return null;
+      }
+
+      // Only rewrite the staging-root combined index to docs-shared.
       if (!/\/docs-staging\/search\/search_index\.json$/i.test(path) &&
           path !== '/search/search_index.json') {
         return null;
@@ -1076,12 +1105,14 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     return humanizeSlug(slug);
   }
 
+  var VERSION_SEG = /^(next|\d[\w.-]*)$/i;
+
   function activeVersion(slug) {
     var pathParts = location.pathname.split('/').filter(Boolean);
     var idx = pathParts.indexOf(slug);
     if (idx !== -1 && idx + 1 < pathParts.length) {
       var candidate = pathParts[idx + 1];
-      if (/^(next|\d[\w.-]*)$/i.test(candidate)) return candidate;
+      if (VERSION_SEG.test(candidate)) return candidate;
     }
     var section = document.querySelector(
       '.md-nav__item--versioned[data-md-versioned-section="' + slug + '"]'
@@ -1094,6 +1125,7 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
   }
 
   // { slug, version|null } when __md_scope is product or version scoped; else null.
+  // Any product slug — no hard-coded product list (ai-gateway, api-gateway, …).
   function productScopeInfo() {
     var scope = window.__md_scope;
     if (!scope) return null;
@@ -1108,8 +1140,7 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     if (!match) return null;
     var slug = match[1];
     var maybeVer = match[2] || null;
-    if (maybeVer && !/^(next|\d[\w.-]*)$/i.test(maybeVer)) {
-      // …/docs-staging/<slug>/ only
+    if (maybeVer && !VERSION_SEG.test(maybeVer)) {
       maybeVer = null;
     }
     return { slug: slug, version: maybeVer };
@@ -1727,7 +1758,7 @@ onEachPage(function () {
         var prefix = slug + '/' + ver + '/';
         if (path.indexOf(prefix) !== 0) {
           if (path.indexOf(slug + '/') === 0) {
-            /* already has slug */ 
+            // already product-prefixed
           } else if (path.indexOf(ver + '/') === 0) {
             path = slug + '/' + path;
           } else {
