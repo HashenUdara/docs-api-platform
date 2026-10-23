@@ -967,6 +967,200 @@ onEachPage(function () {
 // each product's manifest stays in that product's own deployment.
 var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure.choreoapps.dev/';
 
+/*
+ * Combined search index
+ * -------------------------------------------------------------------------
+ * Material resolves search/search_index.json against __md_scope (the staging
+ * site root), so the browser asks for docs-staging/search/search_index.json.
+ * That path depends on an infra rewrite to this deployment; while that is
+ * unreliable, fetch the index from SHARED_BASE the same way breadcrumbs do.
+ * Docs-shared already allows CORS (*). Only rewrite the staging-root combined
+ * index — leave product-scoped indexes (e.g. …/ai-gateway/search/…) alone,
+ * and leave every other fetch (assets, manifests, …) alone.
+ */
+(function () {
+  var nativeFetch = window.fetch;
+  if (typeof nativeFetch !== 'function' || nativeFetch.__docsSharedSearchPatched) {
+    return;
+  }
+
+  function sharedSearchIndexUrl(input) {
+    try {
+      var href;
+      if (typeof input === 'string') {
+        href = input;
+      } else if (input && typeof input.url === 'string') {
+        href = input.url;
+      } else if (typeof URL !== 'undefined' && input instanceof URL) {
+        href = input.href;
+      } else {
+        return null;
+      }
+      var url = new URL(href, location.href);
+      var path = url.pathname;
+      if (!/\/search\/search_index\.json$/i.test(path)) {
+        return null;
+      }
+      // Already hitting docs-shared — do not loop.
+      if (url.href.indexOf(SHARED_BASE) === 0) {
+        return null;
+      }
+      // Product-scoped deployments (AI Gateway, etc.) serve their own index at
+      // …/docs-staging/<slug>/search/search_index.json — do not redirect those
+      // to the combined index.
+      if (/\/docs-staging\/[^/]+\/search\/search_index\.json$/i.test(path)) {
+        return null;
+      }
+      return new URL('search/search_index.json', SHARED_BASE).href;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function patchedFetch(input, init) {
+    var rewritten = sharedSearchIndexUrl(input);
+    if (rewritten) {
+      return nativeFetch.call(this, rewritten, init);
+    }
+    return nativeFetch.call(this, input, init);
+  }
+
+  patchedFetch.__docsSharedSearchPatched = true;
+  window.fetch = patchedFetch;
+})();
+
+/*
+ * Scoped-search label
+ * -------------------------------------------------------------------------
+ * When __md_scope points at a product prefix (…/docs-staging/ai-gateway/)
+ * rather than the staging root, Material searches that product's own index.
+ * Keep the placeholder as "Search"; show the product/version under the field.
+ */
+(function () {
+  var STYLE_ID = 'docs-scoped-search-style';
+  var HINT_CLASS = 'md-search__scope';
+
+  function ensureStyle() {
+    if (document.getElementById(STYLE_ID)) return;
+    var style = document.createElement('style');
+    style.id = STYLE_ID;
+    style.textContent =
+      '.' + HINT_CLASS + '{' +
+        'font-size:.7rem;' +
+        'line-height:1.3;' +
+        'opacity:.72;' +
+        'padding:.35rem .9rem 0;' +
+        'margin:0;' +
+      '}';
+    document.head.appendChild(style);
+  }
+
+  function humanizeSlug(slug) {
+    return String(slug || '').split('-').map(function (part) {
+      if (!part) return part;
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    }).join(' ');
+  }
+
+  function productTitle(slug) {
+    var section = document.querySelector(
+      '.md-nav__item--versioned[data-md-versioned-section="' + slug + '"]'
+    );
+    if (section) {
+      var select = section.querySelector('select[aria-label]');
+      if (select) {
+        var label = (select.getAttribute('aria-label') || '')
+          .replace(/\s+version\s*$/i, '')
+          .trim();
+        if (label) return label;
+      }
+    }
+    var xproduct = document.querySelector(
+      '[data-md-xproduct="' + slug + '"] .md-nav__versioned-title, ' +
+      '[data-md-xproduct="' + slug + '"]'
+    );
+    if (xproduct && xproduct.textContent) {
+      var text = xproduct.textContent.replace(/\s+/g, ' ').trim();
+      if (text) return text;
+    }
+    return humanizeSlug(slug);
+  }
+
+  function activeVersion(slug) {
+    var pathParts = location.pathname.split('/').filter(Boolean);
+    var idx = pathParts.indexOf(slug);
+    if (idx !== -1 && idx + 1 < pathParts.length) {
+      var candidate = pathParts[idx + 1];
+      if (/^(next|\d[\w.-]*)$/i.test(candidate)) return candidate;
+    }
+    var section = document.querySelector(
+      '.md-nav__item--versioned[data-md-versioned-section="' + slug + '"]'
+    );
+    if (section) {
+      var select = section.querySelector('select');
+      if (select && select.value) return select.value;
+    }
+    return null;
+  }
+
+  // Null when search is combined (staging-root scope); otherwise "AI Gateway 1.2.0".
+  function scopedSearchLabel() {
+    var scope = window.__md_scope;
+    if (!scope) return null;
+    var scopePath;
+    try {
+      scopePath = scope.pathname || new URL(String(scope.href || scope)).pathname;
+    } catch (e) {
+      return null;
+    }
+    if (scopePath.charAt(scopePath.length - 1) !== '/') scopePath += '/';
+    var match = scopePath.match(/\/docs-staging\/([^/]+)\/$/);
+    if (!match) return null;
+    var slug = match[1];
+    var title = productTitle(slug);
+    var version = activeVersion(slug);
+    return version ? (title + ' ' + version) : title;
+  }
+
+  function applyScopedSearchLabel() {
+    var input = document.querySelector('[data-md-component="search-query"]');
+    if (!input) return;
+    var label = scopedSearchLabel();
+    var inner = document.querySelector('.md-search__inner');
+    var hint = inner && inner.querySelector('.' + HINT_CLASS);
+
+    if (!label) {
+      if (input.getAttribute('data-md-scoped-search')) {
+        input.removeAttribute('data-md-scoped-search');
+      }
+      if (hint) hint.parentNode.removeChild(hint);
+      return;
+    }
+
+    // Keep Material's placeholder ("Search"); only the under-field hint names
+    // the product/version scope.
+    ensureStyle();
+    input.setAttribute('data-md-scoped-search', label);
+
+    if (inner) {
+      if (!hint) {
+        hint = document.createElement('p');
+        hint.className = HINT_CLASS;
+        hint.setAttribute('aria-live', 'polite');
+        var form = inner.querySelector('.md-search__form');
+        if (form && form.nextSibling) {
+          inner.insertBefore(hint, form.nextSibling);
+        } else {
+          inner.appendChild(hint);
+        }
+      }
+      hint.textContent = 'Search ' + label;
+    }
+  }
+
+  onEachPage(applyScopedSearchLabel);
+})();
+
 onEachPage(function () {
   var primaryList = document.querySelector('.md-nav--primary > .md-nav__list');
   if (!primaryList) return;
