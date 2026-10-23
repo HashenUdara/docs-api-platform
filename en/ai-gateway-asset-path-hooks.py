@@ -1,26 +1,30 @@
 """
-Rewrite site-root asset/search references for the AI Gateway router.
+Rewrite site-root asset/search references for a product version router.
 
 MkDocs generates base_url as '../' * depth for each page. Served under
-/api-platform/docs-staging/ai-gateway/<version>/..., that climbs past
-/ai-gateway/ to the docs-staging root.
+/api-platform/docs-staging/<product>/<version>/..., that climbs past the
+product root to the docs-staging root.
 
 We rewrite:
-- assets → /ai-gateway/assets/ (product root; Referer-routed by the router)
-- search + __md_scope / config.base → /ai-gateway/<version>/ (version root)
+- assets → /<product>/assets/ (product root; Referer-routed by the router)
+- search + __md_scope / config.base → /<product>/<version>/ (version root)
 
-Search must be version-pinned in the URL. The shared /ai-gateway/search/
-path is Referer-routed, but Material's search worker sends the worker
-script URL as Referer (under /ai-gateway/assets/...), so the router always
-falls through to the default (latest) index. Version-scoped search URLs
-avoid that.
+Search must be version-pinned in the URL. Shared /<product>/search/ is
+Referer-routed, but Material's search worker sends the worker script URL
+as Referer (under /<product>/assets/...), so the router always falls
+through to the default (latest) index. Version-scoped search URLs avoid that.
 
-Material emits scope/base without a trailing slash (`../..`), while asset
-hrefs use the slashed form (`../../assets/`). Both forms are rewritten.
-
-Only site-root paths are affected (the full depth-based prefix). Doc images
-at /ai-gateway/<version>/assets/ use one fewer ../ and are not touched.
+Works for any product slug (ai-gateway, api-gateway, …); the first path
+segment is the product and the second is the version when it looks like one.
 """
+
+import re
+
+_VERSION_RE = re.compile(r"^(next|\d[\w.-]*)$", re.IGNORECASE)
+
+
+def _is_version(segment):
+    return bool(segment and _VERSION_RE.match(segment))
 
 
 def on_post_page(output, page, config, **kwargs):
@@ -30,11 +34,10 @@ def on_post_page(output, page, config, **kwargs):
     if depth < 2:
         return output
 
-    version = parts[1] if parts[0] == "ai-gateway" else None
+    version = parts[1] if _is_version(parts[1]) else None
 
     old_up = "../" * depth  # ../../../
-    product_up = "../" * (depth - 1)  # ../../ → /ai-gateway/
-    # Version root: one level above the page's directory under <version>/.
+    product_up = "../" * (depth - 1)  # ../../ → /<product>/
     if depth > 2:
         version_up = "../" * (depth - 2)  # ../
     else:
@@ -50,9 +53,7 @@ def on_post_page(output, page, config, **kwargs):
     output = output.replace(f'"{old_up}assets/', f'"{product_up}assets/')
     output = output.replace(f"'{old_up}assets/", f"'{product_up}assets/")
 
-    # Search + Material scope/base → version root so the index URL is
-    # /ai-gateway/<version>/search/search_index.json (router proxies by
-    # path, not Referer).
+    # Search + Material scope/base → version root when we have a version.
     search_up = version_up if version else product_up
     search_base = version_base if version else product_up.rstrip("/")
     output = output.replace(f'"{old_up}search/', f'"{search_up}search/')
