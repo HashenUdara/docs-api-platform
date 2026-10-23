@@ -124,15 +124,15 @@ nav:
         - Expose Real-Time APIs:
             - Build a WebSocket-Based Real-Time Notification System: guides/websocket/build-a-websocket-notification-system.md
             - Build an AI Agent that Reacts to WebSocket Notifications: guides/websocket/build-an-ai-agent-for-websocket-notifications.md
-    - By Vendor:
-        - AWS: guides/vendors/aws.md
-        - Azure: guides/vendors/azure.md
-        - Anthropic: guides/vendors/anthropic.md
-        - OpenAI: guides/vendors/openai.md
-        - Google: guides/vendors/google.md
-        - Mistral: guides/vendors/mistral.md
-        - GitHub: guides/vendors/github.md
-        - Stripe: guides/vendors/stripe.md
+    - By Service Provider:
+        - AWS: guides/service-providers/aws.md
+        - Azure: guides/service-providers/azure.md
+        - Anthropic: guides/service-providers/anthropic.md
+        - OpenAI: guides/service-providers/openai.md
+        - Google: guides/service-providers/google.md
+        - Mistral: guides/service-providers/mistral.md
+        - GitHub: guides/service-providers/github.md
+        - Stripe: guides/service-providers/stripe.md
   - Tools:
     - API Platform CLI:
         - Quick Start Guide: tools/cli/quick-start-guide.md

@@ -1,12 +1,12 @@
 ---
 title: "Mistral guides"
 description: "Use WSO2 API Platform to govern traffic to Mistral AI models and to use Mistral embeddings for semantic caching and semantic guardrails."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/mistral/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/mistral.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/mistral/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/mistral.md
 tags:
   - guides
   - mistral
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"

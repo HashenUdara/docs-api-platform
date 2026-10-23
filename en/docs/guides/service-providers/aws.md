@@ -1,14 +1,14 @@
 ---
 title: "AWS guides"
 description: "Use WSO2 API Platform to govern AI traffic to Amazon Bedrock, govern APIs on Amazon API Gateway, and integrate with AWS identity and observability."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/aws/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/aws.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/aws/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/aws.md
 tags:
   - guides
   - aws
   - amazon-bedrock
   - amazon-api-gateway
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"

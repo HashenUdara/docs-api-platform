@@ -1,13 +1,13 @@
 ---
 title: "Stripe guides"
 description: "Use WSO2 API Platform with Stripe to sell paid subscription plans for your APIs and bill consumers for their usage."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/stripe/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/stripe.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/stripe/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/stripe.md
 tags:
   - guides
   - stripe
   - monetization
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"

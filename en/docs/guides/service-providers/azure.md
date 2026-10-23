@@ -1,14 +1,14 @@
 ---
 title: "Azure guides"
 description: "Use WSO2 API Platform to govern Azure OpenAI and Azure AI Foundry traffic, moderate content with Azure AI Content Safety, and secure APIs with Entra ID."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/azure/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/azure.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/azure/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/azure.md
 tags:
   - guides
   - azure
   - azure-openai
   - entra-id
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"

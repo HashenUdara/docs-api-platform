@@ -1,15 +1,15 @@
 ---
 title: "Anthropic guides"
 description: "Use WSO2 API Platform to govern Claude model traffic, route Claude Code through AI Gateway, and connect Claude to governed APIs and MCP servers."
-canonical_url: https://wso2.com/api-platform/docs/guides/vendors/anthropic/
-md_url: https://wso2.com/api-platform/docs/guides/vendors/anthropic.md
+canonical_url: https://wso2.com/api-platform/docs/guides/service-providers/anthropic/
+md_url: https://wso2.com/api-platform/docs/guides/service-providers/anthropic.md
 tags:
   - guides
   - anthropic
   - claude
   - claude-code
   - claude-desktop
-  - vendor-guides
+  - service-provider-guides
 author: WSO2 API Platform Documentation Team
 last_updated: 2026-10-21
 content_type: "reference"
