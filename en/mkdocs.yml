@@ -9965,6 +9965,7 @@ markdown_extensions:
   - attr_list
 hooks:
   - hooks.py
+  - api-manager-asset-path-hooks.py
 
 plugins:
   - search
