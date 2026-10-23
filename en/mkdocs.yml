@@ -278,6 +278,7 @@ markdown_extensions:
   - attr_list
 hooks:
   - hooks.py
+  - ai-workspace-asset-path-hooks.py
 
 plugins:
   - search
