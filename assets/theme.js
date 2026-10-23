@@ -1081,6 +1081,17 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     }).join(' ');
   }
 
+  // Product name only — never the nested nav tree. Unversioned sections
+  // (e.g. Cloud) put data-md-xproduct on the <li> that wraps every child
+  // link; reading that node's textContent dumped the whole sidebar into
+  // "Type to start searching …".
+  function shortNavLabel(el) {
+    if (!el) return '';
+    var text = (el.textContent || '').replace(/\s+/g, ' ').trim();
+    if (!text || text.length > 48) return '';
+    return text;
+  }
+
   function productTitle(slug) {
     var section = document.querySelector(
       '.md-nav__item--versioned[data-md-versioned-section="' + slug + '"]'
@@ -1093,14 +1104,26 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
           .trim();
         if (label) return label;
       }
+      var versionedTitle = shortNavLabel(
+        section.querySelector('.md-nav__versioned-title')
+      );
+      if (versionedTitle) return versionedTitle;
     }
-    var xproduct = document.querySelector(
-      '[data-md-xproduct="' + slug + '"] .md-nav__versioned-title, ' +
-      '[data-md-xproduct="' + slug + '"]'
-    );
-    if (xproduct && xproduct.textContent) {
-      var text = xproduct.textContent.replace(/\s+/g, ' ').trim();
-      if (text) return text;
+    var xproduct = document.querySelector('[data-md-xproduct="' + slug + '"]');
+    if (xproduct) {
+      var fromHeader = shortNavLabel(
+        xproduct.querySelector(':scope > .md-nav__versioned-header .md-nav__versioned-title')
+      );
+      if (fromHeader) return fromHeader;
+      // Unversioned product section: title is the direct toggle label only.
+      var fromToggle = shortNavLabel(
+        xproduct.querySelector(':scope > label.md-nav__link')
+      ) || shortNavLabel(
+        xproduct.querySelector(':scope > a.md-nav__link')
+      ) || shortNavLabel(
+        xproduct.querySelector(':scope > .md-nav__link')
+      );
+      if (fromToggle) return fromToggle;
     }
     return humanizeSlug(slug);
   }
