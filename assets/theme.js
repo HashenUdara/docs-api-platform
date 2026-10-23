@@ -984,6 +984,19 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     return;
   }
 
+  // Version segment in /docs-staging/<product>/<version>/… (1.2.0, next, 2026.09.24).
+  var VERSION_SEG = /^(next|\d[\w.-]*)$/i;
+
+  function pageProductVersion() {
+    var parts = location.pathname.split('/').filter(Boolean);
+    var staging = parts.indexOf('docs-staging');
+    if (staging === -1 || staging + 2 >= parts.length) return null;
+    var slug = parts[staging + 1];
+    var ver = parts[staging + 2];
+    if (!slug || !VERSION_SEG.test(ver)) return null;
+    return { slug: slug, version: ver };
+  }
+
   function sharedSearchIndexUrl(input) {
     try {
       var href;
@@ -1005,10 +1018,26 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
       if (url.href.indexOf(SHARED_BASE) === 0) {
         return null;
       }
-      // Product-scoped deployments (AI Gateway, etc.) serve their own index at
-      // …/docs-staging/<slug>/search/search_index.json — do not redirect those
-      // to the combined index.
-      if (/\/docs-staging\/[^/]+\/search\/search_index\.json$/i.test(path)) {
+
+      // Product-level search without a version (…/<slug>/search/…) on a
+      // versioned page → pin to …/<slug>/<ver>/search/…. URL-driven for any
+      // product; routers must expose /<slug>/<ver>/search/. Avoids Referer
+      // routing (search worker Referer is /<slug>/assets/… → always default).
+      var productSearch = path.match(
+        /^(.*\/docs-staging\/)([^/]+)\/search\/search_index\.json$/i
+      );
+      if (productSearch) {
+        var pv = pageProductVersion();
+        if (pv && pv.slug === productSearch[2]) {
+          return productSearch[1] + pv.slug + '/' + pv.version +
+            '/search/search_index.json';
+        }
+        return null;
+      }
+
+      // Only rewrite the staging-root combined index to docs-shared.
+      if (!/\/docs-staging\/search\/search_index\.json$/i.test(path) &&
+          path !== '/search/search_index.json') {
         return null;
       }
       return new URL('search/search_index.json', SHARED_BASE).href;
@@ -1030,16 +1059,17 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
 })();
 
 /*
- * Product-scoped search (e.g. AI Gateway)
+ * Product / version-scoped search (e.g. AI Gateway)
  * -------------------------------------------------------------------------
- * When __md_scope is rewritten to …/docs-staging/<slug>/ so Material loads
- * that product's own search index, two UI fixes are needed:
+ * When __md_scope is rewritten to …/docs-staging/<slug>/ or
+ * …/docs-staging/<slug>/<version>/ so Material loads that deployment's
+ * index (not the combined staging index):
  *   1. Empty-state meta: "Type to start searching" →
- *      "Type to start searching AI Gateway 1.2.0"
- *   2. Result hrefs: the index still stores locations as <slug>/1.2.0/…, so
- *      Material joins them onto a scope that already ends in /<slug>/ and
- *      produces …/ai-gateway/ai-gateway/1.2.0/… (404). Collapse the doubled
- *      slug before the user clicks.
+ *      "Type to start searching AI Gateway 1.0.0"
+ *   2. Result hrefs: the index still stores locations as <slug>/<ver>/…,
+ *      so Material can produce doubled paths
+ *      (…/ai-gateway/ai-gateway/… or …/ai-gateway/1.0.0/ai-gateway/1.0.0/…).
+ *      Collapse those before the user clicks.
  */
 (function () {
   var EMPTY_META = 'Type to start searching';
@@ -1075,12 +1105,14 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     return humanizeSlug(slug);
   }
 
+  var VERSION_SEG = /^(next|\d[\w.-]*)$/i;
+
   function activeVersion(slug) {
     var pathParts = location.pathname.split('/').filter(Boolean);
     var idx = pathParts.indexOf(slug);
     if (idx !== -1 && idx + 1 < pathParts.length) {
       var candidate = pathParts[idx + 1];
-      if (/^(next|\d[\w.-]*)$/i.test(candidate)) return candidate;
+      if (VERSION_SEG.test(candidate)) return candidate;
     }
     var section = document.querySelector(
       '.md-nav__item--versioned[data-md-versioned-section="' + slug + '"]'
@@ -1092,8 +1124,9 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     return null;
   }
 
-  // Product slug when __md_scope is …/docs-staging/<slug>/; else null (combined).
-  function productScopeSlug() {
+  // { slug, version|null } when __md_scope is product or version scoped; else null.
+  // Any product slug — no hard-coded product list (ai-gateway, api-gateway, …).
+  function productScopeInfo() {
     var scope = window.__md_scope;
     if (!scope) return null;
     var scopePath;
@@ -1103,16 +1136,22 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
       return null;
     }
     if (scopePath.charAt(scopePath.length - 1) !== '/') scopePath += '/';
-    var match = scopePath.match(/\/docs-staging\/([^/]+)\/$/);
-    return match ? match[1] : null;
+    var match = scopePath.match(/\/docs-staging\/([^/]+)(?:\/([^/]+))?\/$/);
+    if (!match) return null;
+    var slug = match[1];
+    var maybeVer = match[2] || null;
+    if (maybeVer && !VERSION_SEG.test(maybeVer)) {
+      maybeVer = null;
+    }
+    return { slug: slug, version: maybeVer };
   }
 
-  // Null when search is combined; otherwise "AI Gateway 1.2.0".
+  // Null when search is combined; otherwise "AI Gateway 1.0.0".
   function scopedSearchLabel() {
-    var slug = productScopeSlug();
-    if (!slug) return null;
-    var title = productTitle(slug);
-    var version = activeVersion(slug);
+    var info = productScopeInfo();
+    if (!info) return null;
+    var title = productTitle(info.slug);
+    var version = info.version || activeVersion(info.slug);
     return version ? (title + ' ' + version) : title;
   }
 
@@ -1129,18 +1168,35 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     }
   }
 
-  // …/ai-gateway/ai-gateway/1.2.0/… → …/ai-gateway/1.2.0/…
+  // …/ai-gateway/ai-gateway/… → …/ai-gateway/…
+  // …/ai-gateway/1.0.0/ai-gateway/1.0.0/… → …/ai-gateway/1.0.0/…
   function fixDoubledProductSearchLinks(root) {
-    var slug = productScopeSlug();
-    if (!slug || !root) return;
-    var doubled = '/' + slug + '/' + slug + '/';
-    var single = '/' + slug + '/';
+    var info = productScopeInfo();
+    if (!info || !root) return;
+    var slug = info.slug;
+    var ver = info.version || activeVersion(slug);
+    var patterns = [];
+    if (ver) {
+      patterns.push({
+        doubled: '/' + slug + '/' + ver + '/' + slug + '/' + ver + '/',
+        single: '/' + slug + '/' + ver + '/'
+      });
+    }
+    patterns.push({
+      doubled: '/' + slug + '/' + slug + '/',
+      single: '/' + slug + '/'
+    });
     root.querySelectorAll('.md-search-result__link').forEach(function (link) {
       try {
         var url = new URL(link.href);
-        if (url.pathname.indexOf(doubled) === -1) return;
-        url.pathname = url.pathname.split(doubled).join(single);
-        link.href = url.pathname + url.search + url.hash;
+        var path = url.pathname;
+        for (var i = 0; i < patterns.length; i++) {
+          if (path.indexOf(patterns[i].doubled) !== -1) {
+            url.pathname = path.split(patterns[i].doubled).join(patterns[i].single);
+            link.href = url.pathname + url.search + url.hash;
+            break;
+          }
+        }
       } catch (e) { /* ignore */ }
     });
   }
@@ -1689,13 +1745,27 @@ onEachPage(function () {
       path = path.replace(/^\//, '');
     }
     if (path && path.charAt(path.length - 1) !== '/') path += '/';
-    // Product-scoped __md_scope (…/docs-staging/ai-gateway/): after collapsing
-    // doubled result URLs, the path is 1.2.0/… but breadcrumb keys still use
-    // ai-gateway/1.2.0/…. Re-prefix the slug when missing.
-    var scopeSlugMatch = basePath.match(/\/docs-staging\/([^/]+)\/$/);
+    // Product- or version-scoped __md_scope: after collapsing doubled result
+    // URLs, breadcrumb keys still use ai-gateway/1.2.0/…. Re-prefix when the
+    // stripped path no longer starts with the product slug.
+    var scopeSlugMatch = basePath.match(
+      /\/docs-staging\/([^/]+)(?:\/([^/]+))?\/$/
+    );
     if (scopeSlugMatch && path) {
       var slug = scopeSlugMatch[1];
-      if (path.indexOf(slug + '/') !== 0) {
+      var ver = scopeSlugMatch[2];
+      if (ver && /^(next|\d[\w.-]*)$/i.test(ver)) {
+        var prefix = slug + '/' + ver + '/';
+        if (path.indexOf(prefix) !== 0) {
+          if (path.indexOf(slug + '/') === 0) {
+            // already product-prefixed
+          } else if (path.indexOf(ver + '/') === 0) {
+            path = slug + '/' + path;
+          } else {
+            path = prefix + path;
+          }
+        }
+      } else if (path.indexOf(slug + '/') !== 0) {
         path = slug + '/' + path;
       }
     }
