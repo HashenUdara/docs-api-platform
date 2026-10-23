@@ -1030,12 +1030,16 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
 })();
 
 /*
- * Scoped-search empty state
+ * Product-scoped search (e.g. AI Gateway)
  * -------------------------------------------------------------------------
- * When __md_scope points at a product prefix (…/docs-staging/ai-gateway/)
- * rather than the staging root, Material searches that product's own index.
- * Leave the Search placeholder alone; rewrite the empty-state meta line from
- * "Type to start searching" to "Type to start searching AI Gateway 1.2.0".
+ * When __md_scope is rewritten to …/docs-staging/<slug>/ so Material loads
+ * that product's own search index, two UI fixes are needed:
+ *   1. Empty-state meta: "Type to start searching" →
+ *      "Type to start searching AI Gateway 1.2.0"
+ *   2. Result hrefs: the index still stores locations as <slug>/1.2.0/…, so
+ *      Material joins them onto a scope that already ends in /<slug>/ and
+ *      produces …/ai-gateway/ai-gateway/1.2.0/… (404). Collapse the doubled
+ *      slug before the user clicks.
  */
 (function () {
   var EMPTY_META = 'Type to start searching';
@@ -1088,8 +1092,8 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     return null;
   }
 
-  // Null when search is combined (staging-root scope); otherwise "AI Gateway 1.2.0".
-  function scopedSearchLabel() {
+  // Product slug when __md_scope is …/docs-staging/<slug>/; else null (combined).
+  function productScopeSlug() {
     var scope = window.__md_scope;
     if (!scope) return null;
     var scopePath;
@@ -1100,8 +1104,13 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     }
     if (scopePath.charAt(scopePath.length - 1) !== '/') scopePath += '/';
     var match = scopePath.match(/\/docs-staging\/([^/]+)\/$/);
-    if (!match) return null;
-    var slug = match[1];
+    return match ? match[1] : null;
+  }
+
+  // Null when search is combined; otherwise "AI Gateway 1.2.0".
+  function scopedSearchLabel() {
+    var slug = productScopeSlug();
+    if (!slug) return null;
     var title = productTitle(slug);
     var version = activeVersion(slug);
     return version ? (title + ' ' + version) : title;
@@ -1120,15 +1129,37 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     }
   }
 
+  // …/ai-gateway/ai-gateway/1.2.0/… → …/ai-gateway/1.2.0/…
+  function fixDoubledProductSearchLinks(root) {
+    var slug = productScopeSlug();
+    if (!slug || !root) return;
+    var doubled = '/' + slug + '/' + slug + '/';
+    var single = '/' + slug + '/';
+    root.querySelectorAll('.md-search-result__link').forEach(function (link) {
+      try {
+        var url = new URL(link.href);
+        if (url.pathname.indexOf(doubled) === -1) return;
+        url.pathname = url.pathname.split(doubled).join(single);
+        link.href = url.pathname + url.search + url.hash;
+      } catch (e) { /* ignore */ }
+    });
+  }
+
+  function applyScopedSearchFixes() {
+    applyScopedEmptyMeta();
+    var output = document.querySelector('[data-md-component="search-result"]');
+    fixDoubledProductSearchLinks(output);
+  }
+
   onFirstPage(function () {
     var output = document.querySelector('[data-md-component="search-result"]');
     if (!output) return;
-    applyScopedEmptyMeta();
-    var observer = new MutationObserver(function () { applyScopedEmptyMeta(); });
+    applyScopedSearchFixes();
+    var observer = new MutationObserver(function () { applyScopedSearchFixes(); });
     observer.observe(output, { childList: true, subtree: true, characterData: true });
   });
 
-  onEachPage(applyScopedEmptyMeta);
+  onEachPage(applyScopedSearchFixes);
 })();
 
 onEachPage(function () {
@@ -1658,6 +1689,16 @@ onEachPage(function () {
       path = path.replace(/^\//, '');
     }
     if (path && path.charAt(path.length - 1) !== '/') path += '/';
+    // Product-scoped __md_scope (…/docs-staging/ai-gateway/): after collapsing
+    // doubled result URLs, the path is 1.2.0/… but breadcrumb keys still use
+    // ai-gateway/1.2.0/…. Re-prefix the slug when missing.
+    var scopeSlugMatch = basePath.match(/\/docs-staging\/([^/]+)\/$/);
+    if (scopeSlugMatch && path) {
+      var slug = scopeSlugMatch[1];
+      if (path.indexOf(slug + '/') !== 0) {
+        path = slug + '/' + path;
+      }
+    }
     return path;
   }
 
