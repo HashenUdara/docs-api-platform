@@ -205,7 +205,7 @@ onEachPage(function() {
  *
  * Both views are in the page, so search, llms.txt and readers without
  * JavaScript get everything; the switch stays hidden until this runs. A link
- * to a heading inside either view (#browse-by-vendor, #aws) opens that view,
+ * to a heading inside either view (#browse-by-service-provider, #aws) opens that view,
  * and switching views puts the view's heading in the URL so it can be shared.
  * The inactive view uses hidden="until-found", so find in page (Chrome) can
  * reach it and switch to it.
@@ -354,7 +354,7 @@ document.addEventListener('click', function (event) {
 onEachPage(function () {
   vendorDeploymentReveal = null;
   var article = document.querySelector('.md-content__inner');
-  if (!article || !location.pathname.includes('/guides/vendors/')) return;
+  if (!article) return;
 
   var order = ['cloud', 'hybrid', 'self-hosted'];
   var labels = { cloud: 'Cloud', hybrid: 'Hybrid', 'self-hosted': 'Self-hosted' };
