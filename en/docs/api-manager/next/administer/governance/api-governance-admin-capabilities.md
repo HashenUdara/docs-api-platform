@@ -9,7 +9,7 @@ tags:
   - admin-portal
   - mcp
 author: WSO2 API Platform Documentation Team
-last_updated: 2026-08-20
+last_updated: 2026-10-23
 content_type: "how-to"
 ---
 
@@ -96,6 +96,7 @@ To create a new policy, click the **Create Policy** button and provide the follo
 | Description | A brief description of the policy.             | No | -                                                                                                                                                              |
 | Attachment  | The way the policy is attached to the Artifacts.    | Yes | All Artifacts (REST, ASYNC and MCP Server) <br/> Artifacts with specific labels<br/> None                                                                                            |
 | Enforcement | The detail of the policy enforcement criteria. | Yes | **When to Enforce** <br/> Create, Update, Deploy, Publish <br/> **Actions to Take** (based on severity of rule violations) <br/> Notify, Block |
+| Compliance Affecting Severities | The severity level that decides whether this policy is violated. See [Compliance Affecting Severities](#compliance-affecting-severities). | No | Minimum (Error only) <br/> Medium (Error, Warn) <br/> Maximum (Error, Warn, Info) <br/> Defaults to Maximum, which is equivalent to every severity affecting compliance |
 | Rulesets    | The list of rulesets included in the policy.     | Yes | -                                                                                                                                                              |
 
 
@@ -104,6 +105,33 @@ After providing the required information, click on the **Create** button to crea
 <a href="../../assets/img/governance/policy_create.png">
   <img src="../../assets/img/governance/policy_create.png" alt="APIM Governance Policy Create" width="60%" />
 </a>
+
+### Compliance Affecting Severities
+
+By default every rule severity affects a policy's verdict, which means a single `Info` violation marks an Artifact non-compliant. **Compliance Affecting Severities** lets a policy declare which severities decide its own verdict, offering three preset levels rather than a free choice of individual severities:
+
+| Level   | Severities that affect compliance |
+|---------|------------------------------------|
+| Minimum | Error                               |
+| Medium  | Error, Warn                         |
+| Maximum | Error, Warn, Info                   |
+
+Violations of severities outside the selected level are still evaluated, still recorded and still listed under the ruleset's violated rules — they no longer make the policy fail. For the verdict each combination produces, see [Severities that Affect Compliance](governance-concept.md#severities-that-affect-compliance).
+
+The field defaults to **Maximum**, which is equivalent to every severity affecting compliance - the behaviour of a policy that predates this field. Existing policies therefore keep the compliance posture they had before an upgrade until you change them.
+
+The selection is stored per policy. Two policies that share a ruleset are judged independently, so narrowing one of them does not affect the other. Because of this, the [Governance API](../../reference/product-apis/governance-apis/governance-v1/governance-v1.md) reports a `null` ruleset validation status for a ruleset governed by more than one policy, since the same ruleset can legitimately pass under one policy and fail under another.
+
+#### Setting the severities over the REST API
+
+The field is also available on the [Governance API](../../reference/product-apis/governance-apis/governance-v1/governance-v1.md) as `complianceAffectingSeverities`, a comma separated string.
+
+```json
+{
+  "name": "Security Policy",
+  "complianceAffectingSeverities": "ERROR,WARN"
+}
+```
 
 ### Default Policies
 
@@ -170,5 +198,3 @@ queue_size = 20 # Size of the queue, be cautious when changing this value as it 
 task_check_interval_minutes = 2 # Interval in minutes to check for compliance tasks
 task_cleanup_interval_minutes = 30 # Interval in minutes to clean up any stale tasks
 ``` 
-
-
