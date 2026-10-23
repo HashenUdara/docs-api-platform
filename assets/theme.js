@@ -1030,30 +1030,15 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
 })();
 
 /*
- * Scoped-search label
+ * Scoped-search empty state
  * -------------------------------------------------------------------------
  * When __md_scope points at a product prefix (…/docs-staging/ai-gateway/)
  * rather than the staging root, Material searches that product's own index.
- * Keep the placeholder as "Search"; show the product/version under the field.
+ * Leave the Search placeholder alone; rewrite the empty-state meta line from
+ * "Type to start searching" to "Type to start searching AI Gateway 1.2.0".
  */
 (function () {
-  var STYLE_ID = 'docs-scoped-search-style';
-  var HINT_CLASS = 'md-search__scope';
-
-  function ensureStyle() {
-    if (document.getElementById(STYLE_ID)) return;
-    var style = document.createElement('style');
-    style.id = STYLE_ID;
-    style.textContent =
-      '.' + HINT_CLASS + '{' +
-        'font-size:.7rem;' +
-        'line-height:1.3;' +
-        'opacity:.72;' +
-        'padding:.35rem .9rem 0;' +
-        'margin:0;' +
-      '}';
-    document.head.appendChild(style);
-  }
+  var EMPTY_META = 'Type to start searching';
 
   function humanizeSlug(slug) {
     return String(slug || '').split('-').map(function (part) {
@@ -1122,43 +1107,28 @@ var SHARED_BASE = 'https://8c140a8d-7209-401b-84ab-2aebe8deaa80.e1-us-east-azure
     return version ? (title + ' ' + version) : title;
   }
 
-  function applyScopedSearchLabel() {
-    var input = document.querySelector('[data-md-component="search-query"]');
-    if (!input) return;
+  function applyScopedEmptyMeta() {
     var label = scopedSearchLabel();
-    var inner = document.querySelector('.md-search__inner');
-    var hint = inner && inner.querySelector('.' + HINT_CLASS);
-
-    if (!label) {
-      if (input.getAttribute('data-md-scoped-search')) {
-        input.removeAttribute('data-md-scoped-search');
-      }
-      if (hint) hint.parentNode.removeChild(hint);
-      return;
-    }
-
-    // Keep Material's placeholder ("Search"); only the under-field hint names
-    // the product/version scope.
-    ensureStyle();
-    input.setAttribute('data-md-scoped-search', label);
-
-    if (inner) {
-      if (!hint) {
-        hint = document.createElement('p');
-        hint.className = HINT_CLASS;
-        hint.setAttribute('aria-live', 'polite');
-        var form = inner.querySelector('.md-search__form');
-        if (form && form.nextSibling) {
-          inner.insertBefore(hint, form.nextSibling);
-        } else {
-          inner.appendChild(hint);
-        }
-      }
-      hint.textContent = 'Search ' + label;
+    if (!label) return;
+    var meta = document.querySelector('.md-search-result__meta');
+    if (!meta) return;
+    var text = (meta.textContent || '').replace(/\s+/g, ' ').trim();
+    // Only the empty-state line — leave "N matching documents" alone.
+    if (text === EMPTY_META || text.indexOf(EMPTY_META) === 0) {
+      var desired = EMPTY_META + ' ' + label;
+      if (text !== desired) meta.textContent = desired;
     }
   }
 
-  onEachPage(applyScopedSearchLabel);
+  onFirstPage(function () {
+    var output = document.querySelector('[data-md-component="search-result"]');
+    if (!output) return;
+    applyScopedEmptyMeta();
+    var observer = new MutationObserver(function () { applyScopedEmptyMeta(); });
+    observer.observe(output, { childList: true, subtree: true, characterData: true });
+  });
+
+  onEachPage(applyScopedEmptyMeta);
 })();
 
 onEachPage(function () {
